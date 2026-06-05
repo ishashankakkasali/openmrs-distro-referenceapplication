@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json.openmrs.org/routes.schema.json",
+  "backendDependencies": {
+    "webservices.rest": ">=2.2.0"
+  },
+  "extensions": [
+    {
+      "name": "referrals-summary-dashboard",
+      "component": "referralsDashboardLink",
+      "slot": "patient-chart-dashboard-slot",
+      "order": 99,
+      "meta": {
+        "slot": "patient-chart-referrals-dashboard-slot",
+        "path": "Referrals",
+        "title": "Referrals",
+        "icon": "omrs-icon-list-checked"
+      }
+    },
+    {
+      "name": "referrals-details-widget",
+      "component": "referralsDashboard",
+      "slot": "patient-chart-referrals-dashboard-slot",
+      "order": 0,
+      "meta": {
+        "title": "Referrals"
+      }
+    }
+  ],
+  "version": "1.0.0"
+}

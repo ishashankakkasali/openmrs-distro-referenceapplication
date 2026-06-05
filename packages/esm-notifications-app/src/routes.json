@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.openmrs.org/routes.schema.json",
+  "backendDependencies": {
+    "webservices.rest": ">=2.2.0"
+  },
+  "extensions": [
+    {
+      "name": "cce-notifications-bell",
+      "component": "notificationsBell",
+      "slot": "top-nav-actions-slot",
+      "order": 0
+    }
+  ],
+  "version": "1.0.0"
+}

@@ -1,0 +1,543 @@
+{
+  "info": {
+    "name": "OpenMRS O3 - Setup (Identifiers, Patient, Provider, Concept)",
+    "_postman_id": "8f2d9e4a-1b6c-4d77-9b42-9a1c8e3a0001",
+    "description": "Bootstrap calls against an OpenMRS Reference Application 3.x backend.\n\nBase URL example: http://<ec2-host>:9096/openmrs\n\nAuthentication is HTTP Basic (admin / Admin123 by default).\n\nRun the requests in order — later requests reference variables (identifierTypeUuid_NID, identifierTypeUuid_UPID, personUuid, conceptUuid) that earlier requests populate via test scripts.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      { "key": "username", "value": "{{username}}", "type": "string" },
+      { "key": "password", "value": "{{password}}", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:9096/openmrs" },
+    { "key": "username", "value": "admin" },
+    { "key": "password", "value": "Admin123" },
+    { "key": "identifierTypeUuid_NID", "value": "" },
+    { "key": "identifierTypeUuid_UPID", "value": "" },
+    { "key": "patientUuid", "value": "" },
+    { "key": "personUuid", "value": "" },
+    { "key": "providerUuid", "value": "" },
+    { "key": "conceptUuid", "value": "" },
+    { "key": "locationUuid", "value": "" },
+    { "key": "facilityUuid", "value": "" },
+    { "key": "loginLocationTagUuid", "value": "" },
+    { "key": "visitLocationTagUuid", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "0. Prereqs",
+      "item": [
+        {
+          "name": "Get Session (verify auth)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/session",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "session"]
+            },
+            "description": "Confirms credentials work and the backend is up. Response includes the authenticated user."
+          }
+        },
+        {
+          "name": "Get a Location UUID (for patient identifier location)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.results && json.results.length > 0) {",
+                  "  pm.collectionVariables.set('locationUuid', json.results[0].uuid);",
+                  "  console.log('locationUuid set to', json.results[0].uuid);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/location?limit=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "location"],
+              "query": [{ "key": "limit", "value": "1" }]
+            },
+            "description": "Picks the first location and stores its UUID in {{locationUuid}}, used later when assigning patient identifiers."
+          }
+        }
+      ]
+    },
+    {
+      "name": "1. Identifier Types",
+      "item": [
+        {
+          "name": "Create Identifier Type - NID (National ID)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.uuid) {",
+                  "  pm.collectionVariables.set('identifierTypeUuid_NID', json.uuid);",
+                  "  console.log('NID identifier type uuid:', json.uuid);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"National ID\",\n  \"description\": \"Government-issued National Identification number\",\n  \"format\": \"\",\n  \"required\": false,\n  \"checkDigit\": false,\n  \"validator\": \"\",\n  \"locationBehavior\": \"NOT_USED\",\n  \"uniquenessBehavior\": \"UNIQUE\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/patientidentifiertype",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "patientidentifiertype"]
+            }
+          }
+        },
+        {
+          "name": "Create Identifier Type - UPID (Unique Patient ID)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.uuid) {",
+                  "  pm.collectionVariables.set('identifierTypeUuid_UPID', json.uuid);",
+                  "  console.log('UPID identifier type uuid:', json.uuid);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"UPID\",\n  \"description\": \"Unique Patient Identifier issued by the facility\",\n  \"format\": \"\",\n  \"required\": false,\n  \"checkDigit\": false,\n  \"validator\": \"\",\n  \"locationBehavior\": \"NOT_USED\",\n  \"uniquenessBehavior\": \"UNIQUE\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/patientidentifiertype",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "patientidentifiertype"]
+            }
+          }
+        },
+        {
+          "name": "List Identifier Types (verify)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/patientidentifiertype?v=default",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "patientidentifiertype"],
+              "query": [{ "key": "v", "value": "default" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Patient",
+      "item": [
+        {
+          "name": "Create Patient with NID + UPID identifiers",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.uuid) {",
+                  "  pm.collectionVariables.set('patientUuid', json.uuid);",
+                  "  if (json.person && json.person.uuid) {",
+                  "    pm.collectionVariables.set('personUuid', json.person.uuid);",
+                  "  }",
+                  "  console.log('patientUuid:', json.uuid);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identifiers\": [\n    {\n      \"identifier\": \"NID-100001\",\n      \"identifierType\": \"{{identifierTypeUuid_NID}}\",\n      \"location\": \"{{locationUuid}}\",\n      \"preferred\": true\n    },\n    {\n      \"identifier\": \"UPID-100001\",\n      \"identifierType\": \"{{identifierTypeUuid_UPID}}\",\n      \"location\": \"{{locationUuid}}\",\n      \"preferred\": false\n    }\n  ],\n  \"person\": {\n    \"names\": [\n      {\n        \"givenName\": \"Jane\",\n        \"middleName\": \"M\",\n        \"familyName\": \"Doe\",\n        \"preferred\": true\n      }\n    ],\n    \"gender\": \"F\",\n    \"birthdate\": \"1990-05-15\",\n    \"birthdateEstimated\": false,\n    \"addresses\": [\n      {\n        \"address1\": \"123 Main St\",\n        \"cityVillage\": \"Springfield\",\n        \"stateProvince\": \"IL\",\n        \"country\": \"USA\",\n        \"postalCode\": \"62701\",\n        \"preferred\": true\n      }\n    ]\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/patient",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "patient"]
+            },
+            "description": "Creates a Person + Patient in one call. Both NID and UPID identifiers are attached. Requires {{identifierTypeUuid_NID}}, {{identifierTypeUuid_UPID}}, and {{locationUuid}} to already be set by earlier requests."
+          }
+        },
+        {
+          "name": "Get Patient (verify)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/patient/{{patientUuid}}?v=full",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "patient", "{{patientUuid}}"],
+              "query": [{ "key": "v", "value": "full" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Provider",
+      "item": [
+        {
+          "name": "Create Person (for the Provider)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.uuid) {",
+                  "  pm.collectionVariables.set('providerPersonUuid', json.uuid);",
+                  "  console.log('providerPersonUuid:', json.uuid);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"names\": [\n    {\n      \"givenName\": \"John\",\n      \"familyName\": \"Smith\",\n      \"preferred\": true\n    }\n  ],\n  \"gender\": \"M\",\n  \"birthdate\": \"1980-01-20\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/person",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "person"]
+            },
+            "description": "A Provider in OpenMRS wraps a Person. Create the Person first, then attach it to a Provider record."
+          }
+        },
+        {
+          "name": "Create Provider (custom, linked to Person)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.uuid) {",
+                  "  pm.collectionVariables.set('providerUuid', json.uuid);",
+                  "  console.log('providerUuid:', json.uuid);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"person\": \"{{providerPersonUuid}}\",\n  \"identifier\": \"PROV-1001\",\n  \"retired\": false\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/provider",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "provider"]
+            }
+          }
+        },
+        {
+          "name": "Get Provider (verify)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/provider/{{providerUuid}}?v=full",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "provider", "{{providerUuid}}"],
+              "query": [{ "key": "v", "value": "full" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Concept",
+      "item": [
+        {
+          "name": "Get a ConceptClass UUID (Misc) - helper",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.results && json.results.length > 0) {",
+                  "  pm.collectionVariables.set('conceptClassUuid', json.results[0].uuid);",
+                  "  console.log('conceptClassUuid (Misc):', json.results[0].uuid);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/conceptclass?q=Misc",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "conceptclass"],
+              "query": [{ "key": "q", "value": "Misc" }]
+            }
+          }
+        },
+        {
+          "name": "Get a ConceptDatatype UUID (Text) - helper",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.results && json.results.length > 0) {",
+                  "  pm.collectionVariables.set('conceptDatatypeUuid', json.results[0].uuid);",
+                  "  console.log('conceptDatatypeUuid (Text):', json.results[0].uuid);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/conceptdatatype?q=Text",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "conceptdatatype"],
+              "query": [{ "key": "q", "value": "Text" }]
+            }
+          }
+        },
+        {
+          "name": "Create Concept (custom)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.uuid) {",
+                  "  pm.collectionVariables.set('conceptUuid', json.uuid);",
+                  "  console.log('conceptUuid:', json.uuid);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"names\": [\n    {\n      \"name\": \"Custom Patient Note\",\n      \"locale\": \"en\",\n      \"conceptNameType\": \"FULLY_SPECIFIED\",\n      \"localePreferred\": true\n    },\n    {\n      \"name\": \"Patient note (custom)\",\n      \"locale\": \"en\",\n      \"conceptNameType\": null,\n      \"localePreferred\": false\n    }\n  ],\n  \"descriptions\": [\n    {\n      \"description\": \"Free-text note captured for a patient (custom concept).\",\n      \"locale\": \"en\"\n    }\n  ],\n  \"datatype\": \"{{conceptDatatypeUuid}}\",\n  \"conceptClass\": \"{{conceptClassUuid}}\",\n  \"set\": false,\n  \"version\": \"1.0\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/concept",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "concept"]
+            },
+            "description": "Creates a Text-datatype, Misc-class concept. Run the two helper requests above first to populate {{conceptClassUuid}} and {{conceptDatatypeUuid}}."
+          }
+        },
+        {
+          "name": "Get Concept (verify)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/concept/{{conceptUuid}}?v=full",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "concept", "{{conceptUuid}}"],
+              "query": [{ "key": "v", "value": "full" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Facility / Organisation (Location)",
+      "item": [
+        {
+          "name": "Get LocationTag UUID - Login Location (helper)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.results && json.results.length > 0) {",
+                  "  const tag = json.results.find(t => t.display === 'Login Location') || json.results[0];",
+                  "  pm.collectionVariables.set('loginLocationTagUuid', tag.uuid);",
+                  "  console.log('loginLocationTagUuid:', tag.uuid);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/locationtag?q=Login%20Location",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "locationtag"],
+              "query": [{ "key": "q", "value": "Login Location" }]
+            },
+            "description": "O3 only shows locations tagged 'Login Location' on the login screen. The reference demo data ships this tag."
+          }
+        },
+        {
+          "name": "Get LocationTag UUID - Visit Location (helper)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.results && json.results.length > 0) {",
+                  "  const tag = json.results.find(t => t.display === 'Visit Location') || json.results[0];",
+                  "  pm.collectionVariables.set('visitLocationTagUuid', tag.uuid);",
+                  "  console.log('visitLocationTagUuid:', tag.uuid);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/locationtag?q=Visit%20Location",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "locationtag"],
+              "query": [{ "key": "q", "value": "Visit Location" }]
+            },
+            "description": "Required for a Location to be selectable as the visit's facility."
+          }
+        },
+        {
+          "name": "Create LocationTag - Facility (only if not present)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Facility Location\",\n  \"description\": \"Marks a location as a healthcare facility / organisation\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/locationtag",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "locationtag"]
+            },
+            "description": "Optional. Skip if you don't need a custom 'Facility Location' tag — the Login/Visit tags above are usually enough."
+          }
+        },
+        {
+          "name": "Create Facility (Location) with tags",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.uuid) {",
+                  "  pm.collectionVariables.set('facilityUuid', json.uuid);",
+                  "  console.log('facilityUuid:', json.uuid);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Springfield General Hospital\",\n  \"description\": \"Primary care facility - custom organisation created via REST\",\n  \"address1\": \"500 Hospital Way\",\n  \"cityVillage\": \"Springfield\",\n  \"stateProvince\": \"IL\",\n  \"country\": \"USA\",\n  \"postalCode\": \"62702\",\n  \"tags\": [\n    \"{{loginLocationTagUuid}}\",\n    \"{{visitLocationTagUuid}}\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/location",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "location"]
+            },
+            "description": "OpenMRS models a 'facility' / 'organisation' as a Location. Tagging it 'Login Location' makes it appear on the O3 login screen; 'Visit Location' makes it selectable when starting a visit."
+          }
+        },
+        {
+          "name": "Create Child Location (e.g. Outpatient Ward) - optional",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Springfield General - Outpatient Ward\",\n  \"description\": \"Outpatient ward inside Springfield General Hospital\",\n  \"parentLocation\": \"{{facilityUuid}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/location",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "location"]
+            },
+            "description": "Demonstrates a hierarchy: ward/department under the facility."
+          }
+        },
+        {
+          "name": "Get Facility (verify, with tags)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ws/rest/v1/location/{{facilityUuid}}?v=full",
+              "host": ["{{baseUrl}}"],
+              "path": ["ws", "rest", "v1", "location", "{{facilityUuid}}"],
+              "query": [{ "key": "v", "value": "full" }]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

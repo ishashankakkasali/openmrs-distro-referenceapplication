@@ -1,0 +1,217 @@
+{
+  "info": {
+    "name": "SPICE → OpenMRS Referral E2E",
+    "description": "End-to-end runbook for SPICE inbound referral → OpenMRS encounter/order → clinician acts → close-the-loop. Companion to docs/spice-referral-e2e.md. Run requests in order; UUIDs are auto-captured from each response.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "spice-referral-e2e-001"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      { "key": "username", "value": "admin", "type": "string" },
+      { "key": "password", "value": "Admin123", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "baseUrl",        "value": "http://localhost:9096/openmrs", "type": "string" },
+    { "key": "patientUuid",    "value": "9aa95993-fd45-46f8-9f5f-0813e2c72cfb", "type": "string", "description": "Demo Patient — change for each fresh run" },
+    { "key": "spiceRef",       "value": "SPICE-ASMT-2026-001", "type": "string" },
+    { "key": "visitUuid",      "value": "", "type": "string" },
+    { "key": "encounterUuid",  "value": "", "type": "string" },
+    { "key": "orderUuid",      "value": "", "type": "string" },
+    { "key": "orderNumber",    "value": "", "type": "string" },
+    { "key": "queueEntryUuid", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "4.1 Start Visit (OPD at Outpatient Clinic)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "{{baseUrl}}/ws/rest/v1/visit", "host": ["{{baseUrl}}"], "path": ["ws","rest","v1","visit"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"patient\":       \"{{patientUuid}}\",\n  \"visitType\":     \"287463d3-2233-4c69-9851-5841a1f5e109\",\n  \"location\":      \"44c3efb0-2583-4c80-a79e-1f756a03c0a1\",\n  \"startDatetime\": \"{{$isoTimestamp}}\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const j = pm.response.json();",
+              "pm.test('201 Created', () => pm.expect(pm.response.code).to.be.oneOf([200,201]));",
+              "pm.collectionVariables.set('visitUuid', j.uuid);",
+              "console.log('visitUuid =', j.uuid);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "4.2 Create 'Referral In' Encounter (provider = SPICE-SYSTEM)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "{{baseUrl}}/ws/rest/v1/encounter", "host": ["{{baseUrl}}"], "path": ["ws","rest","v1","encounter"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"patient\":           \"{{patientUuid}}\",\n  \"visit\":             \"{{visitUuid}}\",\n  \"encounterType\":     \"de0f5558-9813-4fa3-8613-467015f9fabd\",\n  \"location\":          \"44c3efb0-2583-4c80-a79e-1f756a03c0a1\",\n  \"encounterDatetime\": \"{{$isoTimestamp}}\",\n  \"encounterProviders\": [{\n    \"provider\":      \"adf8ca68-847c-40f9-bc11-422a00e9b35b\",\n    \"encounterRole\": \"240b26f9-dd88-4172-823d-4a8bfeb7841f\"\n  }]\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const j = pm.response.json();",
+              "pm.test('Encounter created', () => pm.expect(pm.response.code).to.be.oneOf([200,201]));",
+              "pm.collectionVariables.set('encounterUuid', j.uuid);",
+              "console.log('encounterUuid =', j.uuid);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "4.3 Create Referral Order (concept ICCM, urgency STAT)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "{{baseUrl}}/ws/rest/v1/order", "host": ["{{baseUrl}}"], "path": ["ws","rest","v1","order"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\":            \"order\",\n  \"orderType\":       \"778a9dc6-87d9-49c1-83d9-caa01041a8ad\",\n  \"concept\":         \"6e1cc43d-e8ad-4592-bc7a-928dbc090479\",\n  \"patient\":         \"{{patientUuid}}\",\n  \"encounter\":       \"{{encounterUuid}}\",\n  \"orderer\":         \"adf8ca68-847c-40f9-bc11-422a00e9b35b\",\n  \"careSetting\":     \"6f0c9a92-6f24-11e3-af88-005056821db0\",\n  \"urgency\":         \"STAT\",\n  \"accessionNumber\": \"{{spiceRef}}\",\n  \"instructions\":    \"ICCM danger signs - convulsions and vomiting; refer to OpenMRS clinic for emergency care\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const j = pm.response.json();",
+              "pm.test('Order created', () => pm.expect(pm.response.code).to.be.oneOf([200,201]));",
+              "pm.collectionVariables.set('orderUuid', j.uuid);",
+              "pm.collectionVariables.set('orderNumber', j.orderNumber);",
+              "console.log('orderUuid =', j.uuid, 'orderNumber =', j.orderNumber);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "5 Enqueue Patient (Outpatient Consultation, Emergency, Waiting)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "{{baseUrl}}/ws/rest/v1/queue-entry", "host": ["{{baseUrl}}"], "path": ["ws","rest","v1","queue-entry"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"patient\":   \"{{patientUuid}}\",\n  \"visit\":     \"{{visitUuid}}\",\n  \"queue\":     \"13b656d3-e141-11ee-bad2-0242ac120002\",\n  \"status\":    \"51ae5e4d-b72b-4912-bf31-a17efb690aeb\",\n  \"priority\":  \"04f6f7e0-e3cb-4e13-a133-4479f759574e\",\n  \"startedAt\": \"{{$isoTimestamp}}\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const j = pm.response.json();",
+              "pm.test('Queue entry created', () => pm.expect(pm.response.code).to.be.oneOf([200,201]));",
+              "pm.collectionVariables.set('queueEntryUuid', j.uuid);",
+              "console.log('queueEntryUuid =', j.uuid);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "6 (UI step) — Dr John fills Vitals + Visit Note + Referral Response",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/ws/rest/v1/encounter?patient={{patientUuid}}&v=custom:(uuid,encounterDatetime,encounterType:(name),encounterProviders:(provider:(display)))",
+                 "host": ["{{baseUrl}}"], "path": ["ws","rest","v1","encounter"],
+                 "query": [
+                   { "key": "patient", "value": "{{patientUuid}}" },
+                   { "key": "v", "value": "custom:(uuid,encounterDatetime,encounterType:(name),encounterProviders:(provider:(display)))" }
+                 ]
+        },
+        "description": "After filling forms in the UI, run this to verify Vitals / Visit Note / Referral Response encounters were created."
+      }
+    },
+    {
+      "name": "11 Close Order — fulfillerStatus = COMPLETED",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "{{baseUrl}}/ws/rest/v1/order/{{orderUuid}}/fulfillerdetails",
+                 "host": ["{{baseUrl}}"], "path": ["ws","rest","v1","order","{{orderUuid}}","fulfillerdetails"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fulfillerStatus\":  \"COMPLETED\",\n  \"fulfillerComment\": \"Patient seen, treated, response recorded\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Verify A — list referral orders for patient",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/ws/rest/v1/order?patient={{patientUuid}}&orderType=778a9dc6-87d9-49c1-83d9-caa01041a8ad&v=custom:(uuid,orderNumber,urgency,accessionNumber,fulfillerStatus,dateActivated)",
+                 "host": ["{{baseUrl}}"], "path": ["ws","rest","v1","order"],
+                 "query": [
+                   { "key": "patient", "value": "{{patientUuid}}" },
+                   { "key": "orderType", "value": "778a9dc6-87d9-49c1-83d9-caa01041a8ad" },
+                   { "key": "v", "value": "custom:(uuid,orderNumber,urgency,accessionNumber,fulfillerStatus,dateActivated)" }
+                 ]
+        }
+      }
+    },
+    {
+      "name": "Verify B — list encounters for patient",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/ws/rest/v1/encounter?patient={{patientUuid}}&v=custom:(uuid,encounterDatetime,encounterType:(name),encounterProviders:(provider:(display)))",
+                 "host": ["{{baseUrl}}"], "path": ["ws","rest","v1","encounter"],
+                 "query": [
+                   { "key": "patient", "value": "{{patientUuid}}" },
+                   { "key": "v", "value": "custom:(uuid,encounterDatetime,encounterType:(name),encounterProviders:(provider:(display)))" }
+                 ]
+        }
+      }
+    },
+    {
+      "name": "Verify C — list queue entries for patient",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/ws/rest/v1/queue-entry?patient={{patientUuid}}&v=custom:(uuid,queue:(name),status:(display),priority:(display),startedAt,endedAt)",
+                 "host": ["{{baseUrl}}"], "path": ["ws","rest","v1","queue-entry"],
+                 "query": [
+                   { "key": "patient", "value": "{{patientUuid}}" },
+                   { "key": "v", "value": "custom:(uuid,queue:(name),status:(display),priority:(display),startedAt,endedAt)" }
+                 ]
+        }
+      }
+    },
+    {
+      "name": "Tear-down A — void Order (optional)",
+      "request": {
+        "method": "DELETE",
+        "url": { "raw": "{{baseUrl}}/ws/rest/v1/order/{{orderUuid}}?reason=test+cleanup",
+                 "host": ["{{baseUrl}}"], "path": ["ws","rest","v1","order","{{orderUuid}}"],
+                 "query": [{ "key": "reason", "value": "test cleanup" }] }
+      }
+    },
+    {
+      "name": "Tear-down B — void Referral In Encounter (optional)",
+      "request": {
+        "method": "DELETE",
+        "url": { "raw": "{{baseUrl}}/ws/rest/v1/encounter/{{encounterUuid}}?reason=test+cleanup",
+                 "host": ["{{baseUrl}}"], "path": ["ws","rest","v1","encounter","{{encounterUuid}}"],
+                 "query": [{ "key": "reason", "value": "test cleanup" }] }
+      }
+    }
+  ]
+}

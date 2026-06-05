@@ -17,5 +17,14 @@
   },
   "@openmrs/esm-styleguide": {
     "Brand color #1": "#005d5d"
+  },
+  "@openmrs/esm-patient-orders-app": {
+    "orderTypes": [
+      {
+        "orderTypeUuid": "778a9dc6-87d9-49c1-83d9-caa01041a8ad",
+        "orderableConceptSets": [],
+        "label": "Referral"
+      }
+    ]
   }
 }

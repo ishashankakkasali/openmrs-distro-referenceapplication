@@ -1,0 +1,14 @@
+{
+  "modules": [
+    {
+      "name": "@openmrs/esm-referral-fulfillment-app",
+      "dir": "esm-referral-fulfillment-app",
+      "entry": "openmrs-esm-referral-fulfillment-app.js"
+    },
+    {
+      "name": "@openmrs/esm-notifications-app",
+      "dir": "esm-notifications-app",
+      "entry": "openmrs-esm-notifications-app.js"
+    }
+  ]
+}
