@@ -4,7 +4,7 @@
 /***/ 300
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"recordReferralResponse":"Record referral response","referralResponseTitle":"Referral response — {{orderNumber}}"}');
+module.exports = /*#__PURE__*/JSON.parse('{"clinicalNotes":"Clinical notes","createReferralOut":"Create referral","creating":"Creating…","direction":"Direction","newReferralOut":"New referral out","newReferralOutDescription":"Refer the patient onward (e.g. back to a primary health care facility). The referral is sent to the receiving facility.","newReferralOutHeading":"New referral out","recordReferralResponse":"Record referral response","referralIn":"Referral in","referralOut":"Referral out","referralOutCreated":"Referral out created","referralOutCreatedSubtitle":"{{orderNumber}} ({{referenceNumber}}) sent to {{referredTo}}","referralOutFailed":"Could not create the referral out","referralOutInstructions":"Instructions for the receiving facility (optional)","referralOutOrderablesError":"Could not load referral options","referralResponseTitle":"Referral response — {{orderNumber}}","referredFor":"Referred for","referredTo":"Referred to","routine":"Routine","selectFacility":"Select a facility","selectReferral":"Select a referral","startVisitFirst":"Start a visit first","startVisitFirstSubtitle":"The referral response is recorded during the patient’s visit. Start a visit when the patient arrives.","startVisitToReferOut":"Start a visit to raise a referral out","startVisitToRespond":"Start visit to respond","startVisitToRespondHint":"Start a visit when the patient arrives, then record the referral response","stat":"Urgent","urgency":"Priority"}');
 
 /***/ }
 

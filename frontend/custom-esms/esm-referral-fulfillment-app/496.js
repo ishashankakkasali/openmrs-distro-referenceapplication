@@ -1,6 +1,6 @@
-(globalThis["webpackChunk_openmrs_esm_referral_fulfillment_app"] = globalThis["webpackChunk_openmrs_esm_referral_fulfillment_app"] || []).push([[378],{
+(globalThis["webpackChunk_openmrs_esm_referral_fulfillment_app"] = globalThis["webpackChunk_openmrs_esm_referral_fulfillment_app"] || []).push([[496],{
 
-/***/ 378
+/***/ 496
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11,7 +11,10 @@ __webpack_require__.d(__webpack_exports__, {
   bQt: () => (/* reexport */ DataTable),
   msM: () => (/* reexport */ Dropdown),
   OuH: () => (/* reexport */ InlineLoading),
+  jeF: () => (/* reexport */ InlineNotification),
   aFV: () => (/* reexport */ Modal),
+  aaP: () => (/* reexport */ RadioButton),
+  zWQ: () => (/* reexport */ RadioButtonGroup),
   GRJ: () => (/* reexport */ StructuredListBody),
   Um2: () => (/* reexport */ StructuredListCell),
   Cvq: () => (/* reexport */ StructuredListRow),
@@ -30,7 +33,7 @@ __webpack_require__.d(__webpack_exports__, {
   FAs: () => (/* reexport */ Tile)
 });
 
-// UNUSED EXPORTS: AILabel, AILabelActions, AILabelContent, AISkeletonIcon, AISkeletonPlaceholder, AISkeletonText, Accordion, AccordionItem, AccordionSkeleton, ActionableNotification, AspectRatio, Breadcrumb, BreadcrumbItem, BreadcrumbSkeleton, ButtonKinds, ButtonSet, ButtonSizes, ButtonSkeleton, ButtonTooltipAlignments, ButtonTooltipPositions, Callout, Checkbox, CheckboxGroup, CheckboxSkeleton, ClassPrefix, ClickableTile, CodeSnippet, CodeSnippetSkeleton, Column, ColumnHang, ComboBox, ComboButton, ComposedModal, ComposedModalPresence, ContainedList, ContainedListItem, Content, ContentSwitcher, ControlledPasswordInput, Copy, CopyButton, DangerButton, DataTableSkeleton, DatePicker, DatePickerInput, DatePickerSkeleton, DefinitionTooltip, DismissibleTag, DropdownSkeleton, ErrorBoundary, ErrorBoundaryContext, ExpandableSearch, ExpandableTile, FeatureFlags, FileUploader, FileUploaderButton, FileUploaderDropContainer, FileUploaderItem, FileUploaderSkeleton, Filename, FilterableMultiSelect, FlexGrid, FluidComboBox, FluidComboBoxSkeleton, FluidDatePicker, FluidDatePickerInput, FluidDatePickerSkeleton, FluidDropdown, FluidDropdownSkeleton, FluidForm, FluidMultiSelect, FluidMultiSelectSkeleton, FluidNumberInput, FluidNumberInputSkeleton, FluidPasswordInput, FluidSearch, FluidSearchSkeleton, FluidSelect, FluidSelectSkeleton, FluidTextArea, FluidTextAreaSkeleton, FluidTextInput, FluidTextInputSkeleton, FluidTimePicker, FluidTimePickerSelect, FluidTimePickerSkeleton, Form, FormContext, FormGroup, FormItem, FormLabel, GlobalTheme, Grid, GridSettings, HStack, Header, HeaderContainer, HeaderGlobalAction, HeaderGlobalBar, HeaderMenu, HeaderMenuButton, HeaderMenuItem, HeaderName, HeaderNavigation, HeaderPanel, HeaderSideNavItems, Heading, IconButton, IconButtonKinds, IconSkeleton, IconSwitch, IconTab, IdPrefix, InlineNotification, Layer, Link, ListItem, Loading, Menu, MenuButton, MenuItem, MenuItemDivider, MenuItemGroup, MenuItemRadioGroup, MenuItemSelectable, ModalBody, ModalFooter, ModalHeader, ModalPresence, ModalWrapper, MultiSelect, NotificationActionButton, NotificationButton, NumberInput, NumberInputSkeleton, OperationalTag, OrderedList, OverflowMenu, OverflowMenuItem, Pagination, PaginationNav, PaginationSkeleton, PasswordInput, Popover, PopoverContent, PrefixContext, PrimaryButton, ProgressBar, ProgressIndicator, ProgressIndicatorSkeleton, ProgressStep, RadioButton, RadioButtonGroup, RadioButtonSkeleton, RadioTile, Row, Search, SearchSkeleton, SecondaryButton, Section, Select, SelectItem, SelectItemGroup, SelectSkeleton, SelectableTag, SelectableTile, SideNav, SideNavDetails, SideNavDivider, SideNavFooter, SideNavHeader, SideNavIcon, SideNavItem, SideNavItems, SideNavLink, SideNavLinkText, SideNavMenu, SideNavMenuItem, SideNavSwitcher, SkeletonIcon, SkeletonPlaceholder, SkeletonText, SkipToContent, Slider, SliderSkeleton, Stack, StaticNotification, StructuredListHead, StructuredListInput, StructuredListSkeleton, Switch, Switcher, SwitcherDivider, SwitcherItem, Tab, TabContent, TabList, TabListVertical, TabPanel, TabPanels, TableActionList, TableBatchAction, TableBatchActions, TableContainer, TableDecoratorRow, TableSelectAll, TableSelectRow, TableSlugRow, TableToolbar, TableToolbarAction, TableToolbarContent, TableToolbarMenu, TableToolbarSearch, Tabs, TabsSkeleton, TabsVertical, TagSkeleton, TextAreaSkeleton, TextInput, TextInputSkeleton, Theme, ThemeContext, TileAboveTheFoldContent, TileBelowTheFoldContent, TileGroup, TimePicker, TimePickerSelect, ToastNotification, Toggle, ToggleSkeleton, ToggleSmallSkeleton, Toggletip, ToggletipActions, ToggletipButton, ToggletipContent, ToggletipLabel, Tooltip, TreeNode, TreeView, UnorderedList, VStack, preview_FeatureFlags, preview_Layout, preview_LayoutDirection, preview_OverflowMenuV2, preview_PageSelector, preview_Pagination, preview_Text, preview_TextDirection, preview__AiSkeletonIcon, preview__AiSkeletonPlaceholder, preview__AiSkeletonText, preview__ChatButton, preview__ChatButtonSkeleton, preview__Dialog, preview__FluidComboBox, preview__FluidComboBoxSkeleton, preview__FluidDatePicker, preview__FluidDatePickerInput, preview__FluidDatePickerSkeleton, preview__FluidDropdown, preview__FluidDropdownSkeleton, preview__FluidMultiSelect, preview__FluidMultiSelectSkeleton, preview__FluidNumberInput, preview__FluidNumberInputSkeleton, preview__FluidSearch, preview__FluidSearchSkeleton, preview__FluidSelect, preview__FluidSelectSkeleton, preview__FluidTextArea, preview__FluidTextAreaSkeleton, preview__FluidTextInput, preview__FluidTextInputSkeleton, preview__FluidTimePicker, preview__FluidTimePickerSelect, preview__FluidTimePickerSkeleton, preview__IconIndicator, preview__PageHeader, preview__ShapeIndicator, preview__Slug, preview__SlugActions, preview__SlugContent, preview_useFeatureFlag, preview_useFeatureFlags, preview_useLayoutDirection, unstable_FeatureFlags, unstable_Layout, unstable_LayoutDirection, unstable_OverflowMenuV2, unstable_PageSelector, unstable_Pagination, unstable_Text, unstable_TextDirection, unstable__AiSkeletonIcon, unstable__AiSkeletonPlaceholder, unstable__AiSkeletonText, unstable__ChatButton, unstable__ChatButtonSkeleton, unstable__FluidComboBox, unstable__FluidComboBoxSkeleton, unstable__FluidDatePicker, unstable__FluidDatePickerInput, unstable__FluidDatePickerSkeleton, unstable__FluidDropdown, unstable__FluidDropdownSkeleton, unstable__FluidMultiSelect, unstable__FluidMultiSelectSkeleton, unstable__FluidNumberInput, unstable__FluidNumberInputSkeleton, unstable__FluidSearch, unstable__FluidSearchSkeleton, unstable__FluidSelect, unstable__FluidSelectSkeleton, unstable__FluidTextArea, unstable__FluidTextAreaSkeleton, unstable__FluidTextInput, unstable__FluidTextInputSkeleton, unstable__FluidTimePicker, unstable__FluidTimePickerSelect, unstable__FluidTimePickerSkeleton, unstable__IconIndicator, unstable__PageHeader, unstable__ShapeIndicator, unstable__Slug, unstable__SlugActions, unstable__SlugContent, unstable_useFeatureFlag, unstable_useFeatureFlags, unstable_useLayoutDirection, useContextMenu, useFeatureFlag, useFeatureFlags, useIdPrefix, useLayer, usePrefersDarkScheme, usePrefix, useTheme, validateNumberSeparators, withComposedModalPresence, withModalPresence
+// UNUSED EXPORTS: AILabel, AILabelActions, AILabelContent, AISkeletonIcon, AISkeletonPlaceholder, AISkeletonText, Accordion, AccordionItem, AccordionSkeleton, ActionableNotification, AspectRatio, Breadcrumb, BreadcrumbItem, BreadcrumbSkeleton, ButtonKinds, ButtonSet, ButtonSizes, ButtonSkeleton, ButtonTooltipAlignments, ButtonTooltipPositions, Callout, Checkbox, CheckboxGroup, CheckboxSkeleton, ClassPrefix, ClickableTile, CodeSnippet, CodeSnippetSkeleton, Column, ColumnHang, ComboBox, ComboButton, ComposedModal, ComposedModalPresence, ContainedList, ContainedListItem, Content, ContentSwitcher, ControlledPasswordInput, Copy, CopyButton, DangerButton, DataTableSkeleton, DatePicker, DatePickerInput, DatePickerSkeleton, DefinitionTooltip, DismissibleTag, DropdownSkeleton, ErrorBoundary, ErrorBoundaryContext, ExpandableSearch, ExpandableTile, FeatureFlags, FileUploader, FileUploaderButton, FileUploaderDropContainer, FileUploaderItem, FileUploaderSkeleton, Filename, FilterableMultiSelect, FlexGrid, FluidComboBox, FluidComboBoxSkeleton, FluidDatePicker, FluidDatePickerInput, FluidDatePickerSkeleton, FluidDropdown, FluidDropdownSkeleton, FluidForm, FluidMultiSelect, FluidMultiSelectSkeleton, FluidNumberInput, FluidNumberInputSkeleton, FluidPasswordInput, FluidSearch, FluidSearchSkeleton, FluidSelect, FluidSelectSkeleton, FluidTextArea, FluidTextAreaSkeleton, FluidTextInput, FluidTextInputSkeleton, FluidTimePicker, FluidTimePickerSelect, FluidTimePickerSkeleton, Form, FormContext, FormGroup, FormItem, FormLabel, GlobalTheme, Grid, GridSettings, HStack, Header, HeaderContainer, HeaderGlobalAction, HeaderGlobalBar, HeaderMenu, HeaderMenuButton, HeaderMenuItem, HeaderName, HeaderNavigation, HeaderPanel, HeaderSideNavItems, Heading, IconButton, IconButtonKinds, IconSkeleton, IconSwitch, IconTab, IdPrefix, Layer, Link, ListItem, Loading, Menu, MenuButton, MenuItem, MenuItemDivider, MenuItemGroup, MenuItemRadioGroup, MenuItemSelectable, ModalBody, ModalFooter, ModalHeader, ModalPresence, ModalWrapper, MultiSelect, NotificationActionButton, NotificationButton, NumberInput, NumberInputSkeleton, OperationalTag, OrderedList, OverflowMenu, OverflowMenuItem, Pagination, PaginationNav, PaginationSkeleton, PasswordInput, Popover, PopoverContent, PrefixContext, PrimaryButton, ProgressBar, ProgressIndicator, ProgressIndicatorSkeleton, ProgressStep, RadioButtonSkeleton, RadioTile, Row, Search, SearchSkeleton, SecondaryButton, Section, Select, SelectItem, SelectItemGroup, SelectSkeleton, SelectableTag, SelectableTile, SideNav, SideNavDetails, SideNavDivider, SideNavFooter, SideNavHeader, SideNavIcon, SideNavItem, SideNavItems, SideNavLink, SideNavLinkText, SideNavMenu, SideNavMenuItem, SideNavSwitcher, SkeletonIcon, SkeletonPlaceholder, SkeletonText, SkipToContent, Slider, SliderSkeleton, Stack, StaticNotification, StructuredListHead, StructuredListInput, StructuredListSkeleton, Switch, Switcher, SwitcherDivider, SwitcherItem, Tab, TabContent, TabList, TabListVertical, TabPanel, TabPanels, TableActionList, TableBatchAction, TableBatchActions, TableContainer, TableDecoratorRow, TableSelectAll, TableSelectRow, TableSlugRow, TableToolbar, TableToolbarAction, TableToolbarContent, TableToolbarMenu, TableToolbarSearch, Tabs, TabsSkeleton, TabsVertical, TagSkeleton, TextAreaSkeleton, TextInput, TextInputSkeleton, Theme, ThemeContext, TileAboveTheFoldContent, TileBelowTheFoldContent, TileGroup, TimePicker, TimePickerSelect, ToastNotification, Toggle, ToggleSkeleton, ToggleSmallSkeleton, Toggletip, ToggletipActions, ToggletipButton, ToggletipContent, ToggletipLabel, Tooltip, TreeNode, TreeView, UnorderedList, VStack, preview_FeatureFlags, preview_Layout, preview_LayoutDirection, preview_OverflowMenuV2, preview_PageSelector, preview_Pagination, preview_Text, preview_TextDirection, preview__AiSkeletonIcon, preview__AiSkeletonPlaceholder, preview__AiSkeletonText, preview__ChatButton, preview__ChatButtonSkeleton, preview__Dialog, preview__FluidComboBox, preview__FluidComboBoxSkeleton, preview__FluidDatePicker, preview__FluidDatePickerInput, preview__FluidDatePickerSkeleton, preview__FluidDropdown, preview__FluidDropdownSkeleton, preview__FluidMultiSelect, preview__FluidMultiSelectSkeleton, preview__FluidNumberInput, preview__FluidNumberInputSkeleton, preview__FluidSearch, preview__FluidSearchSkeleton, preview__FluidSelect, preview__FluidSelectSkeleton, preview__FluidTextArea, preview__FluidTextAreaSkeleton, preview__FluidTextInput, preview__FluidTextInputSkeleton, preview__FluidTimePicker, preview__FluidTimePickerSelect, preview__FluidTimePickerSkeleton, preview__IconIndicator, preview__PageHeader, preview__ShapeIndicator, preview__Slug, preview__SlugActions, preview__SlugContent, preview_useFeatureFlag, preview_useFeatureFlags, preview_useLayoutDirection, unstable_FeatureFlags, unstable_Layout, unstable_LayoutDirection, unstable_OverflowMenuV2, unstable_PageSelector, unstable_Pagination, unstable_Text, unstable_TextDirection, unstable__AiSkeletonIcon, unstable__AiSkeletonPlaceholder, unstable__AiSkeletonText, unstable__ChatButton, unstable__ChatButtonSkeleton, unstable__FluidComboBox, unstable__FluidComboBoxSkeleton, unstable__FluidDatePicker, unstable__FluidDatePickerInput, unstable__FluidDatePickerSkeleton, unstable__FluidDropdown, unstable__FluidDropdownSkeleton, unstable__FluidMultiSelect, unstable__FluidMultiSelectSkeleton, unstable__FluidNumberInput, unstable__FluidNumberInputSkeleton, unstable__FluidSearch, unstable__FluidSearchSkeleton, unstable__FluidSelect, unstable__FluidSelectSkeleton, unstable__FluidTextArea, unstable__FluidTextAreaSkeleton, unstable__FluidTextInput, unstable__FluidTextInputSkeleton, unstable__FluidTimePicker, unstable__FluidTimePickerSelect, unstable__FluidTimePickerSkeleton, unstable__IconIndicator, unstable__PageHeader, unstable__ShapeIndicator, unstable__Slug, unstable__SlugActions, unstable__SlugContent, unstable_useFeatureFlag, unstable_useFeatureFlags, unstable_useLayoutDirection, useContextMenu, useFeatureFlag, useFeatureFlags, useIdPrefix, useLayer, usePrefersDarkScheme, usePrefix, useTheme, validateNumberSeparators, withComposedModalPresence, withModalPresence
 
 ;// ./node_modules/@carbon/feature-flags/es/index.js
 /**
@@ -9204,7 +9207,6 @@ function useDelayedState(initialState) {
 
 
 ;// ./node_modules/@carbon/react/es/internal/useNoInteractiveChildren.js
-/* unused harmony import specifier */ var useEffect;
 /**
  * Copyright IBM Corp. 2016, 2026
  *
@@ -9232,7 +9234,7 @@ const useNoInteractiveChildren = (ref, message = "component should have no inter
 	}, [message, ref]);
 };
 const useInteractiveChildrenNeedDescription = (ref, message = `interactive child node(s) should have an \`aria-describedby\` property`) => {
-	useEffect(() => {
+	(0,consume_shared_module_default_react_singleton_.useEffect)(() => {
 		const { current } = ref;
 		const node = current ? getInteractiveContent(current) : null;
 		if (node && !node.hasAttribute("aria-describedby")) throw new Error(`Error: ${message}.\n\nInstead found: ${node.outerHTML}`);
@@ -19396,6 +19398,2166 @@ TableRow.propTypes = {
 //#endregion
 
 
+;// ./node_modules/@carbon/react/es/components/Text/TextDirectionContext.js
+/**
+ * Copyright IBM Corp. 2016, 2026
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+//#region src/components/Text/TextDirectionContext.ts
+/**
+* Copyright IBM Corp. 2016, 2026
+*
+* This source code is licensed under the Apache-2.0 license found in the
+* LICENSE file in the root directory of this source tree.
+*/
+const TextDirectionContext = (0,consume_shared_module_default_react_singleton_.createContext)({
+	direction: "auto",
+	getTextDirection: { current: void 0 }
+});
+//#endregion
+
+
+;// ./node_modules/@carbon/react/es/components/Text/Text.js
+/**
+ * Copyright IBM Corp. 2016, 2026
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+
+
+//#region src/components/Text/Text.tsx
+/**
+* Copyright IBM Corp. 2016, 2026
+*
+* This source code is licensed under the Apache-2.0 license found in the
+* LICENSE file in the root directory of this source tree.
+*/
+const Text = (0,consume_shared_module_default_react_singleton_.forwardRef)(({ as, children, dir = "auto", ...rest }, ref) => {
+	const context = (0,consume_shared_module_default_react_singleton_.useContext)(TextDirectionContext);
+	const textProps = {};
+	const BaseComponent = as ?? "span";
+	const value = { ...context };
+	if (!context) {
+		textProps.dir = dir;
+		value.direction = dir;
+	} else {
+		const { direction: parentDirection, getTextDirection } = context;
+		if (getTextDirection && getTextDirection.current) {
+			const text = getTextFromChildren(children);
+			const override = getTextDirection.current(text);
+			if (parentDirection !== override) {
+				textProps.dir = override;
+				value.direction = override;
+			} else if (parentDirection === "auto") textProps.dir = override;
+		} else if (parentDirection !== dir) {
+			textProps.dir = dir;
+			value.direction = dir;
+		} else if (parentDirection === "auto") textProps.dir = dir;
+	}
+	return /* @__PURE__ */ (0,jsx_runtime.jsx)(TextDirectionContext.Provider, {
+		value,
+		children: /* @__PURE__ */ (0,jsx_runtime.jsx)(BaseComponent, {
+			ref,
+			...rest,
+			...textProps,
+			children
+		})
+	});
+});
+Text.propTypes = {
+	as: prop_types_default().oneOfType([
+		(prop_types_default()).func,
+		(prop_types_default()).string,
+		(prop_types_default()).elementType
+	]),
+	children: (prop_types_default()).node,
+	dir: prop_types_default().oneOf([
+		"ltr",
+		"rtl",
+		"auto"
+	])
+};
+const getTextFromChildren = (children) => {
+	if (typeof children === "string") return children;
+	const text = consume_shared_module_default_react_singleton_.Children.map(children, (child) => {
+		if (typeof child === "string") return child;
+		return null;
+	})?.filter((text) => {
+		return text !== null;
+	});
+	if (text?.length === 1) return text[0];
+	return text;
+};
+//#endregion
+
+
+;// ./node_modules/@carbon/icons-react/es/generated/bucket-20.js
+/* unused harmony import specifier */ var bucket_20_Icon;
+/* unused harmony import specifier */ var bucket_20_React;
+/* unused harmony import specifier */ var bucket_20_jsx;
+/**
+* Copyright IBM Corp. 2016, 2023
+*
+* This source code is licensed under the Apache-2.0 license found in the
+* LICENSE file in the root directory of this source tree.
+*
+* Code generated by @carbon/icon-build-helpers. DO NOT EDIT.
+*/
+
+
+
+
+//#region virtual:generated/bucket-20.js
+const bucket_20_didWarnAboutDeprecation = {};
+const UserProfile = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserProfile({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M12,4A5,5,0,1,1,7,9a5,5,0,0,1,5-5m0-2a7,7,0,1,0,7,7A7,7,0,0,0,12,2Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22,30H20V25a5,5,0,0,0-5-5H9a5,5,0,0,0-5,5v5H2V25a7,7,0,0,1,7-7h6a7,7,0,0,1,7,7Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22 4H32V6H22z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22 9H32V11H22z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22 14H29V16H22z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const UserRole = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserRole({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M28.07 21 22 15 28.07 9 29.5 10.41 24.86 15 29.5 19.59 28.07 21z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22,30H20V25a5,5,0,0,0-5-5H9a5,5,0,0,0-5,5v5H2V25a7,7,0,0,1,7-7h6a7,7,0,0,1,7,7Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M12,4A5,5,0,1,1,7,9a5,5,0,0,1,5-5m0-2a7,7,0,1,0,7,7A7,7,0,0,0,12,2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const UserService = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserService({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", {
+		strokeWidth: "0",
+		d: "m23.019,10.4332c-.595.3514-1.2795.5668-2.019.5668-2.2056,0-4-1.7944-4-4,0-.3557.0615-.6943.1492-1.0228l2.4368,2.4368.0005-.0004c.3621.3621.8621.5864,1.4136.5864,1.103,0,2-.897,2-2,0-.5515-.2242-1.0515-.5864-1.4136l.0005-.0004-2.4368-2.4368c.3284-.0875.667-.1491,1.0227-.1491,2.2056,0,4,1.7944,4,4,0,.7396-.2155,1.4241-.5669,2.0191l5.5669,5.5668-1.4141,1.4141-5.5669-5.5668Z"
+	}), /* @__PURE__ */ bucket_20_jsx("path", {
+		strokeWidth: "0",
+		d: "m16,30h-2v-5c-.0018-1.6561-1.3439-2.9982-3-3h-4c-1.6561.0018-2.9982,1.3439-3,3v5h-2v-5c.0033-2.7601,2.2399-4.9967,5-5h4c2.7601.0033,4.9967,2.2399,5,5v5Z"
+	}), /* @__PURE__ */ bucket_20_jsx("path", {
+		strokeWidth: "0",
+		d: "m9,10c1.6569,0,3,1.3431,3,3s-1.3431,3-3,3-3-1.3431-3-3c.0019-1.6561,1.3439-2.9981,3-3m0-2c-2.7614,0-5,2.2386-5,5s2.2386,5,5,5,5-2.2386,5-5-2.2386-5-5-5Z"
+	}), children);
+})));
+if (false) // removed by dead control flow
+{}
+const UserServiceDesk = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserServiceDesk({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.334,11.95l1.2055-1.206a1.178,1.178,0,0,1,1.2593-.2584l1.4693.5868A1.1736,1.1736,0,0,1,30,12.1489v2.692A1.1681,1.1681,0,0,1,28.8229,16l-.05-.0015C18.4775,15.3578,16.4,6.6357,16.0073,3.2976a1.1681,1.1681,0,0,1,1.0315-1.29A1.1492,1.1492,0,0,1,17.1751,2h2.5994a1.1626,1.1626,0,0,1,1.0764.7322l.5866,1.47a1.1635,1.1635,0,0,1-.2529,1.26L19.9791,6.668S20.6733,11.3682,25.334,11.95Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,30H14V25a3.0033,3.0033,0,0,0-3-3H7a3.0033,3.0033,0,0,0-3,3v5H2V25a5.0059,5.0059,0,0,1,5-5h4a5.0059,5.0059,0,0,1,5,5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M9,10a3,3,0,1,1-3,3,3,3,0,0,1,3-3M9,8a5,5,0,1,0,5,5A5,5,0,0,0,9,8Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const UserSettings = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserSettings({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,10V8H27.8989a4.9678,4.9678,0,0,0-.7319-1.7529l1.49-1.49-1.414-1.414-1.49,1.49A4.9678,4.9678,0,0,0,24,4.1011V2H22V4.1011a4.9678,4.9678,0,0,0-1.7529.7319l-1.49-1.49-1.414,1.414,1.49,1.49A4.9678,4.9678,0,0,0,18.1011,8H16v2h2.1011a4.9678,4.9678,0,0,0,.7319,1.7529l-1.49,1.49,1.414,1.414,1.49-1.49A4.9678,4.9678,0,0,0,22,13.8989V16h2V13.8989a4.9678,4.9678,0,0,0,1.7529-.7319l1.49,1.49,1.414-1.414-1.49-1.49A4.9678,4.9678,0,0,0,27.8989,10Zm-7,2a3,3,0,1,1,3-3A3.0033,3.0033,0,0,1,23,12Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,30H14V25a3.0033,3.0033,0,0,0-3-3H7a3.0033,3.0033,0,0,0-3,3v5H2V25a5.0059,5.0059,0,0,1,5-5h4a5.0059,5.0059,0,0,1,5,5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M9,10a3,3,0,1,1-3,3,3,3,0,0,1,3-3M9,8a5,5,0,1,0,5,5A5,5,0,0,0,9,8Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const UserSimulation = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserSimulation({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", {
+		d: "M25.232 12.866H29.232V14.866H25.232z",
+		transform: "rotate(30 27.232 13.866)"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26 8H30V10H26z" }), /* @__PURE__ */ bucket_20_jsx("path", {
+		d: "M2.768 12.866H6.768V14.866H2.768z",
+		transform: "rotate(150 4.768 13.866)"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,30H24V25a5.0059,5.0059,0,0,0-5-5H13a5.0059,5.0059,0,0,0-5,5v5H6V25a7.0082,7.0082,0,0,1,7-7h6a7.0082,7.0082,0,0,1,7,7Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,4a5,5,0,1,1-5,5,5,5,0,0,1,5-5m0-2a7,7,0,1,0,7,7A7,7,0,0,0,16,2Z" }), /* @__PURE__ */ bucket_20_jsx("path", {
+		d: "M25.232 3.134H29.232V5.134H25.232z",
+		transform: "rotate(-30 27.232 4.134)"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M2 8H6V10H2z" }), /* @__PURE__ */ bucket_20_jsx("path", {
+		d: "M2.768 3.134H6.768V5.134H2.768z",
+		transform: "rotate(210 4.768 4.134)"
+	}), children);
+})));
+if (false) // removed by dead control flow
+{}
+const UserSpeaker = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserSpeaker({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.4146,19,27.7,17.2852A2.97,2.97,0,0,0,28,16a3,3,0,1,0-3,3,2.97,2.97,0,0,0,1.2864-.3L28,20.4141V28H22V25a7.0078,7.0078,0,0,0-7-7H9a7.008,7.008,0,0,0-7,7v5H30V20.4141A1.988,1.988,0,0,0,29.4146,19ZM4,25a5.006,5.006,0,0,1,5-5h6a5.0059,5.0059,0,0,1,5,5v3H4Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M12,4A5,5,0,1,1,7,9a5,5,0,0,1,5-5m0-2a7,7,0,1,0,7,7A7,7,0,0,0,12,2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const UserSponsor = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserSponsor({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M31.8301 13.3662 30.8301 11.6338 28 13.2681 28 10 26 10 26 13.2676 23.1699 11.6338 22.1699 13.3662 25 15 22.1699 16.6338 23.1699 18.3662 26 16.7324 26 20 28 20 28 16.7319 30.8301 18.3662 31.8301 16.6338 29 15 31.8301 13.3662z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m22,30h-2v-5c-.0033-2.7601-2.2399-4.9967-5-5h-6c-2.7601.0033-4.9967,2.2399-5,5v5h-2v-5c.0045-3.8641,3.1359-6.9955,7-7h6c3.8641.0045,6.9955,3.1359,7,7v5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m12,4c2.7614,0,5,2.2386,5,5s-2.2386,5-5,5-5-2.2386-5-5c.0031-2.7601,2.2399-4.9969,5-5m0-2c-3.866,0-7,3.134-7,7s3.134,7,7,7,7-3.134,7-7-3.134-7-7-7Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const UserXRay = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserXRay({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", {
+		fill: "none",
+		d: "M28 9 28 7 25 7 25 5 23 5 23 7 20 7 20 9 23 9 23 12 20 12 20 14 23 14 23 16 25 16 25 14 28 14 28 12 25 12 25 9 28 9z"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M31,3H17a1,1,0,0,0-1,1V17a1,1,0,0,0,1,1H31a1,1,0,0,0,1-1V4A1,1,0,0,0,31,3ZM28,9H25v3h3v2H25v2H23V14H20V12h3V9H20V7h3V5h2V7h3Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15,30H13V26a2.9465,2.9465,0,0,0-3-3H6a2.9465,2.9465,0,0,0-3,3v4H1V26a4.9514,4.9514,0,0,1,5-5h4a4.9514,4.9514,0,0,1,5,5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8,11a3,3,0,0,1,0,6,3,3,0,0,1,0-6M8,9A5,5,0,0,0,8,19,5,5,0,0,0,8,9Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const UserProfileAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserProfileAlt({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M19 13H26V15H19z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M19 8H30V10H19z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M19 3H30V5H19z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M11,30H7a2.0059,2.0059,0,0,1-2-2V21a2.0059,2.0059,0,0,1-2-2V13a2.9465,2.9465,0,0,1,3-3h6a2.9465,2.9465,0,0,1,3,3v6a2.0059,2.0059,0,0,1-2,2v7A2.0059,2.0059,0,0,1,11,30ZM6,12a.9448.9448,0,0,0-1,1v6H7v9h4V19h2V13a.9448.9448,0,0,0-1-1Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M9,9a4,4,0,1,1,4-4h0A4.0118,4.0118,0,0,1,9,9ZM9,3a2,2,0,1,0,2,2h0A2.0059,2.0059,0,0,0,9,3Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const UvIndex = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UvIndex({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,5.9121l1.7444,2.9326.7822,1.315,1.4739-.4107,3.1206-.87L22.2512,12,21.84,13.4731l1.315.7823L26.0876,16l-2.9323,1.7441-1.315.7818L22.2512,20l.87,3.1211-3.1208-.87L18.5266,21.84l-.7822,1.315L16,26.0879l-1.7444-2.9326-.7822-1.315L12,22.251l-3.1208.87L9.7488,20l.4109-1.4741-1.315-.7818L5.9124,16l2.9323-1.7446,1.315-.7823L9.7488,12l-.87-3.1206L12,9.749l1.4739.4107.7822-1.315L16,5.9121M16,2,12.5366,7.8223,6,6l1.8223,6.5366L2,16l5.8223,3.4629L6,26l6.5366-1.8223L16,30l3.4634-5.8223L26,26l-1.8223-6.5371L30,16l-5.8223-3.4634L26,6,19.4634,7.8223,16,2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const UvIndexAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UvIndexAlt({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M13,30H9a2.0027,2.0027,0,0,1-2-2V20H9v8h4V20h2v8A2.0027,2.0027,0,0,1,13,30Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25 20 23.25 20 21 29.031 18.792 20 17 20 19.5 30 22.5 30 25 20z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15 2H17V7H15z" }), /* @__PURE__ */ bucket_20_jsx("path", {
+		d: "M21.668 6.854H26.625999999999998V8.854H21.668z",
+		transform: "rotate(-45 24.147 7.853)"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25 15H30V17H25z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M2 15H7V17H2z" }), /* @__PURE__ */ bucket_20_jsx("path", {
+		d: "M6.854 5.375H8.854V10.333H6.854z",
+		transform: "rotate(-45 7.854 7.853)"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22,17H20V16a4,4,0,0,0-8,0v1H10V16a6,6,0,0,1,12,0Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const UvIndexFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UvIndexFilled({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,30l-3.4634-5.8223L6,26l1.8223-6.5369L2,16l5.8223-3.4631L6,6l6.5366,1.8223L16,2l3.4634,5.8223L26,6l-1.8223,6.5369L30,16l-5.8223,3.4631L26,26l-6.5366-1.8223Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ValueVariable = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function ValueVariable({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,28H22V26h4V6H22V4h4a2.0021,2.0021,0,0,1,2,2V26A2.0021,2.0021,0,0,1,26,28Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M20 11 18 11 16 14.897 14 11 12 11 14.905 16 12 21 14 21 16 17.201 18 21 20 21 17.098 16 20 11z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M10,28H6a2.0021,2.0021,0,0,1-2-2V6A2.0021,2.0021,0,0,1,6,4h4V6H6V26h4Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ValueVariableAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function ValueVariableAlt({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M3,15.874v.2676c1.1201.2939,2,1.1743,2,2.8584v8h4v2h-4c-1.1028,0-2-.8975-2-2v-8c0-1.5498-.8799-2-2-2v-2c1.1201,0,2-.4766,2-2V5c0-1.1025.8972-2,2-2h4v2h-4v8c0,1.6841-.8799,2.5801-2,2.874ZM29,15.874v.2676c-1.1201.2939-2,1.1743-2,2.8584v8h-4s0,2,0,2h4c1.1028,0,2-.8975,2-2v-8c0-1.5498.8799-2,2-2v-2c-1.1201,0-2-.4766-2-2V5c0-1.1025-.8972-2-2-2h-4s0,2,0,2h4v8c0,1.6841.8799,2.5801,2,2.874ZM10.3401,21.8939c-.4089,0-.7344-.1158-.977-.3471-.2421-.2314-.3631-.5464-.3631-.9447,0-.3767.1129-.6807.3392-.9123.2258-.2314.5274-.3472.9043-.3472.3443,0,.6108.101.799.3025.1882.2019.2828.4825.2828.8422v.0654l.1129.0818c.1617-.0863.3687-.2776.622-.5742.2528-.2965.5325-.6767.8397-1.1405.3067-.4637.6347-.992.9846-1.5852s.7024-1.2349,1.0579-1.9251l-.0483-2.7824c-.0112-.69-.1938-1.0352-.5493-1.0352-.2156,0-.4603.0943-.7344.2825-.2746.1886-.6327.5034-1.0741.9447l-.5005-.4844c.6886-.7856,1.2944-1.3536,1.8167-1.7035.5218-.3498,1.0416-.5249,1.5583-.5249.6027,0,1.0436.2181,1.3239.654.2797.436.4303,1.1439.4521,2.1234l.0325,1.8247h.1612c.4628-.8935.8773-1.6363,1.2435-2.2284.3657-.5919.713-1.063,1.0416-1.4129.328-.3498.651-.5975.9689-.7428.3174-.1453.6591-.2181,1.0253-.2181.4089,0,.7344.1158.977.3472.2421.2315.3631.5465.3631.9446,0,.377-.1129.681-.3392.9123-.2258.2317-.5274.3472-.9043.3472-.3443,0-.6108-.0954-.799-.2861-.1887-.1908-.2828-.4605-.2828-.8094v-.1146l-.1129-.0818c-.1404.0757-.323.2589-.5493.55-.2258.2912-.4816.6685-.767,1.1324-.2853.4637-.5951,1.0084-.9282,1.6339-.3341.6256-.6841,1.3103-1.0497,2.0543l.0483,2.6368c.0107.6904.1938,1.0352.5493,1.0352.2151,0,.4598-.0941.7344-.2825.2746-.1883.6322-.5031,1.0736-.9447l.501.4844c-.3448.3984-.6647.7375-.9607,1.0173-.2965.2801-.5813.5087-.856.6863s-.5386.3095-.7914.3956-.5086.1292-.767.1292c-.6032,0-1.0441-.2179-1.3239-.6539-.2802-.436-.4308-1.1438-.4521-2.1235l-.0325-1.8247h-.1455c-.4521.8397-.8748,1.5502-1.2674,2.1315-.3931.5813-.767,1.0552-1.1225,1.421-.355.3661-.7049.6326-1.0492.7994-.3448.1667-.6998.2502-1.066.2502Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Van = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Van({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.81,16l-7-9.56A1,1,0,0,0,22,6H3A1,1,0,0,0,2,7V24a1,1,0,0,0,1,1H5.14a4,4,0,0,0,7.72,0h6.28a4,4,0,0,0,7.72,0H29a1,1,0,0,0,1-1V16.56A1,1,0,0,0,29.81,16ZM20,8h1.49l5.13,7H20ZM9,26a2,2,0,1,1,2-2A2,2,0,0,1,9,26Zm14,0a2,2,0,1,1,2-2A2,2,0,0,1,23,26Zm5-3H26.86a4,4,0,0,0-7.72,0H12.86a4,4,0,0,0-7.72,0H4V8H18v9H28Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VegetationAsset = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VegetationAsset({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("circle", {
+		cx: "21.5",
+		cy: "10.5",
+		r: "1.5"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28.5,1a2.4518,2.4518,0,0,0-1.2061.3105L18.9834,5.6084l.0027.0054a5.497,5.497,0,1,0,7.3257,7.5444l.0031.0015,4.4-8.5A2.5,2.5,0,0,0,28.5,1Zm-7,13A3.5,3.5,0,1,1,25,10.5,3.5042,3.5042,0,0,1,21.5,14ZM28.9414,3.7354,26.5571,8.3408A5.5279,5.5279,0,0,0,23.658,5.4424l4.5949-2.377A.5165.5165,0,0,1,29,3.5.4985.4985,0,0,1,28.9414,3.7354Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M19,20h7V18H17V28a2.0027,2.0027,0,0,0,2,2h3V28H19Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M12,30H9V28h3V15.5664L8.4854,13.4575l1.0292-1.7148,3.5147,2.1084A2.0115,2.0115,0,0,1,14,15.5664V28A2.0024,2.0024,0,0,1,12,30Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M17.3079,2.2852A9.4882,9.4882,0,0,0,15,2,8.0275,8.0275,0,0,0,8.0786,6.001C8.0525,6,8.0264,6,8,6A6,6,0,0,0,8,18V16A4,4,0,0,1,8,8a2.7009,2.7009,0,0,1,.387.0391l.863.1142.3086-.6675A6.0192,6.0192,0,0,1,15,4a7.499,7.499,0,0,1,1.731.2148Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VegetationEncroachment = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VegetationEncroachment({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m19,20h7v-2h-9v10c.0015,1.104.896,1.9985,2,2h3v-2h-3v-8Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m12,30h-3v-2h3v-12.4336l-3.5146-2.1089,1.0292-1.7148,3.5147,2.1084c.6007.3632.9686,1.0133.9707,1.7153v12.4336c-.0013,1.104-.896,1.9987-2,2Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30 6.4102 28.59 5 25 8.5898 21.41 5 20 6.4102 23.59 10 20 13.5898 21.41 15 25 11.4102 28.59 15 30 13.5898 26.41 10 30 6.4102z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m17.3079,2.2852c-.7283-.1821-1.4995-.2852-2.3079-.2852-2.8545.0083-5.4897,1.5317-6.9214,4.001-.0261-.001-.0522-.001-.0786-.001-3.3137,0-6,2.6865-6,6s2.6863,6,6,6v-2c-2.209,0-4-1.791-4-4s1.791-4,4-4c.1299.0039.259.0166.387.0391l.863.1143.3086-.6675c.9834-2.1196,3.1047-3.4785,5.4414-3.4858.6079,0,1.1819.0854,1.731.2148l.5769-1.9297Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VegetationHeight = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VegetationHeight({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m13,8l-5,5,1.4102,1.4102,2.5898-2.5801v16.1699h-3v2h3c1.104-.0015,1.9988-.896,2-2V11.8301l2.5898,2.5801,1.4102-1.4102-5-5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m22,30h-3c-1.104-.0013-1.9987-.896-2-2v-11h6c2.2096-.0001,4.0007-1.7915,4.0006-4.001,0-.1319-.0065-.2637-.0196-.395-.277-2.0943-2.0835-3.6461-4.1957-3.604h-1.5837l-.1766-.779c-.573-2.5249-2.9942-4.221-6.025-4.221-2.3366.0074-4.4579,1.3664-5.4415,3.4859l-.3085.6672-.863-.1143c-.1279-.022-.2573-.0349-.387-.0388-2.2091,0-4,1.7909-4,4s1.7909,4,4,4v2c-3.3137,0-6-2.6863-6-6s2.6863-6,6-6c.0264,0,.0525,0,.0786.001,1.4317-2.4694,4.067-3.9928,6.9214-4.001,3.6788,0,6.6923,1.9776,7.7516,5h.0337c3.1405-.0351,5.8053,2.2967,6.1872,5.4141.323,3.2985-2.0892,6.2344-5.3877,6.5573-.1943.019-.3895.0286-.5848.0286h-4v9h3v2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VehicleApi = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VehicleApi({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M28,11a1.9907,1.9907,0,0,0-.8247.1821L24.8337,9.51A3.45,3.45,0,0,0,25,8.5a3.45,3.45,0,0,0-.1663-1.01l2.3416-1.6723A1.9975,1.9975,0,1,0,26,4c0,.064.0129.124.0188.1865L23.7273,5.8232A3.4652,3.4652,0,0,0,21.5,5a3.5,3.5,0,0,0,0,7,3.4652,3.4652,0,0,0,2.2273-.8232l2.2915,1.6367C26.0129,12.876,26,12.936,26,13a2,2,0,1,0,2-2Zm-6.5-1A1.5,1.5,0,1,1,23,8.5,1.5017,1.5017,0,0,1,21.5,10Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.3379,19.9336l-7.7324-2.7783L18.374,13.0967A2.99,2.99,0,0,0,16.0537,12H8.0576a2.9982,2.9982,0,0,0-2.48,1.3115L2.8662,17.2949A4.9884,4.9884,0,0,0,2,20.1074V26a1,1,0,0,0,1,1H5.1421a3.9806,3.9806,0,0,0,7.7158,0h6.2842a3.9806,3.9806,0,0,0,7.7158,0H29a1,1,0,0,0,1-1V20.875A1,1,0,0,0,29.3379,19.9336ZM9,28a2,2,0,1,1,2-2A2.0027,2.0027,0,0,1,9,28Zm14,0a2,2,0,1,1,2-2A2.0025,2.0025,0,0,1,23,28Zm5-3H26.8579a3.9806,3.9806,0,0,0-7.7158,0H12.8579a3.9806,3.9806,0,0,0-7.7158,0H4V20.1074A2.9977,2.9977,0,0,1,4.52,18.4189l2.711-3.9814A.9992.9992,0,0,1,8.0576,14h7.9961a.9928.9928,0,0,1,.7647.3545l3.3994,4.2685a1.0007,1.0007,0,0,0,.4443.3184L28,21.5781Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VehicleConnected = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VehicleConnected({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.3379,17.9336l-7.7324-2.7783L18.374,11.0967A2.99,2.99,0,0,0,16.0537,10H8.0576a2.9982,2.9982,0,0,0-2.48,1.3115L2.8662,15.2949A4.9884,4.9884,0,0,0,2,18.1074V26a1,1,0,0,0,1,1H5.1421a3.9806,3.9806,0,0,0,7.7158,0h6.2842a3.9806,3.9806,0,0,0,7.7158,0H29a1,1,0,0,0,1-1V18.875A1,1,0,0,0,29.3379,17.9336ZM9,28a2,2,0,1,1,2-2A2.0027,2.0027,0,0,1,9,28Zm14,0a2,2,0,1,1,2-2A2.0025,2.0025,0,0,1,23,28Zm5-3H26.8579a3.9806,3.9806,0,0,0-7.7158,0H12.8579a3.9806,3.9806,0,0,0-7.7158,0H4V18.1074A2.9977,2.9977,0,0,1,4.52,16.4189l2.711-3.9814A.9992.9992,0,0,1,8.0576,12h7.9961a.9928.9928,0,0,1,.7647.3545l3.3994,4.2685a1.0007,1.0007,0,0,0,.4443.3184L28,19.5781Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25,11H23a2.0021,2.0021,0,0,0-2-2V7A4.0045,4.0045,0,0,1,25,11Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M29,11H27a6.0067,6.0067,0,0,0-6-6V3A8.0092,8.0092,0,0,1,29,11Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VehicleInsights = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VehicleInsights({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.3379,17.9336l-7.7324-2.7783L18.374,11.0967A2.99,2.99,0,0,0,16.0537,10H8.0576a2.9982,2.9982,0,0,0-2.48,1.3115L2.8662,15.2949A4.9884,4.9884,0,0,0,2,18.1074V26a1,1,0,0,0,1,1H5.1421a3.9806,3.9806,0,0,0,7.7158,0h6.2842a3.9806,3.9806,0,0,0,7.7158,0H29a1,1,0,0,0,1-1V18.875A1,1,0,0,0,29.3379,17.9336ZM9,28a2,2,0,1,1,2-2A2.0027,2.0027,0,0,1,9,28Zm14,0a2,2,0,1,1,2-2A2.0025,2.0025,0,0,1,23,28Zm5-3H26.8579a3.9806,3.9806,0,0,0-7.7158,0H12.8579a3.9806,3.9806,0,0,0-7.7158,0H4V18.1074A2.9977,2.9977,0,0,1,4.52,16.4189l2.711-3.9814A.9992.9992,0,0,1,8.0576,12h7.9961a.9928.9928,0,0,1,.7647.3545l3.3994,4.2685a1.0007,1.0007,0,0,0,.4443.3184L28,19.5781Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28 2H30V9H28z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M24 6H26V9H24z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M20 4H22V9H20z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VehicleServices = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VehicleServices({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.3379,17.9336l-7.7324-2.7783L18.374,11.0967A2.99,2.99,0,0,0,16.0537,10H8.0576a2.9982,2.9982,0,0,0-2.48,1.3115L2.8662,15.2949A4.9884,4.9884,0,0,0,2,18.1074V26a1,1,0,0,0,1,1H5.1421a3.9806,3.9806,0,0,0,7.7158,0h6.2842a3.9806,3.9806,0,0,0,7.7158,0H29a1,1,0,0,0,1-1V18.875A1,1,0,0,0,29.3379,17.9336ZM9,28a2,2,0,1,1,2-2A2.0027,2.0027,0,0,1,9,28Zm14,0a2,2,0,1,1,2-2A2.0025,2.0025,0,0,1,23,28Zm5-3H26.8579a3.9806,3.9806,0,0,0-7.7158,0H12.8579a3.9806,3.9806,0,0,0-7.7158,0H4V18.1074A2.9977,2.9977,0,0,1,4.52,16.4189l2.711-3.9814A.9992.9992,0,0,1,8.0576,12h7.9961a.9928.9928,0,0,1,.7647.3545l3.3994,4.2685a1.0007,1.0007,0,0,0,.4443.3184L28,19.5781Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M24.5547,6a2,2,0,0,1,2-2H30a3.9756,3.9756,0,0,0-7.304,1H16V7h6.696A3.9756,3.9756,0,0,0,30,8H26.5547A2,2,0,0,1,24.5547,6Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Version = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Version({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,2V4H26V19h2V4a2.0023,2.0023,0,0,0-2-2Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M11,7V9H21V24h2V9a2.0023,2.0023,0,0,0-2-2Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M6,12H16a2.0023,2.0023,0,0,1,2,2V28a2.0023,2.0023,0,0,1-2,2H6a2.0023,2.0023,0,0,1-2-2V14A2.0023,2.0023,0,0,1,6,12Zm10,2L6,13.9988V28H16Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VersionMajor = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VersionMajor({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M18.5859 17.4141 16 14.8345 16 14.8345 13.4125 17.4156 12 16 16 12 20 16 18.5859 17.4141z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18.5859 11.4141 16 8.8345 16 8.8345 13.4125 11.4156 12 10 16 6 20 10 18.5859 11.4141z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18.5859 23.4141 16 20.8345 16 20.8345 13.4125 23.4156 12 22 16 18 20 22 18.5859 23.4141z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m1.5858,17.4142c-.3905-.3905-.5858-.9024-.5858-1.4142s.1953-1.0237.5858-1.4142L14.5858,1.5858c.3905-.3905.9023-.5858,1.4142-.5858s1.0237.1953,1.4142.5858l13,13c.3905.3905.5858.9024.5858,1.4142s-.1953,1.0237-.5858,1.4142l-13,13c-.3905.3905-.9024.5858-1.4142.5858s-1.0237-.1953-1.4142-.5858L1.5858,17.4142ZM16,3L3,16l13,13,13-13L16,3Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VersionMinor = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VersionMinor({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M18.5859 15.4141 16 12.8345 16 12.8345 13.4125 15.4156 12 14 16 10 20 14 18.5859 15.4141z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18.5859 21.4141 16 18.8345 16 18.8345 13.4125 21.4156 12 20 16 16 20 20 18.5859 21.4141z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m1.5858,17.4142c-.3905-.3905-.5858-.9024-.5858-1.4142s.1953-1.0237.5858-1.4142L14.5858,1.5858c.3905-.3905.9023-.5858,1.4142-.5858s1.0237.1953,1.4142.5858l13,13c.3905.3905.5858.9024.5858,1.4142s-.1953,1.0237-.5858,1.4142l-13,13c-.3905.3905-.9024.5858-1.4142.5858s-1.0237-.1953-1.4142-.5858L1.5858,17.4142ZM16,3L3,16l13,13,13-13L16,3Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VersionPatch = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VersionPatch({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M18.5859 18.4141 16 15.8345 16 15.8345 13.4125 18.4156 12 17 16 13 20 17 18.5859 18.4141z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m1.5858,17.4142c-.3905-.3905-.5858-.9024-.5858-1.4142s.1953-1.0237.5858-1.4142L14.5858,1.5858c.3905-.3905.9023-.5858,1.4142-.5858s1.0237.1953,1.4142.5858l13,13c.3905.3905.5858.9024.5858,1.4142s-.1953,1.0237-.5858,1.4142l-13,13c-.3905.3905-.9024.5858-1.4142.5858s-1.0237-.1953-1.4142-.5858L1.5858,17.4142ZM16,3L3,16l13,13,13-13L16,3Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VerticalFold = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VerticalFold({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M11,24l1.414,1.414,2.586-2.586v7.172h2v-7.172l2.586,2.586,1.414-1.414-5-5-5,5ZM21,8l-1.414-1.414-2.586,2.586V2h-2v7.172l-2.586-2.586-1.414,1.414,5,5,5-5ZM2,17h4v-2H2v2ZM12,15h-4v2h4v-2ZM14,17h4v-2h-4v2ZM20,17h4v-2h-4v2ZM26,15v2h4v-2h-4Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VerticalView = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VerticalView({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M12,30H4a2.0021,2.0021,0,0,1-2-2V4A2.0021,2.0021,0,0,1,4,2h8a2.0021,2.0021,0,0,1,2,2V28A2.0021,2.0021,0,0,1,12,30ZM4,4V28h8V4Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28,30H20a2.0021,2.0021,0,0,1-2-2V4a2.0021,2.0021,0,0,1,2-2h8a2.0021,2.0021,0,0,1,2,2V28A2.0021,2.0021,0,0,1,28,30ZM20,4V28h8V4Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Video = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Video({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M21,26H4a2,2,0,0,1-2-2V8A2,2,0,0,1,4,6H21a2,2,0,0,1,2,2v4.06l5.42-3.87A1,1,0,0,1,30,9V23a1,1,0,0,1-1.58.81L23,19.94V24A2,2,0,0,1,21,26ZM4,8V24H21V18a1,1,0,0,1,1.58-.81L28,21.06V10.94l-5.42,3.87A1,1,0,0,1,21,14V8Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VideoAdd = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VideoAdd({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M18 15 14 15 14 11 12 11 12 15 8 15 8 17 12 17 12 21 14 21 14 17 18 17 18 15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M21,26H4a2.0023,2.0023,0,0,1-2-2V8A2.0023,2.0023,0,0,1,4,6H21a2.0023,2.0023,0,0,1,2,2v4.0566l5.4189-3.87A.9995.9995,0,0,1,30,9V23a.9995.9995,0,0,1-1.5811.8135L23,19.9434V24A2.0023,2.0023,0,0,1,21,26ZM4,8V24.001L21,24V18a.9995.9995,0,0,1,1.5811-.8135L28,21.0566V10.9434l-5.4189,3.87A.9995.9995,0,0,1,21,14V8Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VideoChat = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VideoChat({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M8 12H17V14H8z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8 17H13V19H8z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M21,26H4a2.0023,2.0023,0,0,1-2-2V8A2.0023,2.0023,0,0,1,4,6H21a2.0023,2.0023,0,0,1,2,2v4.0566l5.4189-3.87A.9995.9995,0,0,1,30,9V23a.9995.9995,0,0,1-1.5811.8135L23,19.9434V24A2.0023,2.0023,0,0,1,21,26ZM4,8V24.001L21,24V18a.9995.9995,0,0,1,1.5811-.8135L28,21.0566V10.9434l-5.4189,3.87A.9995.9995,0,0,1,21,14V8Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VideoFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VideoFilled({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M21,26H4a2,2,0,0,1-2-2V8A2,2,0,0,1,4,6H21a2,2,0,0,1,2,2v4.06l5.42-3.87A1,1,0,0,1,30,9V23a1,1,0,0,1-1.58.81L23,19.94V24A2,2,0,0,1,21,26Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VideoOff = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VideoOff({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.46,8.11a1,1,0,0,0-1,.08L23,12.06V10.44l7-7L28.56,2,2,28.56,3.44,30l4-4H21a2,2,0,0,0,2-2V19.94l5.42,3.87A1,1,0,0,0,30,23V9A1,1,0,0,0,29.46,8.11ZM28,21.06l-5.42-3.87A1,1,0,0,0,21,18v6H9.44L21,12.44V14a1,1,0,0,0,1.58.81L28,10.94Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M4,24V8H20V6H4A2,2,0,0,0,2,8V24Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VideoOffFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VideoOffFilled({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M20.31,6H4A2,2,0,0,0,2,8V24a2.85,2.85,0,0,0,0,.29Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.46,8.11a1,1,0,0,0-1,.08L23,12.06V10.44l7-7L28.56,2,2,28.56,3.44,30l4-4H21a2,2,0,0,0,2-2V19.94l5.42,3.87A1,1,0,0,0,30,23V9A1,1,0,0,0,29.46,8.11Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VideoPlayer = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VideoPlayer({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M13 11 13 21 21 16 13 11z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m28,6H4c-1.103,0-2,.8975-2,2v16c0,1.1025.897,2,2,2h24c1.103,0,2-.8975,2-2V8c0-1.1025-.897-2-2-2Zm0,18H4V8h24v16Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const View = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function View({ children, size = 16, ...rest }, ref) {
+	if (size === 16 || size === "16" || size === "16px") return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 16 16",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M15.5,7.8C14.3,4.7,11.3,2.6,8,2.5C4.7,2.6,1.7,4.7,0.5,7.8c0,0.1,0,0.2,0,0.3c1.2,3.1,4.1,5.2,7.5,5.3 c3.3-0.1,6.3-2.2,7.5-5.3C15.5,8.1,15.5,7.9,15.5,7.8z M8,12.5c-2.7,0-5.4-2-6.5-4.5c1-2.5,3.8-4.5,6.5-4.5s5.4,2,6.5,4.5 C13.4,10.5,10.6,12.5,8,12.5z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8,5C6.3,5,5,6.3,5,8s1.3,3,3,3s3-1.3,3-3S9.7,5,8,5z M8,10c-1.1,0-2-0.9-2-2s0.9-2,2-2s2,0.9,2,2S9.1,10,8,10z" }), children);
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M30.94,15.66A16.69,16.69,0,0,0,16,5,16.69,16.69,0,0,0,1.06,15.66a1,1,0,0,0,0,.68A16.69,16.69,0,0,0,16,27,16.69,16.69,0,0,0,30.94,16.34,1,1,0,0,0,30.94,15.66ZM16,25c-5.3,0-10.9-3.93-12.93-9C5.1,10.93,10.7,7,16,7s10.9,3.93,12.93,9C26.9,21.07,21.3,25,16,25Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,10a6,6,0,1,0,6,6A6,6,0,0,0,16,10Zm0,10a4,4,0,1,1,4-4A4,4,0,0,1,16,20Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ViewFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function ViewFilled({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("circle", {
+		cx: "16",
+		cy: "16",
+		r: "4"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30.94,15.66A16.69,16.69,0,0,0,16,5,16.69,16.69,0,0,0,1.06,15.66a1,1,0,0,0,0,.68A16.69,16.69,0,0,0,16,27,16.69,16.69,0,0,0,30.94,16.34,1,1,0,0,0,30.94,15.66ZM16,22.5A6.5,6.5,0,1,1,22.5,16,6.51,6.51,0,0,1,16,22.5Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ViewMode_1 = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function ViewMode_1({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M4 26H28V28H4z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M4 19H28V21H4z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,6v6H6V6H26m0-2H6A2,2,0,0,0,4,6v6a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2V6a2,2,0,0,0-2-2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ViewMode_2 = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function ViewMode_2({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M4 26H28V28H4z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M4 19H28V21H4z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M12,6v6H6V6h6m0-2H6A2,2,0,0,0,4,6v6a2,2,0,0,0,2,2h6a2,2,0,0,0,2-2V6a2,2,0,0,0-2-2Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,6v6H20V6h6m0-2H20a2,2,0,0,0-2,2v6a2,2,0,0,0,2,2h6a2,2,0,0,0,2-2V6a2,2,0,0,0-2-2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ViewOff = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function ViewOff({ children, size = 16, ...rest }, ref) {
+	if (size === 16 || size === "16" || size === "16px") return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 16 16",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M2.6,11.3l0.7-0.7C2.6,9.8,1.9,9,1.5,8c1-2.5,3.8-4.5,6.5-4.5c0.7,0,1.4,0.1,2,0.4l0.8-0.8C9.9,2.7,9,2.5,8,2.5 C4.7,2.6,1.7,4.7,0.5,7.8c0,0.1,0,0.2,0,0.3C1,9.3,1.7,10.4,2.6,11.3z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M6,7.9c0.1-1,0.9-1.8,1.8-1.8l0.9-0.9C7.2,4.7,5.5,5.6,5.1,7.2C5,7.7,5,8.3,5.1,8.8L6,7.9z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15.5,7.8c-0.6-1.5-1.6-2.8-2.9-3.7L15,1.7L14.3,1L1,14.3L1.7,15l2.6-2.6c1.1,0.7,2.4,1,3.7,1.1c3.3-0.1,6.3-2.2,7.5-5.3 C15.5,8.1,15.5,7.9,15.5,7.8z M10,8c0,1.1-0.9,2-2,2c-0.3,0-0.7-0.1-1-0.3L9.7,7C9.9,7.3,10,7.6,10,8z M8,12.5c-1,0-2.1-0.3-3-0.8 l1.3-1.3c1.4,0.9,3.2,0.6,4.2-0.8c0.7-1,0.7-2.4,0-3.4l1.4-1.4c1.1,0.8,2,1.9,2.6,3.2C13.4,10.5,10.6,12.5,8,12.5z" }), children);
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M5.24,22.51l1.43-1.42A14.06,14.06,0,0,1,3.07,16C5.1,10.93,10.7,7,16,7a12.38,12.38,0,0,1,4,.72l1.55-1.56A14.72,14.72,0,0,0,16,5,16.69,16.69,0,0,0,1.06,15.66a1,1,0,0,0,0,.68A16,16,0,0,0,5.24,22.51Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M12,15.73a4,4,0,0,1,3.7-3.7l1.81-1.82a6,6,0,0,0-7.33,7.33Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30.94,15.66A16.4,16.4,0,0,0,25.2,8.22L30,3.41,28.59,2,2,28.59,3.41,30l5.1-5.1A15.29,15.29,0,0,0,16,27,16.69,16.69,0,0,0,30.94,16.34,1,1,0,0,0,30.94,15.66ZM20,16a4,4,0,0,1-6,3.44L19.44,14A4,4,0,0,1,20,16Zm-4,9a13.05,13.05,0,0,1-6-1.58l2.54-2.54a6,6,0,0,0,8.35-8.35l2.87-2.87A14.54,14.54,0,0,1,28.93,16C26.9,21.07,21.3,25,16,25Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ViewOffFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function ViewOffFilled({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M30.94,15.66a16.4,16.4,0,0,0-5.73-7.45L30,3.41,28.59,2,2,28.59,3.41,30l5.1-5.09A15.38,15.38,0,0,0,16,27,16.69,16.69,0,0,0,30.94,16.34,1,1,0,0,0,30.94,15.66ZM16,22.5a6.46,6.46,0,0,1-3.83-1.26L14,19.43A4,4,0,0,0,19.43,14l1.81-1.81A6.49,6.49,0,0,1,16,22.5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M4.53,21.81l5-5A6.84,6.84,0,0,1,9.5,16,6.51,6.51,0,0,1,16,9.5a6.84,6.84,0,0,1,.79.05l3.78-3.77A14.39,14.39,0,0,0,16,5,16.69,16.69,0,0,0,1.06,15.66a1,1,0,0,0,0,.68A15.86,15.86,0,0,0,4.53,21.81Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ViewNext = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function ViewNext({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M20.587 22 15 16.41 15 7 16.998 7 16.998 15.582 22 20.587 20.587 22z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,2A13.9158,13.9158,0,0,1,26,6.2343V2h2v8H20V8h4.9217A11.9818,11.9818,0,1,0,28,16h2A14,14,0,1,1,16,2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VintageMac = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VintageMac({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22,16h-12V6h12v10ZM12,8v6h8v-6h-8ZM24,4v20H8V4h16M24,2H8c-1.1,0-2,.9-2,2v20c0,1.1.9,2,2,2h16c1.1,0,2-.9,2-2V4c0-1.1-.9-2-2-2ZM10,18h2v2h-2v-2ZM16,18h6v2h-6v-2ZM9,28h14v2h-14v-2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VirtualColumn = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VirtualColumn({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M25 11 26.414 12.414 23.828 15 30 15 30 17 23.828 17 26.414 19.586 25 21 20 16 25 11z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,28H20a2.0023,2.0023,0,0,1-2-2V6a2.0023,2.0023,0,0,1,2-2H30V6H20V26H30Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M12,28H2V26H12V6H2V4H12a2.0023,2.0023,0,0,1,2,2V26A2.0023,2.0023,0,0,1,12,28Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M7 11 5.586 12.414 8.172 15 2 15 2 17 8.172 17 5.586 19.586 7 21 12 16 7 11z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VirtualColumnKey = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VirtualColumnKey({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("circle", {
+		cx: "24.5",
+		cy: "9.5",
+		r: "1.5"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M17.4143,22H12V16.5857l6.03-6.03A5.3518,5.3518,0,0,1,18,10a6,6,0,1,1,6,6,5.3583,5.3583,0,0,1-.5559-.03ZM14,20h2.5857l6.1706-6.1709.5174.0957A3.935,3.935,0,0,0,24,14a4.0507,4.0507,0,1,0-3.925-3.2729l.0952.5166L14,17.4143Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28,18v8H10V6h4V4H4A2.0025,2.0025,0,0,0,2,6V26a2.0025,2.0025,0,0,0,2,2H28a2.0025,2.0025,0,0,0,2-2V18ZM4,6H8V26H4Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VirtualDesktop = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VirtualDesktop({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M21,16H11a2.0023,2.0023,0,0,0-2,2v6a2.0023,2.0023,0,0,0,2,2h4v2H12v2h8V28H17V26h4a2.0023,2.0023,0,0,0,2-2V18A2.0023,2.0023,0,0,0,21,16ZM11,24V18H21l.0015,6Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.8218,10.124a9.9992,9.9992,0,0,0-19.6436,0A7.4914,7.4914,0,0,0,7,24.9746v-2a5.4945,5.4945,0,0,1,.123-10.9541l.8365-.0566.09-.834a7.9979,7.9979,0,0,1,15.9014,0l.09.834.8365.0566A5.4945,5.4945,0,0,1,25,22.9746v2a7.4914,7.4914,0,0,0,.8218-14.8506Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VirtualMachine = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VirtualMachine({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M20,13H12a2.0025,2.0025,0,0,0-2,2V28a2.0025,2.0025,0,0,0,2,2h8a2.0025,2.0025,0,0,0,2-2V15A2.0025,2.0025,0,0,0,20,13Zm0,2,0,3H12V15Zm0,5,0,3H12V20Zm-8,8V25h8v3Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.91,10.13a.121.121,0,0,1-.0967-.0952A10.0061,10.0061,0,0,0,17.89,2.1816,10.0025,10.0025,0,0,0,6.1858,10.0347a.1212.1212,0,0,1-.0964.0957A7.5019,7.5019,0,0,0,7.4912,25H8V23H7.4954a5.5108,5.5108,0,0,1-5.4387-6.3,5.6992,5.6992,0,0,1,4.7138-4.6606l1.0166-.1836a.1306.1306,0,0,0,.1045-.1035l.18-.9351a8.28,8.28,0,0,1,6.8469-6.7427,7.957,7.957,0,0,1,2.8471.1245,8.22,8.22,0,0,1,6.1475,6.545l.1941,1.0083a.13.13,0,0,0,.1045.1035l1.0576.1914a5.7819,5.7819,0,0,1,3.1011,1.539A5.5052,5.5052,0,0,1,24.5076,23H24v2h.5076A7.5019,7.5019,0,0,0,25.91,10.13Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VirtualPrivateCloud = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VirtualPrivateCloud({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M20,20V17a4,4,0,0,0-8,0v3a2.0025,2.0025,0,0,0-2,2v6a2.0025,2.0025,0,0,0,2,2h8a2.0025,2.0025,0,0,0,2-2V22A2.0025,2.0025,0,0,0,20,20Zm-6-3a2,2,0,0,1,4,0v3H14ZM12,28V22h8l.0012,6Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.8288,10.1152A10.0067,10.0067,0,0,0,17.89,2.1816,10.0025,10.0025,0,0,0,6.17,10.1152,7.502,7.502,0,0,0,7.4912,25H8V23H7.4953a5.5019,5.5019,0,0,1-.9694-10.9165l1.3488-.2441.2591-1.3457a8.0109,8.0109,0,0,1,15.7312,0l.259,1.3457,1.3489.2441A5.5019,5.5019,0,0,1,24.5076,23H24v2h.5076a7.502,7.502,0,0,0,1.3212-14.8848Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VirtualPrivateCloudAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VirtualPrivateCloudAlt({ children, size = 16, ...rest }, ref) {
+	if (false) // removed by dead control flow
+{}
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M23.4141,22,10,8.5859V2H2v8H8.5859L22,23.4141V30h8V22ZM8,8H4V4H8ZM28,28H24V24h4Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,6a3.9915,3.9915,0,0,0-7.8579-1H13V7h9.1421A3.9945,3.9945,0,0,0,25,9.8579V19h2V9.8579A3.9962,3.9962,0,0,0,30,6ZM26,8a2,2,0,1,1,2-2A2.0023,2.0023,0,0,1,26,8Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M19,25H9.8579A3.9945,3.9945,0,0,0,7,22.1421V13H5v9.1421A3.9915,3.9915,0,1,0,9.8579,27H19ZM6,28a2,2,0,1,1,2-2A2.0023,2.0023,0,0,1,6,28Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VisualInspection = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VisualInspection({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,24.5859l-5.1147-5.1147c.9407-1.3201,1.3683-3.0299.9602-4.8428-.4971-2.2083-2.2783-3.9913-4.4888-4.4786-4.3566-.9604-8.1675,2.8505-7.207,7.2071.4873,2.2105,2.2703,3.9918,4.4787,4.4888,1.8129.408,3.5228-.0197,4.8429-.9605l5.1147,5.1147,1.4141-1.4141h0ZM17.0848,19.8568c-3.0406.805-5.7481-1.9051-4.9404-4.9449.3548-1.3352,1.4352-2.4146,2.7707-2.7682,3.0406-.805,5.7481,1.9051,4.9404,4.9449-.3548,1.3352-1.4352,2.4146-2.7707,2.7682ZM29.0663,16.3569l-.0654-.1709c-1.9897-5.2383-7.5781-9.1865-13.0005-9.1865s-11.0107,3.9482-12.9995,9.1841l-.0664.1733c-.1978.5166-.7764.7739-1.2915.5767-.5161-.1978-.7739-.7759-.5767-1.2915l.0654-.1709c2.2671-5.9688,8.6597-10.4717,14.8687-10.4717s12.6016,4.5029,14.8696,10.4741l.0645.1685M16.0004,27c-6.2088-.0002-12.6006-4.5031-14.8691-10.4741l-.064-.166c-.1987-.5151.0581-1.0942.5732-1.293.5146-.1982,1.0938.0576,1.293.5732l.0659.1709c1.9907,5.2405,7.5788,9.1887,13.001,9.189v2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VisualRecognition = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VisualRecognition({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("circle", {
+		cx: "23",
+		cy: "12",
+		r: "2"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28,5H16.24A8,8,0,1,0,6,16.92V27a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V7A2,2,0,0,0,28,5ZM4,10A6,6,0,0,1,15.19,7H8V9h7.91A6.64,6.64,0,0,1,16,10a6.64,6.64,0,0,1-.09,1H10v2h5.19A6,6,0,0,1,4,10ZM28,27H8l5-5,1.59,1.59a2,2,0,0,0,2.82,0L23,18l5,5Zm0-6.83-3.59-3.59a2,2,0,0,0-2.82,0L16,22.17l-1.59-1.59a2,2,0,0,0-2.82,0L8,24.17V17.74A8.24,8.24,0,0,0,10,18a8,8,0,0,0,8-8,7.9,7.9,0,0,0-.59-3H28Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Vlan = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Vlan({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,17V15H17V11h2a2.0023,2.0023,0,0,0,2-2V4a2.0023,2.0023,0,0,0-2-2H13a2.0023,2.0023,0,0,0-2,2V9a2.0023,2.0023,0,0,0,2,2h2v4H2v2H8v4H6a2.0023,2.0023,0,0,0-2,2v5a2.0023,2.0023,0,0,0,2,2h6a2.0023,2.0023,0,0,0,2-2V23a2.0023,2.0023,0,0,0-2-2H10V17H22v4H20a2.0023,2.0023,0,0,0-2,2v5a2.0023,2.0023,0,0,0,2,2h6a2.0023,2.0023,0,0,0,2-2V23a2.0023,2.0023,0,0,0-2-2H24V17ZM13,4h6V9H13ZM12,28H6V23h6Zm14,0H20V23h6Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VlanIbm = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VlanIbm({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,22a4,4,0,1,0,4,4A4.0045,4.0045,0,0,0,16,22Zm0,6a2,2,0,1,1,2-2A2.002,2.002,0,0,1,16,28Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,5a3,3,0,1,0-4,2.8154V15H17V9H15v6H6V7.8159a3.0007,3.0007,0,1,0-2,0V15a2.002,2.002,0,0,0,2,2h9v3h2V17h9a2.002,2.002,0,0,0,2-2V7.8159A2.9958,2.9958,0,0,0,30,5ZM5,4A1,1,0,1,1,4,5,1.0013,1.0013,0,0,1,5,4ZM27,6a1,1,0,1,1,1-1A1.0013,1.0013,0,0,1,27,6Z" }), /* @__PURE__ */ bucket_20_jsx("circle", {
+		cx: "16",
+		cy: "5",
+		r: "2"
+	}), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VmdkDisk = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VmdkDisk({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("circle", {
+		cx: "10.5",
+		cy: "24.5",
+		r: "1.5"
+	}), /* @__PURE__ */ bucket_20_jsx("path", {
+		d: "M19.5 14.964H21.5V20.035H19.5z",
+		transform: "rotate(-45 20.5 17.5)"
+	}), /* @__PURE__ */ bucket_20_jsx("circle", {
+		cx: "16",
+		cy: "13",
+		r: "2"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,6a7,7,0,0,0,0,14V18a5,5,0,1,1,5-5h2A7,7,0,0,0,16,6Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,2H6A2,2,0,0,0,4,4V28a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2V4A2,2,0,0,0,26,2Zm0,26H6V4H26Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VoiceActivate = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VoiceActivate({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,30H24V27H20a5.0055,5.0055,0,0,1-5-5V20.7207l-2.3162-.772a1,1,0,0,1-.5412-1.4631L15,13.7229V11a9.01,9.01,0,0,1,9-9h5V4H24a7.0078,7.0078,0,0,0-7,7v3a.9991.9991,0,0,1-.1426.5144l-2.3586,3.9312,1.8174.6057A1,1,0,0,1,17,20v2a3.0033,3.0033,0,0,0,3,3h5a1,1,0,0,1,1,1Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M19 12H23V14H19z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M9.3325,25.2168a7.0007,7.0007,0,0,1,0-10.4341l1.334,1.49a5,5,0,0,0,0,7.4537Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M6.3994,28.8008a11.0019,11.0019,0,0,1,0-17.6006L7.6,12.8a9.0009,9.0009,0,0,0,0,14.4014Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VoiceMode = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VoiceMode({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M17,29h-2V3h2v26ZM23,6h-2v20h2V6ZM11,6h-2v20h2V6ZM5,11h-2v10h2v-10ZM29,11h-2v10h2.0031s-.0031-10-.0031-10Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Voicemail = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Voicemail({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M24,10a6,6,0,0,0-4.46,10H12.46A6,6,0,1,0,8,22H24a6,6,0,0,0,0-12ZM4,16a4,4,0,1,1,4,4A4,4,0,0,1,4,16Zm20,4a4,4,0,1,1,4-4A4,4,0,0,1,24,20Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VolumeBlockStorage = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeBlockStorage({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M17,21H10V14h7Zm-5-2h3V16H12Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M17,30H10V23h7Zm-5-2h3V25H12Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,21H19V14h7Zm-5-2h3V16H21Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,30H19V23h7Zm-5-2h3V25H21Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8,28H4a2.0023,2.0023,0,0,1-2-2V6A2.0023,2.0023,0,0,1,4,4h7.5857A1.9865,1.9865,0,0,1,13,4.5859L16.4143,8H28a2.0023,2.0023,0,0,1,2,2v8H28V10H15.5857l-4-4H4V26H8Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VolumeDown = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeDown({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.1,10.66,23.58,12a6,6,0,0,1-.18,7.94l1.47,1.36a8,8,0,0,0,.23-10.59Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M20,30a1,1,0,0,1-.71-.3L11.67,22H5a1,1,0,0,1-1-1H4V11a1,1,0,0,1,1-1h6.67l7.62-7.7a1,1,0,0,1,1.41,0A1,1,0,0,1,21,3V29A1,1,0,0,1,20,30ZM6,20h6a1.17,1.17,0,0,1,.79.3L19,26.57V5.43L12.79,11.7A1.17,1.17,0,0,1,12,12H6Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VolumeDownAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeDownAlt({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22 15H32V17H22z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,30a.997.997,0,0,1-.7109-.2969L9.666,22H3a.9993.9993,0,0,1-1-.9988V11a.9993.9993,0,0,1,.9988-1H9.666l7.623-7.7031A1,1,0,0,1,19,3V29A1.0007,1.0007,0,0,1,18,30ZM4,20h6a1.2008,1.2008,0,0,1,.7939.2969L17,26.5684V5.4316l-6.2061,6.2715A1.2013,1.2013,0,0,1,10,12H4Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VolumeDownFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeDownFilled({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.1,10.66,23.58,12a6,6,0,0,1-.18,7.94l1.47,1.36a8,8,0,0,0,.23-10.59Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M20,30a1,1,0,0,1-.71-.3L11.67,22H5a1,1,0,0,1-1-1H4V11a1,1,0,0,1,1-1h6.67l7.62-7.7a1,1,0,0,1,1.41,0A1,1,0,0,1,21,3V29A1,1,0,0,1,20,30Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VolumeDownFilledAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeDownFilledAlt({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22 15H32V17H22z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,30a.997.997,0,0,1-.7109-.2969L9.666,22H3a.9993.9993,0,0,1-1-.9988V11a.9993.9993,0,0,1,.9988-1H9.666l7.623-7.7031A1,1,0,0,1,19,3V29A1.0007,1.0007,0,0,1,18,30Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VolumeFileStorage = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeFileStorage({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.707,17.293l-5-5A1,1,0,0,0,20,12H14a2,2,0,0,0-2,2V28a2,2,0,0,0,2,2H24a2,2,0,0,0,2-2V18A1,1,0,0,0,25.707,17.293ZM23.5857,18H20V14.4141ZM14,28V14h4v4a2,2,0,0,0,2,2h4v8Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8,27H4a2.0023,2.0023,0,0,1-2-2V5A2.0023,2.0023,0,0,1,4,3h7.5857A1.9865,1.9865,0,0,1,13,3.5859L16.4143,7H28a2.0023,2.0023,0,0,1,2,2v8H28V9H15.5857l-4-4H4V25H8Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VolumeMute = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeMute({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M31 12.41 29.59 11 26 14.59 22.41 11 21 12.41 24.59 16 21 19.59 22.41 21 26 17.41 29.59 21 31 19.59 27.41 16 31 12.41z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,30a1,1,0,0,1-.71-.3L9.67,22H3a1,1,0,0,1-1-1H2V11a1,1,0,0,1,1-1H9.67l7.62-7.7a1,1,0,0,1,1.41,0A1,1,0,0,1,19,3V29A1,1,0,0,1,18,30ZM4,20h6a1.17,1.17,0,0,1,.79.3L17,26.57V5.43L10.79,11.7A1.17,1.17,0,0,1,10,12H4Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VolumeMuteFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeMuteFilled({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M31 12.41 29.59 11 26 14.59 22.41 11 21 12.41 24.59 16 21 19.59 22.41 21 26 17.41 29.59 21 31 19.59 27.41 16 31 12.41z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,30a1,1,0,0,1-.71-.3L9.67,22H3a1,1,0,0,1-1-1H2V11a1,1,0,0,1,1-1H9.67l7.62-7.7a1,1,0,0,1,1.41,0A1,1,0,0,1,19,3V29A1,1,0,0,1,18,30Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VolumeObjectStorage = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeObjectStorage({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M23,24a2.98,2.98,0,0,0-2.0376.8115l-4.0037-2.4023a2.0478,2.0478,0,0,0,0-.8184l4.0037-2.4023a3.2463,3.2463,0,1,0-.9211-1.7793l-4.0037,2.4023a3,3,0,1,0,0,4.377l4.0037,2.4023A2.9729,2.9729,0,0,0,20,27a3,3,0,1,0,3-3Zm0-8a1,1,0,1,1-1,1A1.0008,1.0008,0,0,1,23,16Zm-9,7a1,1,0,1,1,1-1A1.0008,1.0008,0,0,1,14,23Zm9,5a1,1,0,1,1,1-1A1.0008,1.0008,0,0,1,23,28Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8,28H4a2.0023,2.0023,0,0,1-2-2V6A2.0023,2.0023,0,0,1,4,4h7.5857A1.9865,1.9865,0,0,1,13,4.5859L16.4143,8H28a2.0023,2.0023,0,0,1,2,2v8H28V10H15.5857l-4-4H4V26H8Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VolumeUp = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeUp({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M27.16,8.08,25.63,9.37a10,10,0,0,1-.29,13.23L26.81,24a12,12,0,0,0,.35-15.88Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M21.58,12a6,6,0,0,1-.18,7.94l1.47,1.36a8,8,0,0,0,.23-10.59Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,30a1,1,0,0,1-.71-.3L9.67,22H3a1,1,0,0,1-1-1H2V11a1,1,0,0,1,1-1H9.67l7.62-7.7a1,1,0,0,1,1.41,0A1,1,0,0,1,19,3V29A1,1,0,0,1,18,30ZM4,20h6.08a1,1,0,0,1,.71.3L17,26.57V5.43L10.79,11.7a1,1,0,0,1-.71.3H4Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VolumeUpAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeUpAlt({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M32 15 28 15 28 11 26 11 26 15 22 15 22 17 26 17 26 21 28 21 28 17 32 17 32 15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,30a.997.997,0,0,1-.7109-.2969L9.666,22H3a.9993.9993,0,0,1-1-.9988V11a.9993.9993,0,0,1,.9988-1H9.666l7.623-7.7031A1,1,0,0,1,19,3V29A1.0007,1.0007,0,0,1,18,30ZM4,20h6a1.2008,1.2008,0,0,1,.7939.2969L17,26.5684V5.4316l-6.2061,6.2715A1.2013,1.2013,0,0,1,10,12H4Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VolumeUpFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeUpFilled({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M27.16,8.08,25.63,9.37a10,10,0,0,1-.29,13.23L26.81,24a12,12,0,0,0,.35-15.88Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M21.58,12a6,6,0,0,1-.18,7.94l1.47,1.36a8,8,0,0,0,.23-10.59Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,30a1,1,0,0,1-.71-.3L9.67,22H3a1,1,0,0,1-1-1H2V11a1,1,0,0,1,1-1H9.67l7.62-7.7a1,1,0,0,1,1.41,0A1,1,0,0,1,19,3V29A1,1,0,0,1,18,30Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VolumeUpFilledAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeUpFilledAlt({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M32 15 28 15 28 11 26 11 26 15 22 15 22 17 26 17 26 21 28 21 28 17 32 17 32 15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,30a.997.997,0,0,1-.7109-.2969L9.666,22H3a.9993.9993,0,0,1-1-.9988V11a.9993.9993,0,0,1,.9988-1H9.666l7.623-7.7031A1,1,0,0,1,19,3V29A1.0007,1.0007,0,0,1,18,30Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Vpn = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Vpn({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M14,23H12V9h6a2,2,0,0,1,2,2v5a2,2,0,0,1-2,2H14Zm0-7h4V11H14Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28 19 24.32 9 22 9 22 23 24 23 24 13 27.68 23 30 23 30 9 28 9 28 19z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8 9 6 22 4 9 2 9 4.52 23 7.48 23 10 9 8 9z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VpnConnection = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VpnConnection({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M28,7a1.9919,1.9919,0,0,0-1.7227,1H22A6,6,0,0,0,10,8H5.7227a2,2,0,1,0,0,2H10v4H8a2,2,0,0,0-2,2V28a2,2,0,0,0,2,2H24a2,2,0,0,0,2-2V16a2,2,0,0,0-2-2H22V10h4.2773A1.9966,1.9966,0,1,0,28,7ZM12,8a4,4,0,0,1,8,0v6H12V10h5V8Zm12,8V28H8V16Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const VpnPolicy = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VpnPolicy({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,15A6,6,0,1,0,20,19.46V29l4-1.8838L28,29V19.46A5.98,5.98,0,0,0,30,15ZM26,25.8477l-2-.9415-2,.9415V20.65a5.8877,5.8877,0,0,0,4,0ZM24,19a4,4,0,1,1,4-4A4.0045,4.0045,0,0,1,24,19Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M14,2A6.0066,6.0066,0,0,0,8,8v6H6a2.0023,2.0023,0,0,0-2,2V28a2.0023,2.0023,0,0,0,2,2H17V28H6V16h9V14H10V8a4,4,0,0,1,7.92-.8008l1.96-.3984A6.0167,6.0167,0,0,0,14,2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Wallet = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Wallet({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22 17H24V19H22z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28,8H4V5H26V3H4A2,2,0,0,0,2,5V26a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V10A2,2,0,0,0,28,8ZM4,26V10H28v3H20a2,2,0,0,0-2,2v6a2,2,0,0,0,2,2h8v3ZM28,15v6H20V15Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Warning = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Warning({ children, size = 16, ...rest }, ref) {
+	if (size === 16 || size === "16" || size === "16px") return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 16 16",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M8,1C4.1,1,1,4.1,1,8s3.1,7,7,7s7-3.1,7-7S11.9,1,8,1z M8,14c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S11.3,14,8,14z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M7.5 4H8.5V9H7.5z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8,10.2c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8c0.4,0,0.8-0.3,0.8-0.8S8.4,10.2,8,10.2z" }), children);
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Zm0,26A12,12,0,1,1,28,16,12,12,0,0,1,16,28Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15 8H17V19H15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,22a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,16,22Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WarningAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningAlt({ children, size = 16, ...rest }, ref) {
+	if (size === 16 || size === "16" || size === "16px") return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 16 16",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M14.5,14h-13c-0.2,0-0.3-0.1-0.4-0.2c-0.1-0.2-0.1-0.3,0-0.5l6.5-12C7.7,1,8,0.9,8.2,1.1c0.1,0,0.2,0.1,0.2,0.2l6.5,12 c0.1,0.2,0.1,0.3,0,0.5C14.9,13.9,14.7,14,14.5,14z M2.3,13h11.3L8,2.5L2.3,13z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M7.5 6H8.5V9.5H7.5z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8,10.8c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8c0.4,0,0.8-0.3,0.8-0.8S8.4,10.8,8,10.8z" }), children);
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,23a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,16,23Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15 12H17V21H15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M29,30H3a1,1,0,0,1-.8872-1.4614l13-25a1,1,0,0,1,1.7744,0l13,25A1,1,0,0,1,29,30ZM4.6507,28H27.3493l.002-.0033L16.002,6.1714h-.004L4.6487,27.9967Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WarningAltFilled = /* @__PURE__ */ consume_shared_module_default_react_singleton_default().forwardRef(function WarningAltFilled({ children, size = 16, ...rest }, ref) {
+	return consume_shared_module_default_react_singleton_default().createElement(Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ (0,jsx_runtime.jsx)("path", {
+		fill: "none",
+		d: "M16,26a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,16,26Zm-1.125-5h2.25V12h-2.25Z",
+		"data-icon-path": "inner-path"
+	}), /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M16.002,6.1714h-.004L4.6487,27.9966,4.6506,28H27.3494l.0019-.0034ZM14.875,12h2.25v9h-2.25ZM16,26a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,16,26Z" }), /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M29,30H3a1,1,0,0,1-.8872-1.4614l13-25a1,1,0,0,1,1.7744,0l13,25A1,1,0,0,1,29,30ZM4.6507,28H27.3493l.002-.0033L16.002,6.1714h-.004L4.6487,27.9967Z" }), children);
+});
+if (false) // removed by dead control flow
+{}
+const WarningAltInverted = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningAltInverted({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,17a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,16,17Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15 6H17V15H15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.855,2.481a1.001,1.001,0,0,1,.0322.98l-13,25a1,1,0,0,1-1.7744,0l-13-25A1,1,0,0,1,3,2H29A1.0007,1.0007,0,0,1,29.855,2.481ZM4.6487,4.0033,15.998,25.8286h.004L27.3513,4.0033,27.3493,4H4.6507Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WarningAltInvertedFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningAltInvertedFilled({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", {
+		fill: "none",
+		d: "M16,20a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,16,20Zm-1.125-5h2.25V6h-2.25Z",
+		"data-icon-path": "inner-path"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M27.3494,4H4.6506l-.0019.0034L15.998,25.8286h.004L27.3513,4.0034ZM14.875,6h2.25v9h-2.25ZM16,20a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,16,20Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.855,2.481a1.001,1.001,0,0,1,.0322.98l-13,25a1,1,0,0,1-1.7744,0l-13-25A1,1,0,0,1,3,2H29A1.0007,1.0007,0,0,1,29.855,2.481ZM4.6487,4.0033,15.998,25.8286h.004L27.3513,4.0033,27.3493,4H4.6507Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WarningDiamond = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningDiamond({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,20c-.8284,0-1.5.6716-1.5,1.5s.6716,1.5,1.5,1.5,1.5-.6716,1.5-1.5-.6716-1.5-1.5-1.5h0Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15 9H17V18H15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,30c-.5335,0-1.0672-.2031-1.4732-.6094L2.6094,17.4732c-.8126-.8123-.8126-2.1342,0-2.9465L14.5268,2.6094c.8121-.8126,2.1344-.8126,2.9465,0l11.9173,11.9173c.8126.8123.8126,2.1342,0,2.9465l-11.9173,11.9173c-.406.4063-.9398.6094-1.4732.6094Zm0-26.0008c-.0215,0-.0427.0083-.0591.0244L4.0236,15.9409c-.0325.0327-.0325.0855,0,.1182l11.9173,11.9173c.0327.0322.0855.0322.1182,0l11.9173-11.9173c.0325-.0327.0325-.0855,0-.1182l-11.9173-11.9173c-.0164-.0161-.0376-.0244-.0591-.0244Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WarningDiamondFill = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningDiamondFill({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M14.5858,2.6042L2.6042,14.5858c-.781.781-.781,2.0474,0,2.8284l11.9816,11.9816c.781.781,2.0474.781,2.8284,0l11.9816-11.9816c.781-.781.781-2.0474,0-2.8284L17.4142,2.6042c-.781-.781-2.0474-.781-2.8284,0ZM15,9h2v9h-2v-9ZM16,23c-.83,0-1.5-.67-1.5-1.5s.67-1.5,1.5-1.5,1.5.67,1.5,1.5-.67,1.5-1.5,1.5Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WarningFilled = /* @__PURE__ */ consume_shared_module_default_react_singleton_default().forwardRef(function WarningFilled({ children, size = 16, ...rest }, ref) {
+	if (size === 16 || size === "16" || size === "16px") return consume_shared_module_default_react_singleton_default().createElement(Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 16 16",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M8,1C4.2,1,1,4.2,1,8s3.2,7,7,7s7-3.1,7-7S11.9,1,8,1z M7.5,4h1v5h-1C7.5,9,7.5,4,7.5,4z M8,12.2 c-0.4,0-0.8-0.4-0.8-0.8s0.3-0.8,0.8-0.8c0.4,0,0.8,0.4,0.8,0.8S8.4,12.2,8,12.2z" }), /* @__PURE__ */ (0,jsx_runtime.jsx)("path", {
+		d: "M7.5,4h1v5h-1C7.5,9,7.5,4,7.5,4z M8,12.2c-0.4,0-0.8-0.4-0.8-0.8s0.3-0.8,0.8-0.8 c0.4,0,0.8,0.4,0.8,0.8S8.4,12.2,8,12.2z",
+		"data-icon-path": "inner-path",
+		opacity: "0"
+	}), children);
+	if (size === 20 || size === "20" || size === "20px") return consume_shared_module_default_react_singleton_default().createElement(Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 20 20",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M10,1c-5,0-9,4-9,9s4,9,9,9s9-4,9-9S15,1,10,1z M9.2,5h1.5v7H9.2V5z M10,16c-0.6,0-1-0.4-1-1s0.4-1,1-1 s1,0.4,1,1S10.6,16,10,16z" }), /* @__PURE__ */ (0,jsx_runtime.jsx)("path", {
+		d: "M9.2,5h1.5v7H9.2V5z M10,16c-0.6,0-1-0.4-1-1s0.4-1,1-1s1,0.4,1,1S10.6,16,10,16z",
+		"data-icon-path": "inner-path",
+		opacity: "0"
+	}), children);
+	if (size === 24 || size === "24" || size === "24px") return consume_shared_module_default_react_singleton_default().createElement(Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 24 24",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M12,1C5.9,1,1,5.9,1,12s4.9,11,11,11s11-4.9,11-11C23,5.9,18.1,1,12,1z M11.1,6h1.8v8h-1.8V6z M12,19.2 c-0.7,0-1.2-0.6-1.2-1.2s0.6-1.2,1.2-1.2s1.2,0.6,1.2,1.2S12.7,19.2,12,19.2z" }), /* @__PURE__ */ (0,jsx_runtime.jsx)("path", {
+		fill: "none",
+		d: "M13.2,18c0,0.7-0.6,1.2-1.2,1.2s-1.2-0.6-1.2-1.2s0.6-1.2,1.2-1.2S13.2,17.3,13.2,18z M12.9,6 h-1.8v8h1.8V6z",
+		"data-icon-path": "inner-path",
+		opacity: "0"
+	}), children);
+	return consume_shared_module_default_react_singleton_default().createElement(Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M16,2C8.3,2,2,8.3,2,16s6.3,14,14,14s14-6.3,14-14C30,8.3,23.7,2,16,2z M14.9,8h2.2v11h-2.2V8z M16,25 c-0.8,0-1.5-0.7-1.5-1.5S15.2,22,16,22c0.8,0,1.5,0.7,1.5,1.5S16.8,25,16,25z" }), /* @__PURE__ */ (0,jsx_runtime.jsx)("path", {
+		fill: "none",
+		d: "M17.5,23.5c0,0.8-0.7,1.5-1.5,1.5c-0.8,0-1.5-0.7-1.5-1.5S15.2,22,16,22 C16.8,22,17.5,22.7,17.5,23.5z M17.1,8h-2.2v11h2.2V8z",
+		"data-icon-path": "inner-path",
+		opacity: "0"
+	}), children);
+});
+if (false) // removed by dead control flow
+{}
+const WarningHex = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningHex({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,21a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,16,21Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15 8H17V18H15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M23,29H9a1,1,0,0,1-.8638-.4961l-7-12a1,1,0,0,1,0-1.0078l7-12A1,1,0,0,1,9,3H23a1,1,0,0,1,.8638.4961l7,12a1,1,0,0,1,0,1.0078l-7,12A1,1,0,0,1,23,29ZM9.5742,27H22.4258l6.4165-11L22.4258,5H9.5742L3.1577,16Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WarningHexFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningHexFilled({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", {
+		fill: "none",
+		d: "M14.875,8h2.25V19h-2.25ZM16,25a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,16,25Z",
+		"data-icon-path": "inner-path"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30.8508,15.4487,23.8867,3.5322A1.0687,1.0687,0,0,0,22.9643,3H9.0357a1.0687,1.0687,0,0,0-.9224.5322L1.1492,15.4487a1.0933,1.0933,0,0,0,0,1.1026L8.1133,28.4678A1.0687,1.0687,0,0,0,9.0357,29H22.9643a1.0687,1.0687,0,0,0,.9224-.5322l6.9641-11.9165A1.0933,1.0933,0,0,0,30.8508,15.4487ZM14.875,8h2.25V19h-2.25ZM16,25a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,16,25Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WarningMultiple = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningMultiple({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m29,23h-4v-2h2.3821l-7.8821-15.7639-1.1055,2.2112-1.7891-.8945,2-4c.1694-.3387.532-.5527.8945-.5527s.7251.214.8945.5527l9.5,19c.1548.3101.1384.6782-.0439.973-.1821.2948-.5039.4742-.8506.4742Z" }), /* @__PURE__ */ bucket_20_jsx("circle", {
+		cx: "14",
+		cy: "25",
+		r: "1.25"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M13 15H15V22H13z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m25,30H3c-.3499,0-.6743-.1829-.8555-.4823s-.1926-.6718-.0303-.9817L13.1143,7.536c.1726-.3296.5292-.536.8857-.536s.7131.2064.8857.536l11,21c.1624.3099.1509.6823-.0303.9817s-.5056.4823-.8555.4823Zm-20.3474-2h18.6948L14,10.1552,4.6526,28Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WarningOther = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningOther({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M18 20H30V22H18z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18 24H30V26H18z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18 28H30V30H18z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M14,18a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,14,18Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M13 7H15V16H13z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M14,4A10.0111,10.0111,0,0,1,24,14h2A12,12,0,1,0,14,26V24A10,10,0,0,1,14,4Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WarningSquare = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningSquare({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,20a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,16,20Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15 9H17V18H15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,28H6a2.0023,2.0023,0,0,1-2-2V6A2.0023,2.0023,0,0,1,6,4H26a2.0023,2.0023,0,0,1,2,2V26A2.0023,2.0023,0,0,1,26,28ZM6,6V26H26.0012L26,6Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WarningSquareFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningSquareFilled({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M26.0022,4H5.998A1.998,1.998,0,0,0,4,5.998V26.002A1.998,1.998,0,0,0,5.998,28H26.0022A1.9979,1.9979,0,0,0,28,26.002V5.998A1.9979,1.9979,0,0,0,26.0022,4ZM14.8752,8h2.25V18h-2.25ZM16,24a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,16,24Z" }), /* @__PURE__ */ bucket_20_jsx("path", {
+		fill: "none",
+		d: "M14.8751,8h2.25V18h-2.25ZM16,24a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,16,24Z",
+		"data-icon-path": "inner-path"
+	}), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Watch = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Watch({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22,8H21V2H19V8H13V2H11V8H10a2,2,0,0,0-2,2V22a2,2,0,0,0,2,2h1v6h2V24h6v6h2V24h1a2,2,0,0,0,2-2V10A2,2,0,0,0,22,8ZM10,22V10H22V22Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25 14H27V18H25z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Watson = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Watson({ children, size = 16, ...rest }, ref) {
+	if (false) // removed by dead control flow
+{}
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M21.74,9.49h0A11.41,11.41,0,0,0,16,8h0a.76.76,0,1,0,0,1.51,10.15,10.15,0,0,1,1.91.21c-2.26,1.08-4.76,3.58-6.73,7a22.48,22.48,0,0,0-2,4.44A9.58,9.58,0,0,1,7,17.22a3.43,3.43,0,0,1,.28-2.66v0h0c.79-1.37,2.44-2.15,4.63-2.2a.76.76,0,0,0,.74-.78.75.75,0,0,0-.78-.74C9.19,10.88,7.1,11.92,6,13.74H6v0s0,0,0,0a4.84,4.84,0,0,0-.44,3.79,12,12,0,0,0,3.2,5.22A11.36,11.36,0,0,0,8.52,26a10,10,0,0,1-2-3.48A.75.75,0,0,0,5.57,22a.76.76,0,0,0-.49,1,11.45,11.45,0,0,0,5.18,6.38h0A11.42,11.42,0,0,0,16,30.92a11.74,11.74,0,0,0,3-.39,11.48,11.48,0,0,0,2.77-21ZM18.58,29.06a9.9,9.9,0,0,1-7.56-1h0c-.86-.49-1.21-2-.94-4a18.85,18.85,0,0,0,2.48,1.72,13.92,13.92,0,0,0,6.93,2,11,11,0,0,0,2.42-.28A9.78,9.78,0,0,1,18.58,29.06Zm6.06-4.66c-2,2-6.66,2.74-11.32.05a17.36,17.36,0,0,1-2.89-2.12,21.08,21.08,0,0,1,2.08-4.91c2.94-5.08,6.83-7.57,8.47-6.62h0A10,10,0,0,1,24.64,24.4Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M4.16,11.72,1.14,10a.76.76,0,1,0-.76,1.31L3.4,13a.86.86,0,0,0,.38.1.77.77,0,0,0,.66-.38A.76.76,0,0,0,4.16,11.72Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8.29,7.59A.74.74,0,0,0,8.94,8a.75.75,0,0,0,.38-.1.76.76,0,0,0,.28-1l-1.74-3a.76.76,0,0,0-1-.27.75.75,0,0,0-.28,1Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,6.08a.76.76,0,0,0,.76-.76V1.83a.76.76,0,0,0-1.52,0V5.32A.76.76,0,0,0,16,6.08Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22.68,7.87a.75.75,0,0,0,1-.28l1.75-3a.75.75,0,0,0-.28-1,.76.76,0,0,0-1,.27l-1.74,3A.76.76,0,0,0,22.68,7.87Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M31.9,10.25a.76.76,0,0,0-1-.27l-3,1.74a.76.76,0,0,0-.28,1,.77.77,0,0,0,.66.38.86.86,0,0,0,.38-.1l3-1.75A.76.76,0,0,0,31.9,10.25Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WatsonMachineLearning = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WatsonMachineLearning({ children, size = 16, ...rest }, ref) {
+	if (false) // removed by dead control flow
+{}
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22,26H20V17.76l-3.23,3.88a1,1,0,0,1-1.54,0L12,17.76V26H10V15a1,1,0,0,1,.66-.94,1,1,0,0,1,1.11.3L16,19.44l4.23-5.08a1,1,0,0,1,1.11-.3A1,1,0,0,1,22,15Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M4.16,14.65l-3-1.75a.76.76,0,1,0-.76,1.32L3.4,16a.76.76,0,1,0,.76-1.31Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8.29,10.52a.73.73,0,0,0,1,.27.75.75,0,0,0,.28-1l-1.74-3a.76.76,0,1,0-1.32.76Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,9a.76.76,0,0,0,.76-.76V4.76a.76.76,0,1,0-1.52,0V8.25A.76.76,0,0,0,16,9Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22.68,10.79a.75.75,0,0,0,.37.11.76.76,0,0,0,.66-.38l1.75-3a.76.76,0,0,0-1.32-.76l-1.74,3A.75.75,0,0,0,22.68,10.79Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M31.9,13.18a.76.76,0,0,0-1-.28l-3,1.75A.76.76,0,0,0,28.6,16l3-1.74A.77.77,0,0,0,31.9,13.18Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Watsonx = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Watsonx({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", {
+		strokeWidth: "0",
+		d: "m29.312,22.9189c1.1042-2.1201,1.688-4.5127,1.688-6.9189C31,7.729,24.271,1,16,1c-3.3738,0-6.5815,1.1191-9.2046,3.1665-.2441-.106-.5125-.1665-.7954-.1665-1.1045,0-2,.8955-2,2s.8955,2,2,2,2-.8955,2-2c0-.0762-.0142-.1489-.0225-.2227,2.2812-1.7964,5.0793-2.7773,8.0225-2.7773.9727,0,1.9172.1157,2.8293.3193-3.3938.9258-5.8994,4.0273-5.8994,7.7109,0,.7891.1167,1.5503.332,2.27-.6985-.2021-1.4285-.3306-2.1919-.3306-3.7039,0-6.8191,2.5342-7.7256,5.957-.218-.9424-.3445-1.9189-.3445-2.9268,0-2.1162.4919-4.1328,1.4619-5.9951l-1.7739-.9238c-1.1042,2.1201-1.688,4.5127-1.688,6.9189,0,8.271,6.729,15,15,15,3.3738,0,6.5815-1.1191,9.2046-3.1665.2441.106.5125.1665.7954.1665,1.1045,0,2-.8955,2-2s-.8955-2-2-2-2,.8955-2,2c0,.0762.0142.1489.0225.2231-1.0796.8496-2.2776,1.5098-3.5493,1.9771.3315-.6641.5269-1.4072.5269-2.2002,0-1.6304-.7959-3.0669-2.0068-3.9805.0457-.3472.0769-.6978.0769-1.0498,0-.7856-.1257-1.54-.3381-2.2573.6995.2012,1.4346.3179,2.198.3179,3.7039,0,6.8191-2.5342,7.7256-5.957.218.9424.3445,1.9189.3445,2.9268,0,2.1162-.4919,4.1328-1.4619,5.9951l1.7739.9238Zm-17.7935,5.2646c-1.8389-.6807-3.49-1.7529-4.8325-3.1338-1.0366-1.1143-1.616-2.5527-1.616-4.0801,0-3.3081,2.6917-6,6-6s6,2.6919,6,6c0,.0498-.0125.0977-.0134.1475-.3413-.0737-.6936-.1172-1.0566-.1172-2.7571,0-5,2.2432-5,5,0,.7861.1924,1.5234.5186,2.1836Zm7.4814-2.1836c0,1.6543-1.3457,3-3,3s-3-1.3457-3-3,1.3457-3,3-3,3,1.3457,3,3Zm1.9299-8.9697c-3.3083,0-6-2.6919-6-6s2.6917-6,6-6c1.4294,0,2.7422.5039,3.7742,1.3418.3027.2739.5918.561.8677.8618.8479,1.0352,1.3582,2.3569,1.3582,3.7964,0,3.3081-2.6917,6-6,6Z"
+	}), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WatsonxAi = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WatsonxAi({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m26,24c-1.1046,0-2,.8954-2,2,0,.0764.0142.1488.0225.2229-2.2808,1.7963-5.0792,2.7771-8.0225,2.7771-4.2617,0-8-3.9722-8-8.5,0-4.687,3.813-8.5,8.5-8.5h.5v-2h-.5c-5.7896,0-10.5,4.7104-10.5,10.5,0,1.8839.5304,3.6896,1.4371,5.2565-2.7133-2.3843-4.4371-5.869-4.4371-9.7565,0-2.1152.4917-4.1328,1.4619-5.9956l-1.7744-.9238c-1.104,2.1211-1.6875,4.5137-1.6875,6.9194,0,8.271,6.729,15,15,15,3.3744,0,6.5818-1.1193,9.2048-3.1662.244.106.5123.1662.7952.1662,1.1046,0,2-.8954,2-2s-.8954-2-2-2Z" }), /* @__PURE__ */ bucket_20_jsx("path", {
+		d: "M11 20H13V22H11z",
+		transform: "rotate(90 12 21)"
+	}), /* @__PURE__ */ bucket_20_jsx("path", {
+		d: "M19 10H21V12H19z",
+		transform: "rotate(90 20 11)"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-3.3744,0-6.5818,1.1193-9.2048,3.1662-.244-.106-.5123-.1662-.7952-.1662-1.1046,0-2,.8954-2,2s.8954,2,2,2,2-.8954,2-2c0-.0764-.0142-.1488-.0225-.2229,2.2808-1.7963,5.0792-2.7771,8.0225-2.7771,4.2617,0,8,3.9722,8,8.5,0,4.687-3.813,8.5-8.5,8.5h-.5v2h.5c5.7896,0,10.5-4.7104,10.5-10.5,0-1.8853-.5322-3.6917-1.4401-5.2593,2.715,2.3843,4.4401,5.8704,4.4401,9.7593,0,2.1152-.4917,4.1328-1.4619,5.9956l1.7744.9238c1.104-2.1211,1.6875-4.5137,1.6875-6.9194C31,7.729,24.271,1,16,1Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WatsonxData = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WatsonxData({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m26,24c-1.1046,0-2,.8954-2,2,0,.0764.0142.1488.0225.2229-2.2808,1.7963-5.0792,2.7771-8.0225,2.7771-2.7746,0-5.3432-.881-7.4566-2.3676.2576.0261.517.0444.7798.0444,4.2329,0,7.6768-3.4438,7.6768-7.6768h-2c0,3.1304-2.5464,5.6768-5.6768,5.6768-2.2111,0-4.1977-1.2816-5.1318-3.2725-.1365-.2972-.2595-.6007-.3738-.9094.6602.322,1.3998.5051,2.1824.5051,2.7568,0,5-2.2432,5-5v-2h-2v2c0,1.6543-1.3457,3-3,3s-3-1.3457-3-3c0-2.1152.4917-4.1328,1.4619-5.9956l-1.7744-.9238c-1.104,2.1211-1.6875,4.5137-1.6875,6.9194,0,8.271,6.729,15,15,15,3.3744,0,6.5818-1.1193,9.2048-3.1662.244.106.5123.1662.7952.1662,1.1046,0,2-.8954,2-2s-.8954-2-2-2Z" }), /* @__PURE__ */ bucket_20_jsx("path", {
+		d: "M21 21H23V23H21z",
+		transform: "rotate(90 22 22)"
+	}), /* @__PURE__ */ bucket_20_jsx("path", {
+		d: "M15 15H17V17H15z",
+		transform: "rotate(90 16 16)"
+	}), /* @__PURE__ */ bucket_20_jsx("path", {
+		d: "M9 9H11V11H9z",
+		transform: "rotate(-90 10 10)"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-3.3744,0-6.5818,1.1193-9.2048,3.1662-.244-.106-.5123-.1662-.7952-.1662-1.1046,0-2,.8954-2,2s.8954,2,2,2,2-.8954,2-2c0-.0764-.0142-.1488-.0225-.2229,2.2808-1.7963,5.0792-2.7771,8.0225-2.7771,2.7708,0,5.3363.8784,7.4481,2.3613-.249-.0242-.5005-.038-.7547-.038-4.2329,0-7.6768,3.4438-7.6768,7.6768h2c0-3.1304,2.5464-5.6768,5.6768-5.6768,2.0554,0,3.9068,1.0953,4.9186,2.8651.2153.4283.4053.8701.5729,1.3237-.6615-.3234-1.4005-.5121-2.1849-.5121-2.7568,0-5,2.2432-5,5v2h2v-2c0-1.6543,1.3457-3,3-3s3,1.3457,3,3c0,2.1152-.4917,4.1328-1.4619,5.9956l1.7744.9238c1.104-2.1211,1.6875-4.5137,1.6875-6.9194C31,7.729,24.271,1,16,1Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WatsonxGovernance = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WatsonxGovernance({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m26,24c-1.1046,0-2,.8954-2,2,0,.0764.0142.1488.0225.2229-2.2808,1.7963-5.0792,2.7771-8.0225,2.7771-7.1685,0-13-5.8315-13-13,0-2.1152.4917-4.1328,1.4619-5.9956l-1.7744-.9238c-1.104,2.1211-1.6875,4.5137-1.6875,6.9194,0,8.271,6.729,15,15,15,3.3744,0,6.5818-1.1193,9.2048-3.1662.244.106.5123.1662.7952.1662,1.1046,0,2-.8954,2-2s-.8954-2-2-2Z" }), /* @__PURE__ */ bucket_20_jsx("path", {
+		d: "M11 23H13V25H11z",
+		transform: "rotate(90 12 24)"
+	}), /* @__PURE__ */ bucket_20_jsx("path", {
+		d: "M11 9H13V11H11z",
+		transform: "rotate(90 12 10)"
+	}), /* @__PURE__ */ bucket_20_jsx("path", {
+		d: "M11 16H13V18H11z",
+		transform: "rotate(90 12 17)"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-3.3744,0-6.5818,1.1193-9.2048,3.1662-.244-.106-.5123-.1662-.7952-.1662-1.1046,0-2,.8954-2,2s.8954,2,2,2,2-.8954,2-2c0-.0764-.0142-.1488-.0225-.2229,2.2808-1.7963,5.0792-2.7771,8.0225-2.7771,1.6543,0,3,1.3457,3,3s-1.3457,3-3,3h-1v2h1c2.7568,0,5-2.2432,5-5,0-.2399-.0203-.4748-.0531-.7057.9663,1.1348,1.5531,2.6021,1.5531,4.2057,0,3.584-2.916,6.5-6.5,6.5h-1v2h1c4.687,0,8.5-3.813,8.5-8.5,0-.7654-.1111-1.5036-.3017-2.2096,1.1321,1.6206,1.8017,3.587,1.8017,5.7096,0,5.5142-4.4858,10-10,10h-1v2h1c6.6167,0,12-5.3833,12-12,0-.8995-.1058-1.774-.2944-2.6176.8207,1.7031,1.2944,3.6038,1.2944,5.6176,0,2.1152-.4917,4.1328-1.4619,5.9956l1.7744.9238c1.104-2.1211,1.6875-4.5137,1.6875-6.9194C31,7.729,24.271,1,16,1Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WaveDirection = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WaveDirection({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22,30H17a7.0078,7.0078,0,0,1-7-7,6.6832,6.6832,0,0,1,2.0244-4.6967A6.7126,6.7126,0,0,0,10.0093,18C5.0425,18.0466,4,24.5513,4,30H2C2,18.4907,6.3452,16.0342,9.9907,16a10.0962,10.0962,0,0,1,4.4785,1.117,1,1,0,0,1,.0616,1.73A4.8773,4.8773,0,0,0,17,28h5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,24V22a8,8,0,1,0-8-8H8A10,10,0,1,1,18,24Z" }), /* @__PURE__ */ bucket_20_jsx("circle", {
+		cx: "18",
+		cy: "8",
+		r: "1"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M23,17.5859l-2.3-2.3007A2.9665,2.9665,0,0,0,21,14a3.0033,3.0033,0,0,0-3-3,2.9609,2.9609,0,0,0-1.2854.3008L14.4141,9,13,10.4141l2.3,2.3007A2.9665,2.9665,0,0,0,15,14a3.0033,3.0033,0,0,0,3,3,2.9609,2.9609,0,0,0,1.2854-.3008L21.5859,19ZM17,14a1,1,0,1,1,1,1A1.0009,1.0009,0,0,1,17,14Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WaveHeight = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WaveHeight({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M24 2H30V4H24z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M24 8H28V10H24z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M24 14H30V16H24z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M24 20H28V22H24z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,28H24a10.0349,10.0349,0,0,1-6.9268-17.2622A11.9629,11.9629,0,0,0,12.9937,10a6.9027,6.9027,0,0,0-6.0308,3.42C4.9966,16.4348,4,21.34,4,28H2c0-7.0542,1.106-12.3274,3.2871-15.6726A8.906,8.906,0,0,1,12.9937,8h.0068a14.762,14.762,0,0,1,6.4619,1.592,1,1,0,0,1,.0869,1.7222A8.0249,8.0249,0,0,0,24,26h6Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WavePeriod = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WavePeriod({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22,30H17a7.0078,7.0078,0,0,1-7-7,6.6832,6.6832,0,0,1,2.0244-4.6967A6.7935,6.7935,0,0,0,10.0093,18C5.0425,18.0466,4,24.5513,4,30H2C2,18.4907,6.3452,16.0342,9.9907,16a10.0717,10.0717,0,0,1,4.4785,1.117,1,1,0,0,1,.0616,1.73A4.8773,4.8773,0,0,0,17,28h5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M17 8H19V16H17z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28,5.4141,26.5859,4,24.3242,6.2617A9.95,9.95,0,0,0,19,4.0508V2H17V4.0508A10.0132,10.0132,0,0,0,8,14h2a8,8,0,1,1,8,8v2A9.9928,9.9928,0,0,0,25.7383,7.6758Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Waveform = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Waveform({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M19,19h-2v-6h2v6ZM4,10h-2v12h2v-12ZM14,10h-2v12h2v-12ZM24,10h-2v12h2v-12ZM9,6h-2v20h2V6ZM29,6h-2v20h2V6Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WeatherFrontCold = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WeatherFrontCold({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M28.1655,2a13.0289,13.0289,0,0,0-12.542,9.5791l-1.1767,4.3154A11.0237,11.0237,0,0,1,3.8345,24H2v2H3.8345c.2975,0,.5918-.0171.8853-.0371l7.9291,2.9736A1,1,0,0,0,14,28V21.0923a12.9311,12.9311,0,0,0,.9121-1.313l6.3628-1.8179a1,1,0,0,0,.5059-1.5864L17.7843,11.38a10.9268,10.9268,0,0,1,1.1516-2.3472l5.7477,1.916A1,1,0,0,0,26,10V4.2251A10.8956,10.8956,0,0,1,28.1655,4H30V2ZM8.3354,25.1826A13.047,13.047,0,0,0,12,23.0943v3.4624Zm7.74-7.8154c.1107-.3105.2136-.625.3013-.9463l.732-2.6846L19.28,16.4512ZM24,8.6123l-3.7411-1.247A11.0712,11.0712,0,0,1,24,4.8306Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M10 4 10 8.586 3.414 2 2 3.414 8.586 10 4 10 4 12 12 12 12 4 10 4z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WeatherFrontStationary = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WeatherFrontStationary({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M28.1655,2a12.9848,12.9848,0,0,0-8.4074,3.1065A3.9947,3.9947,0,1,0,15.583,11.728l-1.1362,4.1665c-.0725.2657-.1579.5254-.2489.7818a3.9864,3.9864,0,0,0-5.1547,6.0054A10.9541,10.9541,0,0,1,3.8345,24H2v2H3.8345c.2975,0,.5918-.0171.8853-.0371l7.9291,2.9736A1,1,0,0,0,14,28V21.0923a12.9311,12.9311,0,0,0,.9121-1.313l6.3628-1.8179a1,1,0,0,0,.5059-1.5864L17.7843,11.38a10.9268,10.9268,0,0,1,1.1516-2.3472l5.7477,1.916A1,1,0,0,0,26,10V4.2251A10.8956,10.8956,0,0,1,28.1655,4H30V2ZM17,6a1.98,1.98,0,0,1,1.3237.53A12.9413,12.9413,0,0,0,16.24,9.8482,1.9988,1.9988,0,0,1,17,6ZM10,20a1.9879,1.9879,0,0,1,3.3374-1.4717,11.0157,11.0157,0,0,1-2.5959,3.0147A1.9975,1.9975,0,0,1,10,20ZM8.3354,25.1826A13.047,13.047,0,0,0,12,23.0943v3.4624Zm7.74-7.8154c.1107-.3105.2136-.625.3013-.9463l.732-2.6846L19.28,16.4512ZM24,8.6123l-3.7411-1.247A11.0712,11.0712,0,0,1,24,4.8306Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22 22 22 24 26.586 24 22 28.586 23.414 30 28 25.414 28 30 30 30 30 22 22 22z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M2 2 2 4 6.586 4 2 8.586 3.414 10 8 5.414 8 10 10 10 10 2 2 2z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WeatherFrontWarm = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WeatherFrontWarm({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M28.1655,2a13.0289,13.0289,0,0,0-12.542,9.5791l-1.1767,4.3154A11.0237,11.0237,0,0,1,3.8345,24H2v2H3.8345a12.9139,12.9139,0,0,0,3.4687-.4819,3.9979,3.9979,0,1,0,6.5818-4.2866,12.9671,12.9671,0,0,0,1.6209-2.5269,3.9944,3.9944,0,1,0,2.3772-7.5991,10.95,10.95,0,0,1,1.7253-3.01,3.9825,3.9825,0,0,0,6.9058-3.9648A10.9435,10.9435,0,0,1,28.1655,4H30V2ZM11,26a1.9983,1.9983,0,0,1-1.8118-1.1655,13.0811,13.0811,0,0,0,3.2969-2.1426A1.9773,1.9773,0,0,1,11,26Zm8-11a1.9926,1.9926,0,0,1-2.759,1.8467c.0442-.1426.0959-.2813.1355-.4258L17.301,13.03A1.9976,1.9976,0,0,1,19,15Zm6-9a1.9942,1.9942,0,0,1-3.9011.5894,11.0511,11.0511,0,0,1,3.3623-1.9385A1.995,1.995,0,0,1,25,6Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M10 4 10 8.586 3.414 2 2 3.414 8.586 10 4 10 4 12 12 12 12 4 10 4z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WeatherStation = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WeatherStation({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M17,28V17h1a2.0023,2.0023,0,0,0,2-2V11a2.0023,2.0023,0,0,0-2-2H14a2.0023,2.0023,0,0,0-2,2v4a2.0023,2.0023,0,0,0,2,2h1V28H2v2H30V28ZM14,11h4l.0015,4H14Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M9.3325,18.2168a7.0007,7.0007,0,0,1,0-10.4341l1.334,1.49a5,5,0,0,0,0,7.4537Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22.667,18.2168l-1.334-1.49a4.9995,4.9995,0,0,0,0-7.4537l1.334-1.49a7,7,0,0,1,0,10.4341Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M6.3994,21.8008a11.0019,11.0019,0,0,1,0-17.6006L7.6,5.8a9.0009,9.0009,0,0,0,0,14.4014Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.6006,21.8008l-1.2012-1.6a9.001,9.001,0,0,0,0-14.4019l1.2012-1.6a11.002,11.002,0,0,1,0,17.6011Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WebServicesCluster = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WebServicesCluster({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,26c-.2559,0-.512-.0977-.707-.2928l-3-3c-.1953-.1953-.293-.4512-.293-.7071s.0977-.5118.293-.7072l3-3c.1951-.1952.451-.2928.707-.2928s.512.0977.707.2928l3,3c.1953.1953.293.4512.293.7071s-.0977.5118-.293.7072l-3,3c-.1951.1952-.4512.2928-.707.2928Zm-1.5857-4l1.5857,1.5858,1.5857-1.5858-1.5857-1.5858-1.5857,1.5858Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m22,20c-.2559,0-.512-.0977-.707-.2928l-3-3c-.1953-.1953-.293-.4512-.293-.7071s.0977-.5118.293-.7072l3-3c.1951-.1952.451-.2928.707-.2928s.512.0977.707.2928l3,3c.1953.1953.293.4512.293.7071s-.0977.5118-.293.7072l-3,3c-.1951.1952-.4512.2928-.707.2928Zm-1.5857-4l1.5857,1.5858,1.5857-1.5858-1.5857-1.5858-1.5857,1.5858Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,14c-.2559,0-.512-.0977-.707-.2928l-3-3c-.1953-.1953-.293-.4512-.293-.7071s.0977-.5118.293-.7072l3-3c.1951-.1952.451-.2928.707-.2928s.512.0977.707.2928l3,3c.1953.1953.293.4512.293.7071s-.0977.5118-.293.7072l-3,3c-.1951.1952-.4512.2928-.707.2928Zm-1.5857-4l1.5857,1.5858,1.5857-1.5858-1.5857-1.5858-1.5857,1.5858Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m10,20c-.2559,0-.512-.0977-.707-.2928l-3-3c-.1953-.1953-.293-.4512-.293-.7071s.0977-.5118.293-.7072l3-3c.1951-.1952.451-.2928.707-.2928s.512.0977.707.2928l3,3c.1953.1953.293.4512.293.7071s-.0977.5118-.293.7072l-3,3c-.1951.1952-.4512.2928-.707.2928Zm-1.5857-4l1.5857,1.5858,1.5857-1.5858-1.5857-1.5858-1.5857,1.5858Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-.1741,0-.3481.0454-.5039.1362L3.4961,8.1362c-.3071.1792-.4961.5081-.4961.8638v14c0,.3557.189.6846.4961.8638l12,7c.1558.0908.3298.1362.5039.1362s.3481-.0454.5039-.1362l11-6.4166-1.0078-1.7275-10.4961,6.1227-11-6.4166v-12.8513L16,3.1577l11,6.4166v7.4257h2v-8c0-.3557-.189-.6846-.4961-.8638L16.5039,1.1362c-.1558-.0908-.3298-.1362-.5039-.1362Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WebServicesContainer = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WebServicesContainer({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m22.5046,11.6367l-5.9883-3.5c-.1594-.0933-.3381-.1387-.5164-.1367-.1699.002-.3394.0474-.4915.1357l-6.0117,3.5c-.3076.1792-.4968.5083-.4968.8643v7c0,.356.1892.6851.4968.8643l6.0117,3.5c.1555.0903.3176.1357.4915.1357.1743,0,.3604-.0454.5164-.1367l5.9883-3.5c.3069-.1792.4954-.5078.4954-.8633v-7c0-.3555-.1885-.6841-.4954-.8633Zm-6.4939-1.479l4.0076,2.3423-4.0076,2.3423-4.0232-2.3423,4.0232-2.3423Zm-5.0107,4.0815l4,2.3291v4.6855l-4-2.3291v-4.6855Zm6,7.0249v-4.6836l4-2.3379v4.6836l-4,2.3379Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-.1741,0-.3481.0454-.5039.1362L3.4961,8.1362c-.3071.1792-.4961.5081-.4961.8638v14c0,.3557.189.6846.4961.8638l12,7c.1558.0908.3298.1362.5039.1362s.3481-.0454.5039-.1362l11-6.4166-1.0078-1.7275-10.4961,6.1227-11-6.4166v-12.8513L16,3.1577l11,6.4166v7.4257h2v-8c0-.3557-.189-.6846-.4961-.8638L16.5039,1.1362c-.1558-.0908-.3298-.1362-.5039-.1362Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WebServicesDefinition = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WebServicesDefinition({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M14 17H16V19H14z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M14 13H18V15H14z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m21,23h-10c-.5522,0-1-.4478-1-1v-12c0-.5522.4478-1,1-1h10c.5522,0,1,.4478,1,1v12c0,.5522-.4478,1-1,1Zm-9-2h8v-10h-8v10Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-.1741,0-.3481.0454-.5039.1362L3.4961,8.1362c-.3071.1792-.4961.5081-.4961.8638v14c0,.3557.189.6846.4961.8638l12,7c.1558.0908.3298.1362.5039.1362s.3481-.0454.5039-.1362l11-6.4166-1.0078-1.7275-10.4961,6.1227-11-6.4166v-12.8513L16,3.1577l11,6.4166v7.4257h2v-8c0-.3557-.189-.6846-.4961-.8638L16.5039,1.1362c-.1558-.0908-.3298-.1362-.5039-.1362Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WebServicesService = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WebServicesService({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m23,18h-2v-7h-7v-2h8c.5522,0,1,.4478,1,1v8Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m18,23h-8c-.5522,0-1-.4478-1-1v-8c0-.5522.4478-1,1-1h8c.5522,0,1,.4478,1,1v8c0,.5522-.4478,1-1,1Zm-7-2h6v-6h-6v6Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-.1741,0-.3481.0454-.5039.1362L3.4961,8.1362c-.3071.1792-.4961.5081-.4961.8638v14c0,.3557.189.6846.4961.8638l12,7c.1558.0908.3298.1362.5039.1362s.3481-.0454.5039-.1362l11-6.4166-1.0078-1.7275-10.4961,6.1227-11-6.4166v-12.8513L16,3.1577l11,6.4166v7.4257h2v-8c0-.3557-.189-.6846-.4961-.8638L16.5039,1.1362c-.1558-.0908-.3298-.1362-.5039-.1362Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WebServicesTask = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WebServicesTask({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M20 20.18 18.41 18.59 17 20 20 23 25 18 23.59 16.59 20 20.18z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m15,23h-4c-.5522,0-1-.4478-1-1v-12c0-.5522.4478-1,1-1h10c.5522,0,1,.4478,1,1v6h-2v-5h-8v10h3v2Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-.1741,0-.3481.0454-.5039.1362L3.4961,8.1362c-.3071.1792-.4961.5081-.4961.8638v14c0,.3557.189.6846.4961.8638l12,7c.1558.0908.3298.1362.5039.1362s.3481-.0454.5039-.1362l11-6.4166-1.0078-1.7275-10.4961,6.1227-11-6.4166v-12.8513L16,3.1577l11,6.4166v7.4257h2v-8c0-.3557-.189-.6846-.4961-.8638L16.5039,1.1362c-.1558-.0908-.3298-.1362-.5039-.1362Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WebServicesTaskDefinitionVersion = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WebServicesTaskDefinitionVersion({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M24 15 22.25 15 20 22.0312 17.7917 15.0003 16 15.0003 18.5 23 21.5 23 24 15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,23h-5c-.5522,0-1-.4478-1-1v-12c0-.5522.4478-1,1-1h10c.5522,0,1,.4478,1,1v4h-2v-3h-8v10h4v2Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-.1741,0-.3481.0454-.5039.1362L3.4961,8.1362c-.3071.1792-.4961.5081-.4961.8638v14c0,.3557.189.6846.4961.8638l12,7c.1558.0908.3298.1362.5039.1362s.3481-.0454.5039-.1362l11-6.4166-1.0078-1.7275-10.4961,6.1227-11-6.4166v-12.8513L16,3.1577l11,6.4166v7.4257h2v-8c0-.3557-.189-.6846-.4961-.8638L16.5039,1.1362c-.1558-.0908-.3298-.1362-.5039-.1362Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Webhook = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Webhook({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M24,26a3,3,0,1,0-2.8164-4H13v1a5,5,0,1,1-5-5V16a7,7,0,1,0,6.9287,8h6.2549A2.9914,2.9914,0,0,0,24,26Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M24,16a7.024,7.024,0,0,0-2.57.4873l-3.1656-5.5395a3.0469,3.0469,0,1,0-1.7326.9985l4.1189,7.2085.8686-.4976a5.0006,5.0006,0,1,1-1.851,6.8418L17.937,26.501A7.0005,7.0005,0,1,0,24,16Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8.532,20.0537a3.03,3.03,0,1,0,1.7326.9985C11.74,18.47,13.86,14.7607,13.89,14.708l.4976-.8682-.8677-.497a5,5,0,1,1,6.812-1.8438l1.7315,1.002a7.0008,7.0008,0,1,0-10.3462,2.0356c-.457.7427-1.1021,1.8716-2.0737,3.5728Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Websheet = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Websheet({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("circle", {
+		cx: "24",
+		cy: "24",
+		r: "2"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M24,30a6,6,0,1,1,6-6A6.0069,6.0069,0,0,1,24,30Zm0-10a4,4,0,1,0,4,4A4.0045,4.0045,0,0,0,24,20Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,28H8V4h8v6a2.0058,2.0058,0,0,0,2,2h6v3h2V10a.9092.9092,0,0,0-.3-.7l-7-7A.9087.9087,0,0,0,18,2H8A2.0058,2.0058,0,0,0,6,4V28a2.0058,2.0058,0,0,0,2,2h8ZM18,4.4,23.6,10H18Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Wheat = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Wheat({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M21,3V5.5857l-4,4V1H15V9.5857l-4-4V3H9V19a7.004,7.004,0,0,0,6,6.92V30h2V25.92A7.004,7.004,0,0,0,23,19V3ZM15,23.8987A5.008,5.008,0,0,1,11,19v-2.586l4,4Zm0-6.313-4-4V8.4138l4,4Zm2-5.1719,4-4v5.1719l-4,4Zm0,11.4849V20.4138l4-4V19A5.008,5.008,0,0,1,17,23.8987Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WhileLoop = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WhileLoop({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M23,23h7v7h-2v-3.3518c-1.6447,2.0408-4.1525,3.3516-7.0002,3.3516l-9.9998.0002c-5,0-9-4-9-9v-8h2v8c0,3.8999,3.1,7,7,7h10c2.4032,0,4.4943-1.1841,5.7518-3h-3.7518v-2ZM9,7h-3.7518c1.2575-1.8159,3.3486-3,5.7518-3h10c3.9,0,7,3.1001,7,7v8h2v-8c0-5-4-9-9-9l-9.9998.0002c-2.8477,0-5.3555,1.3108-7.0002,3.3516V2h-2v7h7v-2ZM13.957,22l1.5303-6.3457.7739-3.1641h.0347l.7393,3.1641,1.5308,6.3457h2.562l2.8721-12.0029h-2.167l-1.2207,5.7607-.7568,3.6797h-.0518l-.8423-3.6797-1.376-5.7607h-2.5107l-1.3755,5.7607-.8599,3.6797h-.0518l-.7393-3.6797-1.1865-5.7607h-2.27l2.7856,12.0029h2.5796Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WhitePaper = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WhitePaper({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22 27.1798 19.41 24.5899 18 26 22 30 30 22 28.5899 20.59 22 27.1798z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M9 17H16V19H9z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M9 12H21V14H9z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M9 7H21V9H9z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,30H6c-1.103,0-2-.8972-2-2V4c0-1.1028.897-2,2-2h18c1.103,0,2,.8972,2,2v15h-2V4H6v24h10v2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Wifi = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Wifi({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("circle", {
+		cx: "16",
+		cy: "25",
+		r: "2"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M10.47,19.2334l1.4136,1.4131a5.9688,5.9688,0,0,1,8.2229-.0093L21.52,19.2236a7.9629,7.9629,0,0,0-11.05.01Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M6.229,14.9927l1.4136,1.4135a11.955,11.955,0,0,1,16.7041-.01L25.76,14.9829a13.9514,13.9514,0,0,0-19.5313.01Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,10.7412a19.94,19.94,0,0,0-28,0v.0225L3.4043,12.168a17.9336,17.9336,0,0,1,25.1811-.01L30,10.7432Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WifiController = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WifiController({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M6,30H26a2,2,0,0,0,2-2V22a2,2,0,0,0-2-2H6a2,2,0,0,0-2,2v6A2,2,0,0,0,6,30Zm0-8H26v6H6Z" }), /* @__PURE__ */ bucket_20_jsx("circle", {
+		cx: "9",
+		cy: "25",
+		r: "1"
+	}), /* @__PURE__ */ bucket_20_jsx("circle", {
+		cx: "16",
+		cy: "14.5",
+		r: "1.5"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M10.7832,10.3325a7.0007,7.0007,0,0,1,10.4341,0l-1.49,1.334a5,5,0,0,0-7.4537,0Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M7.1992,7.3994a11.0019,11.0019,0,0,1,17.6006,0L23.2,8.6a9.0009,9.0009,0,0,0-14.4014.0005Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WifiNotSecure = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WifiNotSecure({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M20,20H14V17a2,2,0,0,1,4,0h2a4,4,0,0,0-8,0v3a2.0025,2.0025,0,0,0-2,2v6a2.0025,2.0025,0,0,0,2,2h8a2.0025,2.0025,0,0,0,2-2V22A2.0025,2.0025,0,0,0,20,20Zm0,8H12V22h8Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,8a8.9709,8.9709,0,0,0-6.3608,2.6392l1.4133,1.4135a6.9887,6.9887,0,0,1,9.895,0l1.4135-1.4135A8.9717,8.9717,0,0,0,16,8Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M6.105,7.105,7.5188,8.5186a11.9808,11.9808,0,0,1,16.9624,0L25.8949,7.105a13.9782,13.9782,0,0,0-19.79,0Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WifiOff = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WifiOff({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("circle", {
+		cx: "16",
+		cy: "25",
+		r: "2"
+	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,3.4141,28.5859,2,2,28.5859,3.4141,30,14.0962,19.3179a5.9359,5.9359,0,0,1,6.01,1.3193L21.52,19.2236a7.9669,7.9669,0,0,0-5.125-2.2041l3.3875-3.3877a11.9908,11.9908,0,0,1,4.5647,2.7647L25.76,14.9829A13.975,13.975,0,0,0,21.334,12.08L24.3308,9.083a17.9364,17.9364,0,0,1,4.2546,3.0747L30,10.7432v-.002a20.02,20.02,0,0,0-4.1895-3.1377Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M14.68,13.0776l2.0415-2.0415C16.481,11.0234,16.2437,11,16,11a13.9447,13.9447,0,0,0-9.771,3.9927l1.4136,1.4136A11.97,11.97,0,0,1,14.68,13.0776Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,7a17.87,17.87,0,0,1,4.2324.5254L21.875,5.8828A19.9537,19.9537,0,0,0,2,10.7412v.0225L3.4043,12.168A17.9193,17.9193,0,0,1,16,7Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WifiSecure = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WifiSecure({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M20,20V17a4,4,0,0,0-8,0v3a2.0025,2.0025,0,0,0-2,2v6a2.0025,2.0025,0,0,0,2,2h8a2.0025,2.0025,0,0,0,2-2V22A2.0025,2.0025,0,0,0,20,20Zm-6-3a2,2,0,0,1,4,0v3H14ZM12,28V22h8v6Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M6.105,7.105,7.5188,8.5186a11.9808,11.9808,0,0,1,16.9624,0L25.8949,7.105a13.9782,13.9782,0,0,0-19.79,0Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,8a8.9709,8.9709,0,0,0-6.3608,2.6392l1.4133,1.4135a6.9887,6.9887,0,0,1,9.895,0l1.4135-1.4135A8.9717,8.9717,0,0,0,16,8Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WifiBridge = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WifiBridge({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M6.9492,20.95l-1.414-1.4141a5,5,0,0,0,0-7.0715L6.9492,11.05a7,7,0,0,1,0,9.9Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M10.4854,24.4854,9.0713,23.0713a10.0011,10.0011,0,0,0,0-14.1426l1.4141-1.4141a12.0006,12.0006,0,0,1,0,16.9708Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.0508,20.95a7,7,0,0,1,0-9.9l1.414,1.4146a5,5,0,0,0,0,7.0715Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M21.5146,24.4854a12.0006,12.0006,0,0,1,0-16.9708l1.4141,1.4141a10.0011,10.0011,0,0,0,0,14.1426Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M3,15H2V4H0V28H2V17H3a1,1,0,0,0,0-2Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,4V15H29a1,1,0,0,0,0,2h1V28h2V4Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WifiBridgeAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WifiBridgeAlt({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M13,26H11a5.0057,5.0057,0,0,0-5-5V19A7.0078,7.0078,0,0,1,13,26Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,26H16A10.0113,10.0113,0,0,0,6,16V14A12.0137,12.0137,0,0,1,18,26Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,13a7.0078,7.0078,0,0,1-7-7h2a5.0057,5.0057,0,0,0,5,5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,18A12.0137,12.0137,0,0,1,14,6h2A10.0113,10.0113,0,0,0,26,16Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M7.707,24.293a.9994.9994,0,0,0-1.414,0L2,28.5859,3.4143,30,7.707,25.707A.9994.9994,0,0,0,7.707,24.293Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28.5859,2,24.293,6.293a1,1,0,0,0,1.414,1.414L30,3.4141Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Wikis = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Wikis({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,2A14,14,0,1,0,30,16,14,14,0,0,0,16,2ZM28,15H22A24.26,24.26,0,0,0,19.21,4.45,12,12,0,0,1,28,15ZM16,28a5,5,0,0,1-.67,0A21.85,21.85,0,0,1,12,17H20a21.85,21.85,0,0,1-3.3,11A5,5,0,0,1,16,28ZM12,15a21.85,21.85,0,0,1,3.3-11,6,6,0,0,1,1.34,0A21.85,21.85,0,0,1,20,15Zm.76-10.55A24.26,24.26,0,0,0,10,15h-6A12,12,0,0,1,12.79,4.45ZM4.05,17h6a24.26,24.26,0,0,0,2.75,10.55A12,12,0,0,1,4.05,17ZM19.21,27.55A24.26,24.26,0,0,0,22,17h6A12,12,0,0,1,19.21,27.55Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WindGusts = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WindGusts({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.3164,8.0513l-18-6A1,1,0,0,0,10.4,2.2L4,7V2H2V30H4V11l6.4,4.8a1,1,0,0,0,.9165.1489l18-6a1,1,0,0,0,0-1.8974ZM10,13,4.6665,9,10,5Zm4-.0542-2,.667V4.3872l2,.667Zm4-1.333-2,.6665V5.7207l2,.6665Zm2-.667V7.0542L25.8379,9Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M20,22a4,4,0,0,0-8,0h2a2,2,0,1,1,2,2H8v2h8A4.0045,4.0045,0,0,0,20,22Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,22a4.0045,4.0045,0,0,0-4,4h2a2,2,0,1,1,2,2H12v2H26a4,4,0,0,0,0-8Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WindPower = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WindPower({ children, size = 16, ...rest }, ref) {
+	return bucket_20_React.createElement(bucket_20_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M17,28V15.8159a3.0059,3.0059,0,0,0,1.47-1.1186L27.063,17l.5176-1.9321-8.6045-2.3052a2.985,2.985,0,0,0-2.63-2.7275L14.1938,2l-1.9316.5186,2.1318,7.956a2.9588,2.9588,0,0,0-1.093,3.8115L7,20.5859,8.415,22l6.3-6.3A2.8938,2.8938,0,0,0,15,15.8154V28H2v2H30V28Zm0-15a1,1,0,1,1-1-1A1.0008,1.0008,0,0,1,17,13Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+//#endregion
+
+
+;// ./node_modules/@carbon/react/es/internal/useNormalizedInputProps.js
+/**
+ * Copyright IBM Corp. 2016, 2026
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+
+
+
+//#region src/internal/useNormalizedInputProps.tsx
+/**
+* Returns an object containing normalized properties for an input component.
+*
+* This hook ensures that only one of `invalid` or `warn` is active (with
+* `invalid` taking precedence) and that `readOnly` overrides the `disabled`,
+* `invalid`, and `warn` states. It generates unique IDs for error, warning, and
+* helper messages, and conditionally provides the appropriate validation
+* message and accompanying icon.
+*/
+const useNormalizedInputProps = ({ id, readOnly, disabled, invalid, invalidText, warn, warnText }) => {
+	const prefix = usePrefix();
+	const normalizedProps = {
+		disabled: !readOnly && disabled,
+		invalid: !readOnly && !disabled && invalid,
+		invalidId: `${id}-error-msg`,
+		warn: !readOnly && !invalid && !disabled && warn,
+		warnId: `${id}-warn-msg`,
+		validation: null,
+		icon: null,
+		helperId: `${id}-helper-text`
+	};
+	if (normalizedProps.invalid) {
+		normalizedProps.icon = WarningFilled;
+		normalizedProps.validation = /* @__PURE__ */ (0,jsx_runtime.jsx)(Text, {
+			as: "div",
+			className: `${prefix}--form-requirement`,
+			id: normalizedProps.invalidId,
+			children: invalidText
+		});
+	} else if (normalizedProps.warn) {
+		normalizedProps.icon = WarningAltFilled;
+		normalizedProps.validation = /* @__PURE__ */ (0,jsx_runtime.jsx)(Text, {
+			as: "div",
+			className: `${prefix}--form-requirement`,
+			id: normalizedProps.warnId,
+			children: warnText
+		});
+	}
+	return normalizedProps;
+};
+//#endregion
+
+
+;// ./node_modules/@carbon/react/es/tools/mergeRefs.js
+/**
+ * Copyright IBM Corp. 2016, 2026
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+//#region src/tools/mergeRefs.ts
+/**
+* @param refs Refs to merge.
+* @returns Merged ref.
+*/
+const mergeRefs = (...refs) => {
+	return (value) => {
+		refs.forEach((ref) => {
+			if (!ref) return;
+			if (typeof ref === "function") ref(value);
+			else if (typeof ref === "object" && "current" in ref) ref.current = value;
+		});
+	};
+};
+//#endregion
+
+
+;// ./node_modules/@carbon/react/es/components/RadioButton/RadioButton.js
+/**
+ * Copyright IBM Corp. 2016, 2026
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+//#region src/components/RadioButton/RadioButton.tsx
+/**
+* Copyright IBM Corp. 2016, 2025
+*
+* This source code is licensed under the Apache-2.0 license found in the
+* LICENSE file in the root directory of this source tree.
+*/
+const RadioButton = consume_shared_module_default_react_singleton_default().forwardRef((props, ref) => {
+	const { className, decorator, disabled = false, hideLabel, id, labelPosition = "right", labelText = "", name, onChange = () => {}, value = "", slug, required, invalid = false, invalidText, warn = false, warnText, readOnly, ...rest } = props;
+	const prefix = usePrefix();
+	const uid = useId("radio-button");
+	const uniqueId = id || uid;
+	const normalizedProps = useNormalizedInputProps({
+		id: uniqueId,
+		readOnly,
+		disabled,
+		invalid,
+		invalidText,
+		warn,
+		warnText
+	});
+	function handleOnChange(event) {
+		onChange(value, name, event);
+	}
+	const innerLabelClasses = classnames_default()(`${prefix}--radio-button__label-text`, { [`${prefix}--visually-hidden`]: hideLabel });
+	const wrapperClasses = classnames_default()(className, `${prefix}--radio-button-wrapper`, {
+		[`${prefix}--radio-button-wrapper--label-${labelPosition}`]: labelPosition !== "right",
+		[`${prefix}--radio-button-wrapper--slug`]: slug,
+		[`${prefix}--radio-button-wrapper--decorator`]: decorator,
+		[`${prefix}--radio-button-wrapper--invalid`]: normalizedProps.invalid,
+		[`${prefix}--radio-button-wrapper--warning`]: normalizedProps.warn
+	});
+	const inputRef = (0,consume_shared_module_default_react_singleton_.useRef)(null);
+	const candidate = slug ?? decorator;
+	const normalizedDecorator = isComponentElement(candidate, AILabel) ? (0,consume_shared_module_default_react_singleton_.cloneElement)(candidate, { size: candidate.props?.["kind"] === "inline" ? "md" : "mini" }) : candidate;
+	return /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", {
+		className: wrapperClasses,
+		children: [
+			/* @__PURE__ */ (0,jsx_runtime.jsx)("input", {
+				...rest,
+				type: "radio",
+				className: `${prefix}--radio-button`,
+				onChange: handleOnChange,
+				id: uniqueId,
+				ref: mergeRefs(inputRef, ref),
+				disabled: normalizedProps.disabled,
+				value,
+				name,
+				required,
+				readOnly
+			}),
+			/* @__PURE__ */ (0,jsx_runtime.jsxs)("label", {
+				htmlFor: uniqueId,
+				className: `${prefix}--radio-button__label`,
+				children: [/* @__PURE__ */ (0,jsx_runtime.jsx)("span", { className: `${prefix}--radio-button__appearance` }), labelText && /* @__PURE__ */ (0,jsx_runtime.jsxs)(Text, {
+					className: innerLabelClasses,
+					children: [labelText, slug ? normalizedDecorator : decorator ? /* @__PURE__ */ (0,jsx_runtime.jsx)("div", {
+						className: `${prefix}--radio-button-wrapper-inner--decorator`,
+						children: normalizedDecorator
+					}) : ""]
+				})]
+			}),
+			normalizedProps.validation
+		]
+	});
+});
+RadioButton.displayName = "RadioButton";
+RadioButton.propTypes = {
+	checked: (prop_types_default()).bool,
+	className: (prop_types_default()).string,
+	decorator: (prop_types_default()).node,
+	defaultChecked: (prop_types_default()).bool,
+	disabled: (prop_types_default()).bool,
+	hideLabel: (prop_types_default()).bool,
+	id: (prop_types_default()).string,
+	labelPosition: prop_types_default().oneOf(["right", "left"]),
+	labelText: (prop_types_default()).node.isRequired,
+	name: (prop_types_default()).string,
+	onChange: (prop_types_default()).func,
+	onClick: (prop_types_default()).func,
+	required: (prop_types_default()).bool,
+	invalid: (prop_types_default()).bool,
+	invalidText: (prop_types_default()).node,
+	warn: (prop_types_default()).bool,
+	warnText: (prop_types_default()).node,
+	readOnly: (prop_types_default()).bool,
+	slug: deprecate((prop_types_default()).node, "The `slug` prop has been deprecated and will be removed in the next major version. Use the decorator prop instead."),
+	value: prop_types_default().oneOfType([(prop_types_default()).string, (prop_types_default()).number])
+};
+//#endregion
+
+
 ;// ./node_modules/@carbon/react/es/tools/events.js
 /**
  * Copyright IBM Corp. 2016, 2026
@@ -21756,107 +23918,6 @@ TableBatchAction.propTypes = {
 //#endregion
 
 
-;// ./node_modules/@carbon/react/es/components/Text/TextDirectionContext.js
-/**
- * Copyright IBM Corp. 2016, 2026
- *
- * This source code is licensed under the Apache-2.0 license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-//#region src/components/Text/TextDirectionContext.ts
-/**
-* Copyright IBM Corp. 2016, 2026
-*
-* This source code is licensed under the Apache-2.0 license found in the
-* LICENSE file in the root directory of this source tree.
-*/
-const TextDirectionContext = (0,consume_shared_module_default_react_singleton_.createContext)({
-	direction: "auto",
-	getTextDirection: { current: void 0 }
-});
-//#endregion
-
-
-;// ./node_modules/@carbon/react/es/components/Text/Text.js
-/**
- * Copyright IBM Corp. 2016, 2026
- *
- * This source code is licensed under the Apache-2.0 license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-
-
-//#region src/components/Text/Text.tsx
-/**
-* Copyright IBM Corp. 2016, 2026
-*
-* This source code is licensed under the Apache-2.0 license found in the
-* LICENSE file in the root directory of this source tree.
-*/
-const Text = (0,consume_shared_module_default_react_singleton_.forwardRef)(({ as, children, dir = "auto", ...rest }, ref) => {
-	const context = (0,consume_shared_module_default_react_singleton_.useContext)(TextDirectionContext);
-	const textProps = {};
-	const BaseComponent = as ?? "span";
-	const value = { ...context };
-	if (!context) {
-		textProps.dir = dir;
-		value.direction = dir;
-	} else {
-		const { direction: parentDirection, getTextDirection } = context;
-		if (getTextDirection && getTextDirection.current) {
-			const text = getTextFromChildren(children);
-			const override = getTextDirection.current(text);
-			if (parentDirection !== override) {
-				textProps.dir = override;
-				value.direction = override;
-			} else if (parentDirection === "auto") textProps.dir = override;
-		} else if (parentDirection !== dir) {
-			textProps.dir = dir;
-			value.direction = dir;
-		} else if (parentDirection === "auto") textProps.dir = dir;
-	}
-	return /* @__PURE__ */ (0,jsx_runtime.jsx)(TextDirectionContext.Provider, {
-		value,
-		children: /* @__PURE__ */ (0,jsx_runtime.jsx)(BaseComponent, {
-			ref,
-			...rest,
-			...textProps,
-			children
-		})
-	});
-});
-Text.propTypes = {
-	as: prop_types_default().oneOfType([
-		(prop_types_default()).func,
-		(prop_types_default()).string,
-		(prop_types_default()).elementType
-	]),
-	children: (prop_types_default()).node,
-	dir: prop_types_default().oneOf([
-		"ltr",
-		"rtl",
-		"auto"
-	])
-};
-const getTextFromChildren = (children) => {
-	if (typeof children === "string") return children;
-	const text = consume_shared_module_default_react_singleton_.Children.map(children, (child) => {
-		if (typeof child === "string") return child;
-		return null;
-	})?.filter((text) => {
-		return text !== null;
-	});
-	if (text?.length === 1) return text[0];
-	return text;
-};
-//#endregion
-
-
 ;// ./node_modules/@carbon/react/es/components/DataTable/TableBatchActions.js
 /**
  * Copyright IBM Corp. 2016, 2026
@@ -22237,2065 +24298,6 @@ TableSelectAll.propTypes = {
 	indeterminate: (prop_types_default()).bool,
 	name: (prop_types_default()).string.isRequired,
 	onSelect: (prop_types_default()).func.isRequired
-};
-//#endregion
-
-
-;// ./node_modules/@carbon/icons-react/es/generated/bucket-20.js
-/* unused harmony import specifier */ var bucket_20_Icon;
-/* unused harmony import specifier */ var bucket_20_React;
-/* unused harmony import specifier */ var bucket_20_jsx;
-/**
-* Copyright IBM Corp. 2016, 2023
-*
-* This source code is licensed under the Apache-2.0 license found in the
-* LICENSE file in the root directory of this source tree.
-*
-* Code generated by @carbon/icon-build-helpers. DO NOT EDIT.
-*/
-
-
-
-
-//#region virtual:generated/bucket-20.js
-const bucket_20_didWarnAboutDeprecation = {};
-const UserProfile = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserProfile({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M12,4A5,5,0,1,1,7,9a5,5,0,0,1,5-5m0-2a7,7,0,1,0,7,7A7,7,0,0,0,12,2Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22,30H20V25a5,5,0,0,0-5-5H9a5,5,0,0,0-5,5v5H2V25a7,7,0,0,1,7-7h6a7,7,0,0,1,7,7Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22 4H32V6H22z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22 9H32V11H22z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22 14H29V16H22z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const UserRole = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserRole({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M28.07 21 22 15 28.07 9 29.5 10.41 24.86 15 29.5 19.59 28.07 21z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22,30H20V25a5,5,0,0,0-5-5H9a5,5,0,0,0-5,5v5H2V25a7,7,0,0,1,7-7h6a7,7,0,0,1,7,7Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M12,4A5,5,0,1,1,7,9a5,5,0,0,1,5-5m0-2a7,7,0,1,0,7,7A7,7,0,0,0,12,2Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const UserService = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserService({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", {
-		strokeWidth: "0",
-		d: "m23.019,10.4332c-.595.3514-1.2795.5668-2.019.5668-2.2056,0-4-1.7944-4-4,0-.3557.0615-.6943.1492-1.0228l2.4368,2.4368.0005-.0004c.3621.3621.8621.5864,1.4136.5864,1.103,0,2-.897,2-2,0-.5515-.2242-1.0515-.5864-1.4136l.0005-.0004-2.4368-2.4368c.3284-.0875.667-.1491,1.0227-.1491,2.2056,0,4,1.7944,4,4,0,.7396-.2155,1.4241-.5669,2.0191l5.5669,5.5668-1.4141,1.4141-5.5669-5.5668Z"
-	}), /* @__PURE__ */ bucket_20_jsx("path", {
-		strokeWidth: "0",
-		d: "m16,30h-2v-5c-.0018-1.6561-1.3439-2.9982-3-3h-4c-1.6561.0018-2.9982,1.3439-3,3v5h-2v-5c.0033-2.7601,2.2399-4.9967,5-5h4c2.7601.0033,4.9967,2.2399,5,5v5Z"
-	}), /* @__PURE__ */ bucket_20_jsx("path", {
-		strokeWidth: "0",
-		d: "m9,10c1.6569,0,3,1.3431,3,3s-1.3431,3-3,3-3-1.3431-3-3c.0019-1.6561,1.3439-2.9981,3-3m0-2c-2.7614,0-5,2.2386-5,5s2.2386,5,5,5,5-2.2386,5-5-2.2386-5-5-5Z"
-	}), children);
-})));
-if (false) // removed by dead control flow
-{}
-const UserServiceDesk = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserServiceDesk({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.334,11.95l1.2055-1.206a1.178,1.178,0,0,1,1.2593-.2584l1.4693.5868A1.1736,1.1736,0,0,1,30,12.1489v2.692A1.1681,1.1681,0,0,1,28.8229,16l-.05-.0015C18.4775,15.3578,16.4,6.6357,16.0073,3.2976a1.1681,1.1681,0,0,1,1.0315-1.29A1.1492,1.1492,0,0,1,17.1751,2h2.5994a1.1626,1.1626,0,0,1,1.0764.7322l.5866,1.47a1.1635,1.1635,0,0,1-.2529,1.26L19.9791,6.668S20.6733,11.3682,25.334,11.95Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,30H14V25a3.0033,3.0033,0,0,0-3-3H7a3.0033,3.0033,0,0,0-3,3v5H2V25a5.0059,5.0059,0,0,1,5-5h4a5.0059,5.0059,0,0,1,5,5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M9,10a3,3,0,1,1-3,3,3,3,0,0,1,3-3M9,8a5,5,0,1,0,5,5A5,5,0,0,0,9,8Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const UserSettings = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserSettings({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,10V8H27.8989a4.9678,4.9678,0,0,0-.7319-1.7529l1.49-1.49-1.414-1.414-1.49,1.49A4.9678,4.9678,0,0,0,24,4.1011V2H22V4.1011a4.9678,4.9678,0,0,0-1.7529.7319l-1.49-1.49-1.414,1.414,1.49,1.49A4.9678,4.9678,0,0,0,18.1011,8H16v2h2.1011a4.9678,4.9678,0,0,0,.7319,1.7529l-1.49,1.49,1.414,1.414,1.49-1.49A4.9678,4.9678,0,0,0,22,13.8989V16h2V13.8989a4.9678,4.9678,0,0,0,1.7529-.7319l1.49,1.49,1.414-1.414-1.49-1.49A4.9678,4.9678,0,0,0,27.8989,10Zm-7,2a3,3,0,1,1,3-3A3.0033,3.0033,0,0,1,23,12Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,30H14V25a3.0033,3.0033,0,0,0-3-3H7a3.0033,3.0033,0,0,0-3,3v5H2V25a5.0059,5.0059,0,0,1,5-5h4a5.0059,5.0059,0,0,1,5,5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M9,10a3,3,0,1,1-3,3,3,3,0,0,1,3-3M9,8a5,5,0,1,0,5,5A5,5,0,0,0,9,8Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const UserSimulation = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserSimulation({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", {
-		d: "M25.232 12.866H29.232V14.866H25.232z",
-		transform: "rotate(30 27.232 13.866)"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26 8H30V10H26z" }), /* @__PURE__ */ bucket_20_jsx("path", {
-		d: "M2.768 12.866H6.768V14.866H2.768z",
-		transform: "rotate(150 4.768 13.866)"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,30H24V25a5.0059,5.0059,0,0,0-5-5H13a5.0059,5.0059,0,0,0-5,5v5H6V25a7.0082,7.0082,0,0,1,7-7h6a7.0082,7.0082,0,0,1,7,7Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,4a5,5,0,1,1-5,5,5,5,0,0,1,5-5m0-2a7,7,0,1,0,7,7A7,7,0,0,0,16,2Z" }), /* @__PURE__ */ bucket_20_jsx("path", {
-		d: "M25.232 3.134H29.232V5.134H25.232z",
-		transform: "rotate(-30 27.232 4.134)"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M2 8H6V10H2z" }), /* @__PURE__ */ bucket_20_jsx("path", {
-		d: "M2.768 3.134H6.768V5.134H2.768z",
-		transform: "rotate(210 4.768 4.134)"
-	}), children);
-})));
-if (false) // removed by dead control flow
-{}
-const UserSpeaker = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserSpeaker({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.4146,19,27.7,17.2852A2.97,2.97,0,0,0,28,16a3,3,0,1,0-3,3,2.97,2.97,0,0,0,1.2864-.3L28,20.4141V28H22V25a7.0078,7.0078,0,0,0-7-7H9a7.008,7.008,0,0,0-7,7v5H30V20.4141A1.988,1.988,0,0,0,29.4146,19ZM4,25a5.006,5.006,0,0,1,5-5h6a5.0059,5.0059,0,0,1,5,5v3H4Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M12,4A5,5,0,1,1,7,9a5,5,0,0,1,5-5m0-2a7,7,0,1,0,7,7A7,7,0,0,0,12,2Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const UserSponsor = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserSponsor({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M31.8301 13.3662 30.8301 11.6338 28 13.2681 28 10 26 10 26 13.2676 23.1699 11.6338 22.1699 13.3662 25 15 22.1699 16.6338 23.1699 18.3662 26 16.7324 26 20 28 20 28 16.7319 30.8301 18.3662 31.8301 16.6338 29 15 31.8301 13.3662z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m22,30h-2v-5c-.0033-2.7601-2.2399-4.9967-5-5h-6c-2.7601.0033-4.9967,2.2399-5,5v5h-2v-5c.0045-3.8641,3.1359-6.9955,7-7h6c3.8641.0045,6.9955,3.1359,7,7v5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m12,4c2.7614,0,5,2.2386,5,5s-2.2386,5-5,5-5-2.2386-5-5c.0031-2.7601,2.2399-4.9969,5-5m0-2c-3.866,0-7,3.134-7,7s3.134,7,7,7,7-3.134,7-7-3.134-7-7-7Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const UserXRay = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserXRay({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", {
-		fill: "none",
-		d: "M28 9 28 7 25 7 25 5 23 5 23 7 20 7 20 9 23 9 23 12 20 12 20 14 23 14 23 16 25 16 25 14 28 14 28 12 25 12 25 9 28 9z"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M31,3H17a1,1,0,0,0-1,1V17a1,1,0,0,0,1,1H31a1,1,0,0,0,1-1V4A1,1,0,0,0,31,3ZM28,9H25v3h3v2H25v2H23V14H20V12h3V9H20V7h3V5h2V7h3Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15,30H13V26a2.9465,2.9465,0,0,0-3-3H6a2.9465,2.9465,0,0,0-3,3v4H1V26a4.9514,4.9514,0,0,1,5-5h4a4.9514,4.9514,0,0,1,5,5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8,11a3,3,0,0,1,0,6,3,3,0,0,1,0-6M8,9A5,5,0,0,0,8,19,5,5,0,0,0,8,9Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const UserProfileAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UserProfileAlt({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M19 13H26V15H19z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M19 8H30V10H19z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M19 3H30V5H19z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M11,30H7a2.0059,2.0059,0,0,1-2-2V21a2.0059,2.0059,0,0,1-2-2V13a2.9465,2.9465,0,0,1,3-3h6a2.9465,2.9465,0,0,1,3,3v6a2.0059,2.0059,0,0,1-2,2v7A2.0059,2.0059,0,0,1,11,30ZM6,12a.9448.9448,0,0,0-1,1v6H7v9h4V19h2V13a.9448.9448,0,0,0-1-1Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M9,9a4,4,0,1,1,4-4h0A4.0118,4.0118,0,0,1,9,9ZM9,3a2,2,0,1,0,2,2h0A2.0059,2.0059,0,0,0,9,3Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const UvIndex = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UvIndex({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,5.9121l1.7444,2.9326.7822,1.315,1.4739-.4107,3.1206-.87L22.2512,12,21.84,13.4731l1.315.7823L26.0876,16l-2.9323,1.7441-1.315.7818L22.2512,20l.87,3.1211-3.1208-.87L18.5266,21.84l-.7822,1.315L16,26.0879l-1.7444-2.9326-.7822-1.315L12,22.251l-3.1208.87L9.7488,20l.4109-1.4741-1.315-.7818L5.9124,16l2.9323-1.7446,1.315-.7823L9.7488,12l-.87-3.1206L12,9.749l1.4739.4107.7822-1.315L16,5.9121M16,2,12.5366,7.8223,6,6l1.8223,6.5366L2,16l5.8223,3.4629L6,26l6.5366-1.8223L16,30l3.4634-5.8223L26,26l-1.8223-6.5371L30,16l-5.8223-3.4634L26,6,19.4634,7.8223,16,2Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const UvIndexAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UvIndexAlt({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M13,30H9a2.0027,2.0027,0,0,1-2-2V20H9v8h4V20h2v8A2.0027,2.0027,0,0,1,13,30Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25 20 23.25 20 21 29.031 18.792 20 17 20 19.5 30 22.5 30 25 20z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15 2H17V7H15z" }), /* @__PURE__ */ bucket_20_jsx("path", {
-		d: "M21.668 6.854H26.625999999999998V8.854H21.668z",
-		transform: "rotate(-45 24.147 7.853)"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25 15H30V17H25z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M2 15H7V17H2z" }), /* @__PURE__ */ bucket_20_jsx("path", {
-		d: "M6.854 5.375H8.854V10.333H6.854z",
-		transform: "rotate(-45 7.854 7.853)"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22,17H20V16a4,4,0,0,0-8,0v1H10V16a6,6,0,0,1,12,0Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const UvIndexFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function UvIndexFilled({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,30l-3.4634-5.8223L6,26l1.8223-6.5369L2,16l5.8223-3.4631L6,6l6.5366,1.8223L16,2l3.4634,5.8223L26,6l-1.8223,6.5369L30,16l-5.8223,3.4631L26,26l-6.5366-1.8223Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const ValueVariable = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function ValueVariable({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,28H22V26h4V6H22V4h4a2.0021,2.0021,0,0,1,2,2V26A2.0021,2.0021,0,0,1,26,28Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M20 11 18 11 16 14.897 14 11 12 11 14.905 16 12 21 14 21 16 17.201 18 21 20 21 17.098 16 20 11z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M10,28H6a2.0021,2.0021,0,0,1-2-2V6A2.0021,2.0021,0,0,1,6,4h4V6H6V26h4Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const ValueVariableAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function ValueVariableAlt({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M3,15.874v.2676c1.1201.2939,2,1.1743,2,2.8584v8h4v2h-4c-1.1028,0-2-.8975-2-2v-8c0-1.5498-.8799-2-2-2v-2c1.1201,0,2-.4766,2-2V5c0-1.1025.8972-2,2-2h4v2h-4v8c0,1.6841-.8799,2.5801-2,2.874ZM29,15.874v.2676c-1.1201.2939-2,1.1743-2,2.8584v8h-4s0,2,0,2h4c1.1028,0,2-.8975,2-2v-8c0-1.5498.8799-2,2-2v-2c-1.1201,0-2-.4766-2-2V5c0-1.1025-.8972-2-2-2h-4s0,2,0,2h4v8c0,1.6841.8799,2.5801,2,2.874ZM10.3401,21.8939c-.4089,0-.7344-.1158-.977-.3471-.2421-.2314-.3631-.5464-.3631-.9447,0-.3767.1129-.6807.3392-.9123.2258-.2314.5274-.3472.9043-.3472.3443,0,.6108.101.799.3025.1882.2019.2828.4825.2828.8422v.0654l.1129.0818c.1617-.0863.3687-.2776.622-.5742.2528-.2965.5325-.6767.8397-1.1405.3067-.4637.6347-.992.9846-1.5852s.7024-1.2349,1.0579-1.9251l-.0483-2.7824c-.0112-.69-.1938-1.0352-.5493-1.0352-.2156,0-.4603.0943-.7344.2825-.2746.1886-.6327.5034-1.0741.9447l-.5005-.4844c.6886-.7856,1.2944-1.3536,1.8167-1.7035.5218-.3498,1.0416-.5249,1.5583-.5249.6027,0,1.0436.2181,1.3239.654.2797.436.4303,1.1439.4521,2.1234l.0325,1.8247h.1612c.4628-.8935.8773-1.6363,1.2435-2.2284.3657-.5919.713-1.063,1.0416-1.4129.328-.3498.651-.5975.9689-.7428.3174-.1453.6591-.2181,1.0253-.2181.4089,0,.7344.1158.977.3472.2421.2315.3631.5465.3631.9446,0,.377-.1129.681-.3392.9123-.2258.2317-.5274.3472-.9043.3472-.3443,0-.6108-.0954-.799-.2861-.1887-.1908-.2828-.4605-.2828-.8094v-.1146l-.1129-.0818c-.1404.0757-.323.2589-.5493.55-.2258.2912-.4816.6685-.767,1.1324-.2853.4637-.5951,1.0084-.9282,1.6339-.3341.6256-.6841,1.3103-1.0497,2.0543l.0483,2.6368c.0107.6904.1938,1.0352.5493,1.0352.2151,0,.4598-.0941.7344-.2825.2746-.1883.6322-.5031,1.0736-.9447l.501.4844c-.3448.3984-.6647.7375-.9607,1.0173-.2965.2801-.5813.5087-.856.6863s-.5386.3095-.7914.3956-.5086.1292-.767.1292c-.6032,0-1.0441-.2179-1.3239-.6539-.2802-.436-.4308-1.1438-.4521-2.1235l-.0325-1.8247h-.1455c-.4521.8397-.8748,1.5502-1.2674,2.1315-.3931.5813-.767,1.0552-1.1225,1.421-.355.3661-.7049.6326-1.0492.7994-.3448.1667-.6998.2502-1.066.2502Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const Van = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Van({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.81,16l-7-9.56A1,1,0,0,0,22,6H3A1,1,0,0,0,2,7V24a1,1,0,0,0,1,1H5.14a4,4,0,0,0,7.72,0h6.28a4,4,0,0,0,7.72,0H29a1,1,0,0,0,1-1V16.56A1,1,0,0,0,29.81,16ZM20,8h1.49l5.13,7H20ZM9,26a2,2,0,1,1,2-2A2,2,0,0,1,9,26Zm14,0a2,2,0,1,1,2-2A2,2,0,0,1,23,26Zm5-3H26.86a4,4,0,0,0-7.72,0H12.86a4,4,0,0,0-7.72,0H4V8H18v9H28Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VegetationAsset = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VegetationAsset({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("circle", {
-		cx: "21.5",
-		cy: "10.5",
-		r: "1.5"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28.5,1a2.4518,2.4518,0,0,0-1.2061.3105L18.9834,5.6084l.0027.0054a5.497,5.497,0,1,0,7.3257,7.5444l.0031.0015,4.4-8.5A2.5,2.5,0,0,0,28.5,1Zm-7,13A3.5,3.5,0,1,1,25,10.5,3.5042,3.5042,0,0,1,21.5,14ZM28.9414,3.7354,26.5571,8.3408A5.5279,5.5279,0,0,0,23.658,5.4424l4.5949-2.377A.5165.5165,0,0,1,29,3.5.4985.4985,0,0,1,28.9414,3.7354Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M19,20h7V18H17V28a2.0027,2.0027,0,0,0,2,2h3V28H19Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M12,30H9V28h3V15.5664L8.4854,13.4575l1.0292-1.7148,3.5147,2.1084A2.0115,2.0115,0,0,1,14,15.5664V28A2.0024,2.0024,0,0,1,12,30Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M17.3079,2.2852A9.4882,9.4882,0,0,0,15,2,8.0275,8.0275,0,0,0,8.0786,6.001C8.0525,6,8.0264,6,8,6A6,6,0,0,0,8,18V16A4,4,0,0,1,8,8a2.7009,2.7009,0,0,1,.387.0391l.863.1142.3086-.6675A6.0192,6.0192,0,0,1,15,4a7.499,7.499,0,0,1,1.731.2148Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VegetationEncroachment = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VegetationEncroachment({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m19,20h7v-2h-9v10c.0015,1.104.896,1.9985,2,2h3v-2h-3v-8Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m12,30h-3v-2h3v-12.4336l-3.5146-2.1089,1.0292-1.7148,3.5147,2.1084c.6007.3632.9686,1.0133.9707,1.7153v12.4336c-.0013,1.104-.896,1.9987-2,2Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30 6.4102 28.59 5 25 8.5898 21.41 5 20 6.4102 23.59 10 20 13.5898 21.41 15 25 11.4102 28.59 15 30 13.5898 26.41 10 30 6.4102z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m17.3079,2.2852c-.7283-.1821-1.4995-.2852-2.3079-.2852-2.8545.0083-5.4897,1.5317-6.9214,4.001-.0261-.001-.0522-.001-.0786-.001-3.3137,0-6,2.6865-6,6s2.6863,6,6,6v-2c-2.209,0-4-1.791-4-4s1.791-4,4-4c.1299.0039.259.0166.387.0391l.863.1143.3086-.6675c.9834-2.1196,3.1047-3.4785,5.4414-3.4858.6079,0,1.1819.0854,1.731.2148l.5769-1.9297Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VegetationHeight = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VegetationHeight({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m13,8l-5,5,1.4102,1.4102,2.5898-2.5801v16.1699h-3v2h3c1.104-.0015,1.9988-.896,2-2V11.8301l2.5898,2.5801,1.4102-1.4102-5-5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m22,30h-3c-1.104-.0013-1.9987-.896-2-2v-11h6c2.2096-.0001,4.0007-1.7915,4.0006-4.001,0-.1319-.0065-.2637-.0196-.395-.277-2.0943-2.0835-3.6461-4.1957-3.604h-1.5837l-.1766-.779c-.573-2.5249-2.9942-4.221-6.025-4.221-2.3366.0074-4.4579,1.3664-5.4415,3.4859l-.3085.6672-.863-.1143c-.1279-.022-.2573-.0349-.387-.0388-2.2091,0-4,1.7909-4,4s1.7909,4,4,4v2c-3.3137,0-6-2.6863-6-6s2.6863-6,6-6c.0264,0,.0525,0,.0786.001,1.4317-2.4694,4.067-3.9928,6.9214-4.001,3.6788,0,6.6923,1.9776,7.7516,5h.0337c3.1405-.0351,5.8053,2.2967,6.1872,5.4141.323,3.2985-2.0892,6.2344-5.3877,6.5573-.1943.019-.3895.0286-.5848.0286h-4v9h3v2Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VehicleApi = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VehicleApi({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M28,11a1.9907,1.9907,0,0,0-.8247.1821L24.8337,9.51A3.45,3.45,0,0,0,25,8.5a3.45,3.45,0,0,0-.1663-1.01l2.3416-1.6723A1.9975,1.9975,0,1,0,26,4c0,.064.0129.124.0188.1865L23.7273,5.8232A3.4652,3.4652,0,0,0,21.5,5a3.5,3.5,0,0,0,0,7,3.4652,3.4652,0,0,0,2.2273-.8232l2.2915,1.6367C26.0129,12.876,26,12.936,26,13a2,2,0,1,0,2-2Zm-6.5-1A1.5,1.5,0,1,1,23,8.5,1.5017,1.5017,0,0,1,21.5,10Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.3379,19.9336l-7.7324-2.7783L18.374,13.0967A2.99,2.99,0,0,0,16.0537,12H8.0576a2.9982,2.9982,0,0,0-2.48,1.3115L2.8662,17.2949A4.9884,4.9884,0,0,0,2,20.1074V26a1,1,0,0,0,1,1H5.1421a3.9806,3.9806,0,0,0,7.7158,0h6.2842a3.9806,3.9806,0,0,0,7.7158,0H29a1,1,0,0,0,1-1V20.875A1,1,0,0,0,29.3379,19.9336ZM9,28a2,2,0,1,1,2-2A2.0027,2.0027,0,0,1,9,28Zm14,0a2,2,0,1,1,2-2A2.0025,2.0025,0,0,1,23,28Zm5-3H26.8579a3.9806,3.9806,0,0,0-7.7158,0H12.8579a3.9806,3.9806,0,0,0-7.7158,0H4V20.1074A2.9977,2.9977,0,0,1,4.52,18.4189l2.711-3.9814A.9992.9992,0,0,1,8.0576,14h7.9961a.9928.9928,0,0,1,.7647.3545l3.3994,4.2685a1.0007,1.0007,0,0,0,.4443.3184L28,21.5781Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VehicleConnected = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VehicleConnected({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.3379,17.9336l-7.7324-2.7783L18.374,11.0967A2.99,2.99,0,0,0,16.0537,10H8.0576a2.9982,2.9982,0,0,0-2.48,1.3115L2.8662,15.2949A4.9884,4.9884,0,0,0,2,18.1074V26a1,1,0,0,0,1,1H5.1421a3.9806,3.9806,0,0,0,7.7158,0h6.2842a3.9806,3.9806,0,0,0,7.7158,0H29a1,1,0,0,0,1-1V18.875A1,1,0,0,0,29.3379,17.9336ZM9,28a2,2,0,1,1,2-2A2.0027,2.0027,0,0,1,9,28Zm14,0a2,2,0,1,1,2-2A2.0025,2.0025,0,0,1,23,28Zm5-3H26.8579a3.9806,3.9806,0,0,0-7.7158,0H12.8579a3.9806,3.9806,0,0,0-7.7158,0H4V18.1074A2.9977,2.9977,0,0,1,4.52,16.4189l2.711-3.9814A.9992.9992,0,0,1,8.0576,12h7.9961a.9928.9928,0,0,1,.7647.3545l3.3994,4.2685a1.0007,1.0007,0,0,0,.4443.3184L28,19.5781Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25,11H23a2.0021,2.0021,0,0,0-2-2V7A4.0045,4.0045,0,0,1,25,11Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M29,11H27a6.0067,6.0067,0,0,0-6-6V3A8.0092,8.0092,0,0,1,29,11Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VehicleInsights = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VehicleInsights({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.3379,17.9336l-7.7324-2.7783L18.374,11.0967A2.99,2.99,0,0,0,16.0537,10H8.0576a2.9982,2.9982,0,0,0-2.48,1.3115L2.8662,15.2949A4.9884,4.9884,0,0,0,2,18.1074V26a1,1,0,0,0,1,1H5.1421a3.9806,3.9806,0,0,0,7.7158,0h6.2842a3.9806,3.9806,0,0,0,7.7158,0H29a1,1,0,0,0,1-1V18.875A1,1,0,0,0,29.3379,17.9336ZM9,28a2,2,0,1,1,2-2A2.0027,2.0027,0,0,1,9,28Zm14,0a2,2,0,1,1,2-2A2.0025,2.0025,0,0,1,23,28Zm5-3H26.8579a3.9806,3.9806,0,0,0-7.7158,0H12.8579a3.9806,3.9806,0,0,0-7.7158,0H4V18.1074A2.9977,2.9977,0,0,1,4.52,16.4189l2.711-3.9814A.9992.9992,0,0,1,8.0576,12h7.9961a.9928.9928,0,0,1,.7647.3545l3.3994,4.2685a1.0007,1.0007,0,0,0,.4443.3184L28,19.5781Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28 2H30V9H28z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M24 6H26V9H24z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M20 4H22V9H20z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VehicleServices = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VehicleServices({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.3379,17.9336l-7.7324-2.7783L18.374,11.0967A2.99,2.99,0,0,0,16.0537,10H8.0576a2.9982,2.9982,0,0,0-2.48,1.3115L2.8662,15.2949A4.9884,4.9884,0,0,0,2,18.1074V26a1,1,0,0,0,1,1H5.1421a3.9806,3.9806,0,0,0,7.7158,0h6.2842a3.9806,3.9806,0,0,0,7.7158,0H29a1,1,0,0,0,1-1V18.875A1,1,0,0,0,29.3379,17.9336ZM9,28a2,2,0,1,1,2-2A2.0027,2.0027,0,0,1,9,28Zm14,0a2,2,0,1,1,2-2A2.0025,2.0025,0,0,1,23,28Zm5-3H26.8579a3.9806,3.9806,0,0,0-7.7158,0H12.8579a3.9806,3.9806,0,0,0-7.7158,0H4V18.1074A2.9977,2.9977,0,0,1,4.52,16.4189l2.711-3.9814A.9992.9992,0,0,1,8.0576,12h7.9961a.9928.9928,0,0,1,.7647.3545l3.3994,4.2685a1.0007,1.0007,0,0,0,.4443.3184L28,19.5781Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M24.5547,6a2,2,0,0,1,2-2H30a3.9756,3.9756,0,0,0-7.304,1H16V7h6.696A3.9756,3.9756,0,0,0,30,8H26.5547A2,2,0,0,1,24.5547,6Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const Version = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Version({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,2V4H26V19h2V4a2.0023,2.0023,0,0,0-2-2Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M11,7V9H21V24h2V9a2.0023,2.0023,0,0,0-2-2Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M6,12H16a2.0023,2.0023,0,0,1,2,2V28a2.0023,2.0023,0,0,1-2,2H6a2.0023,2.0023,0,0,1-2-2V14A2.0023,2.0023,0,0,1,6,12Zm10,2L6,13.9988V28H16Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VersionMajor = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VersionMajor({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M18.5859 17.4141 16 14.8345 16 14.8345 13.4125 17.4156 12 16 16 12 20 16 18.5859 17.4141z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18.5859 11.4141 16 8.8345 16 8.8345 13.4125 11.4156 12 10 16 6 20 10 18.5859 11.4141z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18.5859 23.4141 16 20.8345 16 20.8345 13.4125 23.4156 12 22 16 18 20 22 18.5859 23.4141z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m1.5858,17.4142c-.3905-.3905-.5858-.9024-.5858-1.4142s.1953-1.0237.5858-1.4142L14.5858,1.5858c.3905-.3905.9023-.5858,1.4142-.5858s1.0237.1953,1.4142.5858l13,13c.3905.3905.5858.9024.5858,1.4142s-.1953,1.0237-.5858,1.4142l-13,13c-.3905.3905-.9024.5858-1.4142.5858s-1.0237-.1953-1.4142-.5858L1.5858,17.4142ZM16,3L3,16l13,13,13-13L16,3Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VersionMinor = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VersionMinor({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M18.5859 15.4141 16 12.8345 16 12.8345 13.4125 15.4156 12 14 16 10 20 14 18.5859 15.4141z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18.5859 21.4141 16 18.8345 16 18.8345 13.4125 21.4156 12 20 16 16 20 20 18.5859 21.4141z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m1.5858,17.4142c-.3905-.3905-.5858-.9024-.5858-1.4142s.1953-1.0237.5858-1.4142L14.5858,1.5858c.3905-.3905.9023-.5858,1.4142-.5858s1.0237.1953,1.4142.5858l13,13c.3905.3905.5858.9024.5858,1.4142s-.1953,1.0237-.5858,1.4142l-13,13c-.3905.3905-.9024.5858-1.4142.5858s-1.0237-.1953-1.4142-.5858L1.5858,17.4142ZM16,3L3,16l13,13,13-13L16,3Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VersionPatch = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VersionPatch({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M18.5859 18.4141 16 15.8345 16 15.8345 13.4125 18.4156 12 17 16 13 20 17 18.5859 18.4141z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m1.5858,17.4142c-.3905-.3905-.5858-.9024-.5858-1.4142s.1953-1.0237.5858-1.4142L14.5858,1.5858c.3905-.3905.9023-.5858,1.4142-.5858s1.0237.1953,1.4142.5858l13,13c.3905.3905.5858.9024.5858,1.4142s-.1953,1.0237-.5858,1.4142l-13,13c-.3905.3905-.9024.5858-1.4142.5858s-1.0237-.1953-1.4142-.5858L1.5858,17.4142ZM16,3L3,16l13,13,13-13L16,3Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VerticalFold = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VerticalFold({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M11,24l1.414,1.414,2.586-2.586v7.172h2v-7.172l2.586,2.586,1.414-1.414-5-5-5,5ZM21,8l-1.414-1.414-2.586,2.586V2h-2v7.172l-2.586-2.586-1.414,1.414,5,5,5-5ZM2,17h4v-2H2v2ZM12,15h-4v2h4v-2ZM14,17h4v-2h-4v2ZM20,17h4v-2h-4v2ZM26,15v2h4v-2h-4Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VerticalView = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VerticalView({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M12,30H4a2.0021,2.0021,0,0,1-2-2V4A2.0021,2.0021,0,0,1,4,2h8a2.0021,2.0021,0,0,1,2,2V28A2.0021,2.0021,0,0,1,12,30ZM4,4V28h8V4Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28,30H20a2.0021,2.0021,0,0,1-2-2V4a2.0021,2.0021,0,0,1,2-2h8a2.0021,2.0021,0,0,1,2,2V28A2.0021,2.0021,0,0,1,28,30ZM20,4V28h8V4Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const Video = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Video({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M21,26H4a2,2,0,0,1-2-2V8A2,2,0,0,1,4,6H21a2,2,0,0,1,2,2v4.06l5.42-3.87A1,1,0,0,1,30,9V23a1,1,0,0,1-1.58.81L23,19.94V24A2,2,0,0,1,21,26ZM4,8V24H21V18a1,1,0,0,1,1.58-.81L28,21.06V10.94l-5.42,3.87A1,1,0,0,1,21,14V8Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VideoAdd = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VideoAdd({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M18 15 14 15 14 11 12 11 12 15 8 15 8 17 12 17 12 21 14 21 14 17 18 17 18 15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M21,26H4a2.0023,2.0023,0,0,1-2-2V8A2.0023,2.0023,0,0,1,4,6H21a2.0023,2.0023,0,0,1,2,2v4.0566l5.4189-3.87A.9995.9995,0,0,1,30,9V23a.9995.9995,0,0,1-1.5811.8135L23,19.9434V24A2.0023,2.0023,0,0,1,21,26ZM4,8V24.001L21,24V18a.9995.9995,0,0,1,1.5811-.8135L28,21.0566V10.9434l-5.4189,3.87A.9995.9995,0,0,1,21,14V8Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VideoChat = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VideoChat({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M8 12H17V14H8z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8 17H13V19H8z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M21,26H4a2.0023,2.0023,0,0,1-2-2V8A2.0023,2.0023,0,0,1,4,6H21a2.0023,2.0023,0,0,1,2,2v4.0566l5.4189-3.87A.9995.9995,0,0,1,30,9V23a.9995.9995,0,0,1-1.5811.8135L23,19.9434V24A2.0023,2.0023,0,0,1,21,26ZM4,8V24.001L21,24V18a.9995.9995,0,0,1,1.5811-.8135L28,21.0566V10.9434l-5.4189,3.87A.9995.9995,0,0,1,21,14V8Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VideoFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VideoFilled({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M21,26H4a2,2,0,0,1-2-2V8A2,2,0,0,1,4,6H21a2,2,0,0,1,2,2v4.06l5.42-3.87A1,1,0,0,1,30,9V23a1,1,0,0,1-1.58.81L23,19.94V24A2,2,0,0,1,21,26Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VideoOff = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VideoOff({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.46,8.11a1,1,0,0,0-1,.08L23,12.06V10.44l7-7L28.56,2,2,28.56,3.44,30l4-4H21a2,2,0,0,0,2-2V19.94l5.42,3.87A1,1,0,0,0,30,23V9A1,1,0,0,0,29.46,8.11ZM28,21.06l-5.42-3.87A1,1,0,0,0,21,18v6H9.44L21,12.44V14a1,1,0,0,0,1.58.81L28,10.94Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M4,24V8H20V6H4A2,2,0,0,0,2,8V24Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VideoOffFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VideoOffFilled({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M20.31,6H4A2,2,0,0,0,2,8V24a2.85,2.85,0,0,0,0,.29Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.46,8.11a1,1,0,0,0-1,.08L23,12.06V10.44l7-7L28.56,2,2,28.56,3.44,30l4-4H21a2,2,0,0,0,2-2V19.94l5.42,3.87A1,1,0,0,0,30,23V9A1,1,0,0,0,29.46,8.11Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VideoPlayer = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VideoPlayer({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M13 11 13 21 21 16 13 11z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m28,6H4c-1.103,0-2,.8975-2,2v16c0,1.1025.897,2,2,2h24c1.103,0,2-.8975,2-2V8c0-1.1025-.897-2-2-2Zm0,18H4V8h24v16Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const View = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function View({ children, size = 16, ...rest }, ref) {
-	if (size === 16 || size === "16" || size === "16px") return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 16 16",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M15.5,7.8C14.3,4.7,11.3,2.6,8,2.5C4.7,2.6,1.7,4.7,0.5,7.8c0,0.1,0,0.2,0,0.3c1.2,3.1,4.1,5.2,7.5,5.3 c3.3-0.1,6.3-2.2,7.5-5.3C15.5,8.1,15.5,7.9,15.5,7.8z M8,12.5c-2.7,0-5.4-2-6.5-4.5c1-2.5,3.8-4.5,6.5-4.5s5.4,2,6.5,4.5 C13.4,10.5,10.6,12.5,8,12.5z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8,5C6.3,5,5,6.3,5,8s1.3,3,3,3s3-1.3,3-3S9.7,5,8,5z M8,10c-1.1,0-2-0.9-2-2s0.9-2,2-2s2,0.9,2,2S9.1,10,8,10z" }), children);
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M30.94,15.66A16.69,16.69,0,0,0,16,5,16.69,16.69,0,0,0,1.06,15.66a1,1,0,0,0,0,.68A16.69,16.69,0,0,0,16,27,16.69,16.69,0,0,0,30.94,16.34,1,1,0,0,0,30.94,15.66ZM16,25c-5.3,0-10.9-3.93-12.93-9C5.1,10.93,10.7,7,16,7s10.9,3.93,12.93,9C26.9,21.07,21.3,25,16,25Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,10a6,6,0,1,0,6,6A6,6,0,0,0,16,10Zm0,10a4,4,0,1,1,4-4A4,4,0,0,1,16,20Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const ViewFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function ViewFilled({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("circle", {
-		cx: "16",
-		cy: "16",
-		r: "4"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30.94,15.66A16.69,16.69,0,0,0,16,5,16.69,16.69,0,0,0,1.06,15.66a1,1,0,0,0,0,.68A16.69,16.69,0,0,0,16,27,16.69,16.69,0,0,0,30.94,16.34,1,1,0,0,0,30.94,15.66ZM16,22.5A6.5,6.5,0,1,1,22.5,16,6.51,6.51,0,0,1,16,22.5Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const ViewMode_1 = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function ViewMode_1({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M4 26H28V28H4z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M4 19H28V21H4z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,6v6H6V6H26m0-2H6A2,2,0,0,0,4,6v6a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2V6a2,2,0,0,0-2-2Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const ViewMode_2 = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function ViewMode_2({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M4 26H28V28H4z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M4 19H28V21H4z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M12,6v6H6V6h6m0-2H6A2,2,0,0,0,4,6v6a2,2,0,0,0,2,2h6a2,2,0,0,0,2-2V6a2,2,0,0,0-2-2Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,6v6H20V6h6m0-2H20a2,2,0,0,0-2,2v6a2,2,0,0,0,2,2h6a2,2,0,0,0,2-2V6a2,2,0,0,0-2-2Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const ViewOff = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function ViewOff({ children, size = 16, ...rest }, ref) {
-	if (size === 16 || size === "16" || size === "16px") return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 16 16",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M2.6,11.3l0.7-0.7C2.6,9.8,1.9,9,1.5,8c1-2.5,3.8-4.5,6.5-4.5c0.7,0,1.4,0.1,2,0.4l0.8-0.8C9.9,2.7,9,2.5,8,2.5 C4.7,2.6,1.7,4.7,0.5,7.8c0,0.1,0,0.2,0,0.3C1,9.3,1.7,10.4,2.6,11.3z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M6,7.9c0.1-1,0.9-1.8,1.8-1.8l0.9-0.9C7.2,4.7,5.5,5.6,5.1,7.2C5,7.7,5,8.3,5.1,8.8L6,7.9z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15.5,7.8c-0.6-1.5-1.6-2.8-2.9-3.7L15,1.7L14.3,1L1,14.3L1.7,15l2.6-2.6c1.1,0.7,2.4,1,3.7,1.1c3.3-0.1,6.3-2.2,7.5-5.3 C15.5,8.1,15.5,7.9,15.5,7.8z M10,8c0,1.1-0.9,2-2,2c-0.3,0-0.7-0.1-1-0.3L9.7,7C9.9,7.3,10,7.6,10,8z M8,12.5c-1,0-2.1-0.3-3-0.8 l1.3-1.3c1.4,0.9,3.2,0.6,4.2-0.8c0.7-1,0.7-2.4,0-3.4l1.4-1.4c1.1,0.8,2,1.9,2.6,3.2C13.4,10.5,10.6,12.5,8,12.5z" }), children);
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M5.24,22.51l1.43-1.42A14.06,14.06,0,0,1,3.07,16C5.1,10.93,10.7,7,16,7a12.38,12.38,0,0,1,4,.72l1.55-1.56A14.72,14.72,0,0,0,16,5,16.69,16.69,0,0,0,1.06,15.66a1,1,0,0,0,0,.68A16,16,0,0,0,5.24,22.51Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M12,15.73a4,4,0,0,1,3.7-3.7l1.81-1.82a6,6,0,0,0-7.33,7.33Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30.94,15.66A16.4,16.4,0,0,0,25.2,8.22L30,3.41,28.59,2,2,28.59,3.41,30l5.1-5.1A15.29,15.29,0,0,0,16,27,16.69,16.69,0,0,0,30.94,16.34,1,1,0,0,0,30.94,15.66ZM20,16a4,4,0,0,1-6,3.44L19.44,14A4,4,0,0,1,20,16Zm-4,9a13.05,13.05,0,0,1-6-1.58l2.54-2.54a6,6,0,0,0,8.35-8.35l2.87-2.87A14.54,14.54,0,0,1,28.93,16C26.9,21.07,21.3,25,16,25Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const ViewOffFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function ViewOffFilled({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M30.94,15.66a16.4,16.4,0,0,0-5.73-7.45L30,3.41,28.59,2,2,28.59,3.41,30l5.1-5.09A15.38,15.38,0,0,0,16,27,16.69,16.69,0,0,0,30.94,16.34,1,1,0,0,0,30.94,15.66ZM16,22.5a6.46,6.46,0,0,1-3.83-1.26L14,19.43A4,4,0,0,0,19.43,14l1.81-1.81A6.49,6.49,0,0,1,16,22.5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M4.53,21.81l5-5A6.84,6.84,0,0,1,9.5,16,6.51,6.51,0,0,1,16,9.5a6.84,6.84,0,0,1,.79.05l3.78-3.77A14.39,14.39,0,0,0,16,5,16.69,16.69,0,0,0,1.06,15.66a1,1,0,0,0,0,.68A15.86,15.86,0,0,0,4.53,21.81Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const ViewNext = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function ViewNext({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M20.587 22 15 16.41 15 7 16.998 7 16.998 15.582 22 20.587 20.587 22z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,2A13.9158,13.9158,0,0,1,26,6.2343V2h2v8H20V8h4.9217A11.9818,11.9818,0,1,0,28,16h2A14,14,0,1,1,16,2Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VintageMac = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VintageMac({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22,16h-12V6h12v10ZM12,8v6h8v-6h-8ZM24,4v20H8V4h16M24,2H8c-1.1,0-2,.9-2,2v20c0,1.1.9,2,2,2h16c1.1,0,2-.9,2-2V4c0-1.1-.9-2-2-2ZM10,18h2v2h-2v-2ZM16,18h6v2h-6v-2ZM9,28h14v2h-14v-2Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VirtualColumn = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VirtualColumn({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M25 11 26.414 12.414 23.828 15 30 15 30 17 23.828 17 26.414 19.586 25 21 20 16 25 11z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,28H20a2.0023,2.0023,0,0,1-2-2V6a2.0023,2.0023,0,0,1,2-2H30V6H20V26H30Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M12,28H2V26H12V6H2V4H12a2.0023,2.0023,0,0,1,2,2V26A2.0023,2.0023,0,0,1,12,28Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M7 11 5.586 12.414 8.172 15 2 15 2 17 8.172 17 5.586 19.586 7 21 12 16 7 11z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VirtualColumnKey = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VirtualColumnKey({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("circle", {
-		cx: "24.5",
-		cy: "9.5",
-		r: "1.5"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M17.4143,22H12V16.5857l6.03-6.03A5.3518,5.3518,0,0,1,18,10a6,6,0,1,1,6,6,5.3583,5.3583,0,0,1-.5559-.03ZM14,20h2.5857l6.1706-6.1709.5174.0957A3.935,3.935,0,0,0,24,14a4.0507,4.0507,0,1,0-3.925-3.2729l.0952.5166L14,17.4143Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28,18v8H10V6h4V4H4A2.0025,2.0025,0,0,0,2,6V26a2.0025,2.0025,0,0,0,2,2H28a2.0025,2.0025,0,0,0,2-2V18ZM4,6H8V26H4Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VirtualDesktop = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VirtualDesktop({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M21,16H11a2.0023,2.0023,0,0,0-2,2v6a2.0023,2.0023,0,0,0,2,2h4v2H12v2h8V28H17V26h4a2.0023,2.0023,0,0,0,2-2V18A2.0023,2.0023,0,0,0,21,16ZM11,24V18H21l.0015,6Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.8218,10.124a9.9992,9.9992,0,0,0-19.6436,0A7.4914,7.4914,0,0,0,7,24.9746v-2a5.4945,5.4945,0,0,1,.123-10.9541l.8365-.0566.09-.834a7.9979,7.9979,0,0,1,15.9014,0l.09.834.8365.0566A5.4945,5.4945,0,0,1,25,22.9746v2a7.4914,7.4914,0,0,0,.8218-14.8506Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VirtualMachine = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VirtualMachine({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M20,13H12a2.0025,2.0025,0,0,0-2,2V28a2.0025,2.0025,0,0,0,2,2h8a2.0025,2.0025,0,0,0,2-2V15A2.0025,2.0025,0,0,0,20,13Zm0,2,0,3H12V15Zm0,5,0,3H12V20Zm-8,8V25h8v3Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.91,10.13a.121.121,0,0,1-.0967-.0952A10.0061,10.0061,0,0,0,17.89,2.1816,10.0025,10.0025,0,0,0,6.1858,10.0347a.1212.1212,0,0,1-.0964.0957A7.5019,7.5019,0,0,0,7.4912,25H8V23H7.4954a5.5108,5.5108,0,0,1-5.4387-6.3,5.6992,5.6992,0,0,1,4.7138-4.6606l1.0166-.1836a.1306.1306,0,0,0,.1045-.1035l.18-.9351a8.28,8.28,0,0,1,6.8469-6.7427,7.957,7.957,0,0,1,2.8471.1245,8.22,8.22,0,0,1,6.1475,6.545l.1941,1.0083a.13.13,0,0,0,.1045.1035l1.0576.1914a5.7819,5.7819,0,0,1,3.1011,1.539A5.5052,5.5052,0,0,1,24.5076,23H24v2h.5076A7.5019,7.5019,0,0,0,25.91,10.13Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VirtualPrivateCloud = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VirtualPrivateCloud({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M20,20V17a4,4,0,0,0-8,0v3a2.0025,2.0025,0,0,0-2,2v6a2.0025,2.0025,0,0,0,2,2h8a2.0025,2.0025,0,0,0,2-2V22A2.0025,2.0025,0,0,0,20,20Zm-6-3a2,2,0,0,1,4,0v3H14ZM12,28V22h8l.0012,6Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.8288,10.1152A10.0067,10.0067,0,0,0,17.89,2.1816,10.0025,10.0025,0,0,0,6.17,10.1152,7.502,7.502,0,0,0,7.4912,25H8V23H7.4953a5.5019,5.5019,0,0,1-.9694-10.9165l1.3488-.2441.2591-1.3457a8.0109,8.0109,0,0,1,15.7312,0l.259,1.3457,1.3489.2441A5.5019,5.5019,0,0,1,24.5076,23H24v2h.5076a7.502,7.502,0,0,0,1.3212-14.8848Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VirtualPrivateCloudAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VirtualPrivateCloudAlt({ children, size = 16, ...rest }, ref) {
-	if (false) // removed by dead control flow
-{}
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M23.4141,22,10,8.5859V2H2v8H8.5859L22,23.4141V30h8V22ZM8,8H4V4H8ZM28,28H24V24h4Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,6a3.9915,3.9915,0,0,0-7.8579-1H13V7h9.1421A3.9945,3.9945,0,0,0,25,9.8579V19h2V9.8579A3.9962,3.9962,0,0,0,30,6ZM26,8a2,2,0,1,1,2-2A2.0023,2.0023,0,0,1,26,8Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M19,25H9.8579A3.9945,3.9945,0,0,0,7,22.1421V13H5v9.1421A3.9915,3.9915,0,1,0,9.8579,27H19ZM6,28a2,2,0,1,1,2-2A2.0023,2.0023,0,0,1,6,28Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VisualInspection = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VisualInspection({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,24.5859l-5.1147-5.1147c.9407-1.3201,1.3683-3.0299.9602-4.8428-.4971-2.2083-2.2783-3.9913-4.4888-4.4786-4.3566-.9604-8.1675,2.8505-7.207,7.2071.4873,2.2105,2.2703,3.9918,4.4787,4.4888,1.8129.408,3.5228-.0197,4.8429-.9605l5.1147,5.1147,1.4141-1.4141h0ZM17.0848,19.8568c-3.0406.805-5.7481-1.9051-4.9404-4.9449.3548-1.3352,1.4352-2.4146,2.7707-2.7682,3.0406-.805,5.7481,1.9051,4.9404,4.9449-.3548,1.3352-1.4352,2.4146-2.7707,2.7682ZM29.0663,16.3569l-.0654-.1709c-1.9897-5.2383-7.5781-9.1865-13.0005-9.1865s-11.0107,3.9482-12.9995,9.1841l-.0664.1733c-.1978.5166-.7764.7739-1.2915.5767-.5161-.1978-.7739-.7759-.5767-1.2915l.0654-.1709c2.2671-5.9688,8.6597-10.4717,14.8687-10.4717s12.6016,4.5029,14.8696,10.4741l.0645.1685M16.0004,27c-6.2088-.0002-12.6006-4.5031-14.8691-10.4741l-.064-.166c-.1987-.5151.0581-1.0942.5732-1.293.5146-.1982,1.0938.0576,1.293.5732l.0659.1709c1.9907,5.2405,7.5788,9.1887,13.001,9.189v2Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VisualRecognition = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VisualRecognition({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("circle", {
-		cx: "23",
-		cy: "12",
-		r: "2"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28,5H16.24A8,8,0,1,0,6,16.92V27a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V7A2,2,0,0,0,28,5ZM4,10A6,6,0,0,1,15.19,7H8V9h7.91A6.64,6.64,0,0,1,16,10a6.64,6.64,0,0,1-.09,1H10v2h5.19A6,6,0,0,1,4,10ZM28,27H8l5-5,1.59,1.59a2,2,0,0,0,2.82,0L23,18l5,5Zm0-6.83-3.59-3.59a2,2,0,0,0-2.82,0L16,22.17l-1.59-1.59a2,2,0,0,0-2.82,0L8,24.17V17.74A8.24,8.24,0,0,0,10,18a8,8,0,0,0,8-8,7.9,7.9,0,0,0-.59-3H28Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const Vlan = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Vlan({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,17V15H17V11h2a2.0023,2.0023,0,0,0,2-2V4a2.0023,2.0023,0,0,0-2-2H13a2.0023,2.0023,0,0,0-2,2V9a2.0023,2.0023,0,0,0,2,2h2v4H2v2H8v4H6a2.0023,2.0023,0,0,0-2,2v5a2.0023,2.0023,0,0,0,2,2h6a2.0023,2.0023,0,0,0,2-2V23a2.0023,2.0023,0,0,0-2-2H10V17H22v4H20a2.0023,2.0023,0,0,0-2,2v5a2.0023,2.0023,0,0,0,2,2h6a2.0023,2.0023,0,0,0,2-2V23a2.0023,2.0023,0,0,0-2-2H24V17ZM13,4h6V9H13ZM12,28H6V23h6Zm14,0H20V23h6Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VlanIbm = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VlanIbm({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,22a4,4,0,1,0,4,4A4.0045,4.0045,0,0,0,16,22Zm0,6a2,2,0,1,1,2-2A2.002,2.002,0,0,1,16,28Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,5a3,3,0,1,0-4,2.8154V15H17V9H15v6H6V7.8159a3.0007,3.0007,0,1,0-2,0V15a2.002,2.002,0,0,0,2,2h9v3h2V17h9a2.002,2.002,0,0,0,2-2V7.8159A2.9958,2.9958,0,0,0,30,5ZM5,4A1,1,0,1,1,4,5,1.0013,1.0013,0,0,1,5,4ZM27,6a1,1,0,1,1,1-1A1.0013,1.0013,0,0,1,27,6Z" }), /* @__PURE__ */ bucket_20_jsx("circle", {
-		cx: "16",
-		cy: "5",
-		r: "2"
-	}), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VmdkDisk = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VmdkDisk({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("circle", {
-		cx: "10.5",
-		cy: "24.5",
-		r: "1.5"
-	}), /* @__PURE__ */ bucket_20_jsx("path", {
-		d: "M19.5 14.964H21.5V20.035H19.5z",
-		transform: "rotate(-45 20.5 17.5)"
-	}), /* @__PURE__ */ bucket_20_jsx("circle", {
-		cx: "16",
-		cy: "13",
-		r: "2"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,6a7,7,0,0,0,0,14V18a5,5,0,1,1,5-5h2A7,7,0,0,0,16,6Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,2H6A2,2,0,0,0,4,4V28a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2V4A2,2,0,0,0,26,2Zm0,26H6V4H26Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VoiceActivate = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VoiceActivate({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,30H24V27H20a5.0055,5.0055,0,0,1-5-5V20.7207l-2.3162-.772a1,1,0,0,1-.5412-1.4631L15,13.7229V11a9.01,9.01,0,0,1,9-9h5V4H24a7.0078,7.0078,0,0,0-7,7v3a.9991.9991,0,0,1-.1426.5144l-2.3586,3.9312,1.8174.6057A1,1,0,0,1,17,20v2a3.0033,3.0033,0,0,0,3,3h5a1,1,0,0,1,1,1Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M19 12H23V14H19z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M9.3325,25.2168a7.0007,7.0007,0,0,1,0-10.4341l1.334,1.49a5,5,0,0,0,0,7.4537Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M6.3994,28.8008a11.0019,11.0019,0,0,1,0-17.6006L7.6,12.8a9.0009,9.0009,0,0,0,0,14.4014Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VoiceMode = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VoiceMode({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M17,29h-2V3h2v26ZM23,6h-2v20h2V6ZM11,6h-2v20h2V6ZM5,11h-2v10h2v-10ZM29,11h-2v10h2.0031s-.0031-10-.0031-10Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const Voicemail = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Voicemail({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M24,10a6,6,0,0,0-4.46,10H12.46A6,6,0,1,0,8,22H24a6,6,0,0,0,0-12ZM4,16a4,4,0,1,1,4,4A4,4,0,0,1,4,16Zm20,4a4,4,0,1,1,4-4A4,4,0,0,1,24,20Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VolumeBlockStorage = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeBlockStorage({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M17,21H10V14h7Zm-5-2h3V16H12Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M17,30H10V23h7Zm-5-2h3V25H12Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,21H19V14h7Zm-5-2h3V16H21Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,30H19V23h7Zm-5-2h3V25H21Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8,28H4a2.0023,2.0023,0,0,1-2-2V6A2.0023,2.0023,0,0,1,4,4h7.5857A1.9865,1.9865,0,0,1,13,4.5859L16.4143,8H28a2.0023,2.0023,0,0,1,2,2v8H28V10H15.5857l-4-4H4V26H8Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VolumeDown = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeDown({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.1,10.66,23.58,12a6,6,0,0,1-.18,7.94l1.47,1.36a8,8,0,0,0,.23-10.59Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M20,30a1,1,0,0,1-.71-.3L11.67,22H5a1,1,0,0,1-1-1H4V11a1,1,0,0,1,1-1h6.67l7.62-7.7a1,1,0,0,1,1.41,0A1,1,0,0,1,21,3V29A1,1,0,0,1,20,30ZM6,20h6a1.17,1.17,0,0,1,.79.3L19,26.57V5.43L12.79,11.7A1.17,1.17,0,0,1,12,12H6Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VolumeDownAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeDownAlt({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22 15H32V17H22z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,30a.997.997,0,0,1-.7109-.2969L9.666,22H3a.9993.9993,0,0,1-1-.9988V11a.9993.9993,0,0,1,.9988-1H9.666l7.623-7.7031A1,1,0,0,1,19,3V29A1.0007,1.0007,0,0,1,18,30ZM4,20h6a1.2008,1.2008,0,0,1,.7939.2969L17,26.5684V5.4316l-6.2061,6.2715A1.2013,1.2013,0,0,1,10,12H4Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VolumeDownFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeDownFilled({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.1,10.66,23.58,12a6,6,0,0,1-.18,7.94l1.47,1.36a8,8,0,0,0,.23-10.59Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M20,30a1,1,0,0,1-.71-.3L11.67,22H5a1,1,0,0,1-1-1H4V11a1,1,0,0,1,1-1h6.67l7.62-7.7a1,1,0,0,1,1.41,0A1,1,0,0,1,21,3V29A1,1,0,0,1,20,30Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VolumeDownFilledAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeDownFilledAlt({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22 15H32V17H22z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,30a.997.997,0,0,1-.7109-.2969L9.666,22H3a.9993.9993,0,0,1-1-.9988V11a.9993.9993,0,0,1,.9988-1H9.666l7.623-7.7031A1,1,0,0,1,19,3V29A1.0007,1.0007,0,0,1,18,30Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VolumeFileStorage = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeFileStorage({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.707,17.293l-5-5A1,1,0,0,0,20,12H14a2,2,0,0,0-2,2V28a2,2,0,0,0,2,2H24a2,2,0,0,0,2-2V18A1,1,0,0,0,25.707,17.293ZM23.5857,18H20V14.4141ZM14,28V14h4v4a2,2,0,0,0,2,2h4v8Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8,27H4a2.0023,2.0023,0,0,1-2-2V5A2.0023,2.0023,0,0,1,4,3h7.5857A1.9865,1.9865,0,0,1,13,3.5859L16.4143,7H28a2.0023,2.0023,0,0,1,2,2v8H28V9H15.5857l-4-4H4V25H8Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VolumeMute = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeMute({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M31 12.41 29.59 11 26 14.59 22.41 11 21 12.41 24.59 16 21 19.59 22.41 21 26 17.41 29.59 21 31 19.59 27.41 16 31 12.41z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,30a1,1,0,0,1-.71-.3L9.67,22H3a1,1,0,0,1-1-1H2V11a1,1,0,0,1,1-1H9.67l7.62-7.7a1,1,0,0,1,1.41,0A1,1,0,0,1,19,3V29A1,1,0,0,1,18,30ZM4,20h6a1.17,1.17,0,0,1,.79.3L17,26.57V5.43L10.79,11.7A1.17,1.17,0,0,1,10,12H4Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VolumeMuteFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeMuteFilled({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M31 12.41 29.59 11 26 14.59 22.41 11 21 12.41 24.59 16 21 19.59 22.41 21 26 17.41 29.59 21 31 19.59 27.41 16 31 12.41z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,30a1,1,0,0,1-.71-.3L9.67,22H3a1,1,0,0,1-1-1H2V11a1,1,0,0,1,1-1H9.67l7.62-7.7a1,1,0,0,1,1.41,0A1,1,0,0,1,19,3V29A1,1,0,0,1,18,30Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VolumeObjectStorage = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeObjectStorage({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M23,24a2.98,2.98,0,0,0-2.0376.8115l-4.0037-2.4023a2.0478,2.0478,0,0,0,0-.8184l4.0037-2.4023a3.2463,3.2463,0,1,0-.9211-1.7793l-4.0037,2.4023a3,3,0,1,0,0,4.377l4.0037,2.4023A2.9729,2.9729,0,0,0,20,27a3,3,0,1,0,3-3Zm0-8a1,1,0,1,1-1,1A1.0008,1.0008,0,0,1,23,16Zm-9,7a1,1,0,1,1,1-1A1.0008,1.0008,0,0,1,14,23Zm9,5a1,1,0,1,1,1-1A1.0008,1.0008,0,0,1,23,28Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8,28H4a2.0023,2.0023,0,0,1-2-2V6A2.0023,2.0023,0,0,1,4,4h7.5857A1.9865,1.9865,0,0,1,13,4.5859L16.4143,8H28a2.0023,2.0023,0,0,1,2,2v8H28V10H15.5857l-4-4H4V26H8Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VolumeUp = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeUp({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M27.16,8.08,25.63,9.37a10,10,0,0,1-.29,13.23L26.81,24a12,12,0,0,0,.35-15.88Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M21.58,12a6,6,0,0,1-.18,7.94l1.47,1.36a8,8,0,0,0,.23-10.59Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,30a1,1,0,0,1-.71-.3L9.67,22H3a1,1,0,0,1-1-1H2V11a1,1,0,0,1,1-1H9.67l7.62-7.7a1,1,0,0,1,1.41,0A1,1,0,0,1,19,3V29A1,1,0,0,1,18,30ZM4,20h6.08a1,1,0,0,1,.71.3L17,26.57V5.43L10.79,11.7a1,1,0,0,1-.71.3H4Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VolumeUpAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeUpAlt({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M32 15 28 15 28 11 26 11 26 15 22 15 22 17 26 17 26 21 28 21 28 17 32 17 32 15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,30a.997.997,0,0,1-.7109-.2969L9.666,22H3a.9993.9993,0,0,1-1-.9988V11a.9993.9993,0,0,1,.9988-1H9.666l7.623-7.7031A1,1,0,0,1,19,3V29A1.0007,1.0007,0,0,1,18,30ZM4,20h6a1.2008,1.2008,0,0,1,.7939.2969L17,26.5684V5.4316l-6.2061,6.2715A1.2013,1.2013,0,0,1,10,12H4Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VolumeUpFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeUpFilled({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M27.16,8.08,25.63,9.37a10,10,0,0,1-.29,13.23L26.81,24a12,12,0,0,0,.35-15.88Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M21.58,12a6,6,0,0,1-.18,7.94l1.47,1.36a8,8,0,0,0,.23-10.59Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,30a1,1,0,0,1-.71-.3L9.67,22H3a1,1,0,0,1-1-1H2V11a1,1,0,0,1,1-1H9.67l7.62-7.7a1,1,0,0,1,1.41,0A1,1,0,0,1,19,3V29A1,1,0,0,1,18,30Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VolumeUpFilledAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VolumeUpFilledAlt({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M32 15 28 15 28 11 26 11 26 15 22 15 22 17 26 17 26 21 28 21 28 17 32 17 32 15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,30a.997.997,0,0,1-.7109-.2969L9.666,22H3a.9993.9993,0,0,1-1-.9988V11a.9993.9993,0,0,1,.9988-1H9.666l7.623-7.7031A1,1,0,0,1,19,3V29A1.0007,1.0007,0,0,1,18,30Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const Vpn = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Vpn({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M14,23H12V9h6a2,2,0,0,1,2,2v5a2,2,0,0,1-2,2H14Zm0-7h4V11H14Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28 19 24.32 9 22 9 22 23 24 23 24 13 27.68 23 30 23 30 9 28 9 28 19z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8 9 6 22 4 9 2 9 4.52 23 7.48 23 10 9 8 9z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VpnConnection = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VpnConnection({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M28,7a1.9919,1.9919,0,0,0-1.7227,1H22A6,6,0,0,0,10,8H5.7227a2,2,0,1,0,0,2H10v4H8a2,2,0,0,0-2,2V28a2,2,0,0,0,2,2H24a2,2,0,0,0,2-2V16a2,2,0,0,0-2-2H22V10h4.2773A1.9966,1.9966,0,1,0,28,7ZM12,8a4,4,0,0,1,8,0v6H12V10h5V8Zm12,8V28H8V16Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const VpnPolicy = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function VpnPolicy({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,15A6,6,0,1,0,20,19.46V29l4-1.8838L28,29V19.46A5.98,5.98,0,0,0,30,15ZM26,25.8477l-2-.9415-2,.9415V20.65a5.8877,5.8877,0,0,0,4,0ZM24,19a4,4,0,1,1,4-4A4.0045,4.0045,0,0,1,24,19Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M14,2A6.0066,6.0066,0,0,0,8,8v6H6a2.0023,2.0023,0,0,0-2,2V28a2.0023,2.0023,0,0,0,2,2H17V28H6V16h9V14H10V8a4,4,0,0,1,7.92-.8008l1.96-.3984A6.0167,6.0167,0,0,0,14,2Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const Wallet = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Wallet({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22 17H24V19H22z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28,8H4V5H26V3H4A2,2,0,0,0,2,5V26a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V10A2,2,0,0,0,28,8ZM4,26V10H28v3H20a2,2,0,0,0-2,2v6a2,2,0,0,0,2,2h8v3ZM28,15v6H20V15Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const Warning = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Warning({ children, size = 16, ...rest }, ref) {
-	if (size === 16 || size === "16" || size === "16px") return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 16 16",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M8,1C4.1,1,1,4.1,1,8s3.1,7,7,7s7-3.1,7-7S11.9,1,8,1z M8,14c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S11.3,14,8,14z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M7.5 4H8.5V9H7.5z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8,10.2c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8c0.4,0,0.8-0.3,0.8-0.8S8.4,10.2,8,10.2z" }), children);
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Zm0,26A12,12,0,1,1,28,16,12,12,0,0,1,16,28Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15 8H17V19H15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,22a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,16,22Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WarningAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningAlt({ children, size = 16, ...rest }, ref) {
-	if (size === 16 || size === "16" || size === "16px") return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 16 16",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M14.5,14h-13c-0.2,0-0.3-0.1-0.4-0.2c-0.1-0.2-0.1-0.3,0-0.5l6.5-12C7.7,1,8,0.9,8.2,1.1c0.1,0,0.2,0.1,0.2,0.2l6.5,12 c0.1,0.2,0.1,0.3,0,0.5C14.9,13.9,14.7,14,14.5,14z M2.3,13h11.3L8,2.5L2.3,13z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M7.5 6H8.5V9.5H7.5z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8,10.8c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8c0.4,0,0.8-0.3,0.8-0.8S8.4,10.8,8,10.8z" }), children);
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,23a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,16,23Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15 12H17V21H15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M29,30H3a1,1,0,0,1-.8872-1.4614l13-25a1,1,0,0,1,1.7744,0l13,25A1,1,0,0,1,29,30ZM4.6507,28H27.3493l.002-.0033L16.002,6.1714h-.004L4.6487,27.9967Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WarningAltFilled = /* @__PURE__ */ consume_shared_module_default_react_singleton_default().forwardRef(function WarningAltFilled({ children, size = 16, ...rest }, ref) {
-	return consume_shared_module_default_react_singleton_default().createElement(Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ (0,jsx_runtime.jsx)("path", {
-		fill: "none",
-		d: "M16,26a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,16,26Zm-1.125-5h2.25V12h-2.25Z",
-		"data-icon-path": "inner-path"
-	}), /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M16.002,6.1714h-.004L4.6487,27.9966,4.6506,28H27.3494l.0019-.0034ZM14.875,12h2.25v9h-2.25ZM16,26a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,16,26Z" }), /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M29,30H3a1,1,0,0,1-.8872-1.4614l13-25a1,1,0,0,1,1.7744,0l13,25A1,1,0,0,1,29,30ZM4.6507,28H27.3493l.002-.0033L16.002,6.1714h-.004L4.6487,27.9967Z" }), children);
-});
-if (false) // removed by dead control flow
-{}
-const WarningAltInverted = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningAltInverted({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,17a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,16,17Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15 6H17V15H15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.855,2.481a1.001,1.001,0,0,1,.0322.98l-13,25a1,1,0,0,1-1.7744,0l-13-25A1,1,0,0,1,3,2H29A1.0007,1.0007,0,0,1,29.855,2.481ZM4.6487,4.0033,15.998,25.8286h.004L27.3513,4.0033,27.3493,4H4.6507Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WarningAltInvertedFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningAltInvertedFilled({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", {
-		fill: "none",
-		d: "M16,20a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,16,20Zm-1.125-5h2.25V6h-2.25Z",
-		"data-icon-path": "inner-path"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M27.3494,4H4.6506l-.0019.0034L15.998,25.8286h.004L27.3513,4.0034ZM14.875,6h2.25v9h-2.25ZM16,20a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,16,20Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.855,2.481a1.001,1.001,0,0,1,.0322.98l-13,25a1,1,0,0,1-1.7744,0l-13-25A1,1,0,0,1,3,2H29A1.0007,1.0007,0,0,1,29.855,2.481ZM4.6487,4.0033,15.998,25.8286h.004L27.3513,4.0033,27.3493,4H4.6507Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WarningDiamond = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningDiamond({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,20c-.8284,0-1.5.6716-1.5,1.5s.6716,1.5,1.5,1.5,1.5-.6716,1.5-1.5-.6716-1.5-1.5-1.5h0Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15 9H17V18H15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,30c-.5335,0-1.0672-.2031-1.4732-.6094L2.6094,17.4732c-.8126-.8123-.8126-2.1342,0-2.9465L14.5268,2.6094c.8121-.8126,2.1344-.8126,2.9465,0l11.9173,11.9173c.8126.8123.8126,2.1342,0,2.9465l-11.9173,11.9173c-.406.4063-.9398.6094-1.4732.6094Zm0-26.0008c-.0215,0-.0427.0083-.0591.0244L4.0236,15.9409c-.0325.0327-.0325.0855,0,.1182l11.9173,11.9173c.0327.0322.0855.0322.1182,0l11.9173-11.9173c.0325-.0327.0325-.0855,0-.1182l-11.9173-11.9173c-.0164-.0161-.0376-.0244-.0591-.0244Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WarningDiamondFill = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningDiamondFill({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M14.5858,2.6042L2.6042,14.5858c-.781.781-.781,2.0474,0,2.8284l11.9816,11.9816c.781.781,2.0474.781,2.8284,0l11.9816-11.9816c.781-.781.781-2.0474,0-2.8284L17.4142,2.6042c-.781-.781-2.0474-.781-2.8284,0ZM15,9h2v9h-2v-9ZM16,23c-.83,0-1.5-.67-1.5-1.5s.67-1.5,1.5-1.5,1.5.67,1.5,1.5-.67,1.5-1.5,1.5Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WarningFilled = /* @__PURE__ */ consume_shared_module_default_react_singleton_default().forwardRef(function WarningFilled({ children, size = 16, ...rest }, ref) {
-	if (size === 16 || size === "16" || size === "16px") return consume_shared_module_default_react_singleton_default().createElement(Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 16 16",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M8,1C4.2,1,1,4.2,1,8s3.2,7,7,7s7-3.1,7-7S11.9,1,8,1z M7.5,4h1v5h-1C7.5,9,7.5,4,7.5,4z M8,12.2 c-0.4,0-0.8-0.4-0.8-0.8s0.3-0.8,0.8-0.8c0.4,0,0.8,0.4,0.8,0.8S8.4,12.2,8,12.2z" }), /* @__PURE__ */ (0,jsx_runtime.jsx)("path", {
-		d: "M7.5,4h1v5h-1C7.5,9,7.5,4,7.5,4z M8,12.2c-0.4,0-0.8-0.4-0.8-0.8s0.3-0.8,0.8-0.8 c0.4,0,0.8,0.4,0.8,0.8S8.4,12.2,8,12.2z",
-		"data-icon-path": "inner-path",
-		opacity: "0"
-	}), children);
-	if (size === 20 || size === "20" || size === "20px") return consume_shared_module_default_react_singleton_default().createElement(Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 20 20",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M10,1c-5,0-9,4-9,9s4,9,9,9s9-4,9-9S15,1,10,1z M9.2,5h1.5v7H9.2V5z M10,16c-0.6,0-1-0.4-1-1s0.4-1,1-1 s1,0.4,1,1S10.6,16,10,16z" }), /* @__PURE__ */ (0,jsx_runtime.jsx)("path", {
-		d: "M9.2,5h1.5v7H9.2V5z M10,16c-0.6,0-1-0.4-1-1s0.4-1,1-1s1,0.4,1,1S10.6,16,10,16z",
-		"data-icon-path": "inner-path",
-		opacity: "0"
-	}), children);
-	if (size === 24 || size === "24" || size === "24px") return consume_shared_module_default_react_singleton_default().createElement(Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 24 24",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M12,1C5.9,1,1,5.9,1,12s4.9,11,11,11s11-4.9,11-11C23,5.9,18.1,1,12,1z M11.1,6h1.8v8h-1.8V6z M12,19.2 c-0.7,0-1.2-0.6-1.2-1.2s0.6-1.2,1.2-1.2s1.2,0.6,1.2,1.2S12.7,19.2,12,19.2z" }), /* @__PURE__ */ (0,jsx_runtime.jsx)("path", {
-		fill: "none",
-		d: "M13.2,18c0,0.7-0.6,1.2-1.2,1.2s-1.2-0.6-1.2-1.2s0.6-1.2,1.2-1.2S13.2,17.3,13.2,18z M12.9,6 h-1.8v8h1.8V6z",
-		"data-icon-path": "inner-path",
-		opacity: "0"
-	}), children);
-	return consume_shared_module_default_react_singleton_default().createElement(Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M16,2C8.3,2,2,8.3,2,16s6.3,14,14,14s14-6.3,14-14C30,8.3,23.7,2,16,2z M14.9,8h2.2v11h-2.2V8z M16,25 c-0.8,0-1.5-0.7-1.5-1.5S15.2,22,16,22c0.8,0,1.5,0.7,1.5,1.5S16.8,25,16,25z" }), /* @__PURE__ */ (0,jsx_runtime.jsx)("path", {
-		fill: "none",
-		d: "M17.5,23.5c0,0.8-0.7,1.5-1.5,1.5c-0.8,0-1.5-0.7-1.5-1.5S15.2,22,16,22 C16.8,22,17.5,22.7,17.5,23.5z M17.1,8h-2.2v11h2.2V8z",
-		"data-icon-path": "inner-path",
-		opacity: "0"
-	}), children);
-});
-if (false) // removed by dead control flow
-{}
-const WarningHex = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningHex({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,21a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,16,21Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15 8H17V18H15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M23,29H9a1,1,0,0,1-.8638-.4961l-7-12a1,1,0,0,1,0-1.0078l7-12A1,1,0,0,1,9,3H23a1,1,0,0,1,.8638.4961l7,12a1,1,0,0,1,0,1.0078l-7,12A1,1,0,0,1,23,29ZM9.5742,27H22.4258l6.4165-11L22.4258,5H9.5742L3.1577,16Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WarningHexFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningHexFilled({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", {
-		fill: "none",
-		d: "M14.875,8h2.25V19h-2.25ZM16,25a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,16,25Z",
-		"data-icon-path": "inner-path"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30.8508,15.4487,23.8867,3.5322A1.0687,1.0687,0,0,0,22.9643,3H9.0357a1.0687,1.0687,0,0,0-.9224.5322L1.1492,15.4487a1.0933,1.0933,0,0,0,0,1.1026L8.1133,28.4678A1.0687,1.0687,0,0,0,9.0357,29H22.9643a1.0687,1.0687,0,0,0,.9224-.5322l6.9641-11.9165A1.0933,1.0933,0,0,0,30.8508,15.4487ZM14.875,8h2.25V19h-2.25ZM16,25a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,16,25Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WarningMultiple = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningMultiple({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m29,23h-4v-2h2.3821l-7.8821-15.7639-1.1055,2.2112-1.7891-.8945,2-4c.1694-.3387.532-.5527.8945-.5527s.7251.214.8945.5527l9.5,19c.1548.3101.1384.6782-.0439.973-.1821.2948-.5039.4742-.8506.4742Z" }), /* @__PURE__ */ bucket_20_jsx("circle", {
-		cx: "14",
-		cy: "25",
-		r: "1.25"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M13 15H15V22H13z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m25,30H3c-.3499,0-.6743-.1829-.8555-.4823s-.1926-.6718-.0303-.9817L13.1143,7.536c.1726-.3296.5292-.536.8857-.536s.7131.2064.8857.536l11,21c.1624.3099.1509.6823-.0303.9817s-.5056.4823-.8555.4823Zm-20.3474-2h18.6948L14,10.1552,4.6526,28Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WarningOther = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningOther({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M18 20H30V22H18z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18 24H30V26H18z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18 28H30V30H18z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M14,18a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,14,18Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M13 7H15V16H13z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M14,4A10.0111,10.0111,0,0,1,24,14h2A12,12,0,1,0,14,26V24A10,10,0,0,1,14,4Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WarningSquare = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningSquare({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,20a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,16,20Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M15 9H17V18H15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,28H6a2.0023,2.0023,0,0,1-2-2V6A2.0023,2.0023,0,0,1,6,4H26a2.0023,2.0023,0,0,1,2,2V26A2.0023,2.0023,0,0,1,26,28ZM6,6V26H26.0012L26,6Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WarningSquareFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WarningSquareFilled({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M26.0022,4H5.998A1.998,1.998,0,0,0,4,5.998V26.002A1.998,1.998,0,0,0,5.998,28H26.0022A1.9979,1.9979,0,0,0,28,26.002V5.998A1.9979,1.9979,0,0,0,26.0022,4ZM14.8752,8h2.25V18h-2.25ZM16,24a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,16,24Z" }), /* @__PURE__ */ bucket_20_jsx("path", {
-		fill: "none",
-		d: "M14.8751,8h2.25V18h-2.25ZM16,24a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,16,24Z",
-		"data-icon-path": "inner-path"
-	}), children);
-})));
-if (false) // removed by dead control flow
-{}
-const Watch = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Watch({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22,8H21V2H19V8H13V2H11V8H10a2,2,0,0,0-2,2V22a2,2,0,0,0,2,2h1v6h2V24h6v6h2V24h1a2,2,0,0,0,2-2V10A2,2,0,0,0,22,8ZM10,22V10H22V22Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25 14H27V18H25z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const Watson = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Watson({ children, size = 16, ...rest }, ref) {
-	if (false) // removed by dead control flow
-{}
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M21.74,9.49h0A11.41,11.41,0,0,0,16,8h0a.76.76,0,1,0,0,1.51,10.15,10.15,0,0,1,1.91.21c-2.26,1.08-4.76,3.58-6.73,7a22.48,22.48,0,0,0-2,4.44A9.58,9.58,0,0,1,7,17.22a3.43,3.43,0,0,1,.28-2.66v0h0c.79-1.37,2.44-2.15,4.63-2.2a.76.76,0,0,0,.74-.78.75.75,0,0,0-.78-.74C9.19,10.88,7.1,11.92,6,13.74H6v0s0,0,0,0a4.84,4.84,0,0,0-.44,3.79,12,12,0,0,0,3.2,5.22A11.36,11.36,0,0,0,8.52,26a10,10,0,0,1-2-3.48A.75.75,0,0,0,5.57,22a.76.76,0,0,0-.49,1,11.45,11.45,0,0,0,5.18,6.38h0A11.42,11.42,0,0,0,16,30.92a11.74,11.74,0,0,0,3-.39,11.48,11.48,0,0,0,2.77-21ZM18.58,29.06a9.9,9.9,0,0,1-7.56-1h0c-.86-.49-1.21-2-.94-4a18.85,18.85,0,0,0,2.48,1.72,13.92,13.92,0,0,0,6.93,2,11,11,0,0,0,2.42-.28A9.78,9.78,0,0,1,18.58,29.06Zm6.06-4.66c-2,2-6.66,2.74-11.32.05a17.36,17.36,0,0,1-2.89-2.12,21.08,21.08,0,0,1,2.08-4.91c2.94-5.08,6.83-7.57,8.47-6.62h0A10,10,0,0,1,24.64,24.4Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M4.16,11.72,1.14,10a.76.76,0,1,0-.76,1.31L3.4,13a.86.86,0,0,0,.38.1.77.77,0,0,0,.66-.38A.76.76,0,0,0,4.16,11.72Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8.29,7.59A.74.74,0,0,0,8.94,8a.75.75,0,0,0,.38-.1.76.76,0,0,0,.28-1l-1.74-3a.76.76,0,0,0-1-.27.75.75,0,0,0-.28,1Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,6.08a.76.76,0,0,0,.76-.76V1.83a.76.76,0,0,0-1.52,0V5.32A.76.76,0,0,0,16,6.08Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22.68,7.87a.75.75,0,0,0,1-.28l1.75-3a.75.75,0,0,0-.28-1,.76.76,0,0,0-1,.27l-1.74,3A.76.76,0,0,0,22.68,7.87Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M31.9,10.25a.76.76,0,0,0-1-.27l-3,1.74a.76.76,0,0,0-.28,1,.77.77,0,0,0,.66.38.86.86,0,0,0,.38-.1l3-1.75A.76.76,0,0,0,31.9,10.25Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WatsonMachineLearning = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WatsonMachineLearning({ children, size = 16, ...rest }, ref) {
-	if (false) // removed by dead control flow
-{}
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22,26H20V17.76l-3.23,3.88a1,1,0,0,1-1.54,0L12,17.76V26H10V15a1,1,0,0,1,.66-.94,1,1,0,0,1,1.11.3L16,19.44l4.23-5.08a1,1,0,0,1,1.11-.3A1,1,0,0,1,22,15Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M4.16,14.65l-3-1.75a.76.76,0,1,0-.76,1.32L3.4,16a.76.76,0,1,0,.76-1.31Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8.29,10.52a.73.73,0,0,0,1,.27.75.75,0,0,0,.28-1l-1.74-3a.76.76,0,1,0-1.32.76Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,9a.76.76,0,0,0,.76-.76V4.76a.76.76,0,1,0-1.52,0V8.25A.76.76,0,0,0,16,9Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22.68,10.79a.75.75,0,0,0,.37.11.76.76,0,0,0,.66-.38l1.75-3a.76.76,0,0,0-1.32-.76l-1.74,3A.75.75,0,0,0,22.68,10.79Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M31.9,13.18a.76.76,0,0,0-1-.28l-3,1.75A.76.76,0,0,0,28.6,16l3-1.74A.77.77,0,0,0,31.9,13.18Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const Watsonx = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Watsonx({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", {
-		strokeWidth: "0",
-		d: "m29.312,22.9189c1.1042-2.1201,1.688-4.5127,1.688-6.9189C31,7.729,24.271,1,16,1c-3.3738,0-6.5815,1.1191-9.2046,3.1665-.2441-.106-.5125-.1665-.7954-.1665-1.1045,0-2,.8955-2,2s.8955,2,2,2,2-.8955,2-2c0-.0762-.0142-.1489-.0225-.2227,2.2812-1.7964,5.0793-2.7773,8.0225-2.7773.9727,0,1.9172.1157,2.8293.3193-3.3938.9258-5.8994,4.0273-5.8994,7.7109,0,.7891.1167,1.5503.332,2.27-.6985-.2021-1.4285-.3306-2.1919-.3306-3.7039,0-6.8191,2.5342-7.7256,5.957-.218-.9424-.3445-1.9189-.3445-2.9268,0-2.1162.4919-4.1328,1.4619-5.9951l-1.7739-.9238c-1.1042,2.1201-1.688,4.5127-1.688,6.9189,0,8.271,6.729,15,15,15,3.3738,0,6.5815-1.1191,9.2046-3.1665.2441.106.5125.1665.7954.1665,1.1045,0,2-.8955,2-2s-.8955-2-2-2-2,.8955-2,2c0,.0762.0142.1489.0225.2231-1.0796.8496-2.2776,1.5098-3.5493,1.9771.3315-.6641.5269-1.4072.5269-2.2002,0-1.6304-.7959-3.0669-2.0068-3.9805.0457-.3472.0769-.6978.0769-1.0498,0-.7856-.1257-1.54-.3381-2.2573.6995.2012,1.4346.3179,2.198.3179,3.7039,0,6.8191-2.5342,7.7256-5.957.218.9424.3445,1.9189.3445,2.9268,0,2.1162-.4919,4.1328-1.4619,5.9951l1.7739.9238Zm-17.7935,5.2646c-1.8389-.6807-3.49-1.7529-4.8325-3.1338-1.0366-1.1143-1.616-2.5527-1.616-4.0801,0-3.3081,2.6917-6,6-6s6,2.6919,6,6c0,.0498-.0125.0977-.0134.1475-.3413-.0737-.6936-.1172-1.0566-.1172-2.7571,0-5,2.2432-5,5,0,.7861.1924,1.5234.5186,2.1836Zm7.4814-2.1836c0,1.6543-1.3457,3-3,3s-3-1.3457-3-3,1.3457-3,3-3,3,1.3457,3,3Zm1.9299-8.9697c-3.3083,0-6-2.6919-6-6s2.6917-6,6-6c1.4294,0,2.7422.5039,3.7742,1.3418.3027.2739.5918.561.8677.8618.8479,1.0352,1.3582,2.3569,1.3582,3.7964,0,3.3081-2.6917,6-6,6Z"
-	}), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WatsonxAi = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WatsonxAi({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m26,24c-1.1046,0-2,.8954-2,2,0,.0764.0142.1488.0225.2229-2.2808,1.7963-5.0792,2.7771-8.0225,2.7771-4.2617,0-8-3.9722-8-8.5,0-4.687,3.813-8.5,8.5-8.5h.5v-2h-.5c-5.7896,0-10.5,4.7104-10.5,10.5,0,1.8839.5304,3.6896,1.4371,5.2565-2.7133-2.3843-4.4371-5.869-4.4371-9.7565,0-2.1152.4917-4.1328,1.4619-5.9956l-1.7744-.9238c-1.104,2.1211-1.6875,4.5137-1.6875,6.9194,0,8.271,6.729,15,15,15,3.3744,0,6.5818-1.1193,9.2048-3.1662.244.106.5123.1662.7952.1662,1.1046,0,2-.8954,2-2s-.8954-2-2-2Z" }), /* @__PURE__ */ bucket_20_jsx("path", {
-		d: "M11 20H13V22H11z",
-		transform: "rotate(90 12 21)"
-	}), /* @__PURE__ */ bucket_20_jsx("path", {
-		d: "M19 10H21V12H19z",
-		transform: "rotate(90 20 11)"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-3.3744,0-6.5818,1.1193-9.2048,3.1662-.244-.106-.5123-.1662-.7952-.1662-1.1046,0-2,.8954-2,2s.8954,2,2,2,2-.8954,2-2c0-.0764-.0142-.1488-.0225-.2229,2.2808-1.7963,5.0792-2.7771,8.0225-2.7771,4.2617,0,8,3.9722,8,8.5,0,4.687-3.813,8.5-8.5,8.5h-.5v2h.5c5.7896,0,10.5-4.7104,10.5-10.5,0-1.8853-.5322-3.6917-1.4401-5.2593,2.715,2.3843,4.4401,5.8704,4.4401,9.7593,0,2.1152-.4917,4.1328-1.4619,5.9956l1.7744.9238c1.104-2.1211,1.6875-4.5137,1.6875-6.9194C31,7.729,24.271,1,16,1Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WatsonxData = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WatsonxData({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m26,24c-1.1046,0-2,.8954-2,2,0,.0764.0142.1488.0225.2229-2.2808,1.7963-5.0792,2.7771-8.0225,2.7771-2.7746,0-5.3432-.881-7.4566-2.3676.2576.0261.517.0444.7798.0444,4.2329,0,7.6768-3.4438,7.6768-7.6768h-2c0,3.1304-2.5464,5.6768-5.6768,5.6768-2.2111,0-4.1977-1.2816-5.1318-3.2725-.1365-.2972-.2595-.6007-.3738-.9094.6602.322,1.3998.5051,2.1824.5051,2.7568,0,5-2.2432,5-5v-2h-2v2c0,1.6543-1.3457,3-3,3s-3-1.3457-3-3c0-2.1152.4917-4.1328,1.4619-5.9956l-1.7744-.9238c-1.104,2.1211-1.6875,4.5137-1.6875,6.9194,0,8.271,6.729,15,15,15,3.3744,0,6.5818-1.1193,9.2048-3.1662.244.106.5123.1662.7952.1662,1.1046,0,2-.8954,2-2s-.8954-2-2-2Z" }), /* @__PURE__ */ bucket_20_jsx("path", {
-		d: "M21 21H23V23H21z",
-		transform: "rotate(90 22 22)"
-	}), /* @__PURE__ */ bucket_20_jsx("path", {
-		d: "M15 15H17V17H15z",
-		transform: "rotate(90 16 16)"
-	}), /* @__PURE__ */ bucket_20_jsx("path", {
-		d: "M9 9H11V11H9z",
-		transform: "rotate(-90 10 10)"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-3.3744,0-6.5818,1.1193-9.2048,3.1662-.244-.106-.5123-.1662-.7952-.1662-1.1046,0-2,.8954-2,2s.8954,2,2,2,2-.8954,2-2c0-.0764-.0142-.1488-.0225-.2229,2.2808-1.7963,5.0792-2.7771,8.0225-2.7771,2.7708,0,5.3363.8784,7.4481,2.3613-.249-.0242-.5005-.038-.7547-.038-4.2329,0-7.6768,3.4438-7.6768,7.6768h2c0-3.1304,2.5464-5.6768,5.6768-5.6768,2.0554,0,3.9068,1.0953,4.9186,2.8651.2153.4283.4053.8701.5729,1.3237-.6615-.3234-1.4005-.5121-2.1849-.5121-2.7568,0-5,2.2432-5,5v2h2v-2c0-1.6543,1.3457-3,3-3s3,1.3457,3,3c0,2.1152-.4917,4.1328-1.4619,5.9956l1.7744.9238c1.104-2.1211,1.6875-4.5137,1.6875-6.9194C31,7.729,24.271,1,16,1Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WatsonxGovernance = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WatsonxGovernance({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m26,24c-1.1046,0-2,.8954-2,2,0,.0764.0142.1488.0225.2229-2.2808,1.7963-5.0792,2.7771-8.0225,2.7771-7.1685,0-13-5.8315-13-13,0-2.1152.4917-4.1328,1.4619-5.9956l-1.7744-.9238c-1.104,2.1211-1.6875,4.5137-1.6875,6.9194,0,8.271,6.729,15,15,15,3.3744,0,6.5818-1.1193,9.2048-3.1662.244.106.5123.1662.7952.1662,1.1046,0,2-.8954,2-2s-.8954-2-2-2Z" }), /* @__PURE__ */ bucket_20_jsx("path", {
-		d: "M11 23H13V25H11z",
-		transform: "rotate(90 12 24)"
-	}), /* @__PURE__ */ bucket_20_jsx("path", {
-		d: "M11 9H13V11H11z",
-		transform: "rotate(90 12 10)"
-	}), /* @__PURE__ */ bucket_20_jsx("path", {
-		d: "M11 16H13V18H11z",
-		transform: "rotate(90 12 17)"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-3.3744,0-6.5818,1.1193-9.2048,3.1662-.244-.106-.5123-.1662-.7952-.1662-1.1046,0-2,.8954-2,2s.8954,2,2,2,2-.8954,2-2c0-.0764-.0142-.1488-.0225-.2229,2.2808-1.7963,5.0792-2.7771,8.0225-2.7771,1.6543,0,3,1.3457,3,3s-1.3457,3-3,3h-1v2h1c2.7568,0,5-2.2432,5-5,0-.2399-.0203-.4748-.0531-.7057.9663,1.1348,1.5531,2.6021,1.5531,4.2057,0,3.584-2.916,6.5-6.5,6.5h-1v2h1c4.687,0,8.5-3.813,8.5-8.5,0-.7654-.1111-1.5036-.3017-2.2096,1.1321,1.6206,1.8017,3.587,1.8017,5.7096,0,5.5142-4.4858,10-10,10h-1v2h1c6.6167,0,12-5.3833,12-12,0-.8995-.1058-1.774-.2944-2.6176.8207,1.7031,1.2944,3.6038,1.2944,5.6176,0,2.1152-.4917,4.1328-1.4619,5.9956l1.7744.9238c1.104-2.1211,1.6875-4.5137,1.6875-6.9194C31,7.729,24.271,1,16,1Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WaveDirection = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WaveDirection({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22,30H17a7.0078,7.0078,0,0,1-7-7,6.6832,6.6832,0,0,1,2.0244-4.6967A6.7126,6.7126,0,0,0,10.0093,18C5.0425,18.0466,4,24.5513,4,30H2C2,18.4907,6.3452,16.0342,9.9907,16a10.0962,10.0962,0,0,1,4.4785,1.117,1,1,0,0,1,.0616,1.73A4.8773,4.8773,0,0,0,17,28h5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,24V22a8,8,0,1,0-8-8H8A10,10,0,1,1,18,24Z" }), /* @__PURE__ */ bucket_20_jsx("circle", {
-		cx: "18",
-		cy: "8",
-		r: "1"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M23,17.5859l-2.3-2.3007A2.9665,2.9665,0,0,0,21,14a3.0033,3.0033,0,0,0-3-3,2.9609,2.9609,0,0,0-1.2854.3008L14.4141,9,13,10.4141l2.3,2.3007A2.9665,2.9665,0,0,0,15,14a3.0033,3.0033,0,0,0,3,3,2.9609,2.9609,0,0,0,1.2854-.3008L21.5859,19ZM17,14a1,1,0,1,1,1,1A1.0009,1.0009,0,0,1,17,14Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WaveHeight = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WaveHeight({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M24 2H30V4H24z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M24 8H28V10H24z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M24 14H30V16H24z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M24 20H28V22H24z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,28H24a10.0349,10.0349,0,0,1-6.9268-17.2622A11.9629,11.9629,0,0,0,12.9937,10a6.9027,6.9027,0,0,0-6.0308,3.42C4.9966,16.4348,4,21.34,4,28H2c0-7.0542,1.106-12.3274,3.2871-15.6726A8.906,8.906,0,0,1,12.9937,8h.0068a14.762,14.762,0,0,1,6.4619,1.592,1,1,0,0,1,.0869,1.7222A8.0249,8.0249,0,0,0,24,26h6Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WavePeriod = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WavePeriod({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22,30H17a7.0078,7.0078,0,0,1-7-7,6.6832,6.6832,0,0,1,2.0244-4.6967A6.7935,6.7935,0,0,0,10.0093,18C5.0425,18.0466,4,24.5513,4,30H2C2,18.4907,6.3452,16.0342,9.9907,16a10.0717,10.0717,0,0,1,4.4785,1.117,1,1,0,0,1,.0616,1.73A4.8773,4.8773,0,0,0,17,28h5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M17 8H19V16H17z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28,5.4141,26.5859,4,24.3242,6.2617A9.95,9.95,0,0,0,19,4.0508V2H17V4.0508A10.0132,10.0132,0,0,0,8,14h2a8,8,0,1,1,8,8v2A9.9928,9.9928,0,0,0,25.7383,7.6758Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const Waveform = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Waveform({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M19,19h-2v-6h2v6ZM4,10h-2v12h2v-12ZM14,10h-2v12h2v-12ZM24,10h-2v12h2v-12ZM9,6h-2v20h2V6ZM29,6h-2v20h2V6Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WeatherFrontCold = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WeatherFrontCold({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M28.1655,2a13.0289,13.0289,0,0,0-12.542,9.5791l-1.1767,4.3154A11.0237,11.0237,0,0,1,3.8345,24H2v2H3.8345c.2975,0,.5918-.0171.8853-.0371l7.9291,2.9736A1,1,0,0,0,14,28V21.0923a12.9311,12.9311,0,0,0,.9121-1.313l6.3628-1.8179a1,1,0,0,0,.5059-1.5864L17.7843,11.38a10.9268,10.9268,0,0,1,1.1516-2.3472l5.7477,1.916A1,1,0,0,0,26,10V4.2251A10.8956,10.8956,0,0,1,28.1655,4H30V2ZM8.3354,25.1826A13.047,13.047,0,0,0,12,23.0943v3.4624Zm7.74-7.8154c.1107-.3105.2136-.625.3013-.9463l.732-2.6846L19.28,16.4512ZM24,8.6123l-3.7411-1.247A11.0712,11.0712,0,0,1,24,4.8306Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M10 4 10 8.586 3.414 2 2 3.414 8.586 10 4 10 4 12 12 12 12 4 10 4z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WeatherFrontStationary = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WeatherFrontStationary({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M28.1655,2a12.9848,12.9848,0,0,0-8.4074,3.1065A3.9947,3.9947,0,1,0,15.583,11.728l-1.1362,4.1665c-.0725.2657-.1579.5254-.2489.7818a3.9864,3.9864,0,0,0-5.1547,6.0054A10.9541,10.9541,0,0,1,3.8345,24H2v2H3.8345c.2975,0,.5918-.0171.8853-.0371l7.9291,2.9736A1,1,0,0,0,14,28V21.0923a12.9311,12.9311,0,0,0,.9121-1.313l6.3628-1.8179a1,1,0,0,0,.5059-1.5864L17.7843,11.38a10.9268,10.9268,0,0,1,1.1516-2.3472l5.7477,1.916A1,1,0,0,0,26,10V4.2251A10.8956,10.8956,0,0,1,28.1655,4H30V2ZM17,6a1.98,1.98,0,0,1,1.3237.53A12.9413,12.9413,0,0,0,16.24,9.8482,1.9988,1.9988,0,0,1,17,6ZM10,20a1.9879,1.9879,0,0,1,3.3374-1.4717,11.0157,11.0157,0,0,1-2.5959,3.0147A1.9975,1.9975,0,0,1,10,20ZM8.3354,25.1826A13.047,13.047,0,0,0,12,23.0943v3.4624Zm7.74-7.8154c.1107-.3105.2136-.625.3013-.9463l.732-2.6846L19.28,16.4512ZM24,8.6123l-3.7411-1.247A11.0712,11.0712,0,0,1,24,4.8306Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22 22 22 24 26.586 24 22 28.586 23.414 30 28 25.414 28 30 30 30 30 22 22 22z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M2 2 2 4 6.586 4 2 8.586 3.414 10 8 5.414 8 10 10 10 10 2 2 2z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WeatherFrontWarm = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WeatherFrontWarm({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M28.1655,2a13.0289,13.0289,0,0,0-12.542,9.5791l-1.1767,4.3154A11.0237,11.0237,0,0,1,3.8345,24H2v2H3.8345a12.9139,12.9139,0,0,0,3.4687-.4819,3.9979,3.9979,0,1,0,6.5818-4.2866,12.9671,12.9671,0,0,0,1.6209-2.5269,3.9944,3.9944,0,1,0,2.3772-7.5991,10.95,10.95,0,0,1,1.7253-3.01,3.9825,3.9825,0,0,0,6.9058-3.9648A10.9435,10.9435,0,0,1,28.1655,4H30V2ZM11,26a1.9983,1.9983,0,0,1-1.8118-1.1655,13.0811,13.0811,0,0,0,3.2969-2.1426A1.9773,1.9773,0,0,1,11,26Zm8-11a1.9926,1.9926,0,0,1-2.759,1.8467c.0442-.1426.0959-.2813.1355-.4258L17.301,13.03A1.9976,1.9976,0,0,1,19,15Zm6-9a1.9942,1.9942,0,0,1-3.9011.5894,11.0511,11.0511,0,0,1,3.3623-1.9385A1.995,1.995,0,0,1,25,6Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M10 4 10 8.586 3.414 2 2 3.414 8.586 10 4 10 4 12 12 12 12 4 10 4z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WeatherStation = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WeatherStation({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M17,28V17h1a2.0023,2.0023,0,0,0,2-2V11a2.0023,2.0023,0,0,0-2-2H14a2.0023,2.0023,0,0,0-2,2v4a2.0023,2.0023,0,0,0,2,2h1V28H2v2H30V28ZM14,11h4l.0015,4H14Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M9.3325,18.2168a7.0007,7.0007,0,0,1,0-10.4341l1.334,1.49a5,5,0,0,0,0,7.4537Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M22.667,18.2168l-1.334-1.49a4.9995,4.9995,0,0,0,0-7.4537l1.334-1.49a7,7,0,0,1,0,10.4341Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M6.3994,21.8008a11.0019,11.0019,0,0,1,0-17.6006L7.6,5.8a9.0009,9.0009,0,0,0,0,14.4014Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.6006,21.8008l-1.2012-1.6a9.001,9.001,0,0,0,0-14.4019l1.2012-1.6a11.002,11.002,0,0,1,0,17.6011Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WebServicesCluster = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WebServicesCluster({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,26c-.2559,0-.512-.0977-.707-.2928l-3-3c-.1953-.1953-.293-.4512-.293-.7071s.0977-.5118.293-.7072l3-3c.1951-.1952.451-.2928.707-.2928s.512.0977.707.2928l3,3c.1953.1953.293.4512.293.7071s-.0977.5118-.293.7072l-3,3c-.1951.1952-.4512.2928-.707.2928Zm-1.5857-4l1.5857,1.5858,1.5857-1.5858-1.5857-1.5858-1.5857,1.5858Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m22,20c-.2559,0-.512-.0977-.707-.2928l-3-3c-.1953-.1953-.293-.4512-.293-.7071s.0977-.5118.293-.7072l3-3c.1951-.1952.451-.2928.707-.2928s.512.0977.707.2928l3,3c.1953.1953.293.4512.293.7071s-.0977.5118-.293.7072l-3,3c-.1951.1952-.4512.2928-.707.2928Zm-1.5857-4l1.5857,1.5858,1.5857-1.5858-1.5857-1.5858-1.5857,1.5858Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,14c-.2559,0-.512-.0977-.707-.2928l-3-3c-.1953-.1953-.293-.4512-.293-.7071s.0977-.5118.293-.7072l3-3c.1951-.1952.451-.2928.707-.2928s.512.0977.707.2928l3,3c.1953.1953.293.4512.293.7071s-.0977.5118-.293.7072l-3,3c-.1951.1952-.4512.2928-.707.2928Zm-1.5857-4l1.5857,1.5858,1.5857-1.5858-1.5857-1.5858-1.5857,1.5858Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m10,20c-.2559,0-.512-.0977-.707-.2928l-3-3c-.1953-.1953-.293-.4512-.293-.7071s.0977-.5118.293-.7072l3-3c.1951-.1952.451-.2928.707-.2928s.512.0977.707.2928l3,3c.1953.1953.293.4512.293.7071s-.0977.5118-.293.7072l-3,3c-.1951.1952-.4512.2928-.707.2928Zm-1.5857-4l1.5857,1.5858,1.5857-1.5858-1.5857-1.5858-1.5857,1.5858Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-.1741,0-.3481.0454-.5039.1362L3.4961,8.1362c-.3071.1792-.4961.5081-.4961.8638v14c0,.3557.189.6846.4961.8638l12,7c.1558.0908.3298.1362.5039.1362s.3481-.0454.5039-.1362l11-6.4166-1.0078-1.7275-10.4961,6.1227-11-6.4166v-12.8513L16,3.1577l11,6.4166v7.4257h2v-8c0-.3557-.189-.6846-.4961-.8638L16.5039,1.1362c-.1558-.0908-.3298-.1362-.5039-.1362Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WebServicesContainer = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WebServicesContainer({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m22.5046,11.6367l-5.9883-3.5c-.1594-.0933-.3381-.1387-.5164-.1367-.1699.002-.3394.0474-.4915.1357l-6.0117,3.5c-.3076.1792-.4968.5083-.4968.8643v7c0,.356.1892.6851.4968.8643l6.0117,3.5c.1555.0903.3176.1357.4915.1357.1743,0,.3604-.0454.5164-.1367l5.9883-3.5c.3069-.1792.4954-.5078.4954-.8633v-7c0-.3555-.1885-.6841-.4954-.8633Zm-6.4939-1.479l4.0076,2.3423-4.0076,2.3423-4.0232-2.3423,4.0232-2.3423Zm-5.0107,4.0815l4,2.3291v4.6855l-4-2.3291v-4.6855Zm6,7.0249v-4.6836l4-2.3379v4.6836l-4,2.3379Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-.1741,0-.3481.0454-.5039.1362L3.4961,8.1362c-.3071.1792-.4961.5081-.4961.8638v14c0,.3557.189.6846.4961.8638l12,7c.1558.0908.3298.1362.5039.1362s.3481-.0454.5039-.1362l11-6.4166-1.0078-1.7275-10.4961,6.1227-11-6.4166v-12.8513L16,3.1577l11,6.4166v7.4257h2v-8c0-.3557-.189-.6846-.4961-.8638L16.5039,1.1362c-.1558-.0908-.3298-.1362-.5039-.1362Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WebServicesDefinition = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WebServicesDefinition({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M14 17H16V19H14z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M14 13H18V15H14z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m21,23h-10c-.5522,0-1-.4478-1-1v-12c0-.5522.4478-1,1-1h10c.5522,0,1,.4478,1,1v12c0,.5522-.4478,1-1,1Zm-9-2h8v-10h-8v10Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-.1741,0-.3481.0454-.5039.1362L3.4961,8.1362c-.3071.1792-.4961.5081-.4961.8638v14c0,.3557.189.6846.4961.8638l12,7c.1558.0908.3298.1362.5039.1362s.3481-.0454.5039-.1362l11-6.4166-1.0078-1.7275-10.4961,6.1227-11-6.4166v-12.8513L16,3.1577l11,6.4166v7.4257h2v-8c0-.3557-.189-.6846-.4961-.8638L16.5039,1.1362c-.1558-.0908-.3298-.1362-.5039-.1362Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WebServicesService = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WebServicesService({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "m23,18h-2v-7h-7v-2h8c.5522,0,1,.4478,1,1v8Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m18,23h-8c-.5522,0-1-.4478-1-1v-8c0-.5522.4478-1,1-1h8c.5522,0,1,.4478,1,1v8c0,.5522-.4478,1-1,1Zm-7-2h6v-6h-6v6Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-.1741,0-.3481.0454-.5039.1362L3.4961,8.1362c-.3071.1792-.4961.5081-.4961.8638v14c0,.3557.189.6846.4961.8638l12,7c.1558.0908.3298.1362.5039.1362s.3481-.0454.5039-.1362l11-6.4166-1.0078-1.7275-10.4961,6.1227-11-6.4166v-12.8513L16,3.1577l11,6.4166v7.4257h2v-8c0-.3557-.189-.6846-.4961-.8638L16.5039,1.1362c-.1558-.0908-.3298-.1362-.5039-.1362Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WebServicesTask = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WebServicesTask({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M20 20.18 18.41 18.59 17 20 20 23 25 18 23.59 16.59 20 20.18z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m15,23h-4c-.5522,0-1-.4478-1-1v-12c0-.5522.4478-1,1-1h10c.5522,0,1,.4478,1,1v6h-2v-5h-8v10h3v2Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-.1741,0-.3481.0454-.5039.1362L3.4961,8.1362c-.3071.1792-.4961.5081-.4961.8638v14c0,.3557.189.6846.4961.8638l12,7c.1558.0908.3298.1362.5039.1362s.3481-.0454.5039-.1362l11-6.4166-1.0078-1.7275-10.4961,6.1227-11-6.4166v-12.8513L16,3.1577l11,6.4166v7.4257h2v-8c0-.3557-.189-.6846-.4961-.8638L16.5039,1.1362c-.1558-.0908-.3298-.1362-.5039-.1362Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WebServicesTaskDefinitionVersion = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WebServicesTaskDefinitionVersion({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M24 15 22.25 15 20 22.0312 17.7917 15.0003 16 15.0003 18.5 23 21.5 23 24 15z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,23h-5c-.5522,0-1-.4478-1-1v-12c0-.5522.4478-1,1-1h10c.5522,0,1,.4478,1,1v4h-2v-3h-8v10h4v2Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,1c-.1741,0-.3481.0454-.5039.1362L3.4961,8.1362c-.3071.1792-.4961.5081-.4961.8638v14c0,.3557.189.6846.4961.8638l12,7c.1558.0908.3298.1362.5039.1362s.3481-.0454.5039-.1362l11-6.4166-1.0078-1.7275-10.4961,6.1227-11-6.4166v-12.8513L16,3.1577l11,6.4166v7.4257h2v-8c0-.3557-.189-.6846-.4961-.8638L16.5039,1.1362c-.1558-.0908-.3298-.1362-.5039-.1362Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const Webhook = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Webhook({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M24,26a3,3,0,1,0-2.8164-4H13v1a5,5,0,1,1-5-5V16a7,7,0,1,0,6.9287,8h6.2549A2.9914,2.9914,0,0,0,24,26Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M24,16a7.024,7.024,0,0,0-2.57.4873l-3.1656-5.5395a3.0469,3.0469,0,1,0-1.7326.9985l4.1189,7.2085.8686-.4976a5.0006,5.0006,0,1,1-1.851,6.8418L17.937,26.501A7.0005,7.0005,0,1,0,24,16Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M8.532,20.0537a3.03,3.03,0,1,0,1.7326.9985C11.74,18.47,13.86,14.7607,13.89,14.708l.4976-.8682-.8677-.497a5,5,0,1,1,6.812-1.8438l1.7315,1.002a7.0008,7.0008,0,1,0-10.3462,2.0356c-.457.7427-1.1021,1.8716-2.0737,3.5728Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const Websheet = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Websheet({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("circle", {
-		cx: "24",
-		cy: "24",
-		r: "2"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M24,30a6,6,0,1,1,6-6A6.0069,6.0069,0,0,1,24,30Zm0-10a4,4,0,1,0,4,4A4.0045,4.0045,0,0,0,24,20Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,28H8V4h8v6a2.0058,2.0058,0,0,0,2,2h6v3h2V10a.9092.9092,0,0,0-.3-.7l-7-7A.9087.9087,0,0,0,18,2H8A2.0058,2.0058,0,0,0,6,4V28a2.0058,2.0058,0,0,0,2,2h8ZM18,4.4,23.6,10H18Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const Wheat = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Wheat({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M21,3V5.5857l-4,4V1H15V9.5857l-4-4V3H9V19a7.004,7.004,0,0,0,6,6.92V30h2V25.92A7.004,7.004,0,0,0,23,19V3ZM15,23.8987A5.008,5.008,0,0,1,11,19v-2.586l4,4Zm0-6.313-4-4V8.4138l4,4Zm2-5.1719,4-4v5.1719l-4,4Zm0,11.4849V20.4138l4-4V19A5.008,5.008,0,0,1,17,23.8987Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WhileLoop = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WhileLoop({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M23,23h7v7h-2v-3.3518c-1.6447,2.0408-4.1525,3.3516-7.0002,3.3516l-9.9998.0002c-5,0-9-4-9-9v-8h2v8c0,3.8999,3.1,7,7,7h10c2.4032,0,4.4943-1.1841,5.7518-3h-3.7518v-2ZM9,7h-3.7518c1.2575-1.8159,3.3486-3,5.7518-3h10c3.9,0,7,3.1001,7,7v8h2v-8c0-5-4-9-9-9l-9.9998.0002c-2.8477,0-5.3555,1.3108-7.0002,3.3516V2h-2v7h7v-2ZM13.957,22l1.5303-6.3457.7739-3.1641h.0347l.7393,3.1641,1.5308,6.3457h2.562l2.8721-12.0029h-2.167l-1.2207,5.7607-.7568,3.6797h-.0518l-.8423-3.6797-1.376-5.7607h-2.5107l-1.3755,5.7607-.8599,3.6797h-.0518l-.7393-3.6797-1.1865-5.7607h-2.27l2.7856,12.0029h2.5796Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WhitePaper = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WhitePaper({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M22 27.1798 19.41 24.5899 18 26 22 30 30 22 28.5899 20.59 22 27.1798z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M9 17H16V19H9z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M9 12H21V14H9z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M9 7H21V9H9z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "m16,30H6c-1.103,0-2-.8972-2-2V4c0-1.1028.897-2,2-2h18c1.103,0,2,.8972,2,2v15h-2V4H6v24h10v2Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const Wifi = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Wifi({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("circle", {
-		cx: "16",
-		cy: "25",
-		r: "2"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M10.47,19.2334l1.4136,1.4131a5.9688,5.9688,0,0,1,8.2229-.0093L21.52,19.2236a7.9629,7.9629,0,0,0-11.05.01Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M6.229,14.9927l1.4136,1.4135a11.955,11.955,0,0,1,16.7041-.01L25.76,14.9829a13.9514,13.9514,0,0,0-19.5313.01Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,10.7412a19.94,19.94,0,0,0-28,0v.0225L3.4043,12.168a17.9336,17.9336,0,0,1,25.1811-.01L30,10.7432Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WifiController = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WifiController({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M6,30H26a2,2,0,0,0,2-2V22a2,2,0,0,0-2-2H6a2,2,0,0,0-2,2v6A2,2,0,0,0,6,30Zm0-8H26v6H6Z" }), /* @__PURE__ */ bucket_20_jsx("circle", {
-		cx: "9",
-		cy: "25",
-		r: "1"
-	}), /* @__PURE__ */ bucket_20_jsx("circle", {
-		cx: "16",
-		cy: "14.5",
-		r: "1.5"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M10.7832,10.3325a7.0007,7.0007,0,0,1,10.4341,0l-1.49,1.334a5,5,0,0,0-7.4537,0Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M7.1992,7.3994a11.0019,11.0019,0,0,1,17.6006,0L23.2,8.6a9.0009,9.0009,0,0,0-14.4014.0005Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WifiNotSecure = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WifiNotSecure({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M20,20H14V17a2,2,0,0,1,4,0h2a4,4,0,0,0-8,0v3a2.0025,2.0025,0,0,0-2,2v6a2.0025,2.0025,0,0,0,2,2h8a2.0025,2.0025,0,0,0,2-2V22A2.0025,2.0025,0,0,0,20,20Zm0,8H12V22h8Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,8a8.9709,8.9709,0,0,0-6.3608,2.6392l1.4133,1.4135a6.9887,6.9887,0,0,1,9.895,0l1.4135-1.4135A8.9717,8.9717,0,0,0,16,8Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M6.105,7.105,7.5188,8.5186a11.9808,11.9808,0,0,1,16.9624,0L25.8949,7.105a13.9782,13.9782,0,0,0-19.79,0Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WifiOff = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WifiOff({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("circle", {
-		cx: "16",
-		cy: "25",
-		r: "2"
-	}), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,3.4141,28.5859,2,2,28.5859,3.4141,30,14.0962,19.3179a5.9359,5.9359,0,0,1,6.01,1.3193L21.52,19.2236a7.9669,7.9669,0,0,0-5.125-2.2041l3.3875-3.3877a11.9908,11.9908,0,0,1,4.5647,2.7647L25.76,14.9829A13.975,13.975,0,0,0,21.334,12.08L24.3308,9.083a17.9364,17.9364,0,0,1,4.2546,3.0747L30,10.7432v-.002a20.02,20.02,0,0,0-4.1895-3.1377Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M14.68,13.0776l2.0415-2.0415C16.481,11.0234,16.2437,11,16,11a13.9447,13.9447,0,0,0-9.771,3.9927l1.4136,1.4136A11.97,11.97,0,0,1,14.68,13.0776Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,7a17.87,17.87,0,0,1,4.2324.5254L21.875,5.8828A19.9537,19.9537,0,0,0,2,10.7412v.0225L3.4043,12.168A17.9193,17.9193,0,0,1,16,7Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WifiSecure = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WifiSecure({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M20,20V17a4,4,0,0,0-8,0v3a2.0025,2.0025,0,0,0-2,2v6a2.0025,2.0025,0,0,0,2,2h8a2.0025,2.0025,0,0,0,2-2V22A2.0025,2.0025,0,0,0,20,20Zm-6-3a2,2,0,0,1,4,0v3H14ZM12,28V22h8v6Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M6.105,7.105,7.5188,8.5186a11.9808,11.9808,0,0,1,16.9624,0L25.8949,7.105a13.9782,13.9782,0,0,0-19.79,0Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,8a8.9709,8.9709,0,0,0-6.3608,2.6392l1.4133,1.4135a6.9887,6.9887,0,0,1,9.895,0l1.4135-1.4135A8.9717,8.9717,0,0,0,16,8Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WifiBridge = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WifiBridge({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M6.9492,20.95l-1.414-1.4141a5,5,0,0,0,0-7.0715L6.9492,11.05a7,7,0,0,1,0,9.9Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M10.4854,24.4854,9.0713,23.0713a10.0011,10.0011,0,0,0,0-14.1426l1.4141-1.4141a12.0006,12.0006,0,0,1,0,16.9708Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M25.0508,20.95a7,7,0,0,1,0-9.9l1.414,1.4146a5,5,0,0,0,0,7.0715Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M21.5146,24.4854a12.0006,12.0006,0,0,1,0-16.9708l1.4141,1.4141a10.0011,10.0011,0,0,0,0,14.1426Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M3,15H2V4H0V28H2V17H3a1,1,0,0,0,0-2Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M30,4V15H29a1,1,0,0,0,0,2h1V28h2V4Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WifiBridgeAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WifiBridgeAlt({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M13,26H11a5.0057,5.0057,0,0,0-5-5V19A7.0078,7.0078,0,0,1,13,26Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M18,26H16A10.0113,10.0113,0,0,0,6,16V14A12.0137,12.0137,0,0,1,18,26Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,13a7.0078,7.0078,0,0,1-7-7h2a5.0057,5.0057,0,0,0,5,5Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,18A12.0137,12.0137,0,0,1,14,6h2A10.0113,10.0113,0,0,0,26,16Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M7.707,24.293a.9994.9994,0,0,0-1.414,0L2,28.5859,3.4143,30,7.707,25.707A.9994.9994,0,0,0,7.707,24.293Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M28.5859,2,24.293,6.293a1,1,0,0,0,1.414,1.414L30,3.4141Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const Wikis = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function Wikis({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M16,2A14,14,0,1,0,30,16,14,14,0,0,0,16,2ZM28,15H22A24.26,24.26,0,0,0,19.21,4.45,12,12,0,0,1,28,15ZM16,28a5,5,0,0,1-.67,0A21.85,21.85,0,0,1,12,17H20a21.85,21.85,0,0,1-3.3,11A5,5,0,0,1,16,28ZM12,15a21.85,21.85,0,0,1,3.3-11,6,6,0,0,1,1.34,0A21.85,21.85,0,0,1,20,15Zm.76-10.55A24.26,24.26,0,0,0,10,15h-6A12,12,0,0,1,12.79,4.45ZM4.05,17h6a24.26,24.26,0,0,0,2.75,10.55A12,12,0,0,1,4.05,17ZM19.21,27.55A24.26,24.26,0,0,0,22,17h6A12,12,0,0,1,19.21,27.55Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WindGusts = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WindGusts({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M29.3164,8.0513l-18-6A1,1,0,0,0,10.4,2.2L4,7V2H2V30H4V11l6.4,4.8a1,1,0,0,0,.9165.1489l18-6a1,1,0,0,0,0-1.8974ZM10,13,4.6665,9,10,5Zm4-.0542-2,.667V4.3872l2,.667Zm4-1.333-2,.6665V5.7207l2,.6665Zm2-.667V7.0542L25.8379,9Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M20,22a4,4,0,0,0-8,0h2a2,2,0,1,1,2,2H8v2h8A4.0045,4.0045,0,0,0,20,22Z" }), /* @__PURE__ */ bucket_20_jsx("path", { d: "M26,22a4.0045,4.0045,0,0,0-4,4h2a2,2,0,1,1,2,2H12v2H26a4,4,0,0,0,0-8Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-const WindPower = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_20_React.forwardRef(function WindPower({ children, size = 16, ...rest }, ref) {
-	return bucket_20_React.createElement(bucket_20_Icon, {
-		width: size,
-		height: size,
-		ref,
-		xmlns: "http://www.w3.org/2000/svg",
-		viewBox: "0 0 32 32",
-		fill: "currentColor",
-		...rest
-	}, /* @__PURE__ */ bucket_20_jsx("path", { d: "M17,28V15.8159a3.0059,3.0059,0,0,0,1.47-1.1186L27.063,17l.5176-1.9321-8.6045-2.3052a2.985,2.985,0,0,0-2.63-2.7275L14.1938,2l-1.9316.5186,2.1318,7.956a2.9588,2.9588,0,0,0-1.093,3.8115L7,20.5859,8.415,22l6.3-6.3A2.8938,2.8938,0,0,0,15,15.8154V28H2v2H30V28Zm0-15a1,1,0,1,1-1-1A1.0008,1.0008,0,0,1,17,13Z" }), children);
-})));
-if (false) // removed by dead control flow
-{}
-//#endregion
-
-
-;// ./node_modules/@carbon/react/es/internal/useNormalizedInputProps.js
-/**
- * Copyright IBM Corp. 2016, 2026
- *
- * This source code is licensed under the Apache-2.0 license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-
-
-
-//#region src/internal/useNormalizedInputProps.tsx
-/**
-* Returns an object containing normalized properties for an input component.
-*
-* This hook ensures that only one of `invalid` or `warn` is active (with
-* `invalid` taking precedence) and that `readOnly` overrides the `disabled`,
-* `invalid`, and `warn` states. It generates unique IDs for error, warning, and
-* helper messages, and conditionally provides the appropriate validation
-* message and accompanying icon.
-*/
-const useNormalizedInputProps = ({ id, readOnly, disabled, invalid, invalidText, warn, warnText }) => {
-	const prefix = usePrefix();
-	const normalizedProps = {
-		disabled: !readOnly && disabled,
-		invalid: !readOnly && !disabled && invalid,
-		invalidId: `${id}-error-msg`,
-		warn: !readOnly && !invalid && !disabled && warn,
-		warnId: `${id}-warn-msg`,
-		validation: null,
-		icon: null,
-		helperId: `${id}-helper-text`
-	};
-	if (normalizedProps.invalid) {
-		normalizedProps.icon = WarningFilled;
-		normalizedProps.validation = /* @__PURE__ */ (0,jsx_runtime.jsx)(Text, {
-			as: "div",
-			className: `${prefix}--form-requirement`,
-			id: normalizedProps.invalidId,
-			children: invalidText
-		});
-	} else if (normalizedProps.warn) {
-		normalizedProps.icon = WarningAltFilled;
-		normalizedProps.validation = /* @__PURE__ */ (0,jsx_runtime.jsx)(Text, {
-			as: "div",
-			className: `${prefix}--form-requirement`,
-			id: normalizedProps.warnId,
-			children: warnText
-		});
-	}
-	return normalizedProps;
-};
-//#endregion
-
-
-;// ./node_modules/@carbon/react/es/tools/mergeRefs.js
-/**
- * Copyright IBM Corp. 2016, 2026
- *
- * This source code is licensed under the Apache-2.0 license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-//#region src/tools/mergeRefs.ts
-/**
-* @param refs Refs to merge.
-* @returns Merged ref.
-*/
-const mergeRefs = (...refs) => {
-	return (value) => {
-		refs.forEach((ref) => {
-			if (!ref) return;
-			if (typeof ref === "function") ref(value);
-			else if (typeof ref === "object" && "current" in ref) ref.current = value;
-		});
-	};
-};
-//#endregion
-
-
-;// ./node_modules/@carbon/react/es/components/RadioButton/RadioButton.js
-/**
- * Copyright IBM Corp. 2016, 2026
- *
- * This source code is licensed under the Apache-2.0 license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-//#region src/components/RadioButton/RadioButton.tsx
-/**
-* Copyright IBM Corp. 2016, 2025
-*
-* This source code is licensed under the Apache-2.0 license found in the
-* LICENSE file in the root directory of this source tree.
-*/
-const RadioButton = consume_shared_module_default_react_singleton_default().forwardRef((props, ref) => {
-	const { className, decorator, disabled = false, hideLabel, id, labelPosition = "right", labelText = "", name, onChange = () => {}, value = "", slug, required, invalid = false, invalidText, warn = false, warnText, readOnly, ...rest } = props;
-	const prefix = usePrefix();
-	const uid = useId("radio-button");
-	const uniqueId = id || uid;
-	const normalizedProps = useNormalizedInputProps({
-		id: uniqueId,
-		readOnly,
-		disabled,
-		invalid,
-		invalidText,
-		warn,
-		warnText
-	});
-	function handleOnChange(event) {
-		onChange(value, name, event);
-	}
-	const innerLabelClasses = classnames_default()(`${prefix}--radio-button__label-text`, { [`${prefix}--visually-hidden`]: hideLabel });
-	const wrapperClasses = classnames_default()(className, `${prefix}--radio-button-wrapper`, {
-		[`${prefix}--radio-button-wrapper--label-${labelPosition}`]: labelPosition !== "right",
-		[`${prefix}--radio-button-wrapper--slug`]: slug,
-		[`${prefix}--radio-button-wrapper--decorator`]: decorator,
-		[`${prefix}--radio-button-wrapper--invalid`]: normalizedProps.invalid,
-		[`${prefix}--radio-button-wrapper--warning`]: normalizedProps.warn
-	});
-	const inputRef = (0,consume_shared_module_default_react_singleton_.useRef)(null);
-	const candidate = slug ?? decorator;
-	const normalizedDecorator = isComponentElement(candidate, AILabel) ? (0,consume_shared_module_default_react_singleton_.cloneElement)(candidate, { size: candidate.props?.["kind"] === "inline" ? "md" : "mini" }) : candidate;
-	return /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", {
-		className: wrapperClasses,
-		children: [
-			/* @__PURE__ */ (0,jsx_runtime.jsx)("input", {
-				...rest,
-				type: "radio",
-				className: `${prefix}--radio-button`,
-				onChange: handleOnChange,
-				id: uniqueId,
-				ref: mergeRefs(inputRef, ref),
-				disabled: normalizedProps.disabled,
-				value,
-				name,
-				required,
-				readOnly
-			}),
-			/* @__PURE__ */ (0,jsx_runtime.jsxs)("label", {
-				htmlFor: uniqueId,
-				className: `${prefix}--radio-button__label`,
-				children: [/* @__PURE__ */ (0,jsx_runtime.jsx)("span", { className: `${prefix}--radio-button__appearance` }), labelText && /* @__PURE__ */ (0,jsx_runtime.jsxs)(Text, {
-					className: innerLabelClasses,
-					children: [labelText, slug ? normalizedDecorator : decorator ? /* @__PURE__ */ (0,jsx_runtime.jsx)("div", {
-						className: `${prefix}--radio-button-wrapper-inner--decorator`,
-						children: normalizedDecorator
-					}) : ""]
-				})]
-			}),
-			normalizedProps.validation
-		]
-	});
-});
-RadioButton.displayName = "RadioButton";
-RadioButton.propTypes = {
-	checked: (prop_types_default()).bool,
-	className: (prop_types_default()).string,
-	decorator: (prop_types_default()).node,
-	defaultChecked: (prop_types_default()).bool,
-	disabled: (prop_types_default()).bool,
-	hideLabel: (prop_types_default()).bool,
-	id: (prop_types_default()).string,
-	labelPosition: prop_types_default().oneOf(["right", "left"]),
-	labelText: (prop_types_default()).node.isRequired,
-	name: (prop_types_default()).string,
-	onChange: (prop_types_default()).func,
-	onClick: (prop_types_default()).func,
-	required: (prop_types_default()).bool,
-	invalid: (prop_types_default()).bool,
-	invalidText: (prop_types_default()).node,
-	warn: (prop_types_default()).bool,
-	warnText: (prop_types_default()).node,
-	readOnly: (prop_types_default()).bool,
-	slug: deprecate((prop_types_default()).node, "The `slug` prop has been deprecated and will be removed in the next major version. Use the decorator prop instead."),
-	value: prop_types_default().oneOfType([(prop_types_default()).string, (prop_types_default()).number])
 };
 //#endregion
 
@@ -37812,6 +37814,2465 @@ Modal.propTypes = {
 //#endregion
 
 
+;// ./node_modules/@carbon/icons-react/es/generated/bucket-10.js
+/* unused harmony import specifier */ var bucket_10_Icon;
+/* unused harmony import specifier */ var bucket_10_React;
+/* unused harmony import specifier */ var bucket_10_jsx;
+/**
+* Copyright IBM Corp. 2016, 2023
+*
+* This source code is licensed under the Apache-2.0 license found in the
+* LICENSE file in the root directory of this source tree.
+*
+* Code generated by @carbon/icon-build-helpers. DO NOT EDIT.
+*/
+
+
+
+
+//#region virtual:generated/bucket-10.js
+const bucket_10_didWarnAboutDeprecation = {};
+const IbmSoftwareWatsonxDataUnstructuredEnrichment = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmSoftwareWatsonxDataUnstructuredEnrichment({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M27,26h-2c0-1.1885.5767-2.0088,1.0854-2.7324.4907-.6978.9146-1.3003.9146-2.2676,0-1.6543-1.3457-3-3-3s-3,1.3457-3,3c0,.9673.4238,1.5698.9146,2.2676.5088.7236,1.0854,1.5439,1.0854,2.7324h-2c0-.5298-.2607-.9268-.7217-1.582-.5693-.8101-1.2783-1.8179-1.2783-3.418,0-2.7568,2.2432-5,5-5s5,2.2432,5,5c0,1.6001-.709,2.6079-1.2783,3.418-.4609.6553-.7217,1.0522-.7217,1.582ZM27,28h-6v2h6v-2ZM27.7236,13h-11.4468l5.7231-10.0156,5.7236,10.0156h0ZM19.7236,11h4.5527l-2.2764-3.9844-2.2764,3.9844h0ZM9,14c-2.7571,0-5-2.2429-5-5s2.2429-5,5-5,5,2.2429,5,5-2.2429,5-5,5ZM9,6c-1.6543,0-3,1.3457-3,3s1.3457,3,3,3,3-1.3457,3-3-1.3457-3-3-3ZM16,27.0007H6v-10.0007h10v10.0007ZM8,25.0007h6v-6.0007h-6v6.0007Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmSoftwareWatsonxDataUnstructuredImport = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmSoftwareWatsonxDataUnstructuredImport({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M30,26l-8.17-.0007,2.58,2.59-1.41,1.4107-5-5,5-5,1.41,1.4093-2.58,2.59,8.17.0007v2ZM28.7236,16h-11.4473l5.7236-10.0156,5.7236,10.0156h0ZM20.7236,14h4.5527l-2.2764-3.9844-2.2764,3.9844h0ZM17,8c0,2.7568-2.2432,5-5,5s-5-2.2432-5-5,2.2432-5,5-5,5,2.2432,5,5ZM15,8c0-1.6543-1.3457-3-3-3s-3,1.3457-3,3,1.3457,3,3,3,3-1.3457,3-3ZM5,16h10v10H5v-10ZM7,24h6v-6h-6v6Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmSoftwareWatsonxDocumentLibrary = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmSoftwareWatsonxDocumentLibrary({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M12,28H4c-1.1046,0-2-.8954-2-2V6c0-1.1046.8954-2,2-2l7.17-.0057c.533-.0004,1.0442.212,1.42.59l3.41,3.4157,12-.0057c1.1046,0,2,.8954,2,2v4.0057h-2v-4l-12.83-.0057-.58-.59-3.42-3.41-7.17.0057v20h8v2ZM16,17l-2.0072-.0057.0072,11.0057h2v-11ZM29.9954,18.9926l-.0039,9.7657c0,.6838-.5676,1.2417-1.2654,1.2417h-9.4679c-.6978,0-1.2654-.5579-1.2654-1.2426v-12.5195c0-.6857.5676-1.2436,1.2654-1.2436l6.7418.0057,4,4-.0046-.0074ZM27.9899,28.0004l.0101-8.0004h-3v-3h-5v11h8l-.0101.0004Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonAssistant = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonAssistant({ children, size = 16, ...rest }, ref) {
+	if (false) // removed by dead control flow
+{}
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,2H18c-1.1,0-2,0.9-2,2v6c0,1.1,0.9,2,2,2h2.4l1.7,3l1.7-1l-2.3-4H18V4h10v6h-3v2h3c1.1,0,2-0.9,2-2V4 C30,2.9,29.1,2,28,2z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M14.7,31L13,30l3.5-6H22c1.1,0,2-0.9,2-2v-5h2v5c0,2.2-1.8,4-4,4h-4.4L14.7,31z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "10",
+		cy: "17",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "14",
+		cy: "17",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "18",
+		cy: "17",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M12,26H6c-2.2,0-4-1.8-4-4V12c0-2.2,1.8-4,4-4h8v2H6c-1.1,0-2,0.9-2,2v10c0,1.1,0.9,2,2,2h6V26z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonDiscovery = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonDiscovery({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M6 17H14V19H6z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "3",
+		cy: "18",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "13",
+		cy: "14",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2 13H10V15H2z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M6 9H14V11H6z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "3",
+		cy: "10",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M30,28.6l-7.4-7.4c1.5-2,2.4-4.5,2.4-7.2c0-6.6-5.4-12-12-12C9.7,2,6.6,3.3,4.3,5.8l1.5,1.4C7.6,5.1,10.2,4,13,4 c5.5,0,10,4.5,10,10s-4.5,10-10,10c-3,0-5.8-1.3-7.7-3.6l-1.5,1.3C6,24.4,9.4,26,13,26c3.2,0,6.1-1.3,8.3-3.3l7.3,7.3L30,28.6z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonKnowledgeCatalog = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonKnowledgeCatalog({ children, size = 16, ...rest }, ref) {
+	if (false) // removed by dead control flow
+{}
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M23 27.2 20.4 24.6 19 26 23 30 30 23 28.6 21.6z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M12 18H20V20H12z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M12 13H20V15H12z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M12 8H20V10H12z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M16,28H6v-4h2v-2H6v-5h2v-2H6v-5h2V8H6V4h18v16h2V4c0-1.1-0.9-2-2-2H6C4.9,2,4,2.9,4,4v4H2v2h2v5H2v2h2v5H2v2h2v4 c0,1.1,0.9,2,2,2h10V28z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonKnowledgeStudio = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonKnowledgeStudio({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M20 25H27V27H20z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M22 29H25V31H22z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M27,23h-2c0-1.1,0.4-2,1.2-2.8l0.5-0.5c0.8-0.8,1.3-2,1.3-3.2c0-2.5-2-4.5-4.5-4.5S19,14,19,16.5c0,1.2,0.5,2.3,1.3,3.2 l0.5,0.5C21.6,21,22,21.9,22,23h-2c0-0.5-0.2-1-0.6-1.4l-0.5-0.5c-1.2-1.2-1.9-2.9-1.9-4.6c0-3.6,2.9-6.5,6.5-6.5s6.5,2.9,6.5,6.5 c0,1.7-0.7,3.4-1.9,4.6l-0.5,0.5C27.2,22,27,22.5,27,23z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M6 22H14V24H6z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "12",
+		cy: "19",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M6 18H9V20H6z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M6 14H13V16H6z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M10 10H17V12H10z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "7",
+		cy: "11",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M16 6H20V8H16z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "13",
+		cy: "7",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M6 6H10V8H6z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M18,28H4V4l18,0v4h2V4c0-1.1-0.9-2-2-2H4C2.9,2,2,2.9,2,4v24c0,1.1,0.9,2,2,2h14V28z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonLanguageTranslator = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonLanguageTranslator({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M16,28h-3c-3.9,0-7-3.1-7-7v-4h2v4c0,2.8,2.2,5,5,5h3V28z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,30h2.2l-4.6-11h-2.2l-4.6,11H21l0.8-2h5.3L28,30z M22.7,26l1.8-4.4l1.8,4.4H22.7z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,15h-2v-4c0-2.8-2.2-5-5-5h-4V4h4c3.9,0,7,3.1,7,7V15z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M14,5V3H9V1H7v2H2v2h8.2C10,5.9,9.4,7.5,8,9C7.4,8.3,6.9,7.6,6.6,7H4.3c0.4,1,1.1,2.2,2.1,3.3C5.6,11,4.4,11.6,3,12.1 L3.7,14c1.8-0.7,3.2-1.5,4.3-2.3c1.1,0.9,2.5,1.7,4.3,2.3l0.7-1.9c-1.4-0.5-2.6-1.2-3.5-1.8c1.9-2,2.5-4.1,2.7-5.3H14z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonMachineLearning = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonMachineLearning({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M3.6,22.5c-1-2-1.6-4.2-1.6-6.5C2,8.3,8.3,2,16,2v2C9.4,4,4,9.4,4,16c0,2,0.5,3.8,1.4,5.5L3.6,22.5z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,16c0,6.6-5.4,12-12,12c-2.9,0-5.6-1-7.7-2.8l5.7-5.7L12.6,18l-6.5,6.5c-0.4,0.4-0.4,1,0,1.4C8.7,28.5,12.3,30,16,30 c7.7,0,14-6.3,14-14H28z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M18,25c-0.1,0-0.3,0-0.4-0.1c-0.3-0.1-0.6-0.4-0.6-0.8l-0.7-5l2-0.3l0.4,3.3l2.2-1.7V15c0-0.3,0.1-0.5,0.3-0.7l3.2-3.2 c0.9-0.9,1.5-2.2,1.5-3.5V6l-1.5,0c-1.3,0-2.6,0.5-3.5,1.5l-3.2,3.2C17.5,10.9,17.3,11,17,11h-5.5l-1.7,2.2l3.3,0.4l-0.3,2l-5-0.7 c-0.4,0-0.7-0.3-0.8-0.6s-0.1-0.7,0.1-1l3-4C10.4,9.1,10.7,9,11,9h5.6l3-3c1.3-1.3,3.1-2,4.9-2H26c1.1,0,2,0.9,2,2v1.5 c0,1.9-0.7,3.6-2,4.9l-3,3V21c0,0.3-0.1,0.6-0.4,0.8l-4,3C18.4,24.9,18.2,25,18,25z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonNaturalLanguageClassifier = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonNaturalLanguageClassifier({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,12c1.1,0,2-0.9,2-2V4c0-1.1-0.9-2-2-2h-4c-1.1,0-2,0.9-2,2v6c0,1.1,0.9,2,2,2h1v4h-3v2h8v-2h-3v-4H28z M24,4h4v6h-4V4z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M21 22.4 19.6 21 16 24.6 12.4 21 11 22.4 14.6 26 11 29.6 12.4 31 16 27.4 19.6 31 21 29.6 17.4 26z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M12 18 15 18 15 21 17 21 17 18 20 18 20 16 12 16z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M10,12V4c0-1.1-0.9-2-2-2H3v2h5v2H4C2.9,6,2,6.9,2,8v2c0,1.1,0.9,2,2,2h1v4H2v2h8v-2H7v-4H10z M4,8h4v2H4V8z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonNaturalLanguageUnderstanding = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonNaturalLanguageUnderstanding({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M6 23H11V25H6z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M6 19H11V21H6z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M13,30H4c-1.1,0-2-0.9-2-2V17c0-1.1,0.9-2,2-2h9c1.1,0,2,0.9,2,2v11C15,29.1,14.1,30,13,30z M4,17v11h9V17H4z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M19 2H27V4H19z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M22 6H30V8H22z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M22 10H30V12H22z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M19 14H27V16H19z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M22 18H30V20H22z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M12,1l-1.4,1.4L13.2,5H4C2.9,5,2,5.9,2,7v5h2V7h9.2l-2.6,2.6L12,11l5-5L12,1z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonOpenscale = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonOpenscale({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M4,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S5.7,28,4,28z M4,24c-0.6,0-1,0.4-1,1s0.4,1,1,1s1-0.4,1-1S4.6,24,4,24z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,28c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S29.7,28,28,28z M28,24c-0.6,0-1,0.4-1,1s0.4,1,1,1s1-0.4,1-1S28.6,24,28,24z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M22.4,4.4l-0.9,1.8C26.1,8.4,29,13,29,18c0,0.7-0.1,1.4-0.2,2.1l2,0.3c0.1-0.8,0.2-1.6,0.2-2.5C31,12.2,27.6,6.9,22.4,4.4z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M16,7c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S17.7,7,16,7z M16,3c-0.6,0-1,0.4-1,1s0.4,1,1,1s1-0.4,1-1S16.6,3,16,3z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M25.5,13.6l-1-1.7L17,16.3V9h-2v7.2L6.2,11c-0.5-0.3-1.1-0.1-1.4,0.3s-0.1,1.1,0.3,1.4L14,18l-6.2,3.6l1,1.7l6.2-3.6V30 c0,0.6,0.4,1,1,1s1-0.4,1-1V19.8l6.2,3.7l1-1.7L18,18L25.5,13.6z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonOrders = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonOrders({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,13h-2v-2c0-2.8-2.2-5-5-5h-3V4h3c3.9,0,7,3.1,7,7V13z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M22 20H25V22H22z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M22 24H25V26H22z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M27,30h-5v-2h5V18h-7v9c0,1.7-1.3,3-3,3s-3-1.3-3-3v-3h2v3c0,0.6,0.4,1,1,1s1-0.4,1-1V16h11v12C29,29.1,28.1,30,27,30z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M12,28h-1c-3.9,0-7-3.1-7-7v-4h2v4c0,2.8,2.2,5,5,5h1V28z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M11,10v2h3c1.1,0,2-0.9,2-2V4c0-1.1-0.9-2-2-2H4C2.9,2,2,2.9,2,4v6c0,1.1,0.9,2,2,2h2.4l1.7,3l1.7-1l-2.3-4H4V4h10v6H11z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonQuery = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonQuery({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M22,24c-0.2,0-0.3,0-0.5,0L18.2,18c0.5-0.5,0.8-1.2,0.8-2c0-1.7-1.3-3-3-3s-3,1.3-3,3c0,0.8,0.3,1.5,0.8,2L10.5,24 c-0.2,0-0.3,0-0.5,0c-1.7,0-3,1.3-3,3s1.3,3,3,3s3-1.3,3-3c0-0.8-0.3-1.5-0.8-2l3.3-6.1c0.2,0,0.3,0,0.5,0s0.3,0,0.5,0l3.3,6.1 c-0.5,0.5-0.8,1.2-0.8,2c0,1.7,1.3,3,3,3s3-1.3,3-3S23.7,24,22,24z M16,15c0.6,0,1,0.4,1,1s-0.4,1-1,1s-1-0.4-1-1S15.4,15,16,15z M10,28c-0.6,0-1-0.4-1-1s0.4-1,1-1s1,0.4,1,1S10.6,28,10,28z M22,28c-0.6,0-1-0.4-1-1s0.4-1,1-1s1,0.4,1,1S22.6,28,22,28z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M24.8,9.1C23.9,5,20.3,2,16,2S8.1,5,7.2,9.1C4.2,9.7,2,12.4,2,15.5C2,19.1,4.9,22,8.5,22H9v-2H8.5C6,20,4,18,4,15.5 c0-2.3,1.8-4.3,4.1-4.5L9,11l0.1-0.8C9.5,6.6,12.5,4,16,4c3.5,0,6.5,2.6,6.9,6.1L23,11l0.8,0.1c2.3,0.2,4.1,2.2,4.1,4.5 c0,2.5-2,4.5-4.5,4.5H23v2h0.5c3.6,0,6.5-2.9,6.5-6.5C30,12.4,27.8,9.7,24.8,9.1z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonSpeechToText = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonSpeechToText({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M14,18H4c-1.1,0-2,0.9-2,2v6c0,1.1,0.9,2,2,2h2.4l1.7,3l1.7-1l-2.3-4H4v-6h10v6h-3v2h3c1.1,0,2-0.9,2-2v-6 C16,18.9,15.1,18,14,18z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M19,26h2c3.9,0,7-3.1,7-7v-2h-2v2c0,2.8-2.2,5-5,5h-2V26z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M18 11H24V13H18z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M18 7H30V9H18z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M18 3H30V5H18z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M4,14h2v-2c0-2.8,2.2-5,5-5h4V5h-4c-3.9,0-7,3.1-7,7V14z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonStudio = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonStudio({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M25,21c-2.8,0-5-2.2-5-5s2.2-5,5-5s5,2.2,5,5S27.8,21,25,21z M25,13c-1.7,0-3,1.3-3,3s1.3,3,3,3s3-1.3,3-3S26.7,13,25,13z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M14,11V6c0-1.1-0.9-2-2-2h-2v2h2v5c0,2.1,1.1,3.9,2.7,5c-1.6,1.1-2.7,2.9-2.7,5v5h-2v2h2c1.1,0,2-0.9,2-2v-5 c0-2.2,1.8-4,4-4v-2C15.8,15,14,13.2,14,11z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2,30v-6h6v6H2z M4,26v2h2v-2H4z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2,19v-6h6v6H2z M4,15v2h2v-2H4z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2,8V2h6v6H2z M4,4v2h2V4H4z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonTextToSpeech = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonTextToSpeech({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M13,26h-2c-3.9,0-7-3.1-7-7v-2h2v2c0,2.8,2.2,5,5,5h2V26z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M18,18h10c1.1,0,2,0.9,2,2v6c0,1.1-0.9,2-2,2h-2.4l-1.7,3l-1.7-1l2.3-4H28v-6H18v6h3v2h-3c-1.1,0-2-0.9-2-2v-6 C16,18.9,16.9,18,18,18z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,14h-2v-2c0-2.8-2.2-5-5-5h-4V5h4c3.9,0,7,3.1,7,7V14z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2 11H8V13H2z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2 7H14V9H2z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2 3H14V5H2z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonToneAnalyzer = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonToneAnalyzer({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M23.9,10c-0.6-0.6-1.5-1-2.4-1s-1.8,0.4-2.4,1l-1.4-1.4c1-1,2.4-1.6,3.8-1.6s2.9,0.6,3.8,1.6L23.9,10z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "24",
+		cy: "5",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "19",
+		cy: "5",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M15,0l13,0c1.1,0,2,0.9,2,2v10c0,1.1-0.9,2-2,2h-3.5l-1.7,3L21,16l2.3-4H28V2H15v10h5v2h-5c-1.1,0-2-0.9-2-2V2 C13,0.9,13.9,0,15,0z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M20,19v6c0,0.6-0.4,1-1,1h-5v2h5c1.7,0,3-1.3,3-3v-6H20z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M15.4,20.4c-0.8,1-2.1,1.6-3.4,1.6s-2.6-0.6-3.4-1.6L7,21.6c1.2,1.4,3,2.4,5,2.4s3.8-0.9,5-2.4L15.4,20.4z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "15.5",
+		cy: "17.5",
+		r: "1.5"
+	}), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "8.5",
+		cy: "17.5",
+		r: "1.5"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M10.1,26H5c-0.6,0-1-0.4-1-1V14c0-0.6,0.4-1,1-1h5v-2H5c-1.7,0-3,1.3-3,3v11c0,1.7,1.3,3,3,3h4l2.3,4l1.7-1L10.1,26z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonxAssistant = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonxAssistant({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "m28,2h-10c-1.1035,0-2,.8965-2,2v6c0,1.1035.8965,2,2,2h2.4229s1.7314,3,1.7314,3l1.7324-1-2.3096-4h-3.5771V4h10v6h-3s0,2,0,2h3c1.1035,0,2-.8965,2-2V4c0-1.1035-.8965-2-2-2Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "m14.6904,31l-1.7324-1,3.4648-6h5.5771c1.1046,0,2-.8954,2-2v-5h2v5c0,2.2091-1.7909,4-4,4h-4.4229l-2.8867,5Z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "10",
+		cy: "17",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "14",
+		cy: "17",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "18",
+		cy: "17",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "m12,26h-6c-2.2091,0-4-1.7909-4-4v-10c0-2.2091,1.7909-4,4-4h8v2H6c-1.1046,0-2,.8954-2,2v10c0,1.1046.8954,2,2,2h6v2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonxCodeAssistant = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonxCodeAssistant({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "m11,28h-2c-3.8599,0-7-3.1401-7-7v-2h2v2c0,2.7568,2.2432,5,5,5h2v2Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28.17 26 25.59 28.58 27 30 31 26 27 22 25.58 23.41 28.17 26z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M22 31 20.085 30.4229 23 21 24.9149 21.5771 22 31z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M16.83 26 19.41 23.42 18 22 14 26 18 30 19.42 28.59 16.83 26z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "m30,19h-2v-7c0-2.7614-2.2386-5-5-5h-4v-2h4c3.866,0,7,3.134,7,7v7Z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "3",
+		cy: "4",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M6 3H16V5H6z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "3",
+		cy: "12",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M6 11H16V13H6z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2 15H12V17H2z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "15",
+		cy: "8",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2 7H12V9H2z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "15",
+		cy: "16",
+		r: "1"
+	}), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonxCodeAssistantForEnterpriseJavaApplications = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonxCodeAssistantForEnterpriseJavaApplications({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M29.9916,19h-2v-7c0-2.7614-2.2386-5-5-5h-8.9948v-2h8.9948c3.866,0,7,3.134,7,7v7ZM11.9916,28h-3c-3.86,0-7-3.14-7-7v-5h2v5c0,2.757,2.243,5,5,5h3v2Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M9.9916,14h-4c-1.103,0-2-.897-2-2v-2h2v2h4V2h2v10c0,1.103-.897,2-2,2Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28.15,26l-2.58,2.58,1.41,1.42,4-4-4-4-1.42,1.41,2.59,2.59ZM16.81,26l2.58-2.58-1.41-1.42-4,4,4,4,1.42-1.41-2.59-2.59ZM21.98,31l-1.915-.577,2.915-9.423,1.915.577-2.915,9.423Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonxCodeAssistantForZ = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonxCodeAssistantForZ({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M29.17 25 26.59 27.58 28 29 32 25 28 21 26.58 22.41 29.17 25z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M23 30 21.0851 29.4229 24 20 25.9149 20.5771 23 30z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M17.83 25 20.41 22.42 19 21 15 25 19 29 20.42 27.59 17.83 25z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "m18,19h-2V5c0-1.1028.8972-2,2-2h9c1.1028,0,2,.8972,2,2v11h-2V5h-9v14Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "m12,3H3c-1.1028,0-2,.8975-2,2v22c0,1.1025.8972,2,2,2h9c1.1028,0,2-.8975,2-2V5c0-1.1025-.8972-2-2-2Zm.0002,7.0366l-6.925-5.0366h6.9248l.0002,5.0366Zm-.7004,1.9634l-8.2998,6.0361V5.9639l8.2998,6.0361Zm.7007,1.9634l.0007,11.8169-8.2795-5.7959,8.2788-6.021Zm-9.0005,7.9575l7.2563,5.0791H3v-5.0791Zm9,5.0791l.0012-.002v.002h-.0012Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonxCodeAssistantForZRefactor = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonxCodeAssistantForZRefactor({ children, size = 16, ...rest }, ref) {
+	if (false) // removed by dead control flow
+{}
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M22.17 16 19.59 18.58 21 20 25 16 21 12 19.58 13.41 22.17 16z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M15.5 21 13.5851 20.4229 16.5 11 18.4149 11.5771 15.5 21z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M9.83 16 12.41 13.42 11 12 7 16 11 20 12.42 18.59 9.83 16z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "19",
+		cy: "28",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "m22,29v-2c2.7568,0,5-2.2432,5-5v-12c0-2.7568-2.2432-5-5-5h-6v-2h6c3.8594,0,7,3.1401,7,7v12c0,3.8594-3.1406,7-7,7Z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "13",
+		cy: "4",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "m16,29h-6c-3.8594,0-7-3.1406-7-7v-12c0-3.8599,3.1406-7,7-7v2c-2.7568,0-5,2.2432-5,5v12c0,2.7568,2.2432,5,5,5h6v2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonxCodeAssistantForZUnderstand = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonxCodeAssistantForZUnderstand({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M22.6,21.2c1.5-2,2.4-4.5,2.4-7.2,0-6.6-5.4-12-12-12-3.3,0-6.4,1.3-8.7,3.8l1.5,1.4c1.8-2.1,4.4-3.2,7.2-3.2,5.5,0,10,4.5,10,10s-4.5,10-10,10c-3,0-5.8-1.3-7.7-3.6l-1.5,1.3c2.2,2.7,5.6,4.3,9.2,4.3,3.2,0,6.1-1.3,8.3-3.3l7.3,7.3,1.4-1.4s-7.4-7.4-7.4-7.4ZM16,18l4-4-4-4-1.42,1.41,2.59,2.59-2.58,2.58,1.41,1.42ZM6,10l-4,4,4,4,1.42-1.41-2.59-2.59,2.58-2.58-1.41-1.42ZM11.3044,9l-2.5405,9.4824,1.9316.5176,2.5405-9.4824s-1.9316-.5176-1.9316-.5176Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonxCodeAssistantForZValidationAssistant = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonxCodeAssistantForZValidationAssistant({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M16,2c-7.73,0-14,6.2821-14,14.0269,0,5.0697,2.69,9.5082,6.71,11.9731l1.1-1.6632c-3.48-2.104-5.81-5.9314-5.81-10.3098,0-6.6428,5.37-12.0231,12-12.0231s12,5.396,12,12.0388h2c0-7.7449-6.27-14.0426-14-14.0426ZM14,21.414l-5-5.001,1.413-1.413,3.587,3.586,7.585-7.586,1.415,1.415-9,8.999ZM26.58,24.41l1.42-1.41,4,4-4,4-1.41-1.42,2.58-2.58-2.59-2.59ZM22.5,32l-1.9149-.5771,2.9149-9.4229,1.9149.5771-2.9149,9.4229ZM19.42,29.59l-1.42,1.41-4-4,4-4,1.41,1.42-2.58,2.58,2.59,2.59Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmWatsonxOrchestrate = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmWatsonxOrchestrate({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "m27.9248,19.4282c-1.123,1.6104-2.9641,2.5718-4.9248,2.5718-2.1233,0-4.0464-1.0874-5.1438-2.9092l-1.7129,1.0322c1.4624,2.4277,4.0256,3.877,6.8567,3.877,1.4231,0,2.7925-.3911,3.9922-1.0835-2.3442,3.6958-6.4814,6.0835-10.9922,6.0835-5.7104,0-10.8347-3.8184-12.4617-9.2852l-1.917.5703c1.8774,6.3086,7.79,10.7148,14.3787,10.7148s12.5012-4.4062,14.3787-10.7148l-2.4539-.8569Z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "30",
+		cy: "16",
+		r: "2"
+	}), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "2",
+		cy: "16",
+		r: "2"
+	}), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "16",
+		cy: "16",
+		r: "2"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "m16,1C9.4114,1,3.4988,5.4062,1.6213,11.7148l2.4539.8569c1.123-1.6104,2.9641-2.5718,4.9248-2.5718s3.8018.9614,4.9248,2.5718l1.6406-1.144c-1.4971-2.1465-3.9514-3.4277-6.5654-3.4277-1.4231,0-2.7925.3911-3.9922,1.0835,2.3442-3.6953,6.4814-6.0835,10.9922-6.0835,5.7104,0,10.8347,3.8184,12.4617,9.2852l1.917-.5703c-1.8774-6.3086-7.79-10.7148-14.3787-10.7148Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmZCloudModStack = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmZCloudModStack({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M18.496,27.386L16,28.842L5,22.426v-5.852l10.016-5.843C15.308,10.897,15.641,11,16,11c1.104,0,2-0.896,2-2s-0.896-2-2-2 s-2,0.896-2,2c0,0.003,0.001,0.005,0.001,0.008L3.496,15.136C3.189,15.315,3,15.645,3,16v7c0,0.355,0.189,0.685,0.496,0.864l12,7 C15.652,30.955,15.826,31,16,31s0.348-0.045,0.504-0.136l3-1.75L18.496,27.386z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28.504,8.136l-3-1.75l-1.008,1.728L27,9.574v12.852l-4.593,2.679l-10.409-6.093C11.999,19.007,12,19.004,12,19 c0-1.104-0.896-2-2-2s-2,0.896-2,2s0.896,2,2,2c0.358,0,0.69-0.102,0.981-0.267l10.92,6.393c0.156,0.091,0.331,0.137,0.505,0.137 c0.174,0,0.348-0.045,0.504-0.136l5.594-3.263C28.811,23.685,29,23.355,29,23V9C29,8.645,28.811,8.315,28.504,8.136z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M23,17.277V5.5c0-0.355-0.189-0.685-0.496-0.864l-6-3.5C16.348,1.045,16.174,1,16,1s-0.348,0.045-0.504,0.136l-12,7 C3.189,8.315,3,8.645,3,9v2.999h2V9.574l11-6.417l5,2.917v11.203c-0.595,0.347-1,0.984-1,1.723c0,1.104,0.896,2,2,2s2-0.896,2-2 C24,18.262,23.595,17.624,23,17.277z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmZEnvironmentsDevSecOps = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmZEnvironmentsDevSecOps({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "m23.5,16v2c3.0327,0,5.5,2.4673,5.5,5.5s-2.4673,5.5-5.5,5.5-5.5-2.4673-5.5-5.5h-2c0,4.1422,3.3578,7.5,7.5,7.5s7.5-3.3578,7.5-7.5-3.3578-7.5-7.5-7.5Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "m23.5,26c1.3807,0,2.5-1.1193,2.5-2.5s-1.1193-2.5-2.5-2.5c-.3217,0-.6268.066-.9093.1766l-4.8837-4.8837-1.4141,1.4141,4.8837,4.8837c-.1107.2825-.1766.5876-.1766.9093,0,1.3807,1.1193,2.5,2.5,2.5Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "m29,13h-2v-3.4257l-11-6.4166-3,1.7499v8.0924h-2V4.3333c0-.3557.189-.6846.4961-.8638l4-2.3333c.1558-.0908.3298-.1362.5039-.1362s.3481.0454.5039.1362l12,7c.3071.1792.4961.5081.4961.8638v4Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M7 6H9V16H7z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "m13.9998,29.991l-10.5037-6.1272c-.3071-.1792-.4961-.5081-.4961-.8638v-14h2v13.4257l10.0076,5.8378-1.0078,1.7275Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmZOpenEditor = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmZOpenEditor({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M29,13h-2v-3.4257l-11-6.4166-3,1.7499v8.0924h-2V4.3333c0-.3557.189-.6846.4961-.8638l4-2.3333c.1558-.0908.3298-.1362.5039-.1362s.3481.0454.5039.1362l12,7c.3071.1792.4961.5081.4961.8638v4ZM7,16h2V6h-2v10ZM15,28.2718l-10.0013-5.8403v-13.4315h-1.9987v14.006c0,.3559.1889.6849.4958.8642l10.4971,6.1298,1.0072-1.7282h-.0001ZM26,17l-1.4141,1.4141,3.5854,3.5859-3.5854,3.5859,1.4141,1.4141,5-5-5-5ZM15,22l5,5,1.4141-1.4141-3.5854-3.5859,3.5854-3.5859-1.4141-1.4141-5,5Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmZProcessorCapacityReference = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmZProcessorCapacityReference({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M25 25H27V29H25z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M21 23H23V29H21z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M29 20H31V29H29z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "m30,17V5c0-1.1046-.8954-2-2-2h-9c-1.1046,0-2,.8954-2,2v24h2V5h9v12h2Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "m13,3H4c-1.1046,0-2,.8954-2,2v22c0,1.1046.8954,2,2,2h9c1.1046,0,2-.8954,2-2V5c0-1.1046-.8954-2-2-2Zm-9,2.9635l8.2998,6.0365-8.2998,6.0365V5.9635Zm0,21.0365v-5.0366l6.9253,5.0366h-6.9253Zm9-.9635l-8.2998-6.0365,8.2998-6.0365v12.073Zm0-15.9999l-6.9253-5.0366h6.9253v5.0366Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmZCloudProvisioning = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmZCloudProvisioning({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M10 17H14V21H10z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M17 10H21V14H17z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M17 17H21V21H17z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M19.758,26.65L16,28.842L5,22.426V18H3v5c0,0.355,0.189,0.685,0.496,0.864l12,7C15.652,30.955,15.826,31,16,31 s0.348-0.045,0.504-0.136l4.282-2.498L19.758,26.65z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28.504,8.136l-4.269-2.49l-1.029,1.715L27,9.574v12.852l-3.787,2.209l1.029,1.715l4.262-2.486 C28.811,23.685,29,23.355,29,23V9C29,8.645,28.811,8.315,28.504,8.136z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M5,9.574l11-6.417l3.751,2.188L20.78,3.63l-4.276-2.494C16.348,1.045,16.174,1,16,1s-0.348,0.045-0.504,0.136l-12,7 C3.189,8.315,3,8.645,3,9v5h2V9.574z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmZOs = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmZOs({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "m16,32c-5.0793,0-9.7449-2.3319-12.7998-6.3979l1.5991-1.2014c2.6736,3.5585,6.7561,5.5994,11.2007,5.5994s8.5281-2.0413,11.2014-5.6005l1.5991,1.2012c-3.0547,4.0668-7.7202,6.3993-12.8005,6.3993Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "m30,22h-5v-2h5v-3h-3c-1.1028,0-2-.8972-2-2v-3c0-1.1028.8972-2,2-2h5v2h-5v3h3c1.1028,0,2,.8972,2,2v3c0,1.1028-.8972,2-2,2Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "m21,22h-4c-1.1028,0-2-.8972-2-2v-8c0-1.1028.8972-2,2-2h4c1.1028,0,2,.8972,2,2v8c0,1.1028-.8972,2-2,2Zm-4-10v8h4v-8h-4Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M11.4458 10 7.4458 22 9.5542 22 13.5542 10 11.4458 10z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M6 22 0 22 0 19.6973 3.7981 14 0 14 0 12 6 12 6 14.3027 2.2019 20 6 20 6 22z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "m16.0001,0C10.9207,0,6.2552,2.3319,3.2003,6.3979l1.5991,1.2014c2.6736-3.5585,6.7561-5.5994,11.2007-5.5994s8.5281,2.0413,11.2014,5.6005l1.5991-1.2012C25.7459,2.3325,21.0804,0,16.0001,0Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmZOsAiControlInterface = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmZOsAiControlInterface({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "12",
+		cy: "21",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "m23,25h-14c-1.1028,0-2-.8972-2-2v-4c0-1.1028.8972-2,2-2h14c1.1028,0,2,.8972,2,2v4c0,1.1028-.8972,2-2,2Zm-14-6v4h14v-4h-14Z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "12",
+		cy: "11",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "m23,15h-14c-1.1028,0-2-.8972-2-2v-4c0-1.1028.8972-2,2-2h14c1.1028,0,2,.8972,2,2v4c0,1.1028-.8972,2-2,2Zm-14-6v4h14v-4h-14Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "m28,30H4c-1.103,0-2-.897-2-2v-12h2v12h24V4h-12v-2h12c1.103,0,2,.897,2,2v24c0,1.103-.897,2-2,2Z" }), /* @__PURE__ */ bucket_10_jsx("path", {
+		d: "M8.5 1.5H13.5V3.5H8.5z",
+		transform: "rotate(90 11 2.5)"
+	}), /* @__PURE__ */ bucket_10_jsx("path", {
+		d: "M1.975 3.475H6.975V5.475H1.975z",
+		transform: "rotate(45 4.475 4.475)"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M0 10H5V12H0z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmZOsContainers = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmZOsContainers({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "m29,12h-9V3h9v9Zm-7-2h5v-5h-5v5Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "m20,15v2h7v10h-10V3H5c-1.1028,0-2,.8975-2,2v22c0,1.1025.8972,2,2,2h22c1.1028,0,2-.8975,2-2v-12h-9Zm-13.5859,2h8.5859v8.5859l-8.5859-8.5859Zm8.5859-2H6.4141L15,6.4141v8.5859Zm-1.4141-10L5,13.5859V5h8.5859Zm-8.5859,13.4141l8.5859,8.5859H5v-8.5859Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IbmZOsPackageManager = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IbmZOsPackageManager({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M15,9v10.172l-2.586-2.586L11,18l5,5l5-5l-1.414-1.414L17,19.172V9H15z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M19.758,26.65L16,28.842L5,22.426V18H3v5c0,0.355,0.189,0.685,0.496,0.864l12,7C15.652,30.955,15.826,31,16,31 s0.348-0.045,0.504-0.136l4.282-2.498L19.758,26.65z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28.504,8.136l-4.269-2.49l-1.029,1.715L27,9.574v12.852l-3.787,2.209l1.029,1.715l4.262-2.486 C28.811,23.685,29,23.355,29,23V9C29,8.645,28.811,8.315,28.504,8.136z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M5,9.574l11-6.417l3.751,2.188L20.78,3.63l-4.276-2.494C16.348,1.045,16.174,1,16,1s-0.348,0.045-0.504,0.136l-12,7 C3.189,8.315,3,8.645,3,9v5h2V9.574z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WatsonHealthICa_2D = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function WatsonHealthICa_2D({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M22,24H10a2.0023,2.0023,0,0,1-2-2V10a2.0023,2.0023,0,0,1,2-2H22a2.0023,2.0023,0,0,1,2,2V22A2.0023,2.0023,0,0,1,22,24ZM10,10V22H22V10Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M11 2 2 2 2 11 4 11 4 4 11 4 11 2z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2 21 2 30 11 30 11 28 4 28 4 21 2 21z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M30 11 30 2 21 2 21 4 28 4 28 11 30 11z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M21 30 30 30 30 21 28 21 28 28 21 28 21 30z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IceAccretion = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IceAccretion({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M4,2A2,2,0,0,0,2,4V20l1,2,1-2V4H8V14l1,2,1-2V2Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,2H14v8l1,2,1-2V4h2V17l1,2,1-2V4h4V14l1,2,1-2V4h2V24l1,2,1-2V4A2,2,0,0,0,28,2Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M14 28 13 30 12 28 12 16 14 16 14 28z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M24 26 23 28 22 26 22 20 24 20 24 26z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M8 24 7 26 6 24 6 18 8 18 8 24z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IceVision = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IceVision({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M19 14 19 21 20 23 21 21 21 14 19 14z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M17,14H13a2,2,0,0,0-2,2v4l1,2,1-2V16h2v7l1,2,1-2Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M4,18A12,12,0,1,0,16,6H12V1L6,7l6,6V8h4A10,10,0,1,1,6,18Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const QID = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function QID({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M10 9H12V11H10z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M18,23H14V9h4a4,4,0,0,1,4,4v6A4,4,0,0,1,18,23Zm-2-2h2a2,2,0,0,0,2-2V13a2,2,0,0,0-2-2H16Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M10 13H12V23H10z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IdManagement = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IdManagement({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M15,20H9a3,3,0,0,0-3,3v2H8V23a1,1,0,0,1,1-1h6a1,1,0,0,1,1,1v2h2V23A3,3,0,0,0,15,20Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M12,19a4,4,0,1,0-4-4A4,4,0,0,0,12,19Zm0-6a2,2,0,1,1-2,2A2,2,0,0,1,12,13Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,19v9H4V8H16V6H4A2,2,0,0,0,2,8V28a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V19Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M20 19H26V21H20z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M22 23H26V25H22z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M32,10V8H29.8989a4.9678,4.9678,0,0,0-.7319-1.7529l1.49-1.49-1.414-1.414-1.49,1.49A4.9678,4.9678,0,0,0,26,4.1011V2H24V4.1011a4.9678,4.9678,0,0,0-1.7529.7319l-1.49-1.49-1.414,1.414,1.49,1.49A4.9678,4.9678,0,0,0,20.1011,8H18v2h2.1011a4.9678,4.9678,0,0,0,.7319,1.7529l-1.49,1.49,1.414,1.414,1.49-1.49A4.9678,4.9678,0,0,0,24,13.8989V16h2V13.8989a4.9678,4.9678,0,0,0,1.7529-.7319l1.49,1.49,1.414-1.414-1.49-1.49A4.9678,4.9678,0,0,0,29.8989,10Zm-7,2a3,3,0,1,1,3-3A3.0033,3.0033,0,0,1,25,12Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Idea = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function Idea({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M11 24H21V26H11z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M13 28H19V30H13z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M16,2A10,10,0,0,0,6,12a9.19,9.19,0,0,0,3.46,7.62c1,.93,1.54,1.46,1.54,2.38h2c0-1.84-1.11-2.87-2.19-3.86A7.2,7.2,0,0,1,8,12a8,8,0,0,1,16,0,7.2,7.2,0,0,1-2.82,6.14c-1.07,1-2.18,2-2.18,3.86h2c0-.92.53-1.45,1.54-2.39A9.18,9.18,0,0,0,26,12,10,10,0,0,0,16,2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Identification = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function Identification({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,6V26H4V6H28m0-2H4A2,2,0,0,0,2,6V26a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V6a2,2,0,0,0-2-2Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M6 10H13V12H6z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M6 14H10V16H6z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M23,18H17a3,3,0,0,0-3,3v2h2V21a1,1,0,0,1,1-1h6a1,1,0,0,1,1,1v2h2V21A3,3,0,0,0,23,18Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M20,17a4,4,0,1,0-4-4A4,4,0,0,0,20,17Zm0-6a2,2,0,1,1-2,2A2,2,0,0,1,20,11Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IfAction = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IfAction({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M21,2h-10C6,2,2,6,2,11v10c0,5,4,9,9,9h10c5,0,9-4,9-9v-10c0-5-4-9-9-9ZM28,21c0,3.9-3.1,7-7,7h-10c-3.9,0-7-3.1-7-7v-10c0-3.9,3.1-7,7-7h10c3.9,0,7,3.1,7,7v10ZM9.8755,22v-1.8232h1.582v-8.3574h-1.582v-1.8223h5.4512v1.8223h-1.5991v8.3574h1.5991v1.8232h-5.4512ZM17.959,14.7363h-1.3242v-1.7363h1.3242v-1.2666c0-1.582.8599-2.459,2.4761-2.459h1.5649v1.7539h-1.8398v1.9717h1.8398v1.7363h-1.8398v7.2637h-2.2012v-7.2637Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IfElse = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IfElse({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M26,26l-5-5,1.4-1.4,2.6,2.6v-12.2h-14.8l-2.2,2.2v13.9l2.6-2.6,1.4,1.4-5,5-5-5,1.4-1.4,2.6,2.6v-13.9l-3.2-3.2,3.2-3.2v-3.8h2v3.8l2.2,2.2h16.8v14.2l2.6-2.6,1.4,1.4-5,5Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Image = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function Image({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M19,14a3,3,0,1,0-3-3A3,3,0,0,0,19,14Zm0-4a1,1,0,1,1-1,1A1,1,0,0,1,19,10Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26,4H6A2,2,0,0,0,4,6V26a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2V6A2,2,0,0,0,26,4Zm0,22H6V20l5-5,5.59,5.59a2,2,0,0,0,2.82,0L21,19l5,5Zm0-4.83-3.59-3.59a2,2,0,0,0-2.82,0L18,19.17l-5.59-5.59a2,2,0,0,0-2.82,0L6,17.17V6H26Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ImageCopy = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function ImageCopy({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M4,22H2V4A2.0023,2.0023,0,0,1,4,2H22V4H4Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M21,17a3,3,0,1,0-3-3A3.0033,3.0033,0,0,0,21,17Zm0-4a1,1,0,1,1-1,1A1.0009,1.0009,0,0,1,21,13Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,7H9A2.0025,2.0025,0,0,0,7,9V28a2.0025,2.0025,0,0,0,2,2H28a2.0025,2.0025,0,0,0,2-2V9A2.0025,2.0025,0,0,0,28,7Zm0,21H9v-6l4-3.9971,5.5859,5.586a2,2,0,0,0,2.8282,0L23,22.0034,28,27Zm0-3.8281-3.5859-3.586a2,2,0,0,0-2.8282,0L20,22.1719l-5.5859-5.586a2,2,0,0,0-2.8282,0L9,19.1719V9H28Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ImageMedical = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function ImageMedical({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M26,6V26H6V6H26m0-2H6A2,2,0,0,0,4,6V26a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2V6a2,2,0,0,0-2-2Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M22 16 22 14 17 14 17 12 20 12 20 10 17 10 17 8 15 8 15 10 12 10 12 12 15 12 15 14 10 14 10 16 15 16 15 18 10 18 10 20 15 20 15 22 12 22 12 24 20 24 20 22 17 22 17 20 22 20 22 18 17 18 17 16 22 16z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ImageReference = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function ImageReference({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M4 20 4 22 8.586 22 2 28.586 3.414 30 10 23.414 10 28 12 28 12 20 4 20z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M19,14a3,3,0,1,0-3-3A3,3,0,0,0,19,14Zm0-4a1,1,0,1,1-1,1A1,1,0,0,1,19,10Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26,4H6A2,2,0,0,0,4,6V16H6V6H26V21.17l-3.59-3.59a2,2,0,0,0-2.82,0L18,19.17,11.8308,13l-1.4151,1.4155L14,18l2.59,2.59a2,2,0,0,0,2.82,0L21,19l5,5v2H16v2H26a2,2,0,0,0,2-2V6A2,2,0,0,0,26,4Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ImageSearch = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function ImageSearch({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M24,14a5.99,5.99,0,0,0-4.885,9.4712L14,28.5859,15.4141,30l5.1147-5.1147A5.9971,5.9971,0,1,0,24,14Zm0,10a4,4,0,1,1,4-4A4.0045,4.0045,0,0,1,24,24Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M17,12a3,3,0,1,0-3-3A3.0033,3.0033,0,0,0,17,12Zm0-4a1,1,0,1,1-1,1A1.0009,1.0009,0,0,1,17,8Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M12,24H4V17.9966L9,13l5.5859,5.5859L16,17.168l-5.5859-5.5855a2,2,0,0,0-2.8282,0L4,15.168V4H24v6h2V4a2.0023,2.0023,0,0,0-2-2H4A2.002,2.002,0,0,0,2,4V24a2.0023,2.0023,0,0,0,2,2h8Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ImageSearchAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function ImageSearchAlt({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M10,16a5.9908,5.9908,0,0,0,9.4712,4.8853L24.5859,26,26,24.5859l-5.115-5.1147A5.997,5.997,0,1,0,10,16Zm2,0a4,4,0,1,1,4,4A4.0045,4.0045,0,0,1,12,16Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M29,7H22.54L20.83,4.45A.9946.9946,0,0,0,20,4H12a.9946.9946,0,0,0-.83.45L9.46,7H3A1.0031,1.0031,0,0,0,2,8V25a1.0031,1.0031,0,0,0,1,1h9V24H4V9h6a.9946.9946,0,0,0,.83-.45L12.54,6h6.92l1.71,2.55A.9946.9946,0,0,0,22,9h6V21h2V8A1.0031,1.0031,0,0,0,29,7Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WatsonHealthImageAvailabilityLocal = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function WatsonHealthImageAvailabilityLocal({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M16,18c-2.8,0-5-2.2-5-5s2.2-5,5-5s5,2.2,5,5S18.8,18,16,18z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M16,30l-8.4-9.9c0-0.1-0.3-0.5-0.3-0.5C5.8,17.7,5,15.4,5,13C5,6.9,9.9,2,16,2s11,4.9,11,11c0,2.4-0.8,4.7-2.2,6.6l0,0 c0,0-0.3,0.4-0.3,0.4L16,30z M8.8,18.4c0,0,0.2,0.3,0.3,0.4l6.9,8.1l6.9-8.1c0-0.1,0.3-0.4,0.3-0.4C24.4,16.8,25,15,25,13 c0-5-4-9-9-9s-9,4-9,9C7,15,7.6,16.8,8.8,18.4L8.8,18.4z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WatsonHealthImageAvailabilityRetrieving = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function WatsonHealthImageAvailabilityRetrieving({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M10 13 11.4 11.6 15 15.2 15 2 17 2 17 15.2 20.6 11.6 22 13 16 19z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M20,2.8V5c3,1.5,5,4.5,5,8c0,2-0.6,3.8-1.8,5.4c0,0-0.2,0.3-0.3,0.4L16,26.9l-6.9-8.1c-0.1-0.1-0.3-0.4-0.3-0.4 C7.6,16.8,7,15,7,13c0-3.5,2-6.6,5-8V2.8C7.9,4.4,5,8.3,5,13c0,2.4,0.8,4.7,2.2,6.6c0,0,0.3,0.4,0.3,0.5L16,30l8.4-10 c0-0.1,0.3-0.4,0.3-0.4l0,0c1.4-1.9,2.2-4.2,2.2-6.6C27,8.3,24.1,4.4,20,2.8z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WatsonHealthImageAvailabilityUnavailable = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function WatsonHealthImageAvailabilityUnavailable({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "16",
+		cy: "20.5",
+		r: "1.5"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M17,17h-2v-4h2c1.1,0,2-0.9,2-2s-0.9-2-2-2h-2c-1.1,0-2,0.9-2,2v0.5h-2V11c0-2.2,1.8-4,4-4h2c2.2,0,4,1.8,4,4s-1.8,4-4,4V17 z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M16,30l-8.4-9.9c0-0.1-0.3-0.5-0.3-0.5C5.8,17.7,5,15.4,5,13C5,6.9,9.9,2,16,2s11,4.9,11,11c0,2.4-0.8,4.7-2.2,6.6l0,0 c0,0-0.3,0.4-0.3,0.4L16,30z M8.8,18.4c0,0,0.2,0.3,0.3,0.4l6.9,8.1l6.9-8.1c0-0.1,0.3-0.4,0.3-0.4C24.4,16.8,25,15,25,13 c0-5-4-9-9-9s-9,4-9,9C7,15,7.6,16.8,8.8,18.4L8.8,18.4z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ImageService = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function ImageService({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,20H26v2h2v6H4V22H6V20H4a2.0024,2.0024,0,0,0-2,2v6a2.0024,2.0024,0,0,0,2,2H28a2.0024,2.0024,0,0,0,2-2V22A2.0024,2.0024,0,0,0,28,20Z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "7",
+		cy: "25",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M13 4H15V12H13z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M9 4H11V12H9z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M21,12H19a2.0021,2.0021,0,0,1-2-2V6a2.0021,2.0021,0,0,1,2-2h2a2.0021,2.0021,0,0,1,2,2v4A2.0021,2.0021,0,0,1,21,12ZM19,6v4h2V6Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M21 14H23V22H21z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M9 14H11V22H9z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M17,22H15a2.0021,2.0021,0,0,1-2-2V16a2.0021,2.0021,0,0,1,2-2h2a2.0021,2.0021,0,0,1,2,2v4A2.0021,2.0021,0,0,1,17,22Zm-2-6v4h2V16Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ImageStoreLocal = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function ImageStoreLocal({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", {
+		strokeWidth: "0",
+		d: "m25,2v7h7V2h-7Zm5,5h-3v-3h3v3Z"
+	}), /* @__PURE__ */ bucket_10_jsx("path", {
+		strokeWidth: "0",
+		d: "m23,6h-7v12h12v-7h-5v-5Zm-2,10h-3v-3h3v3Zm5-3v3h-3v-3h3Zm-8-2v-3h3v3h-3Z"
+	}), /* @__PURE__ */ bucket_10_jsx("path", {
+		strokeWidth: "0",
+		d: "m26,20v2H6v-14h8v-2H6c-1.104.0011-1.999.8959-2,2v14c.0012,1.104.896,1.9987,2,2h20c1.104-.0015,1.9985-.8961,2-2v-2h-2Z"
+	}), /* @__PURE__ */ bucket_10_jsx("path", {
+		strokeWidth: "0",
+		d: "M2 26H30V28H2z"
+	}), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ImportExport = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function ImportExport({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,24v4H4V24H2v4l.0076-.0049A1.9977,1.9977,0,0,0,4,30H28a2,2,0,0,0,2-2h0V24Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M27.6 14.6 24 18.2 24 4 22 4 22 18.2 18.4 14.6 17 16 23 22 29 16 27.6 14.6z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M9 4 3 10 4.4 11.4 8 7.8 8 22 10 22 10 7.8 13.6 11.4 15 10 9 4z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Important = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function Important({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M17,19h-2v-11h2v11ZM16,21c-.83,0-1.5.67-1.5,1.5s.67,1.5,1.5,1.5,1.5-.67,1.5-1.5-.67-1.5-1.5-1.5h0Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ImproveRelevance = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function ImproveRelevance({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M22 26.59 19.41 24 18 25.41 22 29.41 30 21.41 28.59 20 22 26.59z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "16",
+		cy: "16",
+		r: "2"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M16,22a6,6,0,1,1,6-6A6.0066,6.0066,0,0,1,16,22Zm0-10a4,4,0,1,0,4,4A4.0045,4.0045,0,0,0,16,12Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,16A12,12,0,1,0,16,28V26A10,10,0,1,1,26,16Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InProgress = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InProgress({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M16,2A14,14,0,1,0,30,16,14.0158,14.0158,0,0,0,16,2Zm0,26A12,12,0,0,1,16,4V16l8.4812,8.4814A11.9625,11.9625,0,0,1,16,28Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InProgressError = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InProgressError({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M30,24a6,6,0,1,0-6,6A6.0066,6.0066,0,0,0,30,24Zm-2,0a3.9521,3.9521,0,0,1-.5669,2.019L21.981,20.5669A3.9529,3.9529,0,0,1,24,20,4.0045,4.0045,0,0,1,28,24Zm-8,0a3.9521,3.9521,0,0,1,.5669-2.019l5.4521,5.4521A3.9529,3.9529,0,0,1,24,28,4.0045,4.0045,0,0,1,20,24Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M14,2a12,12,0,1,0,2,23.8193v-2.021A10,10,0,1,1,14,4V14l4.343,4.3433A7.9751,7.9751,0,0,1,24,16h1.8193A11.93,11.93,0,0,0,14,2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InProgressWarning = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InProgressWarning({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M27.38,28H20.6178L24,21.2358ZM24,18a1,1,0,0,0-.8947.5527l-5,10A1.0005,1.0005,0,0,0,19,30H29a1,1,0,0,0,.9214-1.3892L24.8946,18.5527A1,1,0,0,0,24,18Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M18.746,22.7993A9.999,9.999,0,1,1,14,4V14l6.0971,6.0972,1.22-2.44A2.9849,2.9849,0,0,1,24,16h1.8193A11.993,11.993,0,1,0,14,26a11.9337,11.9337,0,0,0,3.3939-.4966Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IncidentReporter = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IncidentReporter({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M10,13h12v2h-12v-2ZM10,20h8v-2h-8v2ZM10,25h5v-2h-5v2ZM7,7h3v3h12v-3h3v6h2v-6c0-1.1045-.8955-2-2-2h-3v-1c0-1.1045-.8955-2-2-2h-8c-1.1045,0-2,.8955-2,2v1h-3c-1.1045,0-2,.8955-2,2v21c0,1.1045.8955,2,2,2h5v-2h-5V7ZM12,4h8v4h-8v-4ZM29.9108,28.9355l-6.2831-11.5649c-.2739-.4941-.9829-.4941-1.2568,0l-6.2831,11.5649c-.2607.48.0862,1.0645.6316,1.0645h12.5599c.5453,0,.8923-.5845.6315-1.0645ZM22.2493,21h1.5v4h-1.5v-4ZM22.9993,28c-.5522,0-.9993-.4478-.9993-1s.4478-1,1-1,1,.4478,1,1-.4485,1-1.0007,1Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Incomplete = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function Incomplete({ children, size = 16, ...rest }, ref) {
+	if (size === "glyph" || size === "glyph" || size === "glyphpx") return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 16 16",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M8,2a6,6,0,1,0,6,6A6,6,0,0,0,8,2ZM8,4a4.0045,4.0045,0,0,1,4,4H4A4.0045,4.0045,0,0,1,8,4Z" }), children);
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M23.7642,6.8593l1.2851-1.5315A13.976,13.976,0,0,0,20.8672,2.887l-.6836,1.8776A11.9729,11.9729,0,0,1,23.7642,6.8593Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M27.81,14l1.9677-.4128A13.8888,13.8888,0,0,0,28.14,9.0457L26.4087,10A12.52,12.52,0,0,1,27.81,14Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M20.1836,27.2354l.6836,1.8776a13.976,13.976,0,0,0,4.1821-2.4408l-1.2851-1.5315A11.9729,11.9729,0,0,1,20.1836,27.2354Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26.4087,22,28.14,23a14.14,14.14,0,0,0,1.6382-4.5872L27.81,18.0659A12.1519,12.1519,0,0,1,26.4087,22Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M16,30V2a14,14,0,0,0,0,28Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IncompleteCancel = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IncompleteCancel({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M30 21.41 28.59 20 25 23.59 21.41 20 20 21.41 23.59 25 20 28.59 21.41 30 25 26.41 28.59 30 30 28.59 26.41 25 30 21.41z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M14,26A12,12,0,0,1,14,2Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M17.8257,4.7642a10.0288,10.0288,0,0,1,3.2422,2.1679l1.4133-1.4135a12.0359,12.0359,0,0,0-3.89-2.6016Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26,14a11.93,11.93,0,0,0-.9167-4.5908l-1.8472.7651A9.9428,9.9428,0,0,1,24,14Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IncompleteError = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IncompleteError({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M14,26A12,12,0,0,1,14,2Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M17.8257,4.7642a10.0288,10.0288,0,0,1,3.2422,2.1679l1.4133-1.4135a12.0359,12.0359,0,0,0-3.89-2.6016Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26,14a11.93,11.93,0,0,0-.9167-4.5908l-1.8472.7651A9.9428,9.9428,0,0,1,24,14Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M30,24a6,6,0,1,0-6,6A6.0066,6.0066,0,0,0,30,24Zm-2,0a3.9521,3.9521,0,0,1-.5669,2.019L21.981,20.5669A3.9529,3.9529,0,0,1,24,20,4.0045,4.0045,0,0,1,28,24Zm-8,0a3.9521,3.9521,0,0,1,.5669-2.019l5.4521,5.4521A3.9529,3.9529,0,0,1,24,28,4.0045,4.0045,0,0,1,20,24Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IncompleteWarning = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IncompleteWarning({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M14,26A12,12,0,0,1,14,2Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M17.8257,4.7642a10.0288,10.0288,0,0,1,3.2422,2.1679l1.4133-1.4135a12.0359,12.0359,0,0,0-3.89-2.6016Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26,14a11.93,11.93,0,0,0-.9167-4.5908l-1.8472.7651A9.9428,9.9428,0,0,1,24,14Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M27.38,28H20.6178L24,21.2358ZM24,18a1,1,0,0,0-.8947.5527l-5,10A1.0005,1.0005,0,0,0,19,30H29a1,1,0,0,0,.9214-1.3892L24.8946,18.5527A1,1,0,0,0,24,18Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IncreaseLevel = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IncreaseLevel({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M23 4 18 7.75 18 14.25 15 12 10 15.75 10 22.25 7 20 2 23.75 2 30 4 30 4 24.75 7 22.5 10 24.75 10 30 12 30 12 16.75 15 14.5 18 16.75 18 30 20 30 20 8.75 23 6.5 26 8.75 26 30 28 30 28 7.75 23 4z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Industry = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function Industry({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M29.53,6.15a1,1,0,0,0-1,0L20,10.38V7a1,1,0,0,0-1.45-.89L10,10.38V3A1,1,0,0,0,9,2H3A1,1,0,0,0,2,3V28H30V7A1,1,0,0,0,29.53,6.15ZM22,26H18V19h4Zm6,0H24V18a1,1,0,0,0-1-1H17a1,1,0,0,0-1,1v8H4V4H8v9.62l10-5v5l10-5Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InfinitySymbol = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InfinitySymbol({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "m23,23c-5.6558,0-7.8577-6.4109-7.9487-6.6837-.0173-.0514-1.8435-5.3163-6.0513-5.3163-2.7571,0-5,2.243-5,5s2.2429,5,5,5c1.5876,0,3.0134-.7322,4.2373-2.1764l1.5259,1.2932c-1.5989,1.8862-3.5916,2.8832-5.7632,2.8832-3.8599,0-7-3.1401-7-7s3.1401-7,7-7c5.6558,0,7.8577,6.4109,7.9487,6.6837.0173.0514,1.8435,5.3163,6.0513,5.3163,2.7571,0,5-2.243,5-5s-2.2429-5-5-5c-1.5876,0-3.0134.7322-4.2373,2.1764l-1.5259-1.2932c1.5989-1.8862,3.5916-2.8832,5.7632-2.8832,3.8599,0,7,3.1401,7,7s-3.1401,7-7,7Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Information = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function Information({ children, size = 16, ...rest }, ref) {
+	if (size === 16 || size === "16" || size === "16px") return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 16 16",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M8.5 11 8.5 6.5 6.5 6.5 6.5 7.5 7.5 7.5 7.5 11 6 11 6 12 10 12 10 11z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M8,3.5c-0.4,0-0.8,0.3-0.8,0.8S7.6,5,8,5c0.4,0,0.8-0.3,0.8-0.8S8.4,3.5,8,3.5z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M8,15c-3.9,0-7-3.1-7-7s3.1-7,7-7s7,3.1,7,7S11.9,15,8,15z M8,2C4.7,2,2,4.7,2,8s2.7,6,6,6s6-2.7,6-6S11.3,2,8,2z" }), children);
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M17 22 17 14 13 14 13 16 15 16 15 22 12 22 12 24 20 24 20 22 17 22z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M16,8a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,16,8Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M16,30A14,14,0,1,1,30,16,14,14,0,0,1,16,30ZM16,4A12,12,0,1,0,28,16,12,12,0,0,0,16,4Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InformationDisabled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InformationDisabled({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M30,3.4141,28.5859,2,2,28.5859,3.4141,30l3.4433-3.4434A13.9614,13.9614,0,0,0,26.5565,6.8574ZM28,16A11.9734,11.9734,0,0,1,8.2678,25.146L15,18.4141V22H13v2h7V22H17V16.4141l8.146-8.146A11.8967,11.8967,0,0,1,28,16Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M16,8a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,16,8Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M5.67,22.0854A11.9829,11.9829,0,0,1,22.0856,5.67L23.54,4.2163A13.985,13.985,0,0,0,4.2162,23.54Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InformationFilled = /* @__PURE__ */ consume_shared_module_default_react_singleton_default().forwardRef(function InformationFilled({ children, size = 16, ...rest }, ref) {
+	return consume_shared_module_default_react_singleton_default().createElement(Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ (0,jsx_runtime.jsx)("path", {
+		fill: "none",
+		d: "M16,8a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,16,8Zm4,13.875H17.125v-8H13v2.25h1.875v5.75H12v2.25h8Z",
+		"data-icon-path": "inner-path"
+	}), /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M16,2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Zm0,6a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,16,8Zm4,16.125H12v-2.25h2.875v-5.75H13v-2.25h4.125v8H20Z" }), children);
+});
+if (false) // removed by dead control flow
+{}
+const InformationSquare = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InformationSquare({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M17 22 17 14 13 14 13 16 15 16 15 22 12 22 12 24 20 24 20 22 17 22z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M16,8a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,16,8Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26,28H6a2.0023,2.0023,0,0,1-2-2V6A2.0023,2.0023,0,0,1,6,4H26a2.0023,2.0023,0,0,1,2,2V26A2.0023,2.0023,0,0,1,26,28ZM6,6V26H26V6Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InformationSquareFilled = /* @__PURE__ */ consume_shared_module_default_react_singleton_default().forwardRef(function InformationSquareFilled({ children, size = 16, ...rest }, ref) {
+	return consume_shared_module_default_react_singleton_default().createElement(Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ (0,jsx_runtime.jsx)("path", {
+		fill: "none",
+		d: "M16,8a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,16,8Zm4,13.875H17.125v-8H13v2.25h1.875v5.75H12v2.25h8Z",
+		"data-icon-path": "inner-path"
+	}), /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M26,4H6A2,2,0,0,0,4,6V26a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2V6A2,2,0,0,0,26,4ZM16,8a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,16,8Zm4,16.125H12v-2.25h2.875v-5.75H13v-2.25h4.125v8H20Z" }), children);
+});
+if (false) // removed by dead control flow
+{}
+const InfrastructureClassic = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InfrastructureClassic({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M18 26H30V28H18z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M18 21H30V23H18z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M18 16H30V18H18z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M14,25H9.5A7.4964,7.4964,0,0,1,8.1782,10.124,10,10,0,0,1,28,12H26a7.999,7.999,0,0,0-15.9507-.87l-.09.8335L9.123,12.02A5.4962,5.4962,0,0,0,9.5,23H14Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Insert = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function Insert({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M2,9h9V2H2ZM4,4H9V7H4Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2,19h9V12H2Zm2-5H9v3H4Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2,29h9V22H2Zm2-5H9v3H4Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M27,9H18l3.41-3.59L20,4l-6,6,6,6,1.41-1.41L18,11h9a1,1,0,0,1,1,1V24a1,1,0,0,1-1,1H15v2H27a3,3,0,0,0,3-3V12A3,3,0,0,0,27,9Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InsertPage = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InsertPage({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M26,30H24V20H12V30H10V20a2.0021,2.0021,0,0,1,2-2H24a2.0021,2.0021,0,0,1,2,2Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M5.17 16 2 19.17 3.411 20.589 8 16 3.42 11.42 2 12.83 5.17 16z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M24,14H12a2.0021,2.0021,0,0,1-2-2V2h2V12H24V2h2V12A2.0021,2.0021,0,0,1,24,14Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InsertSyntax = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InsertSyntax({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M20.17 16 17.59 18.58 19 20 23 16 19 12 17.58 13.41 20.17 16z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M11.83 16 14.41 13.42 13 12 9 16 13 20 14.42 18.59 11.83 16z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M27,22.142V9.858A3.9916,3.9916,0,1,0,22.142,5H9.858A3.9916,3.9916,0,1,0,5,9.858V22.142A3.9916,3.9916,0,1,0,9.858,27H22.142A3.9916,3.9916,0,1,0,27,22.142ZM26,4a2,2,0,1,1-2,2A2.0023,2.0023,0,0,1,26,4ZM4,6A2,2,0,1,1,6,8,2.002,2.002,0,0,1,4,6ZM6,28a2,2,0,1,1,2-2A2.0023,2.0023,0,0,1,6,28Zm16.142-3H9.858A3.9937,3.9937,0,0,0,7,22.142V9.858A3.9947,3.9947,0,0,0,9.858,7H22.142A3.9937,3.9937,0,0,0,25,9.858V22.142A3.9931,3.9931,0,0,0,22.142,25ZM26,28a2,2,0,1,1,2-2A2.0027,2.0027,0,0,1,26,28Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Inspection = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function Inspection({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M15 17.18 12.41 14.59 11 16 15 20 22 13 20.59 11.59 15 17.18z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M30,15H27.9492A12.0071,12.0071,0,0,0,17,4.0508V2H15V4.0508A12.0071,12.0071,0,0,0,4.0508,15H2v2H4.0508A12.0071,12.0071,0,0,0,15,27.9492V30h2V27.9492A12.0071,12.0071,0,0,0,27.9492,17H30ZM17,25.9492V23H15v2.9492A10.0166,10.0166,0,0,1,6.0508,17H9V15H6.0508A10.0166,10.0166,0,0,1,15,6.0508V9h2V6.0508A10.0166,10.0166,0,0,1,25.9492,15H23v2h2.949A10.0165,10.0165,0,0,1,17,25.9492Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InstanceBx = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InstanceBx({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M12,5A3.0033,3.0033,0,0,0,9,2H4V15H9a3.0033,3.0033,0,0,0,3-3V10.5a2.977,2.977,0,0,0-.78-2,2.9768,2.9768,0,0,0,.78-2ZM6,4H9a1.0013,1.0013,0,0,1,1,1V6.5513A.9587.9587,0,0,1,9,7.5H6Zm4,8a1.0009,1.0009,0,0,1-1,1H6V9.5H9a1.0009,1.0009,0,0,1,1,1Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M22 5 20 5 18 8.897 16 5 14 5 16.905 10 14 15 16 15 18 11.201 20 15 22 15 19.098 10 22 5z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "9",
+		cy: "27",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2 18H6V20H2z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M8 18H12V20H8z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M14 18H18V20H14z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M20 18H24V20H20z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26 18H30V20H26z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26,31H6a2.0021,2.0021,0,0,1-2-2V25a2.0021,2.0021,0,0,1,2-2H26a2.0021,2.0021,0,0,1,2,2v4A2.0021,2.0021,0,0,1,26,31ZM6,25v4H26V25Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InstanceClassic = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InstanceClassic({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M23.5,21H23V19h.5a4.4975,4.4975,0,0,0,.3564-8.981l-.8154-.0639-.0986-.812a6.9938,6.9938,0,0,0-13.8838,0l-.0991.812-.8155.0639A4.4975,4.4975,0,0,0,8.5,19H9v2H8.5A6.4973,6.4973,0,0,1,7.2,8.1362a8.9943,8.9943,0,0,1,17.6006,0A6.4974,6.4974,0,0,1,23.5,21Z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "9",
+		cy: "27",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26,23H17V15.83l2.59,2.58L21,17l-5-5-5,5,1.41,1.41L15,15.83V23H6a2.0023,2.0023,0,0,0-2,2v4a2.0023,2.0023,0,0,0,2,2H26a2.0023,2.0023,0,0,0,2-2V25A2.0023,2.0023,0,0,0,26,23Zm0,6H6V25H26Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InstanceCx = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InstanceCx({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "9",
+		cy: "27",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M22 5 20 5 18 8.897 16 5 14 5 16.905 10 14 15 16 15 18 11.201 20 15 22 15 19.098 10 22 5z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M12,15H6a2.0023,2.0023,0,0,1-2-2V4A2.002,2.002,0,0,1,6,2h6V4H6v9h6Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2 18H6V20H2z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M8 18H12V20H8z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M14 18H18V20H14z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M20 18H24V20H20z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26 18H30V20H26z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26,31H6a2.0021,2.0021,0,0,1-2-2V25a2.0021,2.0021,0,0,1,2-2H26a2.0021,2.0021,0,0,1,2,2v4A2.0021,2.0021,0,0,1,26,31ZM6,25v4H26V25Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InstanceMx = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InstanceMx({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M22 5 20 5 18 8.897 16 5 14 5 16.905 10 14 15 16 15 18 11.201 20 15 22 15 19.098 10 22 5z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M10 2 8.485 6.374 8 8 7.535 6.374 6 2 4 2 4 15 6 15 6 7.374 5.841 5.378 6.421 7.374 8 12 9.579 7.374 10.159 5.374 10 7.374 10 15 12 15 12 2 10 2z" }), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "9",
+		cy: "27",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2 18H6V20H2z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M8 18H12V20H8z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M14 18H18V20H14z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M20 18H24V20H20z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26 18H30V20H26z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26,31H6a2.0021,2.0021,0,0,1-2-2V25a2.0021,2.0021,0,0,1,2-2H26a2.0021,2.0021,0,0,1,2,2v4A2.0021,2.0021,0,0,1,26,31ZM6,25v4H26V25Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InstanceVirtual = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InstanceVirtual({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "7",
+		cy: "23",
+		r: "1"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2 6H6V8H2z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M8 6H12V8H8z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M14 6H18V8H14z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M20 6H24V8H20z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26 6H30V8H26z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,28H4a2.0021,2.0021,0,0,1-2-2V20a2.0021,2.0021,0,0,1,2-2H28a2.0021,2.0021,0,0,1,2,2v6A2.0021,2.0021,0,0,1,28,28ZM4,20v6H28V20Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2 12H30V14H2z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Integration = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function Integration({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M29.88,15.52l-6-11A1,1,0,0,0,23,4H9a1,1,0,0,0-.88.52l-6,11a1,1,0,0,0,0,1l6,11A1,1,0,0,0,9,28H23a1,1,0,0,0,.88-.52l6-11A1,1,0,0,0,29.88,15.52ZM22.93,7l4.39,8h-9.5ZM16,14.14,10.82,6H21.18ZM9.07,7l5.11,8H4.68ZM4.68,17h9.5L9.07,25ZM16,17.86,21.18,26H10.82ZM22.93,25l-5.11-8h9.5Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IntentRequestActive = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IntentRequestActive({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M23 27.2 20.4 24.6 19 26 23 30 31 22 29.6 20.6z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M15.4,30L5,23.8c-0.6-0.4-1-1-1-1.7V9.9c0-0.7,0.4-1.4,1-1.7l10-5.9C15.3,2.1,15.6,2,16,2c0.4,0,0.7,0.1,1,0.3l10,5.9 c0.6,0.4,1,1,1,1.7V16h-2V9.9L16,4L6,9.9v12.2l10.5,6.2L15.4,30z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IntentRequestCreate = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IntentRequestCreate({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M30 24 26 24 26 20 24 20 24 24 20 24 20 26 24 26 24 30 26 30 26 26 30 26z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M15.4,30L5,23.8c-0.6-0.4-1-1-1-1.7V9.9c0-0.7,0.4-1.4,1-1.7l10-5.9C15.3,2.1,15.6,2,16,2c0.4,0,0.7,0.1,1,0.3l10,5.9 c0.6,0.4,1,1,1,1.7V16h-2V9.9L16,4L6,9.9v12.2l10.5,6.2L15.4,30z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IntentRequestHeal = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IntentRequestHeal({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M27,20c-0.8,0-1.5,0.3-2.1,0.9l-0.4,0.5l-0.4-0.5C23.5,20.3,22.7,20,22,20s-1.5,0.3-2.1,0.9c-1.2,1.2-1.2,3.1,0,4.3l4.6,4.8 l4.6-4.8c1.2-1.2,1.2-3.1,0-4.3C28.6,20.3,27.8,20,27,20L27,20z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M16.6,28.6L4,16L16,4l12.6,12.6l1.4-1.4L17.5,2.6c-0.8-0.8-2.1-0.8-2.9,0L2.6,14.5c-0.8,0.8-0.8,2.1,0,2.9L15.1,30 L16.6,28.6z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IntentRequestInactive = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IntentRequestInactive({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "18.5",
+		cy: "22.5",
+		r: "1.5"
+	}), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "23.5",
+		cy: "22.5",
+		r: "1.5"
+	}), /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "28.5",
+		cy: "22.5",
+		r: "1.5"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M15.4,30L5,23.8c-0.6-0.4-1-1-1-1.7V9.9c0-0.7,0.4-1.4,1-1.7l10-5.9C15.3,2.1,15.6,2,16,2c0.4,0,0.7,0.1,1,0.3l10,5.9 c0.6,0.4,1,1,1,1.7V16h-2V9.9L16,4L6,9.9v12.2l10.5,6.2L15.4,30z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IntentRequestScaleIn = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IntentRequestScaleIn({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M28.6 30 30 28.6 22.4 21 29 21 29 19 19 19 19 29 21 29 21 22.4z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2 28.6 3.4 30 11 22.4 11 29 13 29 13 19 3 19 3 21 9.6 21z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M17 2 15 2 15 12.2 10.4 7.6 9 9 16 16 23 9 21.6 7.6 17 12.2z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IntentRequestScaleOut = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IntentRequestScaleOut({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M19 20.4 20.4 19 28 26.6 28 20 30 20 30 30 20 30 20 28 26.6 28z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M13 20.4 11.6 19 4 26.6 4 20 2 20 2 30 12 30 12 28 5.4 28z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M17 16 15 16 15 5.8 10.4 10.4 9 9 16 2 23 9 21.6 10.4 17 5.8z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IntentRequestUninstall = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IntentRequestUninstall({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M30 21.4 28.6 20 25 23.6 21.4 20 20 21.4 23.6 25 20 28.6 21.4 30 25 26.4 28.6 30 30 28.6 26.4 25z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M15.4,30L5,23.8c-0.6-0.4-1-1-1-1.7V9.9c0-0.7,0.4-1.4,1-1.7l10-5.9C15.3,2.1,15.6,2,16,2c0.4,0,0.7,0.1,1,0.3l10,5.9 c0.6,0.4,1,1,1,1.7V16h-2V9.9L16,4L6,9.9v12.2l10.5,6.2L15.4,30z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IntentRequestUpgrade = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IntentRequestUpgrade({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M28 23 26.6 24.4 24 21.8 24 30 22 30 22 21.8 19.4 24.4 18 23 23 18z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M15.4,30L5,23.8c-0.6-0.4-1-1-1-1.7V9.9c0-0.7,0.4-1.4,1-1.7l10-5.9C15.3,2.1,15.6,2,16,2c0.4,0,0.7,0.1,1,0.3l10,5.9 c0.6,0.4,1,1,1,1.7V16h-2V9.9L16,4L6,9.9v12.2l10.5,6.2L15.4,30z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Interactions = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function Interactions({ children, size = 16, ...rest }, ref) {
+	if (size === 16 || size === "16" || size === "16px") return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 16 16",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", {
+		fillRule: "evenodd",
+		d: "M11,7 L11,9 L13,9 C13.5522847,9 14,9.44771525 14,10 L14,10 L14,13 C14,13.5522847 13.5522847,14 13,14 L13,14 L10,14 L10,7 L11,7 Z M5,9 C5.55228475,9 6,9.44771525 6,10 L6,10 L6,14 L3,14 C2.44771525,14 2,13.5522847 2,13 L2,13 L2,12 C2,11.4477153 2.44771525,11 3,11 L3,11 L5,11 L5,10 L2.5,10 L2.5,9 Z M13,10 L11,10 L11,13 L13,13 L13,10 Z M5,12 L3,12 L3,13 L5,13 L5,12 Z M7.912,2 L7.834,3.911 L9.628,3.248 L9.914,4.119 L8.068,4.626 L9.251,6.134 L8.523,6.667 L7.457,5.068 L6.391,6.667 L5.663,6.134 L6.846,4.626 L5,4.119 L5.286,3.248 L7.08,3.911 L7.002,2 L7.912,2 Z"
+	}), children);
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M26,18H22V14H20V28h6a2.0027,2.0027,0,0,0,2-2V20A2.0023,2.0023,0,0,0,26,18Zm-4,8V20h4v6Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M20 6.076 19.256 4.219 16 5.522 16 2 14 2 14 5.523 10.744 4.22 10 6.077 13.417 7.444 10.9 10.8 12.5 12 15 8.667 17.5 12 19.1 10.8 16.583 7.443 20 6.076z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M10,18H5v2h5v2H6a2,2,0,0,0-2,2v2a2,2,0,0,0,2,2h6V20A2.0023,2.0023,0,0,0,10,18Zm0,8H6V24h4Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const WatsonHealthInteractiveSegmentationCursor = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function WatsonHealthInteractiveSegmentationCursor({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M29.4139,24,15.9989,10.5663a2.0473,2.0473,0,0,0-2.8281,0l-2.586,2.586a2.0023,2.0023,0,0,0,0,2.8283L23.9989,29.4145a2.0021,2.0021,0,0,0,2.8281,0l2.5869-2.5865a1.9993,1.9993,0,0,0,0-2.8283Zm-17.415-9.4335,2.5859-2.5859,3.5,3.5L15.498,18.0676l-3.5-3.5ZM25.413,28l-8.5009-8.5188,2.5867-2.587L28,25.4143Z" }), /* @__PURE__ */ bucket_10_jsx("path", {
+		d: "M7.586 18.586H10.414V21.413999999999998H7.586z",
+		transform: "rotate(-45 9 20)"
+	}), /* @__PURE__ */ bucket_10_jsx("path", {
+		d: "M18.586 7.586H21.413999999999998V10.414H18.586z",
+		transform: "rotate(-45 20 9)"
+	}), /* @__PURE__ */ bucket_10_jsx("path", {
+		d: "M7.586 7.586H10.414V10.414H7.586z",
+		transform: "rotate(-45 9 9)"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M11 2 2 2 2 11 4 11 4 4 11 4 11 2z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InterfaceDefinition = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InterfaceDefinition({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,19h-7c-1.1028,0-2,.8975-2,2v2h-2v-14c0-1.1025-.8972-2-2-2h-2v-3c0-1.1025-.8972-2-2-2h-7c-1.1028,0-2,.8975-2,2v7c0,1.1025.8972,2,2,2h7c1.1028,0,2-.8975,2-2v-2h2v14c0,1.1025.8972,2,2,2h2v3c0,1.1025.8972,2,2,2h7c1.1028,0,2-.8975,2-2v-7c0-1.1025-.8972-2-2-2ZM11,11h-7v-7h7v7ZM28,28h-7v-7h7v7Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InterfaceDefinitionAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InterfaceDefinitionAlt({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,30H4c-1.1,0-2-.9-2-2V4c0-1.1.9-2,2-2h24c1.1,0,2,.9,2,2v24c0,1.1-.9,2-2,2ZM4,28h24V4H4v24ZM9,22v-1.8232h1.582v-8.3545h-1.582v-1.8223h5.4512v1.8223h-1.5991v8.3545h1.5991v1.8232h-5.4512ZM16.3301,22v-9h2.2012v1.5195h.0859c.3613-.9629,1.1182-1.7021,2.5107-1.7021,1.8403,0,2.8721,1.2725,2.8721,3.5078v5.6748h-2.2012v-5.4512c0-1.2725-.4302-1.9258-1.479-1.9258-.9116,0-1.7886.4814-1.7886,1.4443v5.9326h-2.2012Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InterfaceUsage = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InterfaceUsage({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", {
+		strokeWidth: "0",
+		d: "m18.3242,11.7334v1.29h-1.3242v1.7368h1.3242v7.2397h2.2012v-7.2397h1.8398v-1.7368h-1.8398v-1.9951h1.8398v-1.7539h-1.5649c-1.6167,0-2.4761.877-2.4761,2.459Z"
+	}), /* @__PURE__ */ bucket_10_jsx("path", {
+		strokeWidth: "0",
+		d: "M10 11.8193 11.582 11.8193 11.582 20.1772 10 20.1772 10 22 15.4516 22 15.4516 20.1772 13.8525 20.1772 13.8525 11.8193 15.4516 11.8193 15.4516 9.9966 10 9.9966 10 11.8193z"
+	}), /* @__PURE__ */ bucket_10_jsx("path", {
+		strokeWidth: "0",
+		d: "m21,30h-10c-4.9626,0-9-4.0374-9-9v-10C2,6.0374,6.0374,2,11,2h10c4.9626,0,9,4.0374,9,9v10c0,4.9626-4.0374,9-9,9ZM11,4c-3.8599,0-7,3.1401-7,7v10c0,3.8599,3.1401,7,7,7h10c3.8599,0,7-3.1401,7-7v-10c0-3.8599-3.1401-7-7-7h-10Z"
+	}), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InterfaceUsage_1 = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InterfaceUsage_1({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M21.0259,30h-10c-5,0-9-4-9-9v-10C2.0259,6,6.0259,2,11.0259,2h10c5,0,9,4,9,9v10c0,5-4,9-9,9ZM11.0259,4c-3.9,0-7,3.1-7,7v10c0,3.9,3.1,7,7,7h10c3.9,0,7-3.1,7-7v-10c0-3.9-3.1-7-7-7h-10ZM9,22.0029v-1.8232h1.582v-8.3574h-1.582v-1.8223h5.4512v1.8223h-1.5991v8.3574h1.5991v1.8232h-5.4512ZM16.3301,22.0029v-9.0029h2.2012v1.5225h.0859c.3613-.9629,1.1182-1.7021,2.5107-1.7021,1.8403,0,2.8721,1.2725,2.8721,3.5078v5.6748h-2.2012v-5.4512c0-1.2725-.4302-1.9258-1.479-1.9258-.9116,0-1.7886.4814-1.7886,1.4443v5.9326h-2.2012Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InterfaceUsageAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InterfaceUsageAlt({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M26,19h-3c-2.2056,0-4,1.7944-4,4h-2v-14c0-1.1025-.8972-2-2-2h-2v-1c0-2.2056-1.7944-4-4-4h-3c-2.2056,0-4,1.7944-4,4v3c0,2.2056,1.7944,4,4,4h3c2.2056,0,4-1.7944,4-4h2v14c0,1.1025.8972,2,2,2h2v1c0,2.2056,1.7944,4,4,4h3c2.2056,0,4-1.7944,4-4v-3c0-2.2056-1.7944-4-4-4ZM11,9c0,1.1025-.8972,2-2,2h-3c-1.1028,0-2-.8975-2-2v-3c0-1.1025.8972-2,2-2h3c1.1028,0,2,.8975,2,2v3ZM28,26c0,1.1025-.8972,2-2,2h-3c-1.1028,0-2-.8975-2-2v-3c0-1.1025.8972-2,2-2h3c1.1028,0,2,.8975,2,2v3Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Intersect = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function Intersect({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M22,24H18V22h4V18h2v4A2.0021,2.0021,0,0,1,22,24Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M10,14H8V10a2.0022,2.0022,0,0,1,2-2h4v2H10Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,8H24V4a2.0023,2.0023,0,0,0-2-2H4A2.0023,2.0023,0,0,0,2,4V22a2.0023,2.0023,0,0,0,2,2H8v4a2.0023,2.0023,0,0,0,2,2H28a2.0023,2.0023,0,0,0,2-2V10A2.0023,2.0023,0,0,0,28,8Zm0,20H10V24h4V22H10V18H8v4H4V4H22V8H18v2h4v4h2V10h4Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IntrusionPrevention = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IntrusionPrevention({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("circle", {
+		cx: "22",
+		cy: "23.887",
+		r: "2"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M29.7769,23.4785A8.64,8.64,0,0,0,22,18a8.64,8.64,0,0,0-7.7769,5.4785L14,24l.2231.5215A8.64,8.64,0,0,0,22,30a8.64,8.64,0,0,0,7.7769-5.4785L30,24ZM22,28a4,4,0,1,1,4-4A4.0045,4.0045,0,0,1,22,28Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M25,10H4A2.0021,2.0021,0,0,1,2,8V4A2.0021,2.0021,0,0,1,4,2H25a2.0021,2.0021,0,0,1,2,2V8A2.0021,2.0021,0,0,1,25,10ZM4,4V8H25V4Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M12,28H4V24h8V22H4a2.0023,2.0023,0,0,0-2,2v4a2.0023,2.0023,0,0,0,2,2h8Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,12H7a2.0023,2.0023,0,0,0-2,2v4a2.0023,2.0023,0,0,0,2,2h5V18H7V14H28l.0007,2H30V14A2.0023,2.0023,0,0,0,28,12Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const InventoryManagement = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function InventoryManagement({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M19 24H23V28H19z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26 24H30V28H26z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M19 17H23V21H19z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26 17H30V21H26z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M17,24H4V10H28v5h2V10a2.0023,2.0023,0,0,0-2-2H22V4a2.0023,2.0023,0,0,0-2-2H12a2.002,2.002,0,0,0-2,2V8H4a2.002,2.002,0,0,0-2,2V24a2.0023,2.0023,0,0,0,2,2H17ZM12,4h8V8H12Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IotConnect = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IotConnect({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M30,19H26V15H24v9H8V8l9-.0009V6H13V2H11V6H8A2.002,2.002,0,0,0,6,8v3H2v2H6v6H2v2H6v3a2.0023,2.0023,0,0,0,2,2h3v4h2V26h6v4h2V26h3a2.0027,2.0027,0,0,0,2-2V21h4Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26,2a4.0042,4.0042,0,0,0-4,4,3.9556,3.9556,0,0,0,.5668,2.0192L19.5859,11H11V21H21V12.4141l2.9808-2.9808A3.9553,3.9553,0,0,0,26,10a4,4,0,0,0,0-8ZM19,19H13V13h6ZM26,8a2,2,0,1,1,2-2A2.0023,2.0023,0,0,1,26,8Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IotPlatform = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IotPlatform({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M30,19H26V15H24v9H8V8l9-.0009V6H13V2H11V6H8A2.002,2.002,0,0,0,6,8v3H2v2H6v6H2v2H6v3a2.0023,2.0023,0,0,0,2,2h3v4h2V26h6v4h2V26h3a2.0027,2.0027,0,0,0,2-2V21h4Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M21,21H11V11H21Zm-8-2h6V13H13Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M31,13H29A10.0117,10.0117,0,0,0,19,3V1A12.0131,12.0131,0,0,1,31,13Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M26,13H24a5.0059,5.0059,0,0,0-5-5V6A7.0085,7.0085,0,0,1,26,13Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Ip = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function Ip({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", {
+		strokeWidth: "0",
+		d: "m19,23h-2v-14h6c1.103,0,2,.897,2,2v5c0,1.103-.897,2-2,2h-4v5Zm0-7h4v-5.0015h-4v5.0015Z"
+	}), /* @__PURE__ */ bucket_10_jsx("path", {
+		strokeWidth: "0",
+		d: "M7 11 10 11 10 21 7 21 7 23 15 23 15 21 12 21 12 11 15 11 15 9 7 9 7 11z"
+	}), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Iso = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function Iso({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,23H24a2,2,0,0,1-2-2V11a2,2,0,0,1,2-2h4a2,2,0,0,1,2,2V21A2,2,0,0,1,28,23ZM24,11V21h4V11Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M18,23H12V21h6V17H14a2,2,0,0,1-2-2V11a2,2,0,0,1,2-2h6v2H14v4h4a2,2,0,0,1,2,2v4A2,2,0,0,1,18,23Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M2 11 5 11 5 21 2 21 2 23 10 23 10 21 7 21 7 11 10 11 10 9 2 9 2 11z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IsoFilled = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IsoFilled({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M21 13H24V19H21z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,6H4A2,2,0,0,0,2,8V24a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V8A2,2,0,0,0,28,6ZM8,21H6V11H8Zm9-8H12v2h3a2,2,0,0,1,2,2v2a2,2,0,0,1-2,2H10V19h5V17H12a2,2,0,0,1-2-2V13a2,2,0,0,1,2-2h5Zm9,6a2,2,0,0,1-2,2H21a2,2,0,0,1-2-2V13a2,2,0,0,1,2-2h3a2,2,0,0,1,2,2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const IsoOutline = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function IsoOutline({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M24,21H21a2,2,0,0,1-2-2V13a2,2,0,0,1,2-2h3a2,2,0,0,1,2,2v6A2,2,0,0,1,24,21Zm-3-8v6h3V13Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M15,21H10V19h5V17H12a2,2,0,0,1-2-2V13a2,2,0,0,1,2-2h5v2H12v2h3a2,2,0,0,1,2,2v2A2,2,0,0,1,15,21Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M6 11H8V21H6z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,6H4A2,2,0,0,0,2,8V24a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V8A2,2,0,0,0,28,6ZM4,24V8H28V24Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ItemDefinition = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function ItemDefinition({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,2H4c-1.1,0-2,.9-2,2v24c0,1.1.9,2,2,2h24c1.1,0,2-.9,2-2V4c0-1.1-.9-2-2-2ZM28,28H4V4h24v24ZM10,22v-1.8232h1.582v-8.3574h-1.582v-1.8223h5.4512v1.8223h-1.5991v8.3574h1.5991v1.8232h-5.4512ZM18.0906,19.7129v-4.9487h-1.3242v-1.7539h.688c.6538,0,.8599-.3096.8599-.9287v-1.5171h1.9775v2.4458h1.8403v1.7539h-1.8403v5.4819h1.7026v1.7539h-1.582c-1.5132,0-2.3218-.8252-2.3218-2.2871Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const ItemUsage = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function ItemUsage({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M21,30h-10c-5,0-9-4-9-9v-10C2,6,6,2,11,2h10c5,0,9,4,9,9v10c0,5-4,9-9,9ZM11,4c-3.9,0-7,3.1-7,7v10c0,3.9,3.1,7,7,7h10c3.9,0,7-3.1,7-7v-10c0-3.9-3.1-7-7-7h-10ZM10,22v-1.8232h1.582v-8.3574h-1.582v-1.8223h5.4512v1.8223h-1.5991v8.3574h1.5991v1.8232h-5.4512ZM18.0906,19.7129v-4.9487h-1.3242v-1.7539h.688c.6538,0,.8599-.3096.8599-.9287v-1.5171h1.9775v2.4458h1.8403v1.7539h-1.8403v5.4819h1.7026v1.7539h-1.582c-1.5132,0-2.3218-.8252-2.3218-2.2871Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Java = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function Java({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M6.3335,21h-2.667c-.9189,0-1.6665-.7476-1.6665-1.6665v-2.3335h2v2h2v-8h2v8.3335c0,.9189-.7476,1.6665-1.6665,1.6665ZM16,13v8h-2v-4h-2v4h-2v-8c0-1.1001.8999-2,2-2h2c1.1001,0,2,.8999,2,2ZM14,13h-2v2h2v-2ZM30,13v8h-2v-4h-2v4h-2v-8c0-1.1001.8999-2,2-2h2c1.1001,0,2,.8999,2,2ZM28,13h-2v2h2v-2ZM21,11h2l-2,10h-2l-2-10h2l1,7,1-7Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Jcl = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function Jcl({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M30,21v2h-8v-14h2v12h6ZM10,21v-12h-2v12h-4v-2h-2v2c0,1.1025.897,2,2,2h4c1.103,0,2-.8975,2-2ZM20,21h-6v-10h6v-2h-6c-1.103,0-2,.897-2,2v10c0,1.1025.897,2,2,2h6v-2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const JobDaemon = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function JobDaemon({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M12,17h8c1.1,0,2-.9,2-2V4c0-1.1-.9-2-2-2h-8c-1.1,0-2,.9-2,2v11c0,1.1.9,2,2,2ZM12,4h8v11h-8V4ZM8,19h5v2h-5c-1.1,0-2-.9-2-2v-11h2v11ZM4,23h5v2h-5c-1.1,0-2-.9-2-2v-11h2v11ZM27,20c-1.6,0-3.1,1.4-4,2.4-.9-1-2.4-2.4-4-2.4-2.6,0-4,2-4,4s1.4,4,4,4,3.1-1.4,4-2.4c.9,1,2.4,2.4,4,2.4,2.6,0,4-2,4-4s-1.4-4-4-4ZM19,26c-1.5,0-2-1.1-2-2s.5-2,2-2,2,1.1,2.8,2c-.7.9-1.9,2-2.8,2ZM27,26c-.9,0-2-1.1-2.8-2,.7-.9,1.9-2,2.8-2,1.5,0,2,1.1,2,2s-.5,2-2,2Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const JobRun = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function JobRun({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M12,17h8c1.1,0,2-.9,2-2V4c0-1.1-.9-2-2-2h-8c-1.1,0-2,.9-2,2v11c0,1.1.9,2,2,2ZM12,4h8v11h-8V4ZM8,19h6v2h-6c-1.1,0-2-.9-2-2v-11h2v11ZM4,23h6v2h-6c-1.1,0-2-.9-2-2v-11h2v11ZM30,24l-6,6-1.4-1.4,3.6-3.6h-9.2v-2h9.2l-3.6-3.6,1.4-1.4,6,6Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const JoinFull = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function JoinFull({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", {
+		fill: "none",
+		d: "M16,9.0752a7.9941,7.9941,0,0,1,0,13.85,7.9941,7.9941,0,0,1,0-13.85m0-2.2373a9.9953,9.9953,0,0,0,0,18.3242A9.9953,9.9953,0,0,0,16,6.8379Z",
+		"data-icon-path": "inner-path"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M10,16a9.9976,9.9976,0,0,1,6-9.1621,10,10,0,1,0,0,18.3242A9.9976,9.9976,0,0,1,10,16Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M16,9.0752a7.9941,7.9941,0,0,0,0,13.85,7.9941,7.9941,0,0,0,0-13.85Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M20,6a9.9539,9.9539,0,0,0-4,.8379,9.9953,9.9953,0,0,1,0,18.3242A9.9988,9.9988,0,1,0,20,6Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const JoinInner = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function JoinInner({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M20,6a9.9355,9.9355,0,0,0-4,.8418A9.999,9.999,0,1,0,16,25.16,9.998,9.998,0,1,0,20,6ZM12,24A8,8,0,1,1,13.7573,8.2017a9.9734,9.9734,0,0,0,0,15.5986A7.9919,7.9919,0,0,1,12,24Zm8,0a7.9919,7.9919,0,0,1-1.7573-.2,9.9734,9.9734,0,0,0,0-15.5986A7.9972,7.9972,0,1,1,20,24Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const JoinInnerAlt = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function JoinInnerAlt({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M9.3,12.6l-1.3,1.5c-1.1-1-2-2.2-2.7-3.5l1.8-.9c.6,1.1,1.3,2.1,2.2,2.9h0ZM6.4,7.7c-.3-.9-.4-1.9-.4-2.8v-.9s-2,0-2,0v.9c0,1.1.2,2.3.5,3.4l1.9-.6h0ZM14.2,15c-1.2-.2-2.4-.7-3.4-1.3l-1,1.7c.3.2.7.4,1.1.6-.4.2-.7.4-1.1.6l1,1.7c1.1-.7,2.2-1.1,3.4-1.3v-1.9h0ZM5.3,21.4l1.8.9c.6-1.1,1.3-2.1,2.2-2.9l-1.3-1.5c-1.1,1-2,2.2-2.7,3.5h0ZM4,27.1v.9h2v-.9c0-1,.1-1.9.4-2.8l-1.9-.6c-.3,1.1-.5,2.2-.5,3.4h0ZM23,11l-1.4,1.4,2.6,2.6h-8.2s0,2,0,2h8.2s-2.6,2.6-2.6,2.6l1.4,1.4,5-5s-5-5-5-5Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const JoinLeft = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function JoinLeft({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M20,6a9.9272,9.9272,0,0,0-3.9968.8394,9.9758,9.9758,0,0,1,2.2451,1.36,8,8,0,1,1,0,15.6016,9.9758,9.9758,0,0,1-2.2451,1.36A9.9976,9.9976,0,1,0,20,6Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M12,16a8.01,8.01,0,0,0,6.2483,7.8008,9.9858,9.9858,0,0,0,0-15.6016A8.01,8.01,0,0,0,12,16Z" }), /* @__PURE__ */ bucket_10_jsx("path", {
+		fill: "none",
+		d: "M12,16a8.01,8.01,0,0,1,6.2483-7.8008,9.9758,9.9758,0,0,0-2.2451-1.36,9.9909,9.9909,0,0,0,0,18.3212,9.9758,9.9758,0,0,0,2.2451-1.36A8.01,8.01,0,0,1,12,16Z",
+		"data-icon-path": "inner-path"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M10,16a10.0105,10.0105,0,0,1,6.0032-9.1606,10,10,0,1,0,0,18.3212A10.0105,10.0105,0,0,1,10,16Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const JoinLeftOuter = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function JoinLeftOuter({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M28,16l-5,5-1.4-1.4,2.6-2.6h-10.2c-1.2.2-2.3.7-3.4,1.3l-1-1.7c.4-.3.8-.5,1.3-.7-4.1-1.8-6.9-5.6-6.9-10.1v-1.8s2,0,2,0v1.8c0,5.1,4.5,9.2,10,9.2h8.2l-2.6-2.6,1.4-1.4,5,5h0s0,0,0,0ZM4,27v1h2v-1c0-1,0-1.9.3-2.9l-1.9-.6c-.3,1.1-.5,2.3-.5,3.4h0ZM5.3,21.5l1.7.9c.6-1.1,1.3-2.1,2.2-3l-1.3-1.5c-1.1,1-2,2.2-2.6,3.6Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const JoinOuter = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function JoinOuter({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M20,6a9.9539,9.9539,0,0,0-4,.8379,9.9953,9.9953,0,0,1,0,18.3242A9.9988,9.9988,0,1,0,20,6Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M10,16a9.9976,9.9976,0,0,1,6-9.1621,10,10,0,1,0,0,18.3242A9.9976,9.9976,0,0,1,10,16Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const JoinRight = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function JoinRight({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M20,6a9.95,9.95,0,0,0-4.0032.8394,9.9909,9.9909,0,0,1,0,18.3212A9.9988,9.9988,0,1,0,20,6Z" }), /* @__PURE__ */ bucket_10_jsx("path", {
+		fill: "none",
+		d: "M20,16a8.01,8.01,0,0,0-6.2483-7.8008,9.9758,9.9758,0,0,1,2.2451-1.36,9.9909,9.9909,0,0,1,0,18.3212,9.9758,9.9758,0,0,1-2.2451-1.36A8.01,8.01,0,0,0,20,16Z",
+		"data-icon-path": "inner-path"
+	}), /* @__PURE__ */ bucket_10_jsx("path", { d: "M10,16a9.9759,9.9759,0,0,0,3.7517,7.8008,7.9937,7.9937,0,0,0,0-15.6016A9.9759,9.9759,0,0,0,10,16Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M12,24A8,8,0,1,1,13.7517,8.1992a9.9758,9.9758,0,0,1,2.2451-1.36,10,10,0,1,0,0,18.3212,9.9758,9.9758,0,0,1-2.2451-1.36A7.9727,7.9727,0,0,1,12,24Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const JoinRightOuter = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function JoinRightOuter({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M28.01,16l-5,5-1.41-1.41,2.59-2.59h-6.09s-2.07,0-2.07,0c-5.52,0-10.02,4.11-10.02,9.17v1.83h-2v-1.83c0-4.45,2.82-8.29,6.89-10.09-.43-.21-.85-.43-1.26-.69l1.02-1.74c1.04.66,2.16,1.11,3.35,1.34h2s0,0,0,0h8.17l-2.59-2.59,1.41-1.41,5,5h0ZM6.36,7.81c-.26-.92-.39-1.88-.39-2.85v-.96h-1.95v.96c0,1.16.16,2.32.47,3.43l1.87-.57ZM7.9,14.04l1.31-1.51c-.9-.85-1.64-1.85-2.19-2.97l-1.74.92c.66,1.35,1.54,2.54,2.62,3.56Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+const JoinNode = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function JoinNode({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", {
+		strokeWidth: "0",
+		d: "M2 9H6V11H2z"
+	}), /* @__PURE__ */ bucket_10_jsx("path", {
+		strokeWidth: "0",
+		d: "M2 21H6V23H2z"
+	}), /* @__PURE__ */ bucket_10_jsx("path", {
+		strokeWidth: "0",
+		d: "M25 11 23.5859 12.4141 26.1719 15 18 15 18 4 12 4 12 9 8 9 8 11 12 11 12 21 8 21 8 23 12 23 12 28 18 28 18 17 26.1719 17 23.5859 19.5859 25 21 30 16 25 11z"
+	}), children);
+})));
+if (false) // removed by dead control flow
+{}
+const Jpg = /* @__PURE__ */ (/* unused pure expression or super */ null && (bucket_10_React.forwardRef(function Jpg({ children, size = 16, ...rest }, ref) {
+	return bucket_10_React.createElement(bucket_10_Icon, {
+		width: size,
+		height: size,
+		ref,
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "0 0 32 32",
+		fill: "currentColor",
+		...rest
+	}, /* @__PURE__ */ bucket_10_jsx("path", { d: "M30,23H24a2,2,0,0,1-2-2V11a2,2,0,0,1,2-2h6v2H24V21h4V17H26V15h4Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M14,23H12V9h6a2,2,0,0,1,2,2v5a2,2,0,0,1-2,2H14Zm0-7h4V11H14Z" }), /* @__PURE__ */ bucket_10_jsx("path", { d: "M8,23H4a2,2,0,0,1-2-2V19H4v2H8V9h2V21A2,2,0,0,1,8,23Z" }), children);
+})));
+if (false) // removed by dead control flow
+{}
+//#endregion
+
+
+;// ./node_modules/@carbon/react/es/components/Notification/Notification.js
+/* unused harmony import specifier */ var Notification_warning;
+/* unused harmony import specifier */ var Notification_jsx;
+/**
+ * Copyright IBM Corp. 2016, 2026
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//#region src/components/Notification/Notification.tsx
+/**
+* Copyright IBM Corp. 2016, 2026
+*
+* This source code is licensed under the Apache-2.0 license found in the
+* LICENSE file in the root directory of this source tree.
+*/
+/**
+* Conditionally call a callback when the escape key is pressed
+* @param {node} ref - ref of the container element to scope the functionality to
+* @param {func} callback - function to be called
+* @param {bool} override - escape hatch to conditionally call the callback
+*/
+function useEscapeToClose(ref, callback, override = true) {
+	const handleKeyDown = (event) => {
+		const elementContainsFocus = ref.current && document.activeElement === ref.current || ref.current?.contains(document.activeElement);
+		if (matches(event, [Escape]) && override && elementContainsFocus) callback(event);
+	};
+	useIsomorphicEffect(() => {
+		if (ref.current !== null) document.addEventListener("keydown", handleKeyDown, false);
+		return () => document.removeEventListener("keydown", handleKeyDown, false);
+	});
+}
+function NotificationActionButton({ children, className: customClassName, onClick, inline, ...rest }) {
+	return /* @__PURE__ */ (0,jsx_runtime.jsx)(Button_default, {
+		className: classnames_default()(customClassName, { [`${usePrefix()}--actionable-notification__action-button`]: true }),
+		kind: inline ? "ghost" : "tertiary",
+		onClick,
+		size: "sm",
+		...rest,
+		children
+	});
+}
+NotificationActionButton.propTypes = {
+	children: (prop_types_default()).node,
+	className: (prop_types_default()).string,
+	inline: (prop_types_default()).bool,
+	onClick: (prop_types_default()).func
+};
+function NotificationButton({ "aria-label": ariaLabel = "close notification", ariaLabel: deprecatedAriaLabel, className, type = "button", renderIcon: IconTag = Close, name, notificationType = "toast", ...rest }) {
+	const prefix = usePrefix();
+	const buttonClassName = classnames_default()(className, { [`${prefix}--${notificationType}-notification__close-button`]: notificationType });
+	const iconClassName = classnames_default()({ [`${prefix}--${notificationType}-notification__close-icon`]: notificationType });
+	return /* @__PURE__ */ (0,jsx_runtime.jsx)("button", {
+		...rest,
+		type,
+		"aria-label": deprecatedAriaLabel || ariaLabel,
+		title: deprecatedAriaLabel || ariaLabel,
+		className: buttonClassName,
+		children: IconTag && /* @__PURE__ */ (0,jsx_runtime.jsx)(IconTag, {
+			className: iconClassName,
+			name
+		})
+	});
+}
+NotificationButton.propTypes = {
+	["aria-label"]: (prop_types_default()).string,
+	ariaLabel: deprecate((prop_types_default()).string, "This prop syntax has been deprecated. Please use the new `aria-label`."),
+	className: (prop_types_default()).string,
+	name: (prop_types_default()).string,
+	notificationType: prop_types_default().oneOf([
+		"toast",
+		"inline",
+		"actionable"
+	]),
+	renderIcon: prop_types_default().oneOfType([(prop_types_default()).func, (prop_types_default()).object]),
+	type: (prop_types_default()).string
+};
+/**
+* NotificationIcon
+* ================
+*/
+const iconTypes = {
+	error: ErrorFilled,
+	success: CheckmarkFilled,
+	warning: WarningFilled,
+	["warning-alt"]: WarningAltFilled,
+	info: InformationFilled,
+	["info-square"]: InformationSquareFilled
+};
+function NotificationIcon({ iconDescription, kind, notificationType }) {
+	const prefix = usePrefix();
+	const IconForKind = iconTypes[kind];
+	if (!IconForKind) return null;
+	return /* @__PURE__ */ (0,jsx_runtime.jsx)(IconForKind, {
+		className: `${prefix}--${notificationType}-notification__icon`,
+		size: 20,
+		children: /* @__PURE__ */ (0,jsx_runtime.jsx)("title", { children: iconDescription })
+	});
+}
+NotificationIcon.propTypes = {
+	iconDescription: (prop_types_default()).string.isRequired,
+	kind: prop_types_default().oneOf([
+		"error",
+		"success",
+		"warning",
+		"warning-alt",
+		"info",
+		"info-square"
+	]).isRequired,
+	notificationType: prop_types_default().oneOf(["inline", "toast"]).isRequired
+};
+function ToastNotification({ ["aria-label"]: ariaLabel, ariaLabel: deprecatedAriaLabel, role = "status", onClose, onCloseButtonClick = noopFn, statusIconDescription, className, children, kind = "error", lowContrast, hideCloseButton = false, timeout = 0, title, caption, subtitle, ...rest }) {
+	const [isOpen, setIsOpen] = (0,consume_shared_module_default_react_singleton_.useState)(true);
+	const prefix = usePrefix();
+	const containerClassName = classnames_default()(className, {
+		[`${prefix}--toast-notification`]: true,
+		[`${prefix}--toast-notification--low-contrast`]: lowContrast,
+		[`${prefix}--toast-notification--${kind}`]: kind
+	});
+	const contentRef = (0,consume_shared_module_default_react_singleton_.useRef)(null);
+	useNoInteractiveChildren(contentRef);
+	const handleClose = (evt) => {
+		if (!onClose || onClose(evt) !== false) setIsOpen(false);
+	};
+	const ref = (0,consume_shared_module_default_react_singleton_.useRef)(null);
+	function handleCloseButtonClick(event) {
+		onCloseButtonClick(event);
+		handleClose(event);
+	}
+	const savedOnClose = (0,consume_shared_module_default_react_singleton_.useRef)(onClose);
+	(0,consume_shared_module_default_react_singleton_.useEffect)(() => {
+		savedOnClose.current = onClose;
+	});
+	(0,consume_shared_module_default_react_singleton_.useEffect)(() => {
+		if (!timeout) return;
+		const timeoutId = window.setTimeout((event) => {
+			setIsOpen(false);
+			if (savedOnClose.current) savedOnClose.current(event);
+		}, timeout);
+		return () => {
+			window.clearTimeout(timeoutId);
+		};
+	}, [timeout]);
+	if (!isOpen) return null;
+	return /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", {
+		ref,
+		...rest,
+		role,
+		className: containerClassName,
+		children: [
+			/* @__PURE__ */ (0,jsx_runtime.jsx)(NotificationIcon, {
+				notificationType: "toast",
+				kind,
+				iconDescription: statusIconDescription || `${kind} icon`
+			}),
+			/* @__PURE__ */ (0,jsx_runtime.jsxs)("div", {
+				ref: contentRef,
+				className: `${prefix}--toast-notification__details`,
+				children: [
+					title && /* @__PURE__ */ (0,jsx_runtime.jsx)(Text, {
+						as: "div",
+						className: `${prefix}--toast-notification__title`,
+						children: title
+					}),
+					subtitle && /* @__PURE__ */ (0,jsx_runtime.jsx)(Text, {
+						as: "div",
+						className: `${prefix}--toast-notification__subtitle`,
+						children: subtitle
+					}),
+					caption && /* @__PURE__ */ (0,jsx_runtime.jsx)(Text, {
+						as: "div",
+						className: `${prefix}--toast-notification__caption`,
+						children: caption
+					}),
+					children
+				]
+			}),
+			!hideCloseButton && /* @__PURE__ */ (0,jsx_runtime.jsx)(NotificationButton, {
+				notificationType: "toast",
+				onClick: handleCloseButtonClick,
+				"aria-label": deprecatedAriaLabel || ariaLabel
+			})
+		]
+	});
+}
+ToastNotification.propTypes = {
+	["aria-label"]: (prop_types_default()).string,
+	ariaLabel: deprecate((prop_types_default()).string, "This prop syntax has been deprecated. Please use the new `aria-label`."),
+	caption: (prop_types_default()).string,
+	children: (prop_types_default()).node,
+	className: (prop_types_default()).string,
+	hideCloseButton: (prop_types_default()).bool,
+	kind: prop_types_default().oneOf([
+		"error",
+		"info",
+		"info-square",
+		"success",
+		"warning",
+		"warning-alt"
+	]),
+	lowContrast: (prop_types_default()).bool,
+	onClose: (prop_types_default()).func,
+	onCloseButtonClick: (prop_types_default()).func,
+	role: prop_types_default().oneOf([
+		"alert",
+		"log",
+		"status"
+	]),
+	statusIconDescription: (prop_types_default()).string,
+	subtitle: (prop_types_default()).string,
+	timeout: (prop_types_default()).number,
+	title: (prop_types_default()).string
+};
+function InlineNotification({ ["aria-label"]: ariaLabel, children, title, subtitle, role = "status", onClose, onCloseButtonClick = noopFn, statusIconDescription, className, kind = "error", lowContrast, hideCloseButton = false, ...rest }) {
+	const [isOpen, setIsOpen] = (0,consume_shared_module_default_react_singleton_.useState)(true);
+	const prefix = usePrefix();
+	const containerClassName = classnames_default()(className, {
+		[`${prefix}--inline-notification`]: true,
+		[`${prefix}--inline-notification--low-contrast`]: lowContrast,
+		[`${prefix}--inline-notification--${kind}`]: kind,
+		[`${prefix}--inline-notification--hide-close-button`]: hideCloseButton
+	});
+	const contentRef = (0,consume_shared_module_default_react_singleton_.useRef)(null);
+	useNoInteractiveChildren(contentRef);
+	const handleClose = (evt) => {
+		if (!onClose || onClose(evt) !== false) setIsOpen(false);
+	};
+	const ref = (0,consume_shared_module_default_react_singleton_.useRef)(null);
+	function handleCloseButtonClick(event) {
+		onCloseButtonClick(event);
+		handleClose(event);
+	}
+	if (!isOpen) return null;
+	return /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", {
+		ref,
+		...rest,
+		role,
+		className: containerClassName,
+		children: [/* @__PURE__ */ (0,jsx_runtime.jsxs)("div", {
+			className: `${prefix}--inline-notification__details`,
+			children: [/* @__PURE__ */ (0,jsx_runtime.jsx)(NotificationIcon, {
+				notificationType: "inline",
+				kind,
+				iconDescription: statusIconDescription || `${kind} icon`
+			}), /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", {
+				ref: contentRef,
+				className: `${prefix}--inline-notification__text-wrapper`,
+				children: [
+					title && /* @__PURE__ */ (0,jsx_runtime.jsx)(Text, {
+						as: "div",
+						className: `${prefix}--inline-notification__title`,
+						children: title
+					}),
+					subtitle && /* @__PURE__ */ (0,jsx_runtime.jsx)(Text, {
+						as: "div",
+						className: `${prefix}--inline-notification__subtitle`,
+						children: subtitle
+					}),
+					children
+				]
+			})]
+		}), !hideCloseButton && /* @__PURE__ */ (0,jsx_runtime.jsx)(NotificationButton, {
+			notificationType: "inline",
+			onClick: handleCloseButtonClick,
+			"aria-label": ariaLabel
+		})]
+	});
+}
+InlineNotification.propTypes = {
+	["aria-label"]: (prop_types_default()).string,
+	children: (prop_types_default()).node,
+	className: (prop_types_default()).string,
+	hideCloseButton: (prop_types_default()).bool,
+	kind: prop_types_default().oneOf([
+		"error",
+		"info",
+		"info-square",
+		"success",
+		"warning",
+		"warning-alt"
+	]),
+	lowContrast: (prop_types_default()).bool,
+	onClose: (prop_types_default()).func,
+	onCloseButtonClick: (prop_types_default()).func,
+	role: prop_types_default().oneOf([
+		"alert",
+		"log",
+		"status"
+	]),
+	statusIconDescription: (prop_types_default()).string,
+	subtitle: (prop_types_default()).string,
+	title: (prop_types_default()).string
+};
+function ActionableNotification({ actionButtonLabel, ["aria-label"]: ariaLabel, ariaLabel: deprecatedAriaLabel, caption, children, role = "alertdialog", onActionButtonClick, onClose, onCloseButtonClick = noopFn, statusIconDescription, className, inline = false, kind = "error", lowContrast, hideCloseButton = false, hasFocus = true, closeOnEscape = true, title, subtitle, ...rest }) {
+	const [isOpen, setIsOpen] = (0,consume_shared_module_default_react_singleton_.useState)(true);
+	const prefix = usePrefix();
+	const id = useId("actionable-notification");
+	const subtitleId = useId("actionable-notification-subtitle");
+	const containerClassName = classnames_default()(className, {
+		[`${prefix}--actionable-notification`]: true,
+		[`${prefix}--actionable-notification--toast`]: !inline,
+		[`${prefix}--actionable-notification--low-contrast`]: lowContrast,
+		[`${prefix}--actionable-notification--${kind}`]: kind,
+		[`${prefix}--actionable-notification--hide-close-button`]: hideCloseButton
+	});
+	const innerModal = (0,consume_shared_module_default_react_singleton_.useRef)(null);
+	const startTrap = (0,consume_shared_module_default_react_singleton_.useRef)(null);
+	const endTrap = (0,consume_shared_module_default_react_singleton_.useRef)(null);
+	const ref = (0,consume_shared_module_default_react_singleton_.useRef)(null);
+	const deprecatedFlag = useFeatureFlag("enable-experimental-focus-wrap-without-sentinels");
+	const focusTrapWithoutSentinels = useFeatureFlag("enable-focus-wrap-without-sentinels") || deprecatedFlag;
+	useIsomorphicEffect(() => {
+		if (hasFocus && role === "alertdialog") document.querySelector(`button.${prefix}--actionable-notification__action-button`)?.focus();
+	});
+	function handleBlur({ target: oldActiveNode, relatedTarget: currentActiveNode }) {
+		if (isOpen && currentActiveNode && oldActiveNode && role === "alertdialog") {
+			const { current: bodyNode } = innerModal;
+			const { current: startTrapNode } = startTrap;
+			const { current: endTrapNode } = endTrap;
+			wrapFocus({
+				bodyNode,
+				startTrapNode,
+				endTrapNode,
+				currentActiveNode,
+				oldActiveNode,
+				prefix
+			});
+		}
+	}
+	function handleKeyDown(event) {
+		if (isOpen && match(event, Tab) && ref.current && role === "alertdialog") wrapFocusWithoutSentinels({
+			containerNode: ref.current,
+			currentActiveNode: event.target,
+			event
+		});
+	}
+	const handleClose = (evt) => {
+		if (!onClose || onClose(evt) !== false) setIsOpen(false);
+	};
+	useEscapeToClose(ref, handleCloseButtonClick, closeOnEscape);
+	function handleCloseButtonClick(event) {
+		onCloseButtonClick(event);
+		handleClose(event);
+	}
+	if (!isOpen) return null;
+	return /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", {
+		...rest,
+		ref,
+		role,
+		className: containerClassName,
+		"aria-labelledby": title ? id : subtitleId,
+		onBlur: !focusTrapWithoutSentinels ? handleBlur : () => {},
+		onKeyDown: focusTrapWithoutSentinels ? handleKeyDown : () => {},
+		children: [
+			!focusTrapWithoutSentinels && /* @__PURE__ */ (0,jsx_runtime.jsx)("span", {
+				ref: startTrap,
+				tabIndex: 0,
+				role: "link",
+				className: `${prefix}--visually-hidden`,
+				children: "Focus sentinel"
+			}),
+			/* @__PURE__ */ (0,jsx_runtime.jsxs)("div", {
+				ref: innerModal,
+				className: `${prefix}--actionable-notification__focus-wrapper`,
+				children: [/* @__PURE__ */ (0,jsx_runtime.jsxs)("div", {
+					className: `${prefix}--actionable-notification__details`,
+					children: [/* @__PURE__ */ (0,jsx_runtime.jsx)(NotificationIcon, {
+						notificationType: inline ? "inline" : "toast",
+						kind,
+						iconDescription: statusIconDescription || `${kind} icon`
+					}), /* @__PURE__ */ (0,jsx_runtime.jsx)("div", {
+						className: `${prefix}--actionable-notification__text-wrapper`,
+						children: /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", {
+							className: `${prefix}--actionable-notification__content`,
+							children: [
+								title && /* @__PURE__ */ (0,jsx_runtime.jsx)(Text, {
+									as: "div",
+									className: `${prefix}--actionable-notification__title`,
+									id,
+									children: title
+								}),
+								subtitle && /* @__PURE__ */ (0,jsx_runtime.jsx)(Text, {
+									as: "div",
+									className: `${prefix}--actionable-notification__subtitle`,
+									id: subtitleId,
+									children: subtitle
+								}),
+								caption && /* @__PURE__ */ (0,jsx_runtime.jsx)(Text, {
+									as: "div",
+									className: `${prefix}--actionable-notification__caption`,
+									children: caption
+								}),
+								children
+							]
+						})
+					})]
+				}), /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", {
+					className: `${prefix}--actionable-notification__button-wrapper`,
+					children: [actionButtonLabel && /* @__PURE__ */ (0,jsx_runtime.jsx)(NotificationActionButton, {
+						onClick: onActionButtonClick,
+						inline,
+						children: actionButtonLabel
+					}), !hideCloseButton && /* @__PURE__ */ (0,jsx_runtime.jsx)(NotificationButton, {
+						"aria-label": deprecatedAriaLabel || ariaLabel,
+						notificationType: "actionable",
+						onClick: handleCloseButtonClick
+					})]
+				})]
+			}),
+			!focusTrapWithoutSentinels && /* @__PURE__ */ (0,jsx_runtime.jsx)("span", {
+				ref: endTrap,
+				tabIndex: 0,
+				role: "link",
+				className: `${prefix}--visually-hidden`,
+				children: "Focus sentinel"
+			})
+		]
+	});
+}
+ActionableNotification.propTypes = {
+	actionButtonLabel: (prop_types_default()).string,
+	["aria-label"]: (prop_types_default()).string,
+	ariaLabel: deprecate((prop_types_default()).string, "This prop syntax has been deprecated. Please use the new `aria-label`."),
+	caption: (prop_types_default()).string,
+	children: (prop_types_default()).node,
+	className: (prop_types_default()).string,
+	closeOnEscape: (prop_types_default()).bool,
+	hasFocus: deprecate((prop_types_default()).bool, "hasFocus is deprecated. To conform to accessibility requirements hasFocus should always be `true` for ActionableNotification. If you were setting this prop to `false`, consider using the Callout component instead."),
+	hideCloseButton: (prop_types_default()).bool,
+	inline: (prop_types_default()).bool,
+	kind: prop_types_default().oneOf([
+		"error",
+		"info",
+		"info-square",
+		"success",
+		"warning",
+		"warning-alt"
+	]),
+	lowContrast: (prop_types_default()).bool,
+	onActionButtonClick: (prop_types_default()).func,
+	onClose: (prop_types_default()).func,
+	onCloseButtonClick: (prop_types_default()).func,
+	role: (prop_types_default()).string,
+	statusIconDescription: (prop_types_default()).string,
+	subtitle: (prop_types_default()).node,
+	title: (prop_types_default()).string
+};
+const mapping = {
+	error: "warning",
+	success: "info"
+};
+const propMappingFunction = (deprecatedValue) => {
+	return mapping[deprecatedValue];
+};
+function Callout({ actionButtonLabel, children, onActionButtonClick, title, titleId, subtitle, statusIconDescription, className, kind = "info", lowContrast, ...rest }) {
+	const prefix = usePrefix();
+	const containerClassName = classnames_default()(className, {
+		[`${prefix}--actionable-notification`]: true,
+		[`${prefix}--actionable-notification--low-contrast`]: lowContrast,
+		[`${prefix}--actionable-notification--${kind}`]: kind,
+		[`${prefix}--actionable-notification--hide-close-button`]: true
+	});
+	const childrenContainer = (0,consume_shared_module_default_react_singleton_.useRef)(null);
+	useInteractiveChildrenNeedDescription(childrenContainer, `interactive child node(s) should have an \`aria-describedby\` property with a value matching the value of \`titleId\``);
+	return /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", {
+		...rest,
+		className: containerClassName,
+		children: [/* @__PURE__ */ (0,jsx_runtime.jsxs)("div", {
+			className: `${prefix}--actionable-notification__details`,
+			children: [/* @__PURE__ */ (0,jsx_runtime.jsx)(NotificationIcon, {
+				notificationType: "inline",
+				kind,
+				iconDescription: statusIconDescription || `${kind} icon`
+			}), /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", {
+				ref: childrenContainer,
+				className: `${prefix}--actionable-notification__text-wrapper`,
+				children: [
+					title && /* @__PURE__ */ (0,jsx_runtime.jsx)(Text, {
+						as: "div",
+						id: titleId,
+						className: `${prefix}--actionable-notification__title`,
+						children: title
+					}),
+					subtitle && /* @__PURE__ */ (0,jsx_runtime.jsx)(Text, {
+						as: "div",
+						className: `${prefix}--actionable-notification__subtitle`,
+						children: subtitle
+					}),
+					children
+				]
+			})]
+		}), /* @__PURE__ */ (0,jsx_runtime.jsx)("div", {
+			className: `${prefix}--actionable-notification__button-wrapper`,
+			children: actionButtonLabel && /* @__PURE__ */ (0,jsx_runtime.jsx)(NotificationActionButton, {
+				onClick: onActionButtonClick,
+				"aria-describedby": titleId,
+				inline: true,
+				children: actionButtonLabel
+			})
+		})]
+	});
+}
+Callout.propTypes = {
+	actionButtonLabel: (prop_types_default()).string,
+	children: (prop_types_default()).node,
+	className: (prop_types_default()).string,
+	kind: deprecateValuesWithin(prop_types_default().oneOf([
+		"error",
+		"info",
+		"info-square",
+		"success",
+		"warning",
+		"warning-alt"
+	]), ["warning", "info"], propMappingFunction),
+	lowContrast: (prop_types_default()).bool,
+	onActionButtonClick: (prop_types_default()).func,
+	statusIconDescription: (prop_types_default()).string,
+	subtitle: (prop_types_default()).node,
+	title: (prop_types_default()).string,
+	titleId: (prop_types_default()).string
+};
+let Notification_didWarnAboutDeprecation = false;
+const StaticNotification = (props) => {
+	Notification_warning(Notification_didWarnAboutDeprecation, "`StaticNotification` has been renamed to `Callout`.Run the following codemod to automatically update usages in yourproject: `npx @carbon/upgrade migrate refactor-to-callout --write`");
+	Notification_didWarnAboutDeprecation = true;
+	return /* @__PURE__ */ Notification_jsx(Callout, { ...props });
+};
+//#endregion
+
+
 ;// ./node_modules/@carbon/react/es/components/Tooltip/DefinitionTooltip.js
 /**
  * Copyright IBM Corp. 2016, 2026
@@ -38106,6 +40567,192 @@ Tag.propTypes = {
 	title: deprecate((prop_types_default()).string, "The `title` prop has been deprecated and will be removed in the next major version. Use DismissibleTag instead."),
 	type: prop_types_default().oneOf(Object.keys(TYPES))
 };
+//#endregion
+
+
+;// ./node_modules/@carbon/react/es/internal/hasHelperText.js
+/**
+ * Copyright IBM Corp. 2016, 2026
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+//#region src/internal/hasHelperText.ts
+const hasHelperText = (helperText) => typeof helperText !== "undefined" && helperText !== null && helperText !== "";
+//#endregion
+
+
+;// ./node_modules/@carbon/react/es/components/Text/createTextComponent.js
+/**
+ * Copyright IBM Corp. 2016, 2026
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+
+//#region src/components/Text/createTextComponent.tsx
+/**
+* Create a text component wrapper for a given text node type. Useful for
+* returning a `Text` component for a text node like a `<label>`.
+* @param {string} element
+* @param {string} displayName
+*/
+const createTextComponent = (element, displayName) => {
+	const TextWrapper = (props) => {
+		return /* @__PURE__ */ (0,jsx_runtime.jsx)(Text, {
+			as: element,
+			...props
+		});
+	};
+	TextWrapper.displayName = displayName;
+	return TextWrapper;
+};
+const Legend = createTextComponent("legend", "Legend");
+//#endregion
+
+
+;// ./node_modules/@carbon/react/es/components/RadioButtonGroup/RadioButtonGroup.js
+/**
+ * Copyright IBM Corp. 2016, 2026
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(0,consume_shared_module_default_react_singleton_.createContext)(null);
+const RadioButtonGroup = consume_shared_module_default_react_singleton_default().forwardRef((props, ref) => {
+	const { children, className, decorator, defaultSelected, disabled, helperText, invalid = false, invalidText, labelPosition = "right", legendText, name, onChange = () => {}, orientation = "horizontal", readOnly, valueSelected, warn = false, warnText, slug, required, ...rest } = props;
+	const prefix = usePrefix();
+	const [selected, setSelected] = (0,consume_shared_module_default_react_singleton_.useState)(valueSelected ?? defaultSelected);
+	const prevValueSelected = (0,consume_shared_module_default_react_singleton_.useRef)(valueSelected);
+	const radioButtonGroupInstanceId = useId();
+	(0,consume_shared_module_default_react_singleton_.useEffect)(() => {
+		if (valueSelected !== prevValueSelected.current) {
+			setSelected(valueSelected);
+			prevValueSelected.current = valueSelected;
+		}
+	}, [valueSelected]);
+	function getRadioButtons() {
+		return consume_shared_module_default_react_singleton_.Children.map(children, (radioButton) => {
+			if (!isComponentElement(radioButton, RadioButton_default)) return radioButton;
+			const newProps = {
+				name,
+				key: radioButton.props.value,
+				value: radioButton.props.value,
+				onChange: handleOnChange,
+				checked: radioButton.props.value === selected,
+				required
+			};
+			if (!selected && radioButton.props.checked) newProps.checked = true;
+			return (0,consume_shared_module_default_react_singleton_.cloneElement)(radioButton, newProps);
+		});
+	}
+	function handleOnChange(newSelection, value, evt) {
+		if (!readOnly) {
+			if (newSelection !== selected) {
+				setSelected(newSelection);
+				onChange(newSelection, name, evt);
+			}
+		}
+	}
+	const showWarning = !readOnly && !disabled && !invalid && warn;
+	const showHelper = !invalid && !disabled && !warn;
+	const wrapperClasses = classnames_default()(`${prefix}--form-item`, className);
+	const fieldsetClasses = classnames_default()(`${prefix}--radio-button-group`, {
+		[`${prefix}--radio-button-group--${orientation}`]: orientation === "vertical",
+		[`${prefix}--radio-button-group--label-${labelPosition}`]: labelPosition,
+		[`${prefix}--radio-button-group--readonly`]: readOnly,
+		[`${prefix}--radio-button-group--invalid`]: !readOnly && !disabled && invalid,
+		[`${prefix}--radio-button-group--warning`]: showWarning,
+		[`${prefix}--radio-button-group--slug`]: slug,
+		[`${prefix}--radio-button-group--decorator`]: decorator
+	});
+	const helperClasses = classnames_default()(`${prefix}--form__helper-text`, { [`${prefix}--form__helper-text--disabled`]: disabled });
+	const hasHelper = hasHelperText(helperText);
+	const helperId = !hasHelper ? void 0 : `radio-button-group-helper-text-${radioButtonGroupInstanceId}`;
+	const helper = hasHelper && /* @__PURE__ */ (0,jsx_runtime.jsx)("div", {
+		id: helperId,
+		className: helperClasses,
+		children: helperText
+	});
+	const divRef = (0,consume_shared_module_default_react_singleton_.useRef)(null);
+	const candidate = slug ?? decorator;
+	const normalizedDecorator = isComponentElement(candidate, AILabel) ? (0,consume_shared_module_default_react_singleton_.cloneElement)(candidate, {
+		size: "mini",
+		kind: "default"
+	}) : candidate;
+	return /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", {
+		className: wrapperClasses,
+		ref: mergeRefs(divRef, ref),
+		children: [
+			/* @__PURE__ */ (0,jsx_runtime.jsxs)("fieldset", {
+				className: fieldsetClasses,
+				disabled,
+				"data-invalid": invalid ? true : void 0,
+				"aria-describedby": showHelper && hasHelper ? helperId : void 0,
+				...rest,
+				children: [legendText && /* @__PURE__ */ (0,jsx_runtime.jsxs)(Legend, {
+					className: `${prefix}--label`,
+					children: [legendText, slug ? normalizedDecorator : decorator ? /* @__PURE__ */ (0,jsx_runtime.jsx)("div", {
+						className: `${prefix}--radio-button-group-inner--decorator`,
+						children: normalizedDecorator
+					}) : ""]
+				}), getRadioButtons()]
+			}),
+			/* @__PURE__ */ (0,jsx_runtime.jsxs)("div", {
+				className: `${prefix}--radio-button__validation-msg`,
+				children: [!readOnly && !disabled && invalid && /* @__PURE__ */ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0,jsx_runtime.jsx)(WarningFilled, { className: `${prefix}--radio-button__invalid-icon` }), /* @__PURE__ */ (0,jsx_runtime.jsx)("div", {
+					className: `${prefix}--form-requirement`,
+					children: invalidText
+				})] }), showWarning && /* @__PURE__ */ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0,jsx_runtime.jsx)(WarningAltFilled, { className: `${prefix}--radio-button__invalid-icon ${prefix}--radio-button__invalid-icon--warning` }), /* @__PURE__ */ (0,jsx_runtime.jsx)("div", {
+					className: `${prefix}--form-requirement`,
+					children: warnText
+				})] })]
+			}),
+			showHelper && helper
+		]
+	});
+});
+RadioButtonGroup.propTypes = {
+	children: (prop_types_default()).node,
+	className: (prop_types_default()).string,
+	decorator: (prop_types_default()).node,
+	defaultSelected: prop_types_default().oneOfType([(prop_types_default()).string, (prop_types_default()).number]),
+	disabled: (prop_types_default()).bool,
+	helperText: (prop_types_default()).node,
+	invalid: (prop_types_default()).bool,
+	invalidText: (prop_types_default()).node,
+	labelPosition: prop_types_default().oneOf(["left", "right"]),
+	legendText: (prop_types_default()).node,
+	name: (prop_types_default()).string.isRequired,
+	onChange: (prop_types_default()).func,
+	orientation: prop_types_default().oneOf(["horizontal", "vertical"]),
+	readOnly: (prop_types_default()).bool,
+	required: (prop_types_default()).bool,
+	slug: deprecate((prop_types_default()).node, "The `slug` prop has been deprecated and will be removed in the next major version. Use the decorator prop instead."),
+	valueSelected: prop_types_default().oneOfType([(prop_types_default()).string, (prop_types_default()).number]),
+	warn: (prop_types_default()).bool,
+	warnText: (prop_types_default()).node
+};
+RadioButtonGroup.displayName = "RadioButtonGroup";
 //#endregion
 
 
@@ -40193,19 +42840,6 @@ StructuredListCell.propTypes = {
 	head: (prop_types_default()).bool,
 	noWrap: (prop_types_default()).bool
 };
-//#endregion
-
-
-;// ./node_modules/@carbon/react/es/internal/hasHelperText.js
-/**
- * Copyright IBM Corp. 2016, 2026
- *
- * This source code is licensed under the Apache-2.0 license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-//#region src/internal/hasHelperText.ts
-const hasHelperText = (helperText) => typeof helperText !== "undefined" && helperText !== null && helperText !== "";
 //#endregion
 
 

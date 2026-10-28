@@ -29,6 +29,21 @@ warn() { echo "$LOG_PREFIX WARN: $*" >&2; }
 fail_soft() { echo "$LOG_PREFIX ERROR: $*" >&2; exit 0; }
 
 [ -d "$CUSTOM_DIR" ] || { log "no $CUSTOM_DIR; nothing to merge"; exit 0; }
+
+# Optional branding: custom-esms/branding/title.txt replaces the browser tab title (<title> in
+# index.html; the app shell never sets document.title). Re-running just writes the same title again.
+TITLE_FILE="$CUSTOM_DIR/branding/title.txt"
+INDEX="$HTML_DIR/index.html"
+if [ -f "$TITLE_FILE" ] && [ -f "$INDEX" ]; then
+  # first line only; drop characters that would break the sed replacement or the HTML
+  title=$(head -n 1 "$TITLE_FILE" | tr -d '\r<>&|\\')
+  if [ -n "$title" ] && sed -i "s|<title>[^<]*</title>|<title>$title</title>|" "$INDEX"; then
+    log "browser tab title set to '$title'"
+  else
+    warn "could not set the browser tab title from $TITLE_FILE"
+  fi
+fi
+
 [ -f "$MANIFEST" ] || { log "no manifest at $MANIFEST; nothing to merge"; exit 0; }
 [ -f "$IMPORTMAP" ] || fail_soft "upstream importmap missing at $IMPORTMAP"
 [ -f "$ROUTES" ] || fail_soft "upstream routes registry missing at $ROUTES"

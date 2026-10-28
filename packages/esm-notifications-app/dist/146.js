@@ -338,6 +338,19 @@ function useNotifications() {
                     } : i)
             });
         },
+        markAllRead: ()=>{
+            const unread = store.items.filter((i)=>!i.read);
+            if (unread.length === 0) return;
+            // Persist client-side, like markRead.
+            unread.forEach((i)=>readUuids.add(i.uuid));
+            writeReadSet();
+            setStore({
+                items: store.items.map((i)=>i.read ? i : {
+                        ...i,
+                        read: true
+                    })
+            });
+        },
         acknowledgeAllVisible: ()=>{
             const max = store.items.reduce((m, i)=>Math.max(m, +new Date(i.createdAt)), 0);
             if (max > lastSeenAt) {
@@ -543,7 +556,7 @@ const ToastStyles = ()=>/*#__PURE__*/ (0,jsx_runtime.jsx)("style", {
 
 const NotificationsBell = ()=>{
     const { t } = (0,consume_shared_module_default_react_i18next_singleton_.useTranslation)();
-    const { items, unreadCount, markRead, acknowledgeAllVisible } = useNotifications();
+    const { items, unreadCount, markRead, markAllRead, acknowledgeAllVisible } = useNotifications();
     const [open, setOpen] = (0,consume_shared_module_default_react_singleton_.useState)(false);
     const wrapperRef = (0,consume_shared_module_default_react_singleton_.useRef)(null);
     // Close on outside click.
@@ -604,9 +617,20 @@ const NotificationsBell = ()=>{
                 "aria-label": t('notifications.panel.title', 'Notifications'),
                 className: "cce-notif-panel",
                 children: [
-                    /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
                         className: "cce-notif-panel__header",
-                        children: t('notifications.panel.title', 'Notifications')
+                        children: [
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
+                                children: t('notifications.panel.title', 'Notifications')
+                            }),
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)("button", {
+                                type: "button",
+                                className: "cce-notif-panel__mark-all",
+                                onClick: markAllRead,
+                                disabled: unreadCount === 0,
+                                children: t('notifications.panel.markAllRead', 'Mark all as read')
+                            })
+                        ]
                     }),
                     items.length === 0 && /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                         className: "cce-notif-panel__empty",
@@ -753,10 +777,23 @@ const BellStyles = ()=>/*#__PURE__*/ (0,jsx_runtime.jsx)("style", {
       border: 1px solid #e0e0e0;
     }
     .cce-notif-panel__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 0.75rem 1rem;
       border-bottom: 1px solid #e0e0e0;
       font-weight: 600;
     }
+    .cce-notif-panel__mark-all {
+      background: none;
+      border: 0;
+      padding: 0;
+      color: #0f62fe;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    .cce-notif-panel__mark-all:hover:not(:disabled) { text-decoration: underline; }
+    .cce-notif-panel__mark-all:disabled { color: #a8a8a8; cursor: default; }
     .cce-notif-panel__empty {
       padding: 1rem;
       color: #525252;

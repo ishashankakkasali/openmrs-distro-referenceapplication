@@ -16,7 +16,7 @@ import type { NotificationItem, NotificationSeverity } from './types';
 
 const NotificationsBell: React.FC = () => {
   const { t } = useTranslation();
-  const { items, unreadCount, markRead, acknowledgeAllVisible } = useNotifications();
+  const { items, unreadCount, markRead, markAllRead, acknowledgeAllVisible } = useNotifications();
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -74,7 +74,17 @@ const NotificationsBell: React.FC = () => {
       </button>
       {open && (
         <div role="dialog" aria-label={t('notifications.panel.title', 'Notifications')} className="cce-notif-panel">
-          <div className="cce-notif-panel__header">{t('notifications.panel.title', 'Notifications')}</div>
+          <div className="cce-notif-panel__header">
+            <span>{t('notifications.panel.title', 'Notifications')}</span>
+            <button
+              type="button"
+              className="cce-notif-panel__mark-all"
+              onClick={markAllRead}
+              disabled={unreadCount === 0}
+            >
+              {t('notifications.panel.markAllRead', 'Mark all as read')}
+            </button>
+          </div>
           {items.length === 0 && (
             <div className="cce-notif-panel__empty">{t('notifications.panel.empty', 'No notifications')}</div>
           )}
@@ -197,10 +207,23 @@ const BellStyles: React.FC = () => (
       border: 1px solid #e0e0e0;
     }
     .cce-notif-panel__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 0.75rem 1rem;
       border-bottom: 1px solid #e0e0e0;
       font-weight: 600;
     }
+    .cce-notif-panel__mark-all {
+      background: none;
+      border: 0;
+      padding: 0;
+      color: #0f62fe;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    .cce-notif-panel__mark-all:hover:not(:disabled) { text-decoration: underline; }
+    .cce-notif-panel__mark-all:disabled { color: #a8a8a8; cursor: default; }
     .cce-notif-panel__empty {
       padding: 1rem;
       color: #525252;

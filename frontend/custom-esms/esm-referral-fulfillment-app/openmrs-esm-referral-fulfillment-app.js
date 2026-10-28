@@ -8,7 +8,7 @@ var _openmrs_esm_referral_fulfillment_app;
 
 var moduleMap = {
 	"./start": () => {
-		return Promise.all([__webpack_require__.e(378), __webpack_require__.e(59)]).then(() => (() => ((__webpack_require__(666)))));
+		return Promise.all([__webpack_require__.e(496), __webpack_require__.e(774)]).then(() => (() => ((__webpack_require__(441)))));
 	}
 };
 var get = (module, getScope) => {
@@ -381,7 +381,7 @@ __webpack_require__.d(exports, {
 /******/ 		};
 /******/ 		// no consumes in initial chunks
 /******/ 		var chunkMapping = {
-/******/ 			"59": [
+/******/ 			"774": [
 /******/ 				251,
 /******/ 				403,
 /******/ 				590,

@@ -1,6 +1,6 @@
-(globalThis["webpackChunk_openmrs_esm_referral_fulfillment_app"] = globalThis["webpackChunk_openmrs_esm_referral_fulfillment_app"] || []).push([[59],{
+(globalThis["webpackChunk_openmrs_esm_referral_fulfillment_app"] = globalThis["webpackChunk_openmrs_esm_referral_fulfillment_app"] || []).push([[774],{
 
-/***/ 666
+/***/ 441
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -40,6 +40,51 @@ const configSchema = {
         _type: esm_framework_singleton_.Type.UUID,
         _description: 'UUID of the Referral Response encounter type. Used by the polling fallback to detect form save.',
         _default: '479e4805-90d9-44f5-b252-333d8a687e52'
+    },
+    responseNotesConceptUuid: {
+        _type: esm_framework_singleton_.Type.UUID,
+        _description: 'Concept of the Referral Response form\'s "Clinical notes / addendum to send back to source" answer, shown as ' + 'the Clinical notes of a referral in once it is answered.',
+        _default: '162169AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+    },
+    referralInEncounterTypeUuid: {
+        _type: esm_framework_singleton_.Type.UUID,
+        _description: 'UUID of the Referral In encounter type. The receiver adaptor files every inbound referral under it, so a ' + 'Referral order in this encounter type is shown as "In"; any other Referral order is shown as "Out". ' + 'Same rule the emitter uses for the referral-direction category.',
+        _default: 'de0f5558-9813-4fa3-8613-467015f9fabd'
+    },
+    referralOutEncounterTypeUuid: {
+        _type: esm_framework_singleton_.Type.UUID,
+        _description: 'UUID of the Referral Out encounter type, created for each outbound referral raised here.',
+        _default: '7b3f4e2a-9c1d-4e8b-a6f0-2d5c8e1b9a47'
+    },
+    referralOutOrderablesConceptSetUuid: {
+        _type: esm_framework_singleton_.Type.UUID,
+        _description: 'UUID of the concept set whose members can be chosen as the referral out (e.g. Referral to PHC).',
+        _default: '3c1a7c1e-5a1d-4a52-9d55-4548a1c00003'
+    },
+    careSettingUuid: {
+        _type: esm_framework_singleton_.Type.UUID,
+        _description: 'UUID of the care setting for referral out orders.',
+        _default: '6f0c9a92-6f24-11e3-af88-005056821db0'
+    },
+    referralDestinationLocationTag: {
+        _type: esm_framework_singleton_.Type.String,
+        _description: 'Location tag of the facilities offered as the destination of a referral out.',
+        _default: 'Referral Destination'
+    },
+    referralDestinationConceptUuid: {
+        _type: esm_framework_singleton_.Type.UUID,
+        _description: 'Text concept recorded on the Referral Out encounter holding the destination location uuid; the emitter ' + 'reads it to send the destination as ServiceRequest.performer.',
+        _default: '5f8a2c6e-3b9d-4e1f-a7c4-0d6e9b2a8f15'
+    },
+    referralOutReferencePrefix: {
+        _type: esm_framework_singleton_.Type.String,
+        _description: 'Prefix of the reference number generated for each referral out (e.g. RO-20261023-K7Q2).',
+        _default: 'RO'
+    },
+    clinicianEncounterRoleUuid: {
+        _type: esm_framework_singleton_.Type.UUID,
+        _description: 'UUID of the encounter role recorded for the provider raising a referral out.',
+        _default: '240b26f9-dd88-4172-823d-4a8bfeb7841f'
     }
 };
 
@@ -50,8 +95,8 @@ var consume_shared_module_default_react_singleton_ = __webpack_require__(403);
 var consume_shared_module_default_react_singleton_default = /*#__PURE__*/__webpack_require__.n(consume_shared_module_default_react_singleton_);
 // EXTERNAL MODULE: consume shared module (default) react-i18next@* (singleton)
 var consume_shared_module_default_react_i18next_singleton_ = __webpack_require__(857);
-// EXTERNAL MODULE: ./node_modules/@carbon/react/es/index.js + 158 modules
-var es = __webpack_require__(378);
+// EXTERNAL MODULE: ./node_modules/@carbon/react/es/index.js + 162 modules
+var es = __webpack_require__(496);
 ;// ./src/close-referral-order.ts
 
 // Encode "<comment> | by: <name>" so we can render the fulfiller in the UI.
@@ -212,6 +257,9 @@ const RecordReferralResponseAction = (props)=>{
     const { t } = (0,consume_shared_module_default_react_i18next_singleton_.useTranslation)();
     const config = (0,esm_framework_singleton_.useConfig)();
     const order = props.order ?? props.orderItem;
+    // Same rule as the Referrals dashboard: the response is recorded during the patient's visit
+    const { patientUuid } = (0,esm_framework_singleton_.usePatient)();
+    const { activeVisit } = (0,esm_framework_singleton_.useVisit)(patientUuid);
     // DEBUG: log entire props shape to discover what the slot actually passes
     // eslint-disable-next-line no-console
     console.log('[esm-referral-fulfillment] slot props =', props);
@@ -268,6 +316,8 @@ const RecordReferralResponseAction = (props)=>{
             kind: "tertiary",
             size: "sm",
             onClick: handleClick,
+            disabled: !activeVisit,
+            title: activeVisit ? undefined : t('startVisitToRespondHint', 'Start a visit when the patient arrives, then record the referral response'),
             children: t('recordReferralResponse', 'Record referral response')
         })
     });
@@ -321,7 +371,276 @@ const ReferralsDashboardLink = ({ basePath })=>{
 };
 /* harmony default export */ const dashboard_link_component = (ReferralsDashboardLink);
 
+;// ./src/create-referral-out.ts
+
+/** The facilities a referral out can be sent to: the locations carrying the configured tag. */ async function fetchReferralDestinations(locationTag) {
+    const res = await (0,esm_framework_singleton_.openmrsFetch)(`/ws/rest/v1/location?tag=${encodeURIComponent(locationTag)}&v=custom:(uuid,display)&limit=100`);
+    return res.data?.results ?? [];
+}
+/**
+ * Reference number of a referral out, e.g. RO-20261023-K7Q2: the receiving facility quotes it when it
+ * responds. It is generated here because OpenMRS assigns the order number only after the order is saved,
+ * and orders cannot be edited afterwards.
+ */ function generateReferralOutReference(prefix, now = new Date()) {
+    const day = now.toISOString().slice(0, 10).replace(/-/g, '');
+    // unambiguous characters only (no 0/O, 1/I)
+    const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    const suffix = Array.from({
+        length: 4
+    }, ()=>alphabet[Math.floor(Math.random() * alphabet.length)]).join('');
+    return `${prefix}-${day}-${suffix}`;
+}
+/**
+ * The concepts a referral out can be raised for: the members of the
+ * configured orderables concept set (e.g. "Referral to primary health care (PHC)").
+ */ async function fetchReferralOutOrderables(conceptSetUuid) {
+    const res = await (0,esm_framework_singleton_.openmrsFetch)(`/ws/rest/v1/concept/${conceptSetUuid}?v=custom:(setMembers:(uuid,display))`);
+    return res.data?.setMembers ?? [];
+}
+/**
+ * Raises a referral out (e.g. a back-referral to a PHC) in two steps:
+ *
+ * 1. a "Referral Out" encounter in the patient's active visit, recording the destination facility, and
+ * 2. a Referral order in that encounter, carrying a generated reference number.
+ *
+ * The order is a `testorder` carrying the Referral order type, the same shape
+ * the receiver adaptor creates for referrals in: the order type is backed by
+ * org.openmrs.TestOrder, and only test orders are published by the FHIR module
+ * as ServiceRequest. The emitter adaptor then forwards that ServiceRequest to
+ * OpenHIM, tagging it referral-direction "outbound" because its encounter type
+ * is not Referral In.
+ *
+ * @returns the new order's number and reference number
+ */ async function createReferralOut(request, config) {
+    const session = (0,esm_framework_singleton_.getSessionStore)().getState()?.session;
+    const providerUuid = session?.currentProvider?.uuid;
+    const locationUuid = session?.sessionLocation?.uuid;
+    if (!providerUuid) {
+        throw new Error('The logged-in user is not a provider, so they cannot raise a referral.');
+    }
+    if (!locationUuid) {
+        throw new Error('No session location is selected.');
+    }
+    const encounterRes = await (0,esm_framework_singleton_.openmrsFetch)('/ws/rest/v1/encounter', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: {
+            patient: request.patientUuid,
+            visit: request.visitUuid,
+            encounterType: config.referralOutEncounterTypeUuid,
+            location: locationUuid,
+            encounterDatetime: new Date().toISOString(),
+            encounterProviders: [
+                {
+                    provider: providerUuid,
+                    encounterRole: config.clinicianEncounterRoleUuid
+                }
+            ],
+            // the destination travels with the encounter; the emitter sends it as ServiceRequest.performer
+            obs: [
+                {
+                    concept: config.referralDestinationConceptUuid,
+                    value: request.destinationLocationUuid
+                }
+            ]
+        }
+    });
+    const encounterUuid = encounterRes.data.uuid;
+    const referenceNumber = generateReferralOutReference(config.referralOutReferencePrefix);
+    const orderRes = await (0,esm_framework_singleton_.openmrsFetch)('/ws/rest/v1/order', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: {
+            // must match the Referral order type's Java class (org.openmrs.TestOrder)
+            type: 'testorder',
+            action: 'NEW',
+            orderType: config.orderTypeUuid,
+            patient: request.patientUuid,
+            encounter: encounterUuid,
+            orderer: providerUuid,
+            careSetting: config.careSettingUuid,
+            concept: request.conceptUuid,
+            urgency: request.urgency,
+            instructions: request.instructions?.trim() || null,
+            // sent as the ServiceRequest's ACSN identifier
+            accessionNumber: referenceNumber
+        }
+    });
+    return {
+        orderNumber: orderRes.data.orderNumber,
+        referenceNumber
+    };
+}
+
+;// ./src/new-referral-out-modal.component.tsx
+
+
+
+
+
+
+/**
+ * Raises a referral out (e.g. a back-referral to a PHC): pick what the patient is referred for,
+ * the facility they are referred to, the priority and instructions for that facility.
+ */ const NewReferralOutModal = ({ open, patientUuid, visitUuid, onClose, onCreated })=>{
+    const { t } = (0,consume_shared_module_default_react_i18next_singleton_.useTranslation)();
+    const config = (0,esm_framework_singleton_.useConfig)();
+    const [orderables, setOrderables] = (0,consume_shared_module_default_react_singleton_.useState)(null);
+    const [orderablesError, setOrderablesError] = (0,consume_shared_module_default_react_singleton_.useState)(null);
+    const [referredFor, setReferredFor] = (0,consume_shared_module_default_react_singleton_.useState)(null);
+    const [destinations, setDestinations] = (0,consume_shared_module_default_react_singleton_.useState)(null);
+    const [referredTo, setReferredTo] = (0,consume_shared_module_default_react_singleton_.useState)(null);
+    const [urgency, setUrgency] = (0,consume_shared_module_default_react_singleton_.useState)('ROUTINE');
+    const [instructions, setInstructions] = (0,consume_shared_module_default_react_singleton_.useState)('');
+    const [submitting, setSubmitting] = (0,consume_shared_module_default_react_singleton_.useState)(false);
+    (0,consume_shared_module_default_react_singleton_.useEffect)(()=>{
+        if (!open) return;
+        setReferredFor(null);
+        setReferredTo(null);
+        setUrgency('ROUTINE');
+        setInstructions('');
+        fetchReferralOutOrderables(config.referralOutOrderablesConceptSetUuid).then((members)=>{
+            setOrderables(members);
+            // a single option needs no choosing
+            if (members.length === 1) setReferredFor(members[0]);
+        }).catch((e)=>setOrderablesError(e?.message ?? String(e)));
+        fetchReferralDestinations(config.referralDestinationLocationTag).then(setDestinations).catch((e)=>setOrderablesError(e?.message ?? String(e)));
+    }, [
+        open,
+        config.referralOutOrderablesConceptSetUuid,
+        config.referralDestinationLocationTag
+    ]);
+    const submit = async ()=>{
+        if (!referredFor || !referredTo) return;
+        setSubmitting(true);
+        try {
+            const { orderNumber, referenceNumber } = await createReferralOut({
+                patientUuid,
+                visitUuid,
+                conceptUuid: referredFor.uuid,
+                destinationLocationUuid: referredTo.uuid,
+                urgency,
+                instructions
+            }, config);
+            (0,esm_framework_singleton_.showSnackbar)({
+                kind: 'success',
+                isLowContrast: true,
+                title: t('referralOutCreated', 'Referral out created'),
+                subtitle: t('referralOutCreatedSubtitle', '{{orderNumber}} ({{referenceNumber}}) sent to {{referredTo}}', {
+                    orderNumber,
+                    referenceNumber,
+                    referredTo: referredTo.display
+                })
+            });
+            onCreated();
+            onClose();
+        } catch (e) {
+            (0,esm_framework_singleton_.showSnackbar)({
+                kind: 'error',
+                title: t('referralOutFailed', 'Could not create the referral out'),
+                subtitle: e?.responseBody?.error?.message ?? e?.message ?? String(e)
+            });
+        } finally{
+            setSubmitting(false);
+        }
+    };
+    return /*#__PURE__*/ (0,jsx_runtime.jsxs)(es/* Modal */.aFV, {
+        open: open,
+        modalHeading: t('newReferralOutHeading', 'New referral out'),
+        primaryButtonText: submitting ? t('creating', 'Creating…') : t('createReferralOut', 'Create referral'),
+        secondaryButtonText: t('cancel', 'Cancel'),
+        primaryButtonDisabled: !referredFor || !referredTo || submitting,
+        onRequestClose: ()=>!submitting && onClose(),
+        onRequestSubmit: ()=>void submit(),
+        children: [
+            /*#__PURE__*/ (0,jsx_runtime.jsx)("p", {
+                style: {
+                    marginBottom: '1rem'
+                },
+                children: t('newReferralOutDescription', 'Refer the patient onward (e.g. back to a primary health care facility). The referral is sent to the receiving facility.')
+            }),
+            orderablesError && /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* InlineNotification */.jeF, {
+                kind: "error",
+                lowContrast: true,
+                hideCloseButton: true,
+                title: t('referralOutOrderablesError', 'Could not load referral options'),
+                subtitle: orderablesError
+            }),
+            (orderables?.length ?? 0) > 1 && /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                style: {
+                    marginBottom: '1rem'
+                },
+                children: /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Dropdown */.msM, {
+                    id: "referral-out-referred-for",
+                    titleText: t('referredFor', 'Referred for'),
+                    label: t('selectReferral', 'Select a referral'),
+                    items: orderables ?? [],
+                    itemToString: (item)=>item?.display ?? '',
+                    selectedItem: referredFor,
+                    onChange: ({ selectedItem })=>setReferredFor(selectedItem)
+                })
+            }),
+            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                children: /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Dropdown */.msM, {
+                    id: "referral-out-referred-to",
+                    titleText: t('referredTo', 'Referred to'),
+                    label: t('selectFacility', 'Select a facility'),
+                    items: destinations ?? [],
+                    itemToString: (item)=>item?.display ?? '',
+                    selectedItem: referredTo,
+                    disabled: !destinations,
+                    onChange: ({ selectedItem })=>setReferredTo(selectedItem)
+                })
+            }),
+            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                style: {
+                    marginTop: '1rem'
+                },
+                children: /*#__PURE__*/ (0,jsx_runtime.jsxs)(es/* RadioButtonGroup */.zWQ, {
+                    legendText: t('urgency', 'Priority'),
+                    name: "referral-out-urgency",
+                    valueSelected: urgency,
+                    onChange: (value)=>setUrgency(value),
+                    children: [
+                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* RadioButton */.aaP, {
+                            id: "referral-out-routine",
+                            labelText: t('routine', 'Routine'),
+                            value: "ROUTINE"
+                        }),
+                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* RadioButton */.aaP, {
+                            id: "referral-out-stat",
+                            labelText: t('stat', 'Urgent'),
+                            value: "STAT"
+                        })
+                    ]
+                })
+            }),
+            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                style: {
+                    marginTop: '1rem'
+                },
+                children: /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* TextArea */.fs1, {
+                    id: "referral-out-instructions",
+                    labelText: t('referralOutInstructions', 'Instructions for the receiving facility (optional)'),
+                    value: instructions,
+                    onChange: (e)=>setInstructions(e.target.value),
+                    rows: 3,
+                    maxCount: 500,
+                    enableCounter: true
+                })
+            })
+        ]
+    });
+};
+/* harmony default export */ const new_referral_out_modal_component = (NewReferralOutModal);
+
 ;// ./src/referrals-dashboard.component.tsx
+
+
 
 
 
@@ -333,11 +652,20 @@ const ReferralsDashboardLink = ({ basePath })=>{
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const framework = __webpack_require__(251);
 const launchWorkspace2 = framework.launchWorkspace2 ?? framework.launchWorkspace;
+// Everything the dashboard reads from an order, including the encounter type that
+// tells a referral in (filed under Referral In by the receiver) from a referral out,
+// and the encounter's obs, which hold the destination of a referral out.
+const REFERRAL_ORDER_REPRESENTATION = 'custom:(uuid,orderNumber,display,dateActivated,fulfillerStatus,fulfillerComment,instructions,' + 'commentToFulfiller,accessionNumber,urgency,action,previousOrder:(uuid),concept:(uuid,display),orderer:(uuid,display,person:(display)),' + 'encounter:(uuid,display,encounterType:(uuid,display),obs:(concept:(uuid),value)),careSetting:(uuid,display),' + 'orderType:(uuid,name,display),patient:(uuid))';
 const ReferralsDashboard = (props)=>{
     const { t } = (0,consume_shared_module_default_react_i18next_singleton_.useTranslation)();
     const config = (0,esm_framework_singleton_.useConfig)();
     const patientUuid = props.patientUuid ?? props.patient?.id ?? props.patient?.uuid;
+    // The referral response is part of the patient's visit at this facility: it can only be
+    // recorded once the patient has arrived and a visit has been started (check-in).
+    const { activeVisit, isLoading: isLoadingVisit } = (0,esm_framework_singleton_.useVisit)(patientUuid);
     const [orders, setOrders] = (0,consume_shared_module_default_react_singleton_.useState)(null);
+    // referral order uuid → clinical notes recorded with its Referral Response form
+    const [responseNotes, setResponseNotes] = (0,consume_shared_module_default_react_singleton_.useState)({});
     const [error, setError] = (0,consume_shared_module_default_react_singleton_.useState)(null);
     // Decline modal state. Kept locally because the modal is small and tightly
     // coupled to the dashboard's Decline action.
@@ -345,6 +673,33 @@ const ReferralsDashboard = (props)=>{
     const [declineReason, setDeclineReason] = (0,consume_shared_module_default_react_singleton_.useState)(null);
     const [declineNotes, setDeclineNotes] = (0,consume_shared_module_default_react_singleton_.useState)('');
     const [declineSubmitting, setDeclineSubmitting] = (0,consume_shared_module_default_react_singleton_.useState)(false);
+    const [referralOutOpen, setReferralOutOpen] = (0,consume_shared_module_default_react_singleton_.useState)(false);
+    // destination location uuid → facility name, for the "Referred to" column of referrals out
+    const [destinationNames, setDestinationNames] = (0,consume_shared_module_default_react_singleton_.useState)({});
+    (0,consume_shared_module_default_react_singleton_.useEffect)(()=>{
+        fetchReferralDestinations(config.referralDestinationLocationTag).then((destinations)=>setDestinationNames(Object.fromEntries(destinations.map((d)=>[
+                    d.uuid,
+                    d.display
+                ])))).catch(()=>setDestinationNames({}));
+    }, [
+        config.referralDestinationLocationTag
+    ]);
+    // The facility a referral out was sent to, recorded on its Referral Out encounter.
+    const referredToOf = (0,consume_shared_module_default_react_singleton_.useCallback)((order)=>{
+        const value = order?.encounter?.obs?.find((obs)=>obs.concept?.uuid === config.referralDestinationConceptUuid)?.value;
+        // the REST API returns a location-uuid text value as the Location itself ({uuid, display, …})
+        if (value && typeof value === 'object') return value.display ?? destinationNames[value.uuid] ?? value.uuid ?? null;
+        if (typeof value !== 'string' || !value) return null;
+        return destinationNames[value] ?? value;
+    }, [
+        config.referralDestinationConceptUuid,
+        destinationNames
+    ]);
+    // A referral in arrived from another facility (the receiver files it under the Referral In
+    // encounter type) and is answered here; anything else was raised here and sent out.
+    const isReferralIn = (0,consume_shared_module_default_react_singleton_.useCallback)((order)=>order?.encounter?.encounterType?.uuid === config.referralInEncounterTypeUuid, [
+        config.referralInEncounterTypeUuid
+    ]);
     // Structured decline reasons. Keep this list short and clinically meaningful;
     // free-text "Other (specify in notes)" is the escape hatch.
     const declineReasons = consume_shared_module_default_react_singleton_default().useMemo(()=>[
@@ -361,19 +716,29 @@ const ReferralsDashboard = (props)=>{
     const loadOrders = (0,consume_shared_module_default_react_singleton_.useCallback)(async ()=>{
         if (!patientUuid) return;
         try {
-            const res = await (0,esm_framework_singleton_.openmrsFetch)(`/ws/rest/v1/order?patient=${patientUuid}&v=full`);
+            const res = await (0,esm_framework_singleton_.openmrsFetch)(`/ws/rest/v1/order?patient=${patientUuid}&v=${REFERRAL_ORDER_REPRESENTATION}`);
             const all = res.data?.results ?? [];
             // Hide DISCONTINUE revision rows: they are immutable audit siblings
             // generated by close-the-loop and should not appear as a separate
             // referral in the UI. The original NEW row continues to reflect status.
             const referrals = all.filter((o)=>o.orderType?.uuid === config.orderTypeUuid && (o.action ?? 'NEW').toUpperCase() !== 'DISCONTINUE');
             setOrders(referrals);
+            // A referral answered with the Referral Response form is closed by a DISCONTINUE order placed in the
+            // response encounter, so that encounter's obs hold the notes the clinician sent back to the source.
+            const notes = {};
+            for (const o of all){
+                if ((o.action ?? '').toUpperCase() !== 'DISCONTINUE' || !o.previousOrder?.uuid) continue;
+                const value = o.encounter?.obs?.find((obs)=>obs.concept?.uuid === config.responseNotesConceptUuid)?.value;
+                if (typeof value === 'string' && value) notes[o.previousOrder.uuid] = value;
+            }
+            setResponseNotes(notes);
         } catch (e) {
             setError(e?.message ?? String(e));
         }
     }, [
         patientUuid,
-        config.orderTypeUuid
+        config.orderTypeUuid,
+        config.responseNotesConceptUuid
     ]);
     (0,consume_shared_module_default_react_singleton_.useEffect)(()=>{
         void loadOrders();
@@ -439,7 +804,21 @@ const ReferralsDashboard = (props)=>{
         loadOrders,
         patientUuid
     ]);
+    const handleStartVisit = (0,consume_shared_module_default_react_singleton_.useCallback)(()=>{
+        launchWorkspace2('start-visit-workspace-form', {
+            openedFrom: 'referral-fulfillment'
+        });
+    }, []);
     const handleRecord = (0,consume_shared_module_default_react_singleton_.useCallback)(async (order)=>{
+        if (!activeVisit) {
+            (0,esm_framework_singleton_.showSnackbar)({
+                kind: 'warning',
+                isLowContrast: true,
+                title: t('startVisitFirst', 'Start a visit first'),
+                subtitle: t('startVisitFirstSubtitle', 'The referral response is recorded during the patient’s visit. Start a visit when the patient arrives.')
+            });
+            return;
+        }
         try {
             // Fetch full form object — workspaces2 launcher expects the form, not just a UUID.
             const formRes = await (0,esm_framework_singleton_.openmrsFetch)(`/ws/rest/v1/form/${config.formUuid}?v=full`);
@@ -554,7 +933,8 @@ const ReferralsDashboard = (props)=>{
         config,
         patientUuid,
         closeAndReload,
-        t
+        t,
+        activeVisit
     ]);
     const handleManualClose = (0,consume_shared_module_default_react_singleton_.useCallback)(async (order)=>{
         // Retained for potential admin/debug use; no UI surface exposes it now.
@@ -635,17 +1015,68 @@ const ReferralsDashboard = (props)=>{
             })
         });
     }
-    if ((orders?.length ?? 0) === 0) {
-        return /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Tile */.FAs, {
-            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("p", {
-                children: t('noReferrals', 'No referral orders for this patient.')
+    // "New referral out" needs an active visit: the referral is raised during the patient's visit here.
+    const referralOutToolbar = /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+        style: {
+            display: 'flex',
+            justifyContent: 'flex-end',
+            alignItems: 'center',
+            marginBottom: '0.5rem'
+        },
+        children: [
+            !activeVisit && !isLoadingVisit && /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
+                style: {
+                    color: '#6f6f6f',
+                    marginRight: '0.75rem',
+                    fontSize: '0.875rem'
+                },
+                children: t('startVisitToReferOut', 'Start a visit to raise a referral out')
+            }),
+            /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
+                kind: "ghost",
+                size: "sm",
+                disabled: !activeVisit,
+                renderIcon: (props)=>/*#__PURE__*/ (0,jsx_runtime.jsx)(esm_framework_singleton_.AddIcon, {
+                        size: 16,
+                        ...props
+                    }),
+                iconDescription: t('newReferralOut', 'New referral out'),
+                onClick: ()=>setReferralOutOpen(true),
+                children: t('newReferralOut', 'New referral out')
             })
+        ]
+    });
+    const referralOutModal = activeVisit ? /*#__PURE__*/ (0,jsx_runtime.jsx)(new_referral_out_modal_component, {
+        open: referralOutOpen,
+        patientUuid: patientUuid,
+        visitUuid: activeVisit.uuid,
+        onClose: ()=>setReferralOutOpen(false),
+        onCreated: ()=>void loadOrders()
+    }) : null;
+    if ((orders?.length ?? 0) === 0) {
+        return /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+            style: {
+                padding: '1rem'
+            },
+            children: [
+                referralOutToolbar,
+                /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Tile */.FAs, {
+                    children: /*#__PURE__*/ (0,jsx_runtime.jsx)("p", {
+                        children: t('noReferrals', 'No referral orders for this patient.')
+                    })
+                }),
+                referralOutModal
+            ]
         });
     }
     const headers = [
         {
             key: 'orderNumber',
             header: t('orderNumber', 'Order #')
+        },
+        {
+            key: 'direction',
+            header: t('direction', 'Direction')
         },
         {
             key: 'display',
@@ -667,9 +1098,11 @@ const ReferralsDashboard = (props)=>{
     const rows = (orders ?? []).map((o)=>({
             id: o.uuid,
             orderNumber: o.orderNumber,
+            direction: isReferralIn(o) ? 'IN' : 'OUT',
             display: o.display ?? '',
             dateActivated: o.dateActivated ? new Date(o.dateActivated).toLocaleDateString() : '',
-            status: o.fulfillerStatus ?? 'PENDING',
+            // a referral in waits on this facility (PENDING); a referral out waits on the receiving facility (SENT)
+            status: o.fulfillerStatus ?? (isReferralIn(o) ? 'PENDING' : 'SENT'),
             raw: o
         }));
     return /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
@@ -680,6 +1113,7 @@ const ReferralsDashboard = (props)=>{
             /*#__PURE__*/ (0,jsx_runtime.jsx)("style", {
                 children: `.cds--css-grid h4, .patient-chart-dashboard-title { font-weight: 600 !important; }`
             }),
+            referralOutToolbar,
             /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* DataTable */.bQt, {
                 rows: rows,
                 headers: headers,
@@ -709,6 +1143,9 @@ const ReferralsDashboard = (props)=>{
                                     // A referral is "terminal" once it's either completed or declined;
                                     // no further action buttons should be offered.
                                     const terminal = completed || declined;
+                                    // Record response / Decline belong to the facility the referral was sent to, so
+                                    // they are only offered on referrals in; a referral out is answered elsewhere.
+                                    const referralIn = isReferralIn(o);
                                     const fmt = (v)=>v === null || v === undefined || v === '' ? /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
                                             style: {
                                                 color: '#8d8d8d'
@@ -743,16 +1180,26 @@ const ReferralsDashboard = (props)=>{
                                                 children: row.cells.map((cell)=>{
                                                     if (cell.info.header === 'action') {
                                                         return /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* TableCell */.nA6, {
-                                                            children: !terminal && /*#__PURE__*/ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+                                                            children: referralIn && !terminal && /*#__PURE__*/ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
                                                                 children: [
-                                                                    /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
+                                                                    activeVisit || isLoadingVisit ? /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
                                                                         kind: "tertiary",
                                                                         size: "sm",
+                                                                        disabled: !activeVisit,
                                                                         onClick: ()=>handleRecord(o),
                                                                         style: {
                                                                             marginRight: '0.5rem'
                                                                         },
                                                                         children: t('recordReferralResponse', 'Record referral response')
+                                                                    }) : /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
+                                                                        kind: "tertiary",
+                                                                        size: "sm",
+                                                                        onClick: handleStartVisit,
+                                                                        style: {
+                                                                            marginRight: '0.5rem'
+                                                                        },
+                                                                        title: t('startVisitToRespondHint', 'Start a visit when the patient arrives, then record the referral response'),
+                                                                        children: t('startVisitToRespond', 'Start visit to respond')
                                                                     }),
                                                                     /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
                                                                         kind: "danger--ghost",
@@ -764,10 +1211,18 @@ const ReferralsDashboard = (props)=>{
                                                             })
                                                         }, cell.id);
                                                     }
+                                                    if (cell.info.header === 'direction') {
+                                                        return /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* TableCell */.nA6, {
+                                                            children: /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Tag */.vwO, {
+                                                                type: referralIn ? 'blue' : 'purple',
+                                                                children: referralIn ? t('referralIn', 'Referral in') : t('referralOut', 'Referral out')
+                                                            })
+                                                        }, cell.id);
+                                                    }
                                                     if (cell.info.header === 'status') {
                                                         return /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* TableCell */.nA6, {
                                                             children: /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Tag */.vwO, {
-                                                                type: completed ? 'green' : declined ? 'red' : 'gray',
+                                                                type: completed ? 'green' : declined ? 'red' : referralIn ? 'gray' : 'cyan',
                                                                 children: cell.value
                                                             })
                                                         }, cell.id);
@@ -809,12 +1264,28 @@ const ReferralsDashboard = (props)=>{
                                                                 }),
                                                                 /*#__PURE__*/ (0,jsx_runtime.jsxs)(es/* StructuredListRow */.Cvq, {
                                                                     children: [
-                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
-                                                                            noWrap: true,
-                                                                            children: t('instructions', 'Instructions')
-                                                                        }),
-                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
-                                                                            children: fmt(o?.instructions)
+                                                                        referralIn ? // a referral in arrives without its instructions (clinical text is redacted before
+                                                                        // CCE), so show what this facility sent back with the Referral Response form instead
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
+                                                                                    noWrap: true,
+                                                                                    children: t('clinicalNotes', 'Clinical notes')
+                                                                                }),
+                                                                                /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
+                                                                                    children: fmt(responseNotes[o?.uuid])
+                                                                                })
+                                                                            ]
+                                                                        }) : /*#__PURE__*/ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
+                                                                                    noWrap: true,
+                                                                                    children: t('instructions', 'Instructions')
+                                                                                }),
+                                                                                /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
+                                                                                    children: fmt(o?.instructions)
+                                                                                })
+                                                                            ]
                                                                         }),
                                                                         /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
                                                                             noWrap: true,
@@ -832,7 +1303,7 @@ const ReferralsDashboard = (props)=>{
                                                                             children: t('orderedBy', 'Ordered by')
                                                                         }),
                                                                         /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
-                                                                            children: fmt(o?.orderer?.display)
+                                                                            children: fmt(o?.orderer?.person?.display ?? o?.orderer?.display)
                                                                         }),
                                                                         /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
                                                                             noWrap: true,
@@ -861,6 +1332,7 @@ const ReferralsDashboard = (props)=>{
                                                                         })
                                                                     ]
                                                                 }),
+                                                                referralIn ? // fulfilment is recorded here only for referrals in; a referral out is fulfilled elsewhere
                                                                 /*#__PURE__*/ (0,jsx_runtime.jsxs)(es/* StructuredListRow */.Cvq, {
                                                                     children: [
                                                                         /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
@@ -883,6 +1355,20 @@ const ReferralsDashboard = (props)=>{
                                                                             children: fmt(fulfillerCommentText)
                                                                         })
                                                                     ]
+                                                                }) : /*#__PURE__*/ (0,jsx_runtime.jsxs)(es/* StructuredListRow */.Cvq, {
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
+                                                                            noWrap: true,
+                                                                            children: t('referredTo', 'Referred to')
+                                                                        }),
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
+                                                                            children: fmt(referredToOf(o))
+                                                                        }),
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
+                                                                            noWrap: true
+                                                                        }),
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {})
+                                                                    ]
                                                                 })
                                                             ]
                                                         })
@@ -896,6 +1382,7 @@ const ReferralsDashboard = (props)=>{
                         ]
                     })
             }),
+            referralOutModal,
             /*#__PURE__*/ (0,jsx_runtime.jsxs)(es/* Modal */.aFV, {
                 open: declineTarget !== null,
                 modalHeading: t('declineReferralHeading', 'Decline referral {{orderNumber}}', {

@@ -4,5 +4,6 @@
   "notifications.panel.empty": "No notifications",
   "notifications.severity.info": "Info",
   "notifications.severity.warning": "Warning",
-  "notifications.severity.critical": "Critical"
+  "notifications.severity.critical": "Critical",
+  "notifications.panel.markAllRead": "Mark all as read"
 }

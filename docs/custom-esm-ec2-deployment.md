@@ -571,6 +571,20 @@ only** (the host bind-mounts are read-only):
 
 That's the entire mechanism.
 
+### Branding (optional)
+
+`custom-esms/branding/` is not an ESM (it is not in `manifest.json`); it holds files the config and the boot hook
+point at:
+
+| File | Used by |
+| --- | --- |
+| `epic-logo.svg` | `config-core_demo.json` → `@openmrs/esm-primary-navigation-app.logo.src` (header) |
+| `epic-logo-color.svg` | `config-core_demo.json` → `@openmrs/esm-login-app.logo.src` (login page) |
+| `title.txt` | boot hook: its first line replaces `<title>` in `index.html` (browser tab) |
+
+Copy the folder with the ESMs (`rsync … frontend/custom-esms/branding/ "$EC2:<custom-esms dir>/branding/"`) and
+recreate the frontend; the boot hook logs `browser tab title set to '…'`.
+
 ---
 
 ## 13. Checklist (printable)

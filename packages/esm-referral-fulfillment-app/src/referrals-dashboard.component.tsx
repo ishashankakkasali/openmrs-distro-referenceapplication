@@ -23,9 +23,11 @@ import {
   Dropdown,
   TextArea,
 } from '@carbon/react';
-import { launchWorkspace, openmrsFetch, useConfig } from '@openmrs/esm-framework';
+import { AddIcon, launchWorkspace, openmrsFetch, showSnackbar, useConfig, useVisit } from '@openmrs/esm-framework';
 import { closeReferralOrder, declineReferralOrder, discontinueReferralOrder } from './close-referral-order';
 import type { ReferralFulfillmentConfig } from './config-schema';
+import NewReferralOutModal from './new-referral-out-modal.component';
+import { fetchReferralDestinations } from './create-referral-out';
 
 // `launchWorkspace2` is the new (workspaces2) launcher; not yet in this package's
 // type definitions. Cast through framework module to call it without bundling.
@@ -50,13 +52,28 @@ interface ReferralOrder {
   accessionNumber?: string | null;
   urgency?: string | null;
   action?: string | null;
+  previousOrder?: { uuid: string } | null;
   concept?: { uuid: string; display: string };
-  orderer?: { uuid: string; display: string };
-  encounter?: { uuid: string; display: string };
+  orderer?: { uuid: string; display: string; person?: { display: string } | null };
+  encounter?: {
+    uuid: string;
+    display: string;
+    encounterType?: { uuid: string; display?: string };
+    obs?: Array<{ concept?: { uuid: string }; value?: unknown }>;
+  };
   careSetting?: { uuid?: string; display: string };
   orderType: { uuid: string; name?: string; display?: string };
   patient?: { uuid: string };
 }
+
+// Everything the dashboard reads from an order, including the encounter type that
+// tells a referral in (filed under Referral In by the receiver) from a referral out,
+// and the encounter's obs, which hold the destination of a referral out.
+const REFERRAL_ORDER_REPRESENTATION =
+  'custom:(uuid,orderNumber,display,dateActivated,fulfillerStatus,fulfillerComment,instructions,' +
+  'commentToFulfiller,accessionNumber,urgency,action,previousOrder:(uuid),concept:(uuid,display),orderer:(uuid,display,person:(display)),' +
+  'encounter:(uuid,display,encounterType:(uuid,display),obs:(concept:(uuid),value)),careSetting:(uuid,display),' +
+  'orderType:(uuid,name,display),patient:(uuid))';
 
 interface DashboardProps {
   patientUuid?: string;
@@ -67,8 +84,13 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
   const { t } = useTranslation();
   const config = useConfig<ReferralFulfillmentConfig>();
   const patientUuid = props.patientUuid ?? props.patient?.id ?? props.patient?.uuid;
+  // The referral response is part of the patient's visit at this facility: it can only be
+  // recorded once the patient has arrived and a visit has been started (check-in).
+  const { activeVisit, isLoading: isLoadingVisit } = useVisit(patientUuid);
 
   const [orders, setOrders] = useState<ReferralOrder[] | null>(null);
+  // referral order uuid → clinical notes recorded with its Referral Response form
+  const [responseNotes, setResponseNotes] = useState<Record<string, string>>({});
   const [error, setError] = useState<string | null>(null);
 
   // Decline modal state. Kept locally because the modal is small and tightly
@@ -77,6 +99,37 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
   const [declineReason, setDeclineReason] = useState<string | null>(null);
   const [declineNotes, setDeclineNotes] = useState<string>('');
   const [declineSubmitting, setDeclineSubmitting] = useState(false);
+
+  const [referralOutOpen, setReferralOutOpen] = useState(false);
+
+  // destination location uuid → facility name, for the "Referred to" column of referrals out
+  const [destinationNames, setDestinationNames] = useState<Record<string, string>>({});
+  useEffect(() => {
+    fetchReferralDestinations(config.referralDestinationLocationTag)
+      .then((destinations) => setDestinationNames(Object.fromEntries(destinations.map((d) => [d.uuid, d.display]))))
+      .catch(() => setDestinationNames({}));
+  }, [config.referralDestinationLocationTag]);
+
+  // The facility a referral out was sent to, recorded on its Referral Out encounter.
+  const referredToOf = useCallback(
+    (order?: ReferralOrder): string | null => {
+      const value: any = order?.encounter?.obs?.find(
+        (obs) => obs.concept?.uuid === config.referralDestinationConceptUuid,
+      )?.value;
+      // the REST API returns a location-uuid text value as the Location itself ({uuid, display, …})
+      if (value && typeof value === 'object') return value.display ?? destinationNames[value.uuid] ?? value.uuid ?? null;
+      if (typeof value !== 'string' || !value) return null;
+      return destinationNames[value] ?? value;
+    },
+    [config.referralDestinationConceptUuid, destinationNames],
+  );
+
+  // A referral in arrived from another facility (the receiver files it under the Referral In
+  // encounter type) and is answered here; anything else was raised here and sent out.
+  const isReferralIn = useCallback(
+    (order?: ReferralOrder) => order?.encounter?.encounterType?.uuid === config.referralInEncounterTypeUuid,
+    [config.referralInEncounterTypeUuid],
+  );
 
   // Structured decline reasons. Keep this list short and clinically meaningful;
   // free-text "Other (specify in notes)" is the escape hatch.
@@ -96,7 +149,7 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
   const loadOrders = useCallback(async () => {
     if (!patientUuid) return;
     try {
-      const res = await openmrsFetch(`/ws/rest/v1/order?patient=${patientUuid}&v=full`);
+      const res = await openmrsFetch(`/ws/rest/v1/order?patient=${patientUuid}&v=${REFERRAL_ORDER_REPRESENTATION}`);
       const all: ReferralOrder[] = res.data?.results ?? [];
       // Hide DISCONTINUE revision rows: they are immutable audit siblings
       // generated by close-the-loop and should not appear as a separate
@@ -107,10 +160,19 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
           (o.action ?? 'NEW').toUpperCase() !== 'DISCONTINUE',
       );
       setOrders(referrals);
+      // A referral answered with the Referral Response form is closed by a DISCONTINUE order placed in the
+      // response encounter, so that encounter's obs hold the notes the clinician sent back to the source.
+      const notes: Record<string, string> = {};
+      for (const o of all) {
+        if ((o.action ?? '').toUpperCase() !== 'DISCONTINUE' || !o.previousOrder?.uuid) continue;
+        const value = o.encounter?.obs?.find((obs) => obs.concept?.uuid === config.responseNotesConceptUuid)?.value;
+        if (typeof value === 'string' && value) notes[o.previousOrder.uuid] = value;
+      }
+      setResponseNotes(notes);
     } catch (e: any) {
       setError(e?.message ?? String(e));
     }
-  }, [patientUuid, config.orderTypeUuid]);
+  }, [patientUuid, config.orderTypeUuid, config.responseNotesConceptUuid]);
 
   useEffect(() => {
     void loadOrders();
@@ -174,8 +236,24 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
     [config, loadOrders, patientUuid],
   );
 
+  const handleStartVisit = useCallback(() => {
+    launchWorkspace2('start-visit-workspace-form', { openedFrom: 'referral-fulfillment' });
+  }, []);
+
   const handleRecord = useCallback(
     async (order: ReferralOrder) => {
+      if (!activeVisit) {
+        showSnackbar({
+          kind: 'warning',
+          isLowContrast: true,
+          title: t('startVisitFirst', 'Start a visit first'),
+          subtitle: t(
+            'startVisitFirstSubtitle',
+            'The referral response is recorded during the patient’s visit. Start a visit when the patient arrives.',
+          ),
+        });
+        return;
+      }
       try {
         // Fetch full form object — workspaces2 launcher expects the form, not just a UUID.
         const formRes = await openmrsFetch(`/ws/rest/v1/form/${config.formUuid}?v=full`);
@@ -305,7 +383,7 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
         setError(e?.message ?? String(e));
       }
     },
-    [config, patientUuid, closeAndReload, t],
+    [config, patientUuid, closeAndReload, t, activeVisit],
   );
 
   const handleManualClose = useCallback(
@@ -378,16 +456,53 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
     return <Tile>{t('errorLoading', 'Error loading referrals: {{err}}', { err: error })}</Tile>;
   }
 
+  // "New referral out" needs an active visit: the referral is raised during the patient's visit here.
+  const referralOutToolbar = (
+    <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginBottom: '0.5rem' }}>
+      {!activeVisit && !isLoadingVisit && (
+        <span style={{ color: '#6f6f6f', marginRight: '0.75rem', fontSize: '0.875rem' }}>
+          {t('startVisitToReferOut', 'Start a visit to raise a referral out')}
+        </span>
+      )}
+      {/* O3's widget action style (as "Record vitals"): ghost button with a trailing icon */}
+      <Button
+        kind="ghost"
+        size="sm"
+        disabled={!activeVisit}
+        renderIcon={(props) => <AddIcon size={16} {...props} />}
+        iconDescription={t('newReferralOut', 'New referral out')}
+        onClick={() => setReferralOutOpen(true)}
+      >
+        {t('newReferralOut', 'New referral out')}
+      </Button>
+    </div>
+  );
+
+  const referralOutModal = activeVisit ? (
+    <NewReferralOutModal
+      open={referralOutOpen}
+      patientUuid={patientUuid}
+      visitUuid={activeVisit.uuid}
+      onClose={() => setReferralOutOpen(false)}
+      onCreated={() => void loadOrders()}
+    />
+  ) : null;
+
   if ((orders?.length ?? 0) === 0) {
     return (
-      <Tile>
-        <p>{t('noReferrals', 'No referral orders for this patient.')}</p>
-      </Tile>
+      <div style={{ padding: '1rem' }}>
+        {referralOutToolbar}
+        <Tile>
+          <p>{t('noReferrals', 'No referral orders for this patient.')}</p>
+        </Tile>
+        {referralOutModal}
+      </div>
     );
   }
 
   const headers = [
     { key: 'orderNumber', header: t('orderNumber', 'Order #') },
+    { key: 'direction', header: t('direction', 'Direction') },
     { key: 'display', header: t('order', 'Order') },
     { key: 'dateActivated', header: t('dateActivated', 'Date') },
     { key: 'status', header: t('status', 'Status') },
@@ -397,9 +512,11 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
   const rows = (orders ?? []).map((o) => ({
     id: o.uuid,
     orderNumber: o.orderNumber,
+    direction: isReferralIn(o) ? 'IN' : 'OUT',
     display: o.display ?? '',
     dateActivated: o.dateActivated ? new Date(o.dateActivated).toLocaleDateString() : '',
-    status: o.fulfillerStatus ?? 'PENDING',
+    // a referral in waits on this facility (PENDING); a referral out waits on the receiving facility (SENT)
+    status: o.fulfillerStatus ?? (isReferralIn(o) ? 'PENDING' : 'SENT'),
     raw: o,
   }));
 
@@ -408,6 +525,7 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
       {/* The outer dashboard wrapper renders its own "Referrals" heading; we
           bold it via a global style and skip rendering our own duplicate title. */}
       <style>{`.cds--css-grid h4, .patient-chart-dashboard-title { font-weight: 600 !important; }`}</style>
+      {referralOutToolbar}
       <DataTable rows={rows as any} headers={headers as any}>
         {({ rows: dtRows, headers: dtHeaders, getHeaderProps, getRowProps, getTableProps, getExpandHeaderProps }: any) => (
           <Table {...getTableProps()}>
@@ -429,6 +547,9 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
                 // A referral is "terminal" once it's either completed or declined;
                 // no further action buttons should be offered.
                 const terminal = completed || declined;
+                // Record response / Decline belong to the facility the referral was sent to, so
+                // they are only offered on referrals in; a referral out is answered elsewhere.
+                const referralIn = isReferralIn(o);
                 const fmt = (v: any) =>
                   v === null || v === undefined || v === '' ? <span style={{ color: '#8d8d8d' }}>—</span> : v;
                 const fmtDate = (v?: string) => (v ? new Date(v).toLocaleString() : null);
@@ -448,16 +569,32 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
                         if (cell.info.header === 'action') {
                           return (
                             <TableCell key={cell.id}>
-                              {!terminal && (
+                              {referralIn && !terminal && (
                                 <>
-                                  <Button
-                                    kind="tertiary"
-                                    size="sm"
-                                    onClick={() => handleRecord(o)}
-                                    style={{ marginRight: '0.5rem' }}
-                                  >
-                                    {t('recordReferralResponse', 'Record referral response')}
-                                  </Button>
+                                  {activeVisit || isLoadingVisit ? (
+                                    <Button
+                                      kind="tertiary"
+                                      size="sm"
+                                      disabled={!activeVisit}
+                                      onClick={() => handleRecord(o)}
+                                      style={{ marginRight: '0.5rem' }}
+                                    >
+                                      {t('recordReferralResponse', 'Record referral response')}
+                                    </Button>
+                                  ) : (
+                                    <Button
+                                      kind="tertiary"
+                                      size="sm"
+                                      onClick={handleStartVisit}
+                                      style={{ marginRight: '0.5rem' }}
+                                      title={t(
+                                        'startVisitToRespondHint',
+                                        'Start a visit when the patient arrives, then record the referral response',
+                                      )}
+                                    >
+                                      {t('startVisitToRespond', 'Start visit to respond')}
+                                    </Button>
+                                  )}
                                   <Button
                                     kind="danger--ghost"
                                     size="sm"
@@ -470,10 +607,21 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
                             </TableCell>
                           );
                         }
+                        if (cell.info.header === 'direction') {
+                          return (
+                            <TableCell key={cell.id}>
+                              <Tag type={referralIn ? 'blue' : 'purple'}>
+                                {referralIn ? t('referralIn', 'Referral in') : t('referralOut', 'Referral out')}
+                              </Tag>
+                            </TableCell>
+                          );
+                        }
                         if (cell.info.header === 'status') {
                           return (
                             <TableCell key={cell.id}>
-                              <Tag type={completed ? 'green' : declined ? 'red' : 'gray'}>{cell.value}</Tag>
+                              <Tag type={completed ? 'green' : declined ? 'red' : referralIn ? 'gray' : 'cyan'}>
+                                {cell.value}
+                              </Tag>
                             </TableCell>
                           );
                         }
@@ -491,14 +639,25 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
                               <StructuredListCell>{fmt(o?.accessionNumber)}</StructuredListCell>
                             </StructuredListRow>
                             <StructuredListRow>
-                              <StructuredListCell noWrap>{t('instructions', 'Instructions')}</StructuredListCell>
-                              <StructuredListCell>{fmt(o?.instructions)}</StructuredListCell>
+                              {referralIn ? (
+                                // a referral in arrives without its instructions (clinical text is redacted before
+                                // CCE), so show what this facility sent back with the Referral Response form instead
+                                <>
+                                  <StructuredListCell noWrap>{t('clinicalNotes', 'Clinical notes')}</StructuredListCell>
+                                  <StructuredListCell>{fmt(responseNotes[o?.uuid])}</StructuredListCell>
+                                </>
+                              ) : (
+                                <>
+                                  <StructuredListCell noWrap>{t('instructions', 'Instructions')}</StructuredListCell>
+                                  <StructuredListCell>{fmt(o?.instructions)}</StructuredListCell>
+                                </>
+                              )}
                               <StructuredListCell noWrap>{t('urgency', 'Priority')}</StructuredListCell>
                               <StructuredListCell>{fmt(o?.urgency)}</StructuredListCell>
                             </StructuredListRow>
                             <StructuredListRow>
                               <StructuredListCell noWrap>{t('orderedBy', 'Ordered by')}</StructuredListCell>
-                              <StructuredListCell>{fmt(o?.orderer?.display)}</StructuredListCell>
+                              <StructuredListCell>{fmt(o?.orderer?.person?.display ?? o?.orderer?.display)}</StructuredListCell>
                               <StructuredListCell noWrap>{t('dateActivatedFull', 'Date activated')}</StructuredListCell>
                               <StructuredListCell>{fmt(fmtDate(o?.dateActivated))}</StructuredListCell>
                             </StructuredListRow>
@@ -508,12 +667,22 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
                               <StructuredListCell noWrap>{t('orderEncounter', 'Source encounter')}</StructuredListCell>
                               <StructuredListCell>{fmt(o?.encounter?.display)}</StructuredListCell>
                             </StructuredListRow>
-                            <StructuredListRow>
-                              <StructuredListCell noWrap>{t('fulfilledBy', 'Fulfilled by')}</StructuredListCell>
-                              <StructuredListCell>{terminal ? fmt(fulfilledBy) : <span style={{ color: '#8d8d8d' }}>—</span>}</StructuredListCell>
-                              <StructuredListCell noWrap>{t('fulfillerComment', 'Fulfiller comment')}</StructuredListCell>
-                              <StructuredListCell>{fmt(fulfillerCommentText)}</StructuredListCell>
-                            </StructuredListRow>
+                            {referralIn ? (
+                              // fulfilment is recorded here only for referrals in; a referral out is fulfilled elsewhere
+                              <StructuredListRow>
+                                <StructuredListCell noWrap>{t('fulfilledBy', 'Fulfilled by')}</StructuredListCell>
+                                <StructuredListCell>{terminal ? fmt(fulfilledBy) : <span style={{ color: '#8d8d8d' }}>—</span>}</StructuredListCell>
+                                <StructuredListCell noWrap>{t('fulfillerComment', 'Fulfiller comment')}</StructuredListCell>
+                                <StructuredListCell>{fmt(fulfillerCommentText)}</StructuredListCell>
+                              </StructuredListRow>
+                            ) : (
+                              <StructuredListRow>
+                                <StructuredListCell noWrap>{t('referredTo', 'Referred to')}</StructuredListCell>
+                                <StructuredListCell>{fmt(referredToOf(o))}</StructuredListCell>
+                                <StructuredListCell noWrap />
+                                <StructuredListCell />
+                              </StructuredListRow>
+                            )}
                           </StructuredListBody>
                         </StructuredListWrapper>
                       </div>
@@ -525,6 +694,7 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
           </Table>
         )}
       </DataTable>
+      {referralOutModal}
       <Modal
         open={declineTarget !== null}
         modalHeading={t('declineReferralHeading', 'Decline referral {{orderNumber}}', {

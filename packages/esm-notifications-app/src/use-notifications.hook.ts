@@ -225,6 +225,14 @@ export function useNotifications() {
       writeReadSet();
       setStore({ items: store.items.map((i) => (i.uuid === uuid ? { ...i, read: true } : i)) });
     },
+    markAllRead: () => {
+      const unread = store.items.filter((i) => !i.read);
+      if (unread.length === 0) return;
+      // Persist client-side, like markRead.
+      unread.forEach((i) => readUuids.add(i.uuid));
+      writeReadSet();
+      setStore({ items: store.items.map((i) => (i.read ? i : { ...i, read: true })) });
+    },
     acknowledgeAllVisible: () => {
       const max = store.items.reduce((m, i) => Math.max(m, +new Date(i.createdAt)), 0);
       if (max > lastSeenAt) {

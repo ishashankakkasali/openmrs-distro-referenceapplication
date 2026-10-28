@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@carbon/react';
-import { launchWorkspace, useConfig } from '@openmrs/esm-framework';
+import { launchWorkspace, useConfig, usePatient, useVisit } from '@openmrs/esm-framework';
 import { closeReferralOrder } from './close-referral-order';
 import type { ReferralFulfillmentConfig } from './config-schema';
 
@@ -24,6 +24,9 @@ const RecordReferralResponseAction: React.FC<RecordReferralResponseProps> = (pro
   const { t } = useTranslation();
   const config = useConfig<ReferralFulfillmentConfig>();
   const order = props.order ?? props.orderItem;
+  // Same rule as the Referrals dashboard: the response is recorded during the patient's visit
+  const { patientUuid } = usePatient();
+  const { activeVisit } = useVisit(patientUuid);
 
   // DEBUG: log entire props shape to discover what the slot actually passes
   // eslint-disable-next-line no-console
@@ -76,7 +79,17 @@ const RecordReferralResponseAction: React.FC<RecordReferralResponseProps> = (pro
 
   return (
     <div style={{ padding: '0.5rem 1rem' }}>
-      <Button kind="tertiary" size="sm" onClick={handleClick}>
+      <Button
+        kind="tertiary"
+        size="sm"
+        onClick={handleClick}
+        disabled={!activeVisit}
+        title={
+          activeVisit
+            ? undefined
+            : t('startVisitToRespondHint', 'Start a visit when the patient arrives, then record the referral response')
+        }
+      >
         {t('recordReferralResponse', 'Record referral response')}
       </Button>
     </div>
