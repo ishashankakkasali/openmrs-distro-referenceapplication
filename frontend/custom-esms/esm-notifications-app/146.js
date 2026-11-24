@@ -70,11 +70,24 @@ var es = __webpack_require__(532);
  *     "Some properties are not allowed to be set: alertRead".
  */ 
 const ALERT_PATH = `${esm_framework_singleton_.restBaseUrl}/alert`;
-async function fetchAlerts(userUuid, limit = 50) {
-    const url = `${ALERT_PATH}?u=${encodeURIComponent(userUuid)}&v=full&limit=${limit}`;
-    const res = await (0,esm_framework_singleton_.openmrsFetch)(url);
-    const rows = res?.data?.results ?? [];
-    return rows.map((r)=>toNotificationItem(r, userUuid));
+// The REST page size (OpenMRS caps it at 50 by default) and a stop for runaway paging.
+const PAGE_SIZE = 50;
+const MAX_PAGES = 40;
+/**
+ * The newest `limit` unexpired alerts of the user. The Alert API returns them oldest first and cannot sort,
+ * so the last page holds the newest: every page is read, then the newest are kept. Reading only the first
+ * page would hide every alert past the 50th.
+ */ async function fetchAlerts(userUuid, limit = 50) {
+    const rows = [];
+    for(let page = 0; page < MAX_PAGES; page++){
+        const url = `${ALERT_PATH}?u=${encodeURIComponent(userUuid)}&v=full&limit=${PAGE_SIZE}&startIndex=${page * PAGE_SIZE}`;
+        const res = await (0,esm_framework_singleton_.openmrsFetch)(url);
+        const results = res?.data?.results ?? [];
+        rows.push(...results);
+        const hasNext = (res?.data?.links ?? []).some((l)=>l?.rel === 'next');
+        if (!hasNext || results.length === 0) break;
+    }
+    return rows.map((r)=>toNotificationItem(r, userUuid)).sort((a, b)=>+new Date(b.createdAt) - +new Date(a.createdAt)).slice(0, limit);
 }
 // NOTE: The OpenMRS webservices.rest AlertResource does NOT expose `alertRead`
 // as a writable property — neither on /alert/{uuid} nor on the per-recipient

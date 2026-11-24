@@ -40,6 +40,10 @@ const launchWorkspace2: (
   groupProps?: any,
 ) => void = framework.launchWorkspace2 ?? framework.launchWorkspace;
 
+// How long, after "Record referral response" is clicked, the page keeps looking for the saved
+// Referral Response encounter so it can close the referral order.
+const RESPONSE_POLL_WINDOW_MS = 30 * 60_000;
+
 interface ReferralOrder {
   uuid: string;
   orderNumber: string;
@@ -182,6 +186,11 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
   const pollTimers = useRef<number[]>([]);
   useEffect(() => () => pollTimers.current.forEach((t) => window.clearTimeout(t)), []);
 
+  // Orders this page has already started closing. The form's handlePostResponse and the encounter
+  // poll can both notice the same save; a second close would try to stop an order that is already
+  // stopped and fail.
+  const closingOrders = useRef<Set<string>>(new Set());
+
   const closeAndReload = useCallback(
     async (order: ReferralOrder, responseEncounterUuid?: string) => {
       try {
@@ -278,6 +287,22 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
         }
         const clickedAt = Date.now();
 
+        // Close the referral once, whichever path sees the saved encounter first.
+        let stopped = false;
+        const closeOnce = (encounterUuid: string | undefined, via: string) => {
+          stopped = true;
+          if (closingOrders.current.has(order.uuid)) {
+            return;
+          }
+          closingOrders.current.add(order.uuid);
+          // eslint-disable-next-line no-console
+          console.log(`[referral-fulfillment] closing order via ${via}`, {
+            order: order.uuid,
+            encounter: encounterUuid,
+          });
+          void closeAndReload(order, encounterUuid);
+        };
+
         // eslint-disable-next-line no-console
         console.log('[referral-fulfillment] launching form workspace', {
           orderNumber: order.orderNumber,
@@ -304,7 +329,7 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
                 encounter,
               });
               const encUuid = (encounter as any)?.uuid ?? (encounter as any)?.id;
-              void closeAndReload(order, encUuid);
+              closeOnce(encUuid, 'handlePostResponse');
             },
           },
           {
@@ -322,7 +347,6 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
         // came from the React form engine, i.e. our Referral Response form). Because
         // workspaces2 only allows one patient-form-entry-workspace at a time, the
         // newly-saved encounter unambiguously corresponds to the order we clicked.
-        let stopped = false;
         const isFromOurForm = (enc: any): boolean => {
           if (!enc) return false;
           if (clickedAt && enc.encounterDatetime) {
@@ -348,13 +372,7 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
               try {
                 const full = await openmrsFetch(`/ws/rest/v1/encounter/${newest}?v=full`);
                 if (isFromOurForm(full.data)) {
-                  stopped = true;
-                  // eslint-disable-next-line no-console
-                  console.log('[referral-fulfillment] poll matched encounter for order', {
-                    encounter: newest,
-                    order: order.uuid,
-                  });
-                  await closeAndReload(order, newest);
+                  closeOnce(newest, 'encounter poll');
                   return;
                 }
                 // eslint-disable-next-line no-console
@@ -374,10 +392,12 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
         };
         const id = window.setTimeout(poll, 2000);
         pollTimers.current.push(id);
-        // Hard stop after 60s.
+        // Give up only after the clinician has had ample time to fill in the form. A 60 s limit
+        // left referrals open whenever the form took longer than a minute, and the clinician then
+        // submitted it again (a second set of orders). The poll stops sooner once the order closes.
         const stopId = window.setTimeout(() => {
           stopped = true;
-        }, 60_000);
+        }, RESPONSE_POLL_WINDOW_MS);
         pollTimers.current.push(stopId);
       } catch (e: any) {
         setError(e?.message ?? String(e));

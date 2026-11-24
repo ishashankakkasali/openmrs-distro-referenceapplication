@@ -6,12 +6,17 @@
 #
 # 1. LOINC 4548-4 (HbA1c) SAME-AS mapping on CIEL 159644, so the HbA1c result reaches CCE with a LOINC code
 #    (Serum glucose, CIEL 887, already carries LOINC 2345-7).
-# 2. "Referral to primary health care (PHC)" order concept in a "Referral orderables" set — the set is what
-#    frontend/config-core_demo.json offers in the order basket for the Referral order type (downward referral).
+# 2. "Referral to primary health care (PHC)" order concept in a "Referral orderables" set — the set is what the
+#    referral-fulfillment ESM's "New referral out" offers (referralOutOrderablesConceptSetUuid; downward referral).
 # 3. "Diabetes Triage" form (Vitals encounter): random blood glucose at triage, which the vitals widget lacks.
 # 4. "Referral Intake" visit type: the receiver adaptor files an inbound referral in a closed visit of this type
-#    (OPENMRS_REFERRAL_INTAKE_VISIT_TYPE_UUID), so the referral order has a visit (the O3 Orders widget needs
-#    one) while the OPD visit is still started by the clerk when the patient arrives.
+#    (found by name, or OPENMRS_REFERRAL_INTAKE_VISIT_TYPE_UUID), so the referral order has a visit (the O3 Orders
+#    widget needs one) while the OPD visit is still started by the clerk when the patient arrives.
+# 5. Referral Response form: final diagnosis saved as confirmed.
+# 6. HbA1c in the lab order basket.
+# 7. "New referral out" (referral-fulfillment ESM) and its destination (emitter ServiceRequest.performer):
+#    "Referral Out" encounter type, "Referral destination facility" text concept, "Facility code" location
+#    attribute type, "Referral Destination" location tag, and two placeholder PHC destinations.
 set -euo pipefail
 
 URL=${OPENMRS_URL:-http://localhost:9096/openmrs}
@@ -156,3 +161,38 @@ if exists "concept/$TESTS_ORDERABILITY"; then
   esac
   echo "HbA1c orderable: $(get "concept/$TESTS_ORDERABILITY?v=custom:(setMembers:(uuid))" | grep -c "$HBA1C")"
 fi
+
+# 7. New referral out and its destination. UUIDs are the referral-fulfillment ESM's config defaults
+#    (referralOutEncounterTypeUuid, referralDestinationConceptUuid, referralDestinationLocationTag) and the
+#    emitter's (referral.direction.destination-concept-uuid, facility-code-attribute-type-uuid).
+REFERRAL_OUT_ENCOUNTER_TYPE=7b3f4e2a-9c1d-4e8b-a6f0-2d5c8e1b9a47
+REFERRAL_DESTINATION_CONCEPT=5f8a2c6e-3b9d-4e1f-a7c4-0d6e9b2a8f15
+FACILITY_CODE_ATTRIBUTE_TYPE=9e2b7c40-5d1a-4f8e-b3c6-1a7d0e4f9c52
+REFERRAL_DESTINATION_TAG=4c6e9a1d-2b7f-4e3a-9d05-8f1a6c2e7b31
+CLASS_QUESTION=8d491e50-c2cc-11de-8d13-0010c6dffd0f
+DATATYPE_TEXT=8d4a4ab4-c2cc-11de-8d13-0010c6dffd0f
+
+if ! exists "encountertype/$REFERRAL_OUT_ENCOUNTER_TYPE"; then
+  post encountertype "{\"uuid\":\"$REFERRAL_OUT_ENCOUNTER_TYPE\",\"name\":\"Referral Out\",\"description\":\"Outbound referral raised at this facility (e.g. back-referral to a PHC); its Referral orders are emitted as ServiceRequest with referral-direction outbound\"}" >/dev/null
+fi
+if ! exists "concept/$REFERRAL_DESTINATION_CONCEPT"; then
+  post concept "{\"uuid\":\"$REFERRAL_DESTINATION_CONCEPT\",\"names\":[{\"name\":\"Referral destination facility\",\"locale\":\"en\",\"conceptNameType\":\"FULLY_SPECIFIED\",\"localePreferred\":true}],\"descriptions\":[{\"description\":\"Location uuid of the facility a referral out is sent to\",\"locale\":\"en\"}],\"conceptClass\":\"$CLASS_QUESTION\",\"datatype\":\"$DATATYPE_TEXT\"}" >/dev/null
+fi
+if ! exists "locationattributetype/$FACILITY_CODE_ATTRIBUTE_TYPE"; then
+  post locationattributetype "{\"uuid\":\"$FACILITY_CODE_ATTRIBUTE_TYPE\",\"name\":\"Facility code\",\"description\":\"National facility code of the location, sent as the referral destination identifier\",\"datatypeClassname\":\"org.openmrs.customdatatype.datatype.FreeTextDatatype\",\"minOccurs\":0,\"maxOccurs\":1}" >/dev/null
+fi
+if ! exists "locationtag/$REFERRAL_DESTINATION_TAG"; then
+  post locationtag "{\"uuid\":\"$REFERRAL_DESTINATION_TAG\",\"name\":\"Referral Destination\",\"description\":\"Facilities a patient can be referred out to (shown in New referral out)\"}" >/dev/null
+fi
+# The PHCs a referral out can go to: one served by ERPNext, one by SPICE (facility codes are placeholders until
+# the national facility codes are known). An existing location only gets its name and description updated.
+for destination in "b1d4e7a2-6c3f-4a9e-8b05-2f7c1d9e4a63|ERPNext PHC|PHC served by ERPNext|TEST-PHC-001" \
+                   "c2e5f8b3-7d4a-4b0f-9c16-3a8d2e0f5b74|Spice-facility PHC|PHC served by SPICE|TEST-PHC-002"; do
+  IFS='|' read -r uuid name description code <<< "$destination"
+  if ! exists "location/$uuid"; then
+    post location "{\"uuid\":\"$uuid\",\"name\":\"$name\",\"description\":\"$description\",\"tags\":[\"$REFERRAL_DESTINATION_TAG\"],\"attributes\":[{\"attributeType\":\"$FACILITY_CODE_ATTRIBUTE_TYPE\",\"value\":\"$code\"}]}" >/dev/null
+  else
+    post "location/$uuid" "{\"name\":\"$name\",\"description\":\"$description\"}" >/dev/null
+  fi
+done
+echo "Referral out: encounter type $(get "encountertype/$REFERRAL_OUT_ENCOUNTER_TYPE?v=custom:(display)" | grep -o '"display":"[^"]*"'), destinations $(get "location?tag=Referral%20Destination&v=custom:(display,attributes:(value))" | grep -o '"value":"[^"]*"' | tr '\n' ' ')"
