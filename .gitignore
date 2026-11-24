@@ -10,3 +10,7 @@ CLAUDE.md
 .cursor/
 .aider*
 .clinerules
+
+# ECG AI module: secrets (API keys) and build output
+modules/ecgai/.env
+modules/ecgai/target/

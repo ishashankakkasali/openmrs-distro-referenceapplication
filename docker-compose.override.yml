@@ -26,3 +26,11 @@ services:
   backend:
     build:
       context: .
+    # ECG AI module (modules/ecgai, build: cd modules/ecgai && mvn -q package). Mounted into the distribution folder,
+    # which startup copies into the active modules on every start. API keys and provider go in modules/ecgai/.env
+    # (git-ignored; see modules/ecgai/.env.example). Without a key the module answers "not configured".
+    volumes:
+      - ./modules/ecgai/target/ecgai-1.0.0.omod:/openmrs/distribution/openmrs_modules/ecgai-1.0.0.omod:ro
+    env_file:
+      - path: ./modules/ecgai/.env
+        required: false

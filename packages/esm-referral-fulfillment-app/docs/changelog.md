@@ -3,7 +3,71 @@
 All notable behavior changes to `@openmrs/esm-referral-fulfillment-app`.
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
-## [Unreleased] — 2026-10-23
+## [Unreleased] — 2026-11-23
+
+### Added
+
+- **Imaging** page on the home screen (left navigation, `home/imaging`), for imaging staff, laid out like the
+  Laboratory page:
+  - tiles *Imaging ordered* (not yet uploaded), *Uploaded* (awaiting the doctor's review) and *Results* (reviewed
+    by the doctor). There is no overdue indicator: the "ECG not done in time" alert is CCE's (protocol step), sent to
+    the OpenMRS notification bell and to SPICE;
+  - *Ordered* / *Uploaded* tabs, date range (today by default), search by patient, identifier, order number or test;
+  - one row per imaging order: patient (link to the chart), age, sex, test, order number, time ordered, orderer and
+    status (*Ordered*, *Awaiting review*, *Reviewed*). Refreshes every 30 seconds.
+  - Expanding an order offers **Upload ECG from the machine** (*Upload result* for other imaging), PNG, JPEG or PDF,
+    saved as an attachment in the order's own encounter (captioned with the order number), so the emitted Observation
+    carries the encounter's `source-referral-order` link; this does not change the encounter, so a Referral Response
+    is not sent again. The order moves to *Uploaded* and shows **only the image**, with whether the doctor has reviewed it. A completed order never offers an upload.
+- **Imaging results** in the patient chart (left navigation, next to Orders): where the doctor, back in
+  consultation, reviews the patient's imaging. Orders awaiting review open automatically and show the image, the
+  **AI interpretation** (hardcoded text for now) with *Agree with the AI read*, *Send to cardiologist for
+  confirmatory interpretation* and *My reading differs*, and the **assessment**: suggested working diagnosis and the
+  **STEMI pathway** (facts, cardiac centres with a cath lab hardcoded in config, *Within / Beyond 120 minutes*,
+  *Choose*, *Give now, tick as given*, *Yes, refer for primary PCI / Not now*). A centre beyond 120 minutes switches
+  the advice to fibrinolysis first; *My reading differs* pauses the pathway. Before the upload it says the result is
+  awaited. The Orders widget has no extension point inside a test order's row, hence a chart tab of its own.
+- *Send to cardiologist for confirmatory interpretation* replaces the AI-read buttons with "Sent to <cardiologist>,
+  <facility>, at … · reply due by …" (as in the reference demo), the pathway facts then read "cardiologist
+  confirmation pending", and the saved finding records the send. Cardiologist and reply time are config
+  (`imaging.cardiologist`, default Dr S. Ahmed, SZMCH, 10 minutes); nothing is sent yet. *Yes, refer for primary PCI*
+  shows its "Referral … accepted" status on the page without a notification.
+- **AI read of the ECG** by the `ecgai` OpenMRS module (`modules/ecgai`, REST `/ws/rest/v1/ecgai`, LangChain4j): the
+  upload starts it; the module reads the ECG with the user's privileges, sends it with the clinical team's
+  cardiologist prompt (`modules/ecgai/src/main/resources/prompt.txt`) to the configured LLM (`ECG_AI_PROVIDER` = `anthropic`
+  for Claude, or `gemini`), and saves the structured answer on the order as an *ECG AI interpretation* observation
+  (JSON). Imaging results shows its three sections (ECG interpretation, disposition, next steps within / beyond 120
+  minutes), loading the saved read or starting it and polling. The STEMI pathway opens only when the disposition is
+  *Immediate cath lab referral*; otherwise a *No referral: serial ECG monitoring* note shows and no referral decision
+  is needed. The headline and suggested diagnosis come from the AI read. Without an API key on the backend the
+  page shows the config texts as a labelled *demo read*. Config: `imaging.aiRead.enabled`, `imaging.aiRead.conceptUuid`.
+- The order's status follows the work: uploading sets **IN_PROGRESS** (the chart's Orders widget shows *In
+  progress*); **Complete review** in Imaging results saves the review and sets **COMPLETED**. It is available once
+  the AI read is agreed (with a referral decision: refer for PCI, or not now with a reason) or the clinician's
+  reading differs; for other imaging, once a finding is written.
+- The review is saved as the order's result: an **Imaging review** obs group (*Imaging finding*, *Imaging working
+  diagnosis*, *Imaging plan*) linked to the order in its encounter, so the chart's Orders widget lists it under the
+  order. Adding these obs does not change the encounter, so a Referral Response encounter is not sent again. A
+  reviewed order shows its saved review read-only.
+- Configuration object `imaging` (see configuration.md).
+- Metadata script `scripts/imaging-orders-o3-setup.sh`:
+  - **Imaging Order** order type (`org.openmrs.TestOrder`, still published as a FHIR ServiceRequest);
+  - the ECG concepts (*Electrocardiogram (ECG)*, CIEL 161157) in the *Radiology/Imaging Procedure* class, mapped to
+    Imaging Order with SQL (REST cannot set an order type's concept classes). The form engine orders a test without
+    an order type, so OpenMRS picks it from the concept class: an ECG is now an Imaging order and no longer appears
+    on the Laboratory page;
+  - **Referral Response form**: *Chest pain* in the *Illness* dropdown, and *Order ECG* shown for *Heart disease* or
+    *Chest pain* (the same form for every referral);
+  - **Imaging review** concept set and its three text members, the result saved by Complete review.
+
+### Not connected yet
+
+- *Send to cardiologist* and *Yes, refer for primary PCI* only record the choice on the page; nothing is sent. Until Complete
+  review the choices are kept in sessionStorage per order (lost if the browser session ends); the saved review keeps
+  the outcome.
+- The referral-acknowledgement SLA alert (4 hours, 1 minute for the demo) belongs to the CCE protocol and events.
+
+## 2026-10-23
 
 ### Added
 

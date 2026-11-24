@@ -24,6 +24,42 @@
       "meta": {
         "title": "Referrals"
       }
+    },
+    {
+      "name": "imaging-dashboard-link",
+      "component": "imagingDashboardLink",
+      "slot": "homepage-dashboard-slot",
+      "meta": {
+        "name": "imaging",
+        "slot": "imaging-dashboard-slot",
+        "title": "Imaging"
+      }
+    },
+    {
+      "name": "imaging-dashboard",
+      "component": "imagingDashboard",
+      "slot": "imaging-dashboard-slot"
+    },
+    {
+      "name": "imaging-results-dashboard",
+      "component": "imagingResultsLink",
+      "slot": "patient-chart-dashboard-slot",
+      "order": 4,
+      "meta": {
+        "slot": "patient-chart-imaging-results-dashboard-slot",
+        "path": "Imaging results",
+        "title": "Imaging results",
+        "icon": "omrs-icon-image-medical"
+      }
+    },
+    {
+      "name": "imaging-results-widget",
+      "component": "imagingResults",
+      "slot": "patient-chart-imaging-results-dashboard-slot",
+      "order": 0,
+      "meta": {
+        "title": "Imaging results"
+      }
     }
   ],
   "version": "1.0.0"

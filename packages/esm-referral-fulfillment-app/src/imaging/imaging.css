@@ -1,0 +1,377 @@
+/* Imaging page (home/imaging). Scoped with the img- prefix; colours follow Carbon tokens with fallbacks. */
+
+.img-pad {
+  padding: 1rem;
+}
+
+.img-field {
+  margin-bottom: 1rem;
+}
+
+.img-field:last-child {
+  margin-bottom: 0;
+}
+
+.img-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--cds-text-secondary, #525252);
+  margin-bottom: 0.375rem;
+}
+
+.img-small {
+  font-size: 0.75rem;
+  color: var(--cds-text-secondary, #525252);
+}
+
+/* Decision-support callouts */
+
+.img-cds {
+  border: 1px solid var(--cds-border-subtle-01, #e0e0e0);
+  border-left: 3px solid var(--cds-interactive, #0f62fe);
+  background: var(--cds-layer-02, #f4f4f4);
+  padding: 0.875rem 1rem;
+  margin-top: 1rem;
+}
+
+.img-cds.img-stop {
+  border-color: #ffb3b8;
+  border-left-color: var(--cds-support-error, #da1e28);
+  background: #fff1f1;
+}
+
+.img-cds.img-muted {
+  border-left-color: var(--cds-border-strong-01, #8d8d8d);
+}
+
+.img-cds.img-plain {
+  background: var(--cds-layer-01, #fff);
+  border-left-color: var(--cds-border-subtle-01, #e0e0e0);
+}
+
+.img-kind {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cds-text-secondary, #525252);
+  margin-bottom: 0.375rem;
+}
+
+.img-cds-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.375rem;
+}
+
+.img-stop .img-cds-title {
+  color: #a2191f;
+}
+
+.img-cds p {
+  font-size: 0.875rem;
+  line-height: 1.45;
+  margin: 0 0 0.5rem;
+}
+
+.img-facts {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--cds-text-secondary, #525252);
+}
+
+.img-facts li::before {
+  content: '·';
+  margin-right: 0.5rem;
+}
+
+.img-actrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.img-sub {
+  font-size: 0.75rem;
+  color: var(--cds-text-secondary, #525252);
+  margin-top: 0.125rem;
+}
+
+.img-ecg-frame {
+  border: 1px solid #f2c4c4;
+  background: #fff5f5;
+  padding: 0.25rem;
+  text-align: center;
+}
+
+.img-ecg-frame img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.img-ecg-frame iframe {
+  width: 100%;
+  height: 32rem;
+  border: 0;
+}
+
+/* Cardiac centres */
+
+.img-centre {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background: var(--cds-layer-01, #fff);
+  border: 1px solid var(--cds-border-subtle-01, #e0e0e0);
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.img-centre.img-chosen {
+  border: 1px solid var(--cds-interactive, #0f62fe);
+  box-shadow: inset 3px 0 0 var(--cds-interactive, #0f62fe);
+}
+
+.img-centre-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.img-centre-meta {
+  font-size: 0.8125rem;
+  color: var(--cds-text-secondary, #525252);
+  margin-top: 0.25rem;
+}
+
+.img-centre-side {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.img-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.img-file-input {
+  display: none;
+}
+
+/* Carbon tags truncate long labels; the AI disclaimer and timing tags must read in full */
+
+.img-result .cds--tag,
+.img-imaging .cds--tag {
+  max-width: none;
+}
+
+.img-result .cds--tag .cds--tag__label,
+.img-imaging .cds--tag .cds--tag__label {
+  overflow: visible;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+/* selects next to buttons (e.g. "My reading differs") sit inline instead of taking the full row */
+
+.img-actrow .cds--form-item,
+
+.img-actrow .cds--select {
+  flex: 0 1 18rem;
+  width: auto;
+  min-width: 14rem;
+}
+
+.img-kind .cds--tag {
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* ── Imaging page layout, modelled on the Laboratory page ── */
+
+.img-imaging {
+  background: var(--cds-background, #f4f4f4);
+  min-height: 100%;
+}
+
+.img-imaging-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--cds-layer-01, #fff);
+  border-bottom: 1px solid var(--cds-border-subtle-01, #e0e0e0);
+}
+
+.img-imaging-icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--brand-03, #007d79);
+}
+
+.img-imaging-location {
+  font-size: 1rem;
+  color: var(--cds-text-secondary, #525252);
+}
+
+.img-imaging-title {
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin: 0.25rem 0 0;
+}
+
+.img-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.img-tile {
+  background: var(--cds-layer-01, #fff);
+  border: 1px solid var(--cds-border-subtle-01, #e0e0e0);
+  padding: 1rem;
+}
+
+.img-tile-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.img-tile-label {
+  font-size: 0.75rem;
+  color: var(--cds-text-secondary, #525252);
+}
+
+.img-tile-value {
+  font-size: 1.75rem;
+  margin-top: 0.25rem;
+}
+
+
+.img-imaging-panel {
+  margin: 1rem;
+  background: var(--cds-layer-01, #fff);
+  border: 1px solid var(--cds-border-subtle-01, #e0e0e0);
+}
+
+.img-imaging-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: var(--cds-layer-02, #f4f4f4);
+}
+
+.img-imaging-toolbar .cds--search {
+  flex: 0 1 18rem;
+}
+
+.img-imaging .cds--tabs {
+  padding: 0 1rem;
+}
+
+.img-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-size: 0.875rem;
+  color: var(--cds-text-secondary, #525252);
+}
+
+.img-empty-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--cds-text-primary, #161616);
+  margin-bottom: 0.25rem;
+}
+
+.img-error {
+  color: var(--cds-support-error, #da1e28);
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+
+.img-result {
+  padding: 1rem 0.5rem 1.25rem;
+  max-width: 64rem;
+}
+
+/* keep the "given 15:17" tag next to its item, not at the far end of the row */
+.img-check .cds--checkbox-wrapper,
+.img-check .cds--form-item {
+  flex: 0 1 auto;
+  width: auto;
+}
+
+/* Complete review footer and the saved review of a completed order */
+.img-complete {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--cds-border-subtle-01, #e0e0e0);
+}
+
+.img-review {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr);
+  gap: 0.5rem 1rem;
+  font-size: 0.875rem;
+  margin: 0.25rem 0 0;
+}
+
+.img-review dt {
+  color: var(--cds-text-secondary, #525252);
+}
+
+.img-review dd {
+  margin: 0;
+}
+
+.img-chart {
+  padding: 1rem;
+}
+
+/* AI read: the three sections of the cardiologist prompt */
+.img-ai p {
+  margin: 0 0 0.75rem;
+}
+
+.img-ai .img-label {
+  margin-top: 0.25rem;
+}
+
+.img-ai-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.img-ai-steps ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}

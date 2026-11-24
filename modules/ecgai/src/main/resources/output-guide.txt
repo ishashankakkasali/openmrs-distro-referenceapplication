@@ -1,0 +1,9 @@
+Return your answer in the JSON fields provided:
+- ecgInterpretation: section 1, 2-3 lines.
+- meetsStemiOmiCriteria: true if the ECG meets STEMI/OMI criteria.
+- disposition: IMMEDIATE_CATH_LAB_REFERRAL (Immediate Cath Lab Referral / Urgent PCI Transfer) or
+  NO_REFERRAL_SERIAL_ECG_MONITORING (No Referral / Serial ECG Monitoring); dispositionText: section 2 in one or two lines.
+- nextStepsIfPciWithin120Min and nextStepsIfPciBeyond120Min: section 3, one short bullet per item.
+- headline: the key finding in under 10 words (e.g. "ST elevation V1-V4, reciprocal changes III/aVF").
+- suggestedDiagnosis: a working diagnosis in a few words.
+- isTwelveLeadEcg: false if the file is not a readable 12-lead ECG; then say why in ecgInterpretation.

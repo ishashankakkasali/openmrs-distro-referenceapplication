@@ -21,6 +21,22 @@ exposed under the module name `@openmrs/esm-referral-fulfillment-app`.
 | `referralDestinationConceptUuid` | UUID | `5f8a2c6e-3b9d-4e1f-a7c4-0d6e9b2a8f15` | Text concept (*Referral destination facility*) recorded on the Referral Out encounter with the destination location uuid. The emitter sends that location as `ServiceRequest.performer`. |
 | `referralOutReferencePrefix` | String | `RO` | Prefix of the reference number generated for a referral out (`RO-20261023-K7Q2`), saved as the order's accession number and sent as the ServiceRequest's `ACSN` identifier. |
 
+### `imaging` — Imaging page
+
+| Key | Type | Default | Description |
+| --- | --- | --- | --- |
+| `imaging.imagingOrderTypeUuid` | UUID | `5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e01` | *Imaging Order* order type listed on the Imaging page. Created by `scripts/imaging-orders-o3-setup.sh`. |
+| `imaging.ecgConceptUuids` | ConceptUuid[] | `5333e05c-…` (*Electrocardiogram (ECG)*), `161157AAAA…` | Concepts treated as an ECG: due time, AI read and assessment. |
+| `imaging.reviewConceptUuids.set` / `.finding` / `.diagnosis` / `.plan` | ConceptUuid | `5a7d2c3e-…7e03` / `…7e04` / `…7e05` / `…7e06` | The *Imaging review* obs group saved by Complete review and its three text members (created by the setup script). |
+| `imaging.aiRead.enabled` / `imaging.aiRead.conceptUuid` | Boolean / ConceptUuid | `true` / `5a7d2c3e-…7e09` | AI read of an uploaded ECG by the `ecgai` backend module, and the *ECG AI interpretation* observation it saves. Off, or without an API key on the backend, the demo texts are shown. |
+| `imaging.ecgAiInterpretation` | String | ST elevation in V1–V4, … | AI interpretation shown under an uploaded ECG (hardcoded until the AI read is connected). |
+| `imaging.ecgAiFinding` | String | `ST elevation V1–V4` | Short AI finding for the notification and the pathway facts. |
+| `imaging.suggestedDiagnosis` | String | `Suspected acute anterior STEMI (AI read)` | Working diagnosis suggested after the AI read. |
+| `imaging.pciLimitMinutes` | Number | `120` | ECG-to-opened-artery limit deciding *Within / Beyond* and PCI vs fibrinolysis. |
+| `imaging.cardiacCentresNote` | String | `service register, updated 08:30 today` | Source note above the centre list. |
+| `imaging.cardiacCentres` | Object[] | the two centres of the reference demo | `{ name, distance, travel, cathLab, arteryOpenedMinutes, recommended }`. The recommended centre is chosen by default. |
+| `imaging.giveNow` | String[] | Aspirin 300 mg, chewed, … | *Give now, tick as given* items. |
+
 ## TypeScript Type
 
 ```ts
