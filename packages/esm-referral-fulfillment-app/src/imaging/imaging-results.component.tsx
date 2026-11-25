@@ -3,7 +3,7 @@
  * the ECG uploaded on the Imaging page): the image, the AI read, the assessment and Complete review, which saves the
  * review as the order's result (also listed under the order in the chart's Orders).
  */
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   DataTable,
@@ -53,10 +53,14 @@ const ImagingResults: React.FC<Props> = (props) => {
       const rows = await fetchPatientImagingOrders(patientUuid, imaging.imagingOrderTypeUuid);
       setOrders(rows);
       setError(null);
-      // on first load, open what needs the doctor: results awaiting review
-      setExpanded(
-        (cur) => cur ?? new Set(rows.filter((o) => o.fulfillerStatus === 'IN_PROGRESS').map((o) => o.uuid)),
-      );
+      // On first load, open the order the Imaging page linked to (?order=<uuid>), or else what needs the doctor:
+      // results awaiting review
+      setExpanded((cur) => {
+        if (cur) return cur;
+        const linked = new URLSearchParams(window.location.search).get('order');
+        if (linked && rows.some((o) => o.uuid === linked)) return new Set([linked]);
+        return new Set(rows.filter((o) => o.fulfillerStatus === 'IN_PROGRESS').map((o) => o.uuid));
+      });
     } catch (e: any) {
       setError(e?.message ?? String(e));
     }
@@ -67,6 +71,17 @@ const ImagingResults: React.FC<Props> = (props) => {
     const id = window.setInterval(() => void load(), REFRESH_MS);
     return () => window.clearInterval(id);
   }, [load]);
+
+  // Bring the linked order into view once it is open
+  const scrolledTo = useRef(false);
+  useEffect(() => {
+    const linked = new URLSearchParams(window.location.search).get('order');
+    if (!linked || scrolledTo.current || !expanded?.has(linked)) return;
+    scrolledTo.current = true;
+    window.requestAnimationFrame(() =>
+      document.querySelector(`[data-order-row="${linked}"]`)?.scrollIntoView({ block: 'start', behavior: 'smooth' }),
+    );
+  }, [expanded]);
 
   const toggle = (uuid: string) =>
     setExpanded((cur) => {
@@ -137,7 +152,12 @@ const ImagingResults: React.FC<Props> = (props) => {
                 const isOpen = !!expanded?.has(row.id);
                 return (
                   <React.Fragment key={row.id}>
-                    <TableExpandRow {...getRowProps({ row })} isExpanded={isOpen} onExpand={() => toggle(row.id)}>
+                    <TableExpandRow
+                      {...getRowProps({ row })}
+                      isExpanded={isOpen}
+                      onExpand={() => toggle(row.id)}
+                      data-order-row={row.id}
+                    >
                       {row.cells.map((cell: any) =>
                         cell.info.header === 'status' ? (
                           <TableCell key={cell.id}>{statusTag(o)}</TableCell>

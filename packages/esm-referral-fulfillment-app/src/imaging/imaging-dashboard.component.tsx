@@ -221,14 +221,19 @@ const ImagingDashboard: React.FC = () => {
                           {...getRowProps({ row })}
                           isExpanded={expanded.has(row.id)}
                           onExpand={() => toggle(row.id)}
+                          // The whole row opens the order (people click the name), except its own arrow and links
+                          className="img-row-clickable"
+                          title={expanded.has(row.id) ? undefined : t('openToUpload', 'Open to upload the result')}
+                          onClick={(e: React.MouseEvent) => {
+                            if ((e.target as HTMLElement).closest('button, a')) return;
+                            toggle(row.id);
+                          }}
                         >
                           {row.cells.map((cell: any) => {
                             if (cell.info.header === 'patient') {
                               return (
                                 <TableCell key={cell.id}>
-                                  <ConfigurableLink to={`\${openmrsSpaBase}/patient/${o.patient.uuid}/chart`}>
-                                    {o.patient.name}
-                                  </ConfigurableLink>
+                                  <span className="img-patient-name">{o.patient.name}</span>
                                   <div className="img-sub">{o.patient.identifier}</div>
                                 </TableCell>
                               );
@@ -251,6 +256,20 @@ const ImagingDashboard: React.FC = () => {
                         </TableExpandRow>
                         {expanded.has(row.id) && (
                           <TableExpandedRow colSpan={dtHeaders.length + 1}>
+                            {/* Once the result is uploaded, the doctor reviews it in the patient's Imaging results: above the image,
+                                which would otherwise push it out of view */}
+                            {(o.fulfillerStatus === 'IN_PROGRESS' || o.fulfillerStatus === 'COMPLETED') && (
+                              <div className="img-open-link">
+                                <ConfigurableLink
+                                  to={`\${openmrsSpaBase}/patient/${o.patient.uuid}/chart/Imaging results?order=${o.uuid}`}
+                                >
+                                  {t('openPatientImagingResults', 'Open {{name}}’s Imaging results', {
+                                    name: o.patient.name,
+                                    interpolation: { escapeValue: false },
+                                  })}
+                                </ConfigurableLink>
+                              </div>
+                            )}
                             <ImagingResult
                               order={o}
                               mode="upload"

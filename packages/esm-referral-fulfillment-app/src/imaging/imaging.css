@@ -375,3 +375,20 @@
   font-size: 0.875rem;
   line-height: 1.45;
 }
+
+/* Imaging page rows: the whole row opens the order */
+.img-row-clickable {
+  cursor: pointer;
+}
+
+.img-patient-name {
+  font-weight: 600;
+  color: var(--cds-text-primary, #161616);
+}
+
+/* In an opened row of an uploaded result: the patient's Imaging results, where the doctor reviews it */
+.img-open-link {
+  /* above an uploaded result's image; lines up with the result (.img-result pads 0.5rem) */
+  padding: 1rem 0.5rem 0;
+  font-size: 0.875rem;
+}
