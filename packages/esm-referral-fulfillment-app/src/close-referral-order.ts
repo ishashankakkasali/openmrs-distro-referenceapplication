@@ -114,6 +114,32 @@ export async function declineReferralOrder({ orderUuid, comment }: CloseArgs): P
 }
 
 /**
+ * The receiving facility acknowledges a referral it was sent (e.g. the cardiac centre, a PCI referral): fulfillerStatus
+ * RECEIVED, with who acknowledged it, encoded like the other fulfiller comments ("<comment> | by: <name>").
+ */
+export async function acknowledgeReferralOrder({ orderUuid, comment }: CloseArgs): Promise<boolean> {
+  const fulfiller = currentUserDisplay();
+  const fulfillerComment = fulfiller ? `${comment}${FULFILLER_TAG}${fulfiller}` : comment;
+  try {
+    await openmrsFetch(`/ws/rest/v1/order/${orderUuid}/fulfillerdetails`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: { fulfillerStatus: 'RECEIVED', fulfillerComment },
+    });
+    showSnackbar({ kind: 'success', title: 'Referral acknowledged', subtitle: comment, isLowContrast: true });
+    return true;
+  } catch (err) {
+    console.error('Failed to acknowledge referral order', err);
+    showSnackbar({
+      kind: 'error',
+      title: 'Could not acknowledge referral',
+      subtitle: err instanceof Error ? err.message : 'Unknown error',
+    });
+    return false;
+  }
+}
+
+/**
  * POST /ws/rest/v1/order
  *
  * Creates a DISCONTINUE order that references the original via

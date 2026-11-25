@@ -28,6 +28,9 @@
     "logo": {
       "src": "/openmrs/spa/custom-esms/branding/epic-logo-color.svg",
       "alt": "Epic"
+    },
+    "chooseLocation": {
+      "numberToShow": 10
     }
   }
 }

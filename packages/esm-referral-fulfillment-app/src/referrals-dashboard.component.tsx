@@ -23,8 +23,23 @@ import {
   Dropdown,
   TextArea,
 } from '@carbon/react';
-import { AddIcon, launchWorkspace, openmrsFetch, showSnackbar, useConfig, useVisit } from '@openmrs/esm-framework';
-import { closeReferralOrder, declineReferralOrder, discontinueReferralOrder } from './close-referral-order';
+import {
+  AddIcon,
+  launchWorkspace,
+  openmrsFetch,
+  setCurrentVisit,
+  showSnackbar,
+  useConfig,
+  useSession,
+  useVisit,
+} from '@openmrs/esm-framework';
+import {
+  acknowledgeReferralOrder,
+  closeReferralOrder,
+  declineReferralOrder,
+  discontinueReferralOrder,
+} from './close-referral-order';
+import { destinationUuidOf, isCardiacCentre, moveVisitHere } from './referral-site';
 import type { ReferralFulfillmentConfig } from './config-schema';
 import NewReferralOutModal from './new-referral-out-modal.component';
 import ReferralResponseModal from './referral-response/referral-response-modal.component';
@@ -91,7 +106,14 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
   const patientUuid = props.patientUuid ?? props.patient?.id ?? props.patient?.uuid;
   // The referral response is part of the patient's visit at this facility: it can only be
   // recorded once the patient has arrived and a visit has been started (check-in).
-  const { activeVisit, isLoading: isLoadingVisit } = useVisit(patientUuid);
+  const { activeVisit, isLoading: isLoadingVisit, mutate: mutateVisit } = useVisit(patientUuid);
+  // The location the user logged in at stands for the facility (referral-site.ts): a PCI referral is answered only at
+  // the cardiac centre it was sent to, and a cardiac centre does not answer the UHC's referrals in.
+  const session = useSession();
+  const sessionLocationUuid = session?.sessionLocation?.uuid;
+  const sessionLocationName = session?.sessionLocation?.display ?? '';
+  const atCardiacCentre = isCardiacCentre(sessionLocationUuid, config.imaging.cardiacCentres);
+  const [busy, setBusy] = useState<string | null>(null);
 
   const [orders, setOrders] = useState<ReferralOrder[] | null>(null);
   // referral order uuid → clinical notes recorded with its Referral Response form
@@ -264,6 +286,64 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
     [config, loadOrders, patientUuid],
   );
 
+  const handleAcknowledge = useCallback(
+    async (order: ReferralOrder) => {
+      setBusy(order.uuid);
+      const at = new Date().toLocaleString([], { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+      await acknowledgeReferralOrder({
+        orderUuid: order.uuid,
+        comment: t('acknowledgedAtComment', 'Acknowledged at {{centre}}, {{at}}', { centre: sessionLocationName, at }),
+      });
+      setBusy(null);
+      await loadOrders();
+    },
+    [sessionLocationName, loadOrders, t],
+  );
+
+  // The patient arrives at the cardiac centre: the UHC visit ends and a visit starts here, so the PCI centre's
+  // response is recorded in the centre's own visit.
+  const handleAdmitHere = useCallback(
+    async (order: ReferralOrder) => {
+      if (!patientUuid || !sessionLocationUuid) return;
+      setBusy(order.uuid);
+      try {
+        // Arriving implies the referral was acknowledged: record it if it was not
+        if (order.fulfillerStatus !== 'RECEIVED') {
+          const at = new Date().toLocaleString([], { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+          await acknowledgeReferralOrder({
+            orderUuid: order.uuid,
+            comment: t('acknowledgedAtComment', 'Acknowledged at {{centre}}, {{at}}', { centre: sessionLocationName, at }),
+          });
+        }
+        const visitUuid = await moveVisitHere(
+          patientUuid,
+          activeVisit as any,
+          sessionLocationUuid,
+          config.imaging.pciReferral.visitTypeUuid,
+        );
+        // The chart keeps its own "current visit" (the one forms save into): it must be the new visit here, not the
+        // one just ended at the referring facility
+        if (visitUuid) setCurrentVisit(patientUuid, visitUuid);
+        showSnackbar({
+          kind: 'success',
+          isLowContrast: true,
+          title: t('admittedHere', 'Patient admitted at {{centre}}', { centre: sessionLocationName }),
+          subtitle: t('admittedHereSubtitle', 'The visit at the referring facility has ended.'),
+        });
+        mutateVisit();
+        await loadOrders();
+        // The chart takes its visit when it opens, and the response form saves into that visit: reload the chart so
+        // both use the visit just started here, not the one just ended at the referring facility
+        window.setTimeout(() => window.location.reload(), 1200);
+      } catch (e: any) {
+        showSnackbar({ kind: 'error', title: t('admitFailed', 'Could not start the visit here'), subtitle: e?.message });
+      } finally {
+        setBusy(null);
+      }
+    },
+    [patientUuid, sessionLocationUuid, sessionLocationName, activeVisit, config.imaging.pciReferral.visitTypeUuid, mutateVisit, loadOrders, t],
+  );
+
   const handleStartVisit = useCallback(() => {
     launchWorkspace2('start-visit-workspace-form', { openedFrom: 'referral-fulfillment' });
   }, []);
@@ -287,6 +367,9 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
         setResponding(order);
         return;
       }
+      // Forms save into the chart's current visit: make it the active visit (e.g. after the patient was admitted at the
+      // cardiac centre, the chart could still point at the visit just ended at the UHC)
+      setCurrentVisit(patientUuid, activeVisit.uuid);
       try {
         // Fetch full form object — workspaces2 launcher expects the form, not just a UUID. A PCI referral is answered
         // with the PCI response form; it saves the same Referral Response encounter type, so the close below holds.
@@ -570,7 +653,9 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
     <div style={{ padding: '1rem' }}>
       {/* The outer dashboard wrapper renders its own "Referrals" heading; we
           bold it via a global style and skip rendering our own duplicate title. */}
-      <style>{`.cds--css-grid h4, .patient-chart-dashboard-title { font-weight: 600 !important; }`}</style>
+      <style>{`.cds--css-grid h4, .patient-chart-dashboard-title { font-weight: 600 !important; }
+        .rfa-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+        .rfa-actions > .cds--btn { margin-right: 0 !important; }`}</style>
       {referralOutToolbar}
       <DataTable rows={rows as any} headers={headers as any}>
         {({ rows: dtRows, headers: dtHeaders, getHeaderProps, getRowProps, getTableProps, getExpandHeaderProps }: any) => (
@@ -597,7 +682,13 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
                 // they are only offered on referrals in; a referral out is answered elsewhere, except a PCI
                 // referral, whose response is recorded here (demo).
                 const referralIn = isReferralIn(o);
-                const answerable = referralIn || isPciReferral(o);
+                const pci = isPciReferral(o);
+                const destinationUuid = destinationUuidOf(o, config.referralDestinationConceptUuid);
+                const atDestination = pci && !!sessionLocationUuid && destinationUuid === sessionLocationUuid;
+                const acknowledged = o?.fulfillerStatus === 'RECEIVED';
+                // The visit the response goes in must be at this facility (the cardiac centre's own visit)
+                const visitHere = !!activeVisit && (activeVisit as any).location?.uuid === sessionLocationUuid;
+                const answerable = (referralIn && !atCardiacCentre) || atDestination;
                 const fmt = (v: any) =>
                   v === null || v === undefined || v === '' ? <span style={{ color: '#8d8d8d' }}>—</span> : v;
                 const fmtDate = (v?: string) => (v ? new Date(v).toLocaleString() : null);
@@ -617,7 +708,44 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
                         if (cell.info.header === 'action') {
                           return (
                             <TableCell key={cell.id}>
-                              {answerable && !terminal && (
+                              <div className="rfa-actions">
+                              {pci && !terminal && !atDestination && (
+                                // Raised here, answered at the cardiac centre: only its progress shows here
+                                <span style={{ fontSize: '0.875rem', color: '#525252' }}>
+                                  {acknowledged
+                                    ? t('acknowledgedBy', 'Acknowledged by {{centre}}', { centre: referredToOf(o) ?? '' })
+                                    : t('awaitingCentre', 'Awaiting {{centre}}', { centre: referredToOf(o) ?? '' })}
+                                </span>
+                              )}
+                              {atDestination && !terminal && !acknowledged && (
+                                <Button
+                                  kind="primary"
+                                  size="sm"
+                                  disabled={busy === o.uuid}
+                                  onClick={() => void handleAcknowledge(o)}
+                                  style={{ marginRight: '0.5rem' }}
+                                >
+                                  {t('acknowledge', 'Acknowledge')}
+                                </Button>
+                              )}
+                              {/* One step at a time: Acknowledge, then Admit patient, then the outcome */}
+                              {atDestination && !terminal && acknowledged && !visitHere && !isLoadingVisit && (
+                                <Button
+                                  kind="tertiary"
+                                  size="sm"
+                                  disabled={busy === o.uuid}
+                                  onClick={() => void handleAdmitHere(o)}
+                                  style={{ marginRight: '0.5rem' }}
+                                  title={t(
+                                    'admitHereHint',
+                                    'The patient has arrived at {{centre}}: end the visit at the referring facility and start one here',
+                                    { centre: sessionLocationName },
+                                  )}
+                                >
+                                  {t('admitPatient', 'Admit patient')}
+                                </Button>
+                              )}
+                              {answerable && !terminal && (!pci || (visitHere && acknowledged)) && (
                                 <>
                                   {activeVisit || isLoadingVisit ? (
                                     <Button
@@ -627,11 +755,8 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
                                       onClick={() => handleRecord(o)}
                                       style={{ marginRight: '0.5rem' }}
                                       title={
-                                        isPciReferral(o)
-                                          ? t(
-                                              'recordPciResponseHint',
-                                              'The PCI centre has no system of its own here: record its answer to this referral out (stent procedure performed or not)',
-                                            )
+                                        pci
+                                          ? t('recordPciResponseHintCentre', 'Record the outcome: stent procedure performed or not')
                                           : undefined
                                       }
                                     >
@@ -662,6 +787,7 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
                                   </Button>
                                 </>
                               )}
+                              </div>
                             </TableCell>
                           );
                         }
@@ -677,8 +803,8 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
                         if (cell.info.header === 'status') {
                           return (
                             <TableCell key={cell.id}>
-                              <Tag type={completed ? 'green' : declined ? 'red' : referralIn ? 'gray' : 'cyan'}>
-                                {cell.value}
+                              <Tag type={completed ? 'green' : declined ? 'red' : acknowledged ? 'teal' : referralIn ? 'gray' : 'cyan'}>
+                                {acknowledged ? t('statusAcknowledged', 'ACKNOWLEDGED') : cell.value}
                               </Tag>
                             </TableCell>
                           );

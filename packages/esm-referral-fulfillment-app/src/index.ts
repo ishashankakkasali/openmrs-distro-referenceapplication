@@ -16,6 +16,8 @@ import ImagingDashboardLink from './imaging/imaging-dashboard-link.component';
 import ImagingDashboard from './imaging/imaging-dashboard.component';
 import ImagingResultsLink from './imaging/imaging-results-link.component';
 import ImagingResults from './imaging/imaging-results.component';
+import ReferralsHomeLink from './referrals-home/referrals-home-link.component';
+import ReferralsHome from './referrals-home/referrals-home.component';
 
 const moduleName = '@openmrs/esm-referral-fulfillment-app';
 
@@ -45,3 +47,8 @@ export const imagingDashboard = getSyncLifecycle(ImagingDashboard, options);
 // Imaging results in the patient chart: the doctor reviews an uploaded result (AI read, assessment, Complete review)
 export const imagingResultsLink = getSyncLifecycle(ImagingResultsLink, options);
 export const imagingResults = getSyncLifecycle(ImagingResults, options);
+
+// Referrals page on the home screen (home/referrals): this facility's referrals across patients; at a cardiac centre,
+// the referrals for primary PCI sent to it
+export const referralsHomeLink = getSyncLifecycle(ReferralsHomeLink, options);
+export const referralsHome = getSyncLifecycle(ReferralsHome, options);

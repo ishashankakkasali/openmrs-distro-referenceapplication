@@ -41,6 +41,21 @@
       "slot": "imaging-dashboard-slot"
     },
     {
+      "name": "referrals-home-link",
+      "component": "referralsHomeLink",
+      "slot": "homepage-dashboard-slot",
+      "meta": {
+        "name": "referrals",
+        "slot": "referrals-home-dashboard-slot",
+        "title": "Referrals"
+      }
+    },
+    {
+      "name": "referrals-home",
+      "component": "referralsHome",
+      "slot": "referrals-home-dashboard-slot"
+    },
+    {
       "name": "imaging-results-dashboard",
       "component": "imagingResultsLink",
       "slot": "patient-chart-dashboard-slot",

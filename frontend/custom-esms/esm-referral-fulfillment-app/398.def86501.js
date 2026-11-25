@@ -1,4 +1,4 @@
-(globalThis["webpackChunk_openmrs_esm_referral_fulfillment_app"] = globalThis["webpackChunk_openmrs_esm_referral_fulfillment_app"] || []).push([[312],{
+(globalThis["webpackChunk_openmrs_esm_referral_fulfillment_app"] = globalThis["webpackChunk_openmrs_esm_referral_fulfillment_app"] || []).push([[398],{
 
 /***/ 98
 (module, __webpack_exports__, __webpack_require__) {
@@ -888,7 +888,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* Referral response form, laid out li
 
 /***/ },
 
-/***/ 475
+/***/ 177
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -905,6 +905,8 @@ __webpack_require__.d(__webpack_exports__, {
   recordReferralResponseAction: () => (/* binding */ recordReferralResponseAction),
   referralsDashboard: () => (/* binding */ referralsDashboard),
   referralsDashboardLink: () => (/* binding */ referralsDashboardLink),
+  referralsHome: () => (/* binding */ referralsHome),
+  referralsHomeLink: () => (/* binding */ referralsHomeLink),
   startupApp: () => (/* binding */ startupApp)
 });
 
@@ -1305,6 +1307,16 @@ const configSchema = {
                 _description: 'Form opened by "Record referral response" for a PCI referral ("PCI Referral Response"). It must save a ' + 'Referral Response encounter (encounterTypeUuid) so the referral is closed when it is saved.',
                 _default: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e10'
             },
+            acknowledgeMinutes: {
+                _type: esm_framework_singleton_.Type.Number,
+                _description: 'The cardiac centre should acknowledge a PCI referral within this many minutes of it.',
+                _default: 15
+            },
+            visitTypeUuid: {
+                _type: esm_framework_singleton_.Type.UUID,
+                _description: 'Visit type of the visit started at the cardiac centre when the patient arrives there ("Admit at …"), if the ' + 'patient has no visit to take the type from.',
+                _default: '287463d3-2233-4c69-9851-5841a1f5e109'
+            },
             stentProcedureConceptUuid: {
                 _type: esm_framework_singleton_.Type.ConceptUuid,
                 _description: 'The response form\'s "Stent procedure" question, shown on the answered referral.',
@@ -1480,6 +1492,40 @@ function currentUserDisplay() {
             title: 'Could not decline referral',
             subtitle: err instanceof Error ? err.message : 'Unknown error'
         });
+    }
+}
+/**
+ * The receiving facility acknowledges a referral it was sent (e.g. the cardiac centre, a PCI referral): fulfillerStatus
+ * RECEIVED, with who acknowledged it, encoded like the other fulfiller comments ("<comment> | by: <name>").
+ */ async function acknowledgeReferralOrder({ orderUuid, comment }) {
+    const fulfiller = currentUserDisplay();
+    const fulfillerComment = fulfiller ? `${comment}${FULFILLER_TAG}${fulfiller}` : comment;
+    try {
+        await (0,esm_framework_singleton_.openmrsFetch)(`/ws/rest/v1/order/${orderUuid}/fulfillerdetails`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: {
+                fulfillerStatus: 'RECEIVED',
+                fulfillerComment
+            }
+        });
+        (0,esm_framework_singleton_.showSnackbar)({
+            kind: 'success',
+            title: 'Referral acknowledged',
+            subtitle: comment,
+            isLowContrast: true
+        });
+        return true;
+    } catch (err) {
+        console.error('Failed to acknowledge referral order', err);
+        (0,esm_framework_singleton_.showSnackbar)({
+            kind: 'error',
+            title: 'Could not acknowledge referral',
+            subtitle: err instanceof Error ? err.message : 'Unknown error'
+        });
+        return false;
     }
 }
 /**
@@ -1674,6 +1720,67 @@ const ReferralsDashboardLink = ({ basePath })=>{
     });
 };
 /* harmony default export */ const dashboard_link_component = (ReferralsDashboardLink);
+
+;// ./src/referral-site.ts
+/**
+ * Where a referral is answered. For the demo the UHC and the cardiac centre share this OpenMRS, so the location the
+ * user logged in at stands for the facility: a referral for primary PCI is answered only by a user logged in at the
+ * cardiac centre it was sent to (its destination, recorded on the Referral Out encounter), and a cardiac centre does
+ * not answer the UHC's referrals in.
+ */ 
+/** The destination location of a referral out; the REST API returns a location-uuid text value as the Location. */ function destinationUuidOf(order, destinationConceptUuid) {
+    const value = order?.encounter?.obs?.find((obs)=>obs.concept?.uuid === destinationConceptUuid)?.value;
+    if (value && typeof value === 'object') return value.uuid ?? null;
+    return typeof value === 'string' && value ? value : null;
+}
+function isCardiacCentre(locationUuid, centres) {
+    return !!locationUuid && centres.some((c)=>c.locationUuid === locationUuid);
+}
+/** A fulfiller comment is "<comment> | by: <name>" (close-referral-order.ts). */ function splitFulfillerComment(raw) {
+    if (!raw) return {
+        comment: null,
+        by: null
+    };
+    const i = raw.indexOf(' | by: ');
+    if (i < 0) return {
+        comment: raw,
+        by: null
+    };
+    return {
+        comment: raw.slice(0, i) || null,
+        by: raw.slice(i + ' | by: '.length) || null
+    };
+}
+/**
+ * The patient arrives at this facility: the visit elsewhere (the UHC's) ends now, and a visit starts here, of the
+ * same visit type. Like a transfer: OpenMRS keeps one active visit per patient.
+ */ async function moveVisitHere(patientUuid, activeVisit, locationUuid, fallbackVisitTypeUuid) {
+    const now = new Date();
+    if (activeVisit) {
+        await (0,esm_framework_singleton_.openmrsFetch)(`/ws/rest/v1/visit/${activeVisit.uuid}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: {
+                stopDatetime: new Date(now.getTime() - 1000).toISOString()
+            }
+        });
+    }
+    const res = await (0,esm_framework_singleton_.openmrsFetch)(`/ws/rest/v1/visit`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: {
+            patient: patientUuid,
+            visitType: activeVisit?.visitType?.uuid ?? fallbackVisitTypeUuid,
+            location: locationUuid,
+            startDatetime: now.toISOString()
+        }
+    });
+    return res.data?.uuid;
+}
 
 ;// ./src/create-referral-out.ts
 
@@ -3161,6 +3268,7 @@ const ReferralResponseModal = ({ open, referral, patientUuid, visit, onClose, on
 
 
 
+
 // `launchWorkspace2` is the new (workspaces2) launcher; not yet in this package's
 // type definitions. Cast through framework module to call it without bundling.
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -3179,7 +3287,14 @@ const ReferralsDashboard = (props)=>{
     const patientUuid = props.patientUuid ?? props.patient?.id ?? props.patient?.uuid;
     // The referral response is part of the patient's visit at this facility: it can only be
     // recorded once the patient has arrived and a visit has been started (check-in).
-    const { activeVisit, isLoading: isLoadingVisit } = (0,esm_framework_singleton_.useVisit)(patientUuid);
+    const { activeVisit, isLoading: isLoadingVisit, mutate: mutateVisit } = (0,esm_framework_singleton_.useVisit)(patientUuid);
+    // The location the user logged in at stands for the facility (referral-site.ts): a PCI referral is answered only at
+    // the cardiac centre it was sent to, and a cardiac centre does not answer the UHC's referrals in.
+    const session = (0,esm_framework_singleton_.useSession)();
+    const sessionLocationUuid = session?.sessionLocation?.uuid;
+    const sessionLocationName = session?.sessionLocation?.display ?? '';
+    const atCardiacCentre = isCardiacCentre(sessionLocationUuid, config.imaging.cardiacCentres);
+    const [busy, setBusy] = (0,consume_shared_module_default_react_singleton_.useState)(null);
     const [orders, setOrders] = (0,consume_shared_module_default_react_singleton_.useState)(null);
     // referral order uuid → clinical notes recorded with its Referral Response form
     const [responseNotes, setResponseNotes] = (0,consume_shared_module_default_react_singleton_.useState)({});
@@ -3340,6 +3455,86 @@ const ReferralsDashboard = (props)=>{
         loadOrders,
         patientUuid
     ]);
+    const handleAcknowledge = (0,consume_shared_module_default_react_singleton_.useCallback)(async (order)=>{
+        setBusy(order.uuid);
+        const at = new Date().toLocaleString([], {
+            day: 'numeric',
+            month: 'short',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        await acknowledgeReferralOrder({
+            orderUuid: order.uuid,
+            comment: t('acknowledgedAtComment', 'Acknowledged at {{centre}}, {{at}}', {
+                centre: sessionLocationName,
+                at
+            })
+        });
+        setBusy(null);
+        await loadOrders();
+    }, [
+        sessionLocationName,
+        loadOrders,
+        t
+    ]);
+    // The patient arrives at the cardiac centre: the UHC visit ends and a visit starts here, so the PCI centre's
+    // response is recorded in the centre's own visit.
+    const handleAdmitHere = (0,consume_shared_module_default_react_singleton_.useCallback)(async (order)=>{
+        if (!patientUuid || !sessionLocationUuid) return;
+        setBusy(order.uuid);
+        try {
+            // Arriving implies the referral was acknowledged: record it if it was not
+            if (order.fulfillerStatus !== 'RECEIVED') {
+                const at = new Date().toLocaleString([], {
+                    day: 'numeric',
+                    month: 'short',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                await acknowledgeReferralOrder({
+                    orderUuid: order.uuid,
+                    comment: t('acknowledgedAtComment', 'Acknowledged at {{centre}}, {{at}}', {
+                        centre: sessionLocationName,
+                        at
+                    })
+                });
+            }
+            const visitUuid = await moveVisitHere(patientUuid, activeVisit, sessionLocationUuid, config.imaging.pciReferral.visitTypeUuid);
+            // The chart keeps its own "current visit" (the one forms save into): it must be the new visit here, not the
+            // one just ended at the referring facility
+            if (visitUuid) (0,esm_framework_singleton_.setCurrentVisit)(patientUuid, visitUuid);
+            (0,esm_framework_singleton_.showSnackbar)({
+                kind: 'success',
+                isLowContrast: true,
+                title: t('admittedHere', 'Patient admitted at {{centre}}', {
+                    centre: sessionLocationName
+                }),
+                subtitle: t('admittedHereSubtitle', 'The visit at the referring facility has ended.')
+            });
+            mutateVisit();
+            await loadOrders();
+            // The chart takes its visit when it opens, and the response form saves into that visit: reload the chart so
+            // both use the visit just started here, not the one just ended at the referring facility
+            window.setTimeout(()=>window.location.reload(), 1200);
+        } catch (e) {
+            (0,esm_framework_singleton_.showSnackbar)({
+                kind: 'error',
+                title: t('admitFailed', 'Could not start the visit here'),
+                subtitle: e?.message
+            });
+        } finally{
+            setBusy(null);
+        }
+    }, [
+        patientUuid,
+        sessionLocationUuid,
+        sessionLocationName,
+        activeVisit,
+        config.imaging.pciReferral.visitTypeUuid,
+        mutateVisit,
+        loadOrders,
+        t
+    ]);
     const handleStartVisit = (0,consume_shared_module_default_react_singleton_.useCallback)(()=>{
         launchWorkspace2('start-visit-workspace-form', {
             openedFrom: 'referral-fulfillment'
@@ -3360,6 +3555,9 @@ const ReferralsDashboard = (props)=>{
             setResponding(order);
             return;
         }
+        // Forms save into the chart's current visit: make it the active visit (e.g. after the patient was admitted at the
+        // cardiac centre, the chart could still point at the visit just ended at the UHC)
+        (0,esm_framework_singleton_.setCurrentVisit)(patientUuid, activeVisit.uuid);
         try {
             // Fetch full form object — workspaces2 launcher expects the form, not just a UUID. A PCI referral is answered
             // with the PCI response form; it saves the same Referral Response encounter type, so the close below holds.
@@ -3665,7 +3863,9 @@ const ReferralsDashboard = (props)=>{
         },
         children: [
             /*#__PURE__*/ (0,jsx_runtime.jsx)("style", {
-                children: `.cds--css-grid h4, .patient-chart-dashboard-title { font-weight: 600 !important; }`
+                children: `.cds--css-grid h4, .patient-chart-dashboard-title { font-weight: 600 !important; }
+        .rfa-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+        .rfa-actions > .cds--btn { margin-right: 0 !important; }`
             }),
             referralOutToolbar,
             /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* DataTable */.bQt, {
@@ -3701,7 +3901,13 @@ const ReferralsDashboard = (props)=>{
                                     // they are only offered on referrals in; a referral out is answered elsewhere, except a PCI
                                     // referral, whose response is recorded here (demo).
                                     const referralIn = isReferralIn(o);
-                                    const answerable = referralIn || isPciReferral(o);
+                                    const pci = isPciReferral(o);
+                                    const destinationUuid = destinationUuidOf(o, config.referralDestinationConceptUuid);
+                                    const atDestination = pci && !!sessionLocationUuid && destinationUuid === sessionLocationUuid;
+                                    const acknowledged = o?.fulfillerStatus === 'RECEIVED';
+                                    // The visit the response goes in must be at this facility (the cardiac centre's own visit)
+                                    const visitHere = !!activeVisit && activeVisit.location?.uuid === sessionLocationUuid;
+                                    const answerable = referralIn && !atCardiacCentre || atDestination;
                                     const fmt = (v)=>v === null || v === undefined || v === '' ? /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
                                             style: {
                                                 color: '#8d8d8d'
@@ -3736,33 +3942,73 @@ const ReferralsDashboard = (props)=>{
                                                 children: row.cells.map((cell)=>{
                                                     if (cell.info.header === 'action') {
                                                         return /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* TableCell */.nA6, {
-                                                            children: answerable && !terminal && /*#__PURE__*/ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+                                                            children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                                                className: "rfa-actions",
                                                                 children: [
-                                                                    activeVisit || isLoadingVisit ? /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
-                                                                        kind: "tertiary",
-                                                                        size: "sm",
-                                                                        disabled: !activeVisit,
-                                                                        onClick: ()=>handleRecord(o),
+                                                                    pci && !terminal && !atDestination && // Raised here, answered at the cardiac centre: only its progress shows here
+                                                                    /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
                                                                         style: {
-                                                                            marginRight: '0.5rem'
+                                                                            fontSize: '0.875rem',
+                                                                            color: '#525252'
                                                                         },
-                                                                        title: isPciReferral(o) ? t('recordPciResponseHint', 'The PCI centre has no system of its own here: record its answer to this referral out (stent procedure performed or not)') : undefined,
-                                                                        children: isPciReferral(o) ? t('recordPciResponse', "Record PCI centre's response") : t('recordReferralResponse', 'Record referral response')
-                                                                    }) : /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
-                                                                        kind: "tertiary",
-                                                                        size: "sm",
-                                                                        onClick: handleStartVisit,
-                                                                        style: {
-                                                                            marginRight: '0.5rem'
-                                                                        },
-                                                                        title: t('startVisitToRespondHint', 'Start a visit when the patient arrives, then record the referral response'),
-                                                                        children: t('startVisitToRespond', 'Start visit to respond')
+                                                                        children: acknowledged ? t('acknowledgedBy', 'Acknowledged by {{centre}}', {
+                                                                            centre: referredToOf(o) ?? ''
+                                                                        }) : t('awaitingCentre', 'Awaiting {{centre}}', {
+                                                                            centre: referredToOf(o) ?? ''
+                                                                        })
                                                                     }),
-                                                                    /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
-                                                                        kind: "danger--ghost",
+                                                                    atDestination && !terminal && !acknowledged && /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
+                                                                        kind: "primary",
                                                                         size: "sm",
-                                                                        onClick: ()=>handleDecline(o),
-                                                                        children: t('decline', 'Decline')
+                                                                        disabled: busy === o.uuid,
+                                                                        onClick: ()=>void handleAcknowledge(o),
+                                                                        style: {
+                                                                            marginRight: '0.5rem'
+                                                                        },
+                                                                        children: t('acknowledge', 'Acknowledge')
+                                                                    }),
+                                                                    atDestination && !terminal && acknowledged && !visitHere && !isLoadingVisit && /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
+                                                                        kind: "tertiary",
+                                                                        size: "sm",
+                                                                        disabled: busy === o.uuid,
+                                                                        onClick: ()=>void handleAdmitHere(o),
+                                                                        style: {
+                                                                            marginRight: '0.5rem'
+                                                                        },
+                                                                        title: t('admitHereHint', 'The patient has arrived at {{centre}}: end the visit at the referring facility and start one here', {
+                                                                            centre: sessionLocationName
+                                                                        }),
+                                                                        children: t('admitPatient', 'Admit patient')
+                                                                    }),
+                                                                    answerable && !terminal && (!pci || visitHere && acknowledged) && /*#__PURE__*/ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+                                                                        children: [
+                                                                            activeVisit || isLoadingVisit ? /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
+                                                                                kind: "tertiary",
+                                                                                size: "sm",
+                                                                                disabled: !activeVisit,
+                                                                                onClick: ()=>handleRecord(o),
+                                                                                style: {
+                                                                                    marginRight: '0.5rem'
+                                                                                },
+                                                                                title: pci ? t('recordPciResponseHintCentre', 'Record the outcome: stent procedure performed or not') : undefined,
+                                                                                children: isPciReferral(o) ? t('recordPciResponse', "Record PCI centre's response") : t('recordReferralResponse', 'Record referral response')
+                                                                            }) : /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
+                                                                                kind: "tertiary",
+                                                                                size: "sm",
+                                                                                onClick: handleStartVisit,
+                                                                                style: {
+                                                                                    marginRight: '0.5rem'
+                                                                                },
+                                                                                title: t('startVisitToRespondHint', 'Start a visit when the patient arrives, then record the referral response'),
+                                                                                children: t('startVisitToRespond', 'Start visit to respond')
+                                                                            }),
+                                                                            /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
+                                                                                kind: "danger--ghost",
+                                                                                size: "sm",
+                                                                                onClick: ()=>handleDecline(o),
+                                                                                children: t('decline', 'Decline')
+                                                                            })
+                                                                        ]
                                                                     })
                                                                 ]
                                                             })
@@ -3779,8 +4025,8 @@ const ReferralsDashboard = (props)=>{
                                                     if (cell.info.header === 'status') {
                                                         return /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* TableCell */.nA6, {
                                                             children: /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Tag */.vwO, {
-                                                                type: completed ? 'green' : declined ? 'red' : referralIn ? 'gray' : 'cyan',
-                                                                children: cell.value
+                                                                type: completed ? 'green' : declined ? 'red' : acknowledged ? 'teal' : referralIn ? 'gray' : 'cyan',
+                                                                children: acknowledged ? t('statusAcknowledged', 'ACKNOWLEDGED') : cell.value
                                                             })
                                                         }, cell.id);
                                                     }
@@ -5972,6 +6218,593 @@ const ImagingResults = (props)=>{
 };
 /* harmony default export */ const imaging_results_component = (ImagingResults);
 
+;// ./src/referrals-home/referrals-home-link.component.tsx
+
+
+
+
+/** "Referrals" in the home page's left navigation, next to Imaging (home/referrals). */ const ReferralsHomeLink = ()=>{
+    const { t } = (0,consume_shared_module_default_react_i18next_singleton_.useTranslation)();
+    const isActive = ()=>window.location.pathname.split('/').includes('referrals');
+    const [active, setActive] = (0,consume_shared_module_default_react_singleton_.useState)(isActive);
+    (0,consume_shared_module_default_react_singleton_.useEffect)(()=>{
+        const onRoute = ()=>setActive(isActive());
+        window.addEventListener('single-spa:routing-event', onRoute);
+        return ()=>window.removeEventListener('single-spa:routing-event', onRoute);
+    }, []);
+    return /*#__PURE__*/ (0,jsx_runtime.jsx)(esm_framework_singleton_.ConfigurableLink, {
+        to: `\${openmrsSpaBase}/home/referrals`,
+        className: `cds--side-nav__link${active ? ' active-left-nav-link' : ''}`,
+        children: t('referrals', 'Referrals')
+    });
+};
+/* harmony default export */ const referrals_home_link_component = (ReferralsHomeLink);
+
+;// ./src/referrals-home/referrals-home.resource.ts
+
+const REPRESENTATION = 'custom:(uuid,orderNumber,action,dateActivated,fulfillerStatus,fulfillerComment,urgency,instructions,' + 'concept:(uuid,display),orderer:(display,person:(display)),' + 'encounter:(uuid,encounterType:(uuid),location:(uuid,display),obs:(concept:(uuid),value)),' + 'patient:(uuid,display,person:(age,gender,preferredName:(display))))';
+const dayBound = (d, end)=>{
+    const x = new Date(d);
+    if (end) x.setHours(23, 59, 59, 999);
+    else x.setHours(0, 0, 0, 0);
+    return x;
+};
+/**
+ * Referral orders activated in the date range, across patients, newest first; the DISCONTINUE rows that close a
+ * referral are left out (the referral's own row carries its status). The server widens the range to whole days in its
+ * own time zone, so the exact range is applied here.
+ */ async function fetchReferrals(orderTypeUuid, from, to) {
+    const start = dayBound(from, false);
+    const end = dayBound(to, true);
+    const res = await (0,esm_framework_singleton_.openmrsFetch)(`/ws/rest/v1/order?orderTypes=${orderTypeUuid}&activatedOnOrAfterDate=${encodeURIComponent(start.toISOString())}` + `&activatedOnOrBeforeDate=${encodeURIComponent(end.toISOString())}&v=${REPRESENTATION}&limit=100`);
+    return (res.data?.results ?? []).filter((o)=>(o.action ?? 'NEW').toUpperCase() === 'NEW').filter((o)=>{
+        const at = +new Date(o.dateActivated);
+        return at >= +start && at <= +end;
+    }).map((o)=>{
+        const display = o.patient?.display ?? '';
+        const sep = display.indexOf(' - ');
+        return {
+            uuid: o.uuid,
+            orderNumber: o.orderNumber,
+            dateActivated: o.dateActivated,
+            fulfillerStatus: o.fulfillerStatus,
+            fulfillerComment: o.fulfillerComment,
+            urgency: o.urgency,
+            instructions: o.instructions,
+            concept: o.concept,
+            ordererName: o.orderer?.person?.display ?? o.orderer?.display,
+            encounter: o.encounter,
+            patient: {
+                uuid: o.patient?.uuid,
+                name: o.patient?.person?.preferredName?.display ?? (sep >= 0 ? display.slice(sep + 3) : display),
+                identifier: sep >= 0 ? display.slice(0, sep) : '',
+                age: o.patient?.person?.age,
+                gender: o.patient?.person?.gender
+            }
+        };
+    }).sort((a, b)=>+new Date(b.dateActivated) - +new Date(a.dateActivated));
+}
+
+;// ./src/referrals-home/referrals-home.component.tsx
+
+/**
+ * Referrals page on the home screen (home/referrals): the referrals of this facility, across patients. The location the
+ * user logged in at stands for the facility (referral-site.ts):
+ * - at a cardiac centre, Incoming lists the referrals for primary PCI sent to that centre, with the acknowledgement
+ *   clock and Acknowledge; the outcome is recorded in the patient's Referrals (after the patient is admitted there);
+ * - elsewhere (the UHC), Incoming lists the referrals in (e.g. from Spice), answered in the patient's Referrals.
+ * Sent lists the referrals out raised at this location, with how far the receiving facility has got.
+ */ 
+
+
+
+
+
+
+
+const referrals_home_component_REFRESH_MS = 30000;
+const referrals_home_component_hhmm = (d)=>d.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+    });
+const ReferralsHome = ()=>{
+    const { t: translate } = (0,consume_shared_module_default_react_i18next_singleton_.useTranslation)();
+    const t = (0,consume_shared_module_default_react_singleton_.useCallback)((key, defaultValue, options)=>translate(key, defaultValue, {
+            ...options,
+            interpolation: {
+                escapeValue: false
+            }
+        }), [
+        translate
+    ]);
+    const config = (0,esm_framework_singleton_.useConfig)();
+    const session = (0,esm_framework_singleton_.useSession)();
+    const here = session?.sessionLocation?.uuid;
+    const hereName = session?.sessionLocation?.display ?? '';
+    const atCardiacCentre = isCardiacCentre(here, config.imaging.cardiacCentres);
+    const ackMinutes = config.imaging.pciReferral.acknowledgeMinutes;
+    const [range, setRange] = (0,consume_shared_module_default_react_singleton_.useState)(()=>[
+            new Date(),
+            new Date()
+        ]);
+    const [referrals, setReferrals] = (0,consume_shared_module_default_react_singleton_.useState)(null);
+    const [error, setError] = (0,consume_shared_module_default_react_singleton_.useState)(null);
+    const [tab, setTab] = (0,consume_shared_module_default_react_singleton_.useState)(0);
+    const [search, setSearch] = (0,consume_shared_module_default_react_singleton_.useState)('');
+    const [expanded, setExpanded] = (0,consume_shared_module_default_react_singleton_.useState)(()=>new Set());
+    const [busy, setBusy] = (0,consume_shared_module_default_react_singleton_.useState)(null);
+    const [now, setNow] = (0,consume_shared_module_default_react_singleton_.useState)(()=>Date.now());
+    const toggle = (uuid)=>setExpanded((cur)=>{
+            const next = new Set(cur);
+            if (next.has(uuid)) next.delete(uuid);
+            else next.add(uuid);
+            return next;
+        });
+    const load = (0,consume_shared_module_default_react_singleton_.useCallback)(async ()=>{
+        try {
+            setReferrals(await fetchReferrals(config.orderTypeUuid, range[0], range[1]));
+            setError(null);
+            setNow(Date.now());
+        } catch (e) {
+            setError(e?.message ?? String(e));
+        }
+    }, [
+        config.orderTypeUuid,
+        range
+    ]);
+    (0,consume_shared_module_default_react_singleton_.useEffect)(()=>{
+        void load();
+        const id = window.setInterval(()=>void load(), referrals_home_component_REFRESH_MS);
+        return ()=>window.clearInterval(id);
+    }, [
+        load
+    ]);
+    const isPci = (0,consume_shared_module_default_react_singleton_.useCallback)((r)=>r.concept?.uuid === config.imaging.pciReferral.conceptUuid, [
+        config.imaging.pciReferral.conceptUuid
+    ]);
+    const isReferralIn = (0,consume_shared_module_default_react_singleton_.useCallback)((r)=>r.encounter?.encounterType?.uuid === config.referralInEncounterTypeUuid, [
+        config.referralInEncounterTypeUuid
+    ]);
+    const destinationOf = (0,consume_shared_module_default_react_singleton_.useCallback)((r)=>destinationUuidOf(r, config.referralDestinationConceptUuid), [
+        config.referralDestinationConceptUuid
+    ]);
+    const destinationName = (0,consume_shared_module_default_react_singleton_.useCallback)((r)=>{
+        const value = r.encounter?.obs?.find((o)=>o.concept?.uuid === config.referralDestinationConceptUuid)?.value;
+        if (value && typeof value === 'object') return value.display ?? '';
+        const centre = config.imaging.cardiacCentres.find((c)=>c.locationUuid === value);
+        return centre?.name ?? (typeof value === 'string' ? value : '');
+    }, [
+        config.referralDestinationConceptUuid,
+        config.imaging.cardiacCentres
+    ]);
+    const all = referrals ?? [];
+    // Incoming: what this facility answers. Sent: the referrals out raised here.
+    const incoming = all.filter((r)=>atCardiacCentre ? isPci(r) && destinationOf(r) === here : isReferralIn(r));
+    const sent = all.filter((r)=>!isReferralIn(r) && (!r.encounter?.location || r.encounter.location.uuid === here));
+    const closed = (r)=>r.fulfillerStatus === 'COMPLETED' || r.fulfillerStatus === 'DECLINED';
+    const acknowledged = (r)=>r.fulfillerStatus === 'RECEIVED';
+    // A PCI referral not yet acknowledged has a clock (minutes from the referral)
+    const ackDue = (r)=>new Date(+new Date(r.dateActivated) + ackMinutes * 60000);
+    const waitingAck = incoming.filter((r)=>isPci(r) && !acknowledged(r) && !closed(r));
+    const listed = [
+        incoming,
+        sent
+    ][tab].filter((r)=>{
+        const q = search.trim().toLowerCase();
+        if (!q) return true;
+        return [
+            r.patient.name,
+            r.patient.identifier,
+            r.orderNumber,
+            r.concept.display
+        ].some((v)=>(v ?? '').toLowerCase().includes(q));
+    });
+    // Open work first, newest first within each
+    listed.sort((a, b)=>Number(closed(a)) - Number(closed(b)) || +new Date(b.dateActivated) - +new Date(a.dateActivated));
+    const headers = (0,consume_shared_module_default_react_singleton_.useMemo)(()=>[
+            {
+                key: 'patient',
+                header: t('patient', 'Patient')
+            },
+            {
+                key: 'referral',
+                header: t('referral', 'Referral')
+            },
+            {
+                key: 'party',
+                header: tab === 0 ? t('referredBy', 'Referred by') : t('referredTo', 'Referred to')
+            },
+            {
+                key: 'referred',
+                header: t('referred', 'Referred')
+            },
+            {
+                key: 'orderNumber',
+                header: t('orderNumber', 'Order #')
+            },
+            {
+                key: 'status',
+                header: t('status', 'Status')
+            }
+        ], [
+        t,
+        tab
+    ]);
+    const rows = listed.map((r)=>({
+            id: r.uuid,
+            patient: r.patient.name,
+            referral: r.concept.display,
+            party: tab === 0 ? r.ordererName ?? '' : destinationName(r),
+            referred: new Date(r.dateActivated).toLocaleString(),
+            orderNumber: r.orderNumber,
+            status: ''
+        }));
+    const byId = Object.fromEntries(listed.map((r)=>[
+            r.uuid,
+            r
+        ]));
+    const statusTag = (r)=>{
+        if (r.fulfillerStatus === 'COMPLETED') return /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Tag */.vwO, {
+            type: "green",
+            children: t('statusCompleted', 'Completed')
+        });
+        if (r.fulfillerStatus === 'DECLINED') return /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Tag */.vwO, {
+            type: "red",
+            children: t('statusDeclined', 'Declined')
+        });
+        if (acknowledged(r)) return /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Tag */.vwO, {
+            type: "teal",
+            children: t('statusAcknowledged', 'Acknowledged')
+        });
+        if (isPci(r)) {
+            const due = ackDue(r);
+            const late = now > +due;
+            return /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Tag */.vwO, {
+                type: late ? 'red' : 'warm-gray',
+                children: late ? t('ackOverdue', 'Not acknowledged · due {{time}}', {
+                    time: referrals_home_component_hhmm(due)
+                }) : t('ackDueBy', 'Awaiting acknowledgement · by {{time}}', {
+                    time: referrals_home_component_hhmm(due)
+                })
+            });
+        }
+        return /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Tag */.vwO, {
+            type: "gray",
+            children: tab === 0 ? t('statusAwaitingResponse', 'Awaiting response') : t('statusSent', 'Sent')
+        });
+    };
+    const acknowledge = async (r)=>{
+        setBusy(r.uuid);
+        const at = new Date().toLocaleString([], {
+            day: 'numeric',
+            month: 'short',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        await acknowledgeReferralOrder({
+            orderUuid: r.uuid,
+            comment: t('acknowledgedAtComment', 'Acknowledged at {{centre}}, {{at}}', {
+                centre: hereName,
+                at
+            })
+        });
+        setBusy(null);
+        await load();
+    };
+    const tile = (title, label, value, alert = false)=>/*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+            className: "img-tile",
+            children: [
+                /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                    className: "img-tile-title",
+                    children: title
+                }),
+                /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                    className: "img-tile-label",
+                    children: label
+                }),
+                /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                    className: "img-tile-value",
+                    style: alert && value > 0 ? {
+                        color: '#da1e28'
+                    } : undefined,
+                    children: value
+                })
+            ]
+        });
+    return /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+        className: "img-imaging",
+        children: [
+            /*#__PURE__*/ (0,jsx_runtime.jsxs)("header", {
+                className: "img-imaging-header",
+                children: [
+                    /*#__PURE__*/ (0,jsx_runtime.jsx)("svg", {
+                        className: "img-imaging-icon",
+                        viewBox: "0 0 32 32",
+                        "aria-hidden": "true",
+                        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("path", {
+                            d: "M4 16h18M16 9l7 7-7 7M27 6v20",
+                            fill: "none",
+                            stroke: "currentColor",
+                            strokeWidth: "2",
+                            strokeLinejoin: "round"
+                        })
+                    }),
+                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                        children: [
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                className: "img-imaging-location",
+                                children: hereName
+                            }),
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)("h1", {
+                                className: "img-imaging-title",
+                                children: t('referrals', 'Referrals')
+                            })
+                        ]
+                    })
+                ]
+            }),
+            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                className: "img-tiles",
+                children: atCardiacCentre ? /*#__PURE__*/ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+                    children: [
+                        tile(t('incomingReferrals', 'Incoming referrals'), t('notYetAcknowledged', 'Not yet acknowledged (within {{n}} min)', {
+                            n: ackMinutes
+                        }), waitingAck.length, waitingAck.some((r)=>now > +ackDue(r))),
+                        tile(t('acknowledged', 'Acknowledged'), t('awaitingOutcome', 'Awaiting the outcome'), incoming.filter(acknowledged).length),
+                        tile(t('completed', 'Completed'), t('outcomeRecorded', 'Outcome recorded'), incoming.filter(closed).length)
+                    ]
+                }) : /*#__PURE__*/ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+                    children: [
+                        tile(t('incomingReferrals', 'Incoming referrals'), t('awaitingResponseHere', 'Awaiting a response here'), incoming.filter((r)=>!closed(r)).length),
+                        tile(t('sentReferrals', 'Sent referrals'), t('awaitingReceivingFacility', 'Awaiting the receiving facility'), sent.filter((r)=>!closed(r)).length),
+                        tile(t('completed', 'Completed'), t('closedInRange', 'Closed, in this date range'), all.filter(closed).length)
+                    ]
+                })
+            }),
+            /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Tabs */.tUM, {
+                selectedIndex: tab,
+                onChange: ({ selectedIndex })=>setTab(selectedIndex),
+                children: /*#__PURE__*/ (0,jsx_runtime.jsxs)(es/* TabList */.wbY, {
+                    contained: true,
+                    "aria-label": t('referrals', 'Referrals'),
+                    children: [
+                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Tab */.ozo, {
+                            children: t('tabIncoming', 'Incoming')
+                        }),
+                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Tab */.ozo, {
+                            children: t('tabSent', 'Sent')
+                        })
+                    ]
+                })
+            }),
+            /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                className: "img-imaging-panel",
+                children: [
+                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                        className: "img-imaging-toolbar",
+                        children: [
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
+                                className: "img-small",
+                                children: t('dateRange', 'Date range:')
+                            }),
+                            /*#__PURE__*/ (0,jsx_runtime.jsxs)(es/* DatePicker */.lrV, {
+                                datePickerType: "range",
+                                dateFormat: "d/m/Y",
+                                value: range,
+                                maxDate: new Date().toISOString(),
+                                onChange: (dates)=>dates.length === 2 && setRange([
+                                        dates[0],
+                                        dates[1]
+                                    ]),
+                                children: [
+                                    /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* DatePickerInput */.tKA, {
+                                        id: "referrals-from",
+                                        labelText: "",
+                                        hideLabel: true,
+                                        placeholder: "dd/mm/yyyy",
+                                        size: "md"
+                                    }),
+                                    /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* DatePickerInput */.tKA, {
+                                        id: "referrals-to",
+                                        labelText: "",
+                                        hideLabel: true,
+                                        placeholder: "dd/mm/yyyy",
+                                        size: "md"
+                                    })
+                                ]
+                            }),
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Search */.vji, {
+                                size: "lg",
+                                labelText: t('searchThisList', 'Search this list'),
+                                placeholder: t('searchThisList', 'Search this list'),
+                                value: search,
+                                onChange: (e)=>setSearch(e.target.value)
+                            })
+                        ]
+                    }),
+                    error && /*#__PURE__*/ (0,jsx_runtime.jsx)("p", {
+                        className: "img-error",
+                        children: t('referralsLoadFailed', 'Could not load referrals: {{err}}', {
+                            err: error
+                        })
+                    }),
+                    referrals === null ? /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                        className: "img-pad",
+                        children: /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* InlineLoading */.OuH, {
+                            description: t('loadingReferrals', 'Loading referrals…')
+                        })
+                    }) : rows.length === 0 ? /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                        className: "img-empty",
+                        children: [
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)("p", {
+                                className: "img-empty-title",
+                                children: tab === 0 ? atCardiacCentre ? t('noIncomingAtCentre', 'No referrals sent to {{centre}}', {
+                                    centre: hereName
+                                }) : t('noIncoming', 'No incoming referrals') : t('noSent', 'No referrals sent from {{place}}', {
+                                    place: hereName
+                                })
+                            }),
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)("p", {
+                                children: t('checkFilters', 'Please check the filters above and try again')
+                            })
+                        ]
+                    }) : /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* DataTable */.bQt, {
+                        rows: rows,
+                        headers: headers,
+                        children: ({ rows: dtRows, headers: dtHeaders, getHeaderProps, getRowProps, getTableProps })=>/*#__PURE__*/ (0,jsx_runtime.jsxs)(es/* Table */.XIK, {
+                                ...getTableProps(),
+                                children: [
+                                    /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* TableHead */.ndF, {
+                                        children: /*#__PURE__*/ (0,jsx_runtime.jsxs)(es/* TableRow */.Hjg, {
+                                            children: [
+                                                /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* TableExpandHeader */.Uwq, {
+                                                    "aria-label": t('expandRow', 'Expand row')
+                                                }),
+                                                dtHeaders.map((h)=>/*#__PURE__*/ (0,jsx_runtime.jsx)(es/* TableHeader */.A0N, {
+                                                        ...getHeaderProps({
+                                                            header: h
+                                                        }),
+                                                        children: h.header
+                                                    }, h.key))
+                                            ]
+                                        })
+                                    }),
+                                    /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* TableBody */.BFY, {
+                                        children: dtRows.map((row)=>{
+                                            const r = byId[row.id];
+                                            if (!r) return null;
+                                            const open = expanded.has(row.id);
+                                            const canAcknowledge = tab === 0 && atCardiacCentre && !acknowledged(r) && !closed(r);
+                                            const { comment: progress, by } = splitFulfillerComment(r.fulfillerComment);
+                                            return /*#__PURE__*/ (0,jsx_runtime.jsxs)((consume_shared_module_default_react_singleton_default()).Fragment, {
+                                                children: [
+                                                    /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* TableExpandRow */.fZD, {
+                                                        ...getRowProps({
+                                                            row
+                                                        }),
+                                                        isExpanded: open,
+                                                        onExpand: ()=>toggle(row.id),
+                                                        className: "img-row-clickable",
+                                                        onClick: (e)=>{
+                                                            if (e.target.closest('button, a')) return;
+                                                            toggle(row.id);
+                                                        },
+                                                        children: row.cells.map((cell)=>{
+                                                            if (cell.info.header === 'patient') {
+                                                                return /*#__PURE__*/ (0,jsx_runtime.jsxs)(es/* TableCell */.nA6, {
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
+                                                                            className: "img-patient-name",
+                                                                            children: r.patient.name
+                                                                        }),
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                                                            className: "img-sub",
+                                                                            children: [
+                                                                                r.patient.identifier,
+                                                                                r.patient.age !== undefined ? `${r.patient.age} y` : '',
+                                                                                r.patient.gender
+                                                                            ].filter(Boolean).join(' · ')
+                                                                        })
+                                                                    ]
+                                                                }, cell.id);
+                                                            }
+                                                            if (cell.info.header === 'referral') {
+                                                                return /*#__PURE__*/ (0,jsx_runtime.jsxs)(es/* TableCell */.nA6, {
+                                                                    children: [
+                                                                        cell.value,
+                                                                        r.urgency === 'STAT' && /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Tag */.vwO, {
+                                                                            type: "red",
+                                                                            size: "sm",
+                                                                            style: {
+                                                                                marginLeft: '0.5rem'
+                                                                            },
+                                                                            children: t('stat', 'STAT')
+                                                                        })
+                                                                    ]
+                                                                }, cell.id);
+                                                            }
+                                                            if (cell.info.header === 'status') return /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* TableCell */.nA6, {
+                                                                children: statusTag(r)
+                                                            }, cell.id);
+                                                            return /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* TableCell */.nA6, {
+                                                                children: cell.value
+                                                            }, cell.id);
+                                                        })
+                                                    }),
+                                                    open && /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* TableExpandedRow */.cwJ, {
+                                                        colSpan: dtHeaders.length + 1,
+                                                        children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                                            className: "img-result",
+                                                            children: [
+                                                                /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                                                    className: "img-field",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
+                                                                            className: "img-label",
+                                                                            children: t('reasonForReferral', 'Reason for referral')
+                                                                        }),
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                                                            children: r.instructions || '—'
+                                                                        })
+                                                                    ]
+                                                                }),
+                                                                progress && /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                                                    className: "img-field",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
+                                                                            className: "img-label",
+                                                                            children: t('progress', 'Progress')
+                                                                        }),
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                                                            children: [
+                                                                                progress,
+                                                                                by ? ` · ${by}` : ''
+                                                                            ]
+                                                                        })
+                                                                    ]
+                                                                }),
+                                                                /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                                                    className: "img-actrow",
+                                                                    style: {
+                                                                        marginTop: 0
+                                                                    },
+                                                                    children: [
+                                                                        canAcknowledge && /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
+                                                                            size: "sm",
+                                                                            disabled: busy === r.uuid,
+                                                                            onClick: ()=>void acknowledge(r),
+                                                                            children: t('acknowledge', 'Acknowledge')
+                                                                        }),
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)(esm_framework_singleton_.ConfigurableLink, {
+                                                                            to: `\${openmrsSpaBase}/patient/${r.patient.uuid}/chart/Referrals`,
+                                                                            children: tab === 0 && !closed(r) ? atCardiacCentre ? t('openToAdmitAndRecord', 'Open {{name}}’s referrals to admit and record the outcome', {
+                                                                                name: r.patient.name
+                                                                            }) : t('openToRespond', 'Open {{name}}’s referrals to respond', {
+                                                                                name: r.patient.name
+                                                                            }) : t('openPatientReferrals', 'Open {{name}}’s referrals', {
+                                                                                name: r.patient.name
+                                                                            })
+                                                                        })
+                                                                    ]
+                                                                })
+                                                            ]
+                                                        })
+                                                    })
+                                                ]
+                                            }, row.id);
+                                        })
+                                    })
+                                ]
+                            })
+                    })
+                ]
+            })
+        ]
+    });
+};
+/* harmony default export */ const referrals_home_component = (ReferralsHome);
+
 ;// ./src/index.ts
 /**
  * @openmrs/esm-referral-fulfillment-app
@@ -5981,6 +6814,8 @@ const ImagingResults = (props)=>{
  * Response form workspace pre-bound to the clicked order, and on save closes the
  * order via POST /order/{uuid}/fulfillerdetails.
  */ 
+
+
 
 
 
@@ -6007,6 +6842,10 @@ const imagingDashboard = (0,esm_framework_singleton_.getSyncLifecycle)(imaging_d
 // Imaging results in the patient chart: the doctor reviews an uploaded result (AI read, assessment, Complete review)
 const imagingResultsLink = (0,esm_framework_singleton_.getSyncLifecycle)(imaging_results_link_component, src_options);
 const imagingResults = (0,esm_framework_singleton_.getSyncLifecycle)(imaging_results_component, src_options);
+// Referrals page on the home screen (home/referrals): this facility's referrals across patients; at a cardiac centre,
+// the referrals for primary PCI sent to it
+const referralsHomeLink = (0,esm_framework_singleton_.getSyncLifecycle)(referrals_home_link_component, src_options);
+const referralsHome = (0,esm_framework_singleton_.getSyncLifecycle)(referrals_home_component, src_options);
 
 
 /***/ },

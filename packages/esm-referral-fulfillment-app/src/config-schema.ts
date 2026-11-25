@@ -307,6 +307,18 @@ export const configSchema = {
           'Referral Response encounter (encounterTypeUuid) so the referral is closed when it is saved.',
         _default: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e10',
       },
+      acknowledgeMinutes: {
+        _type: Type.Number,
+        _description: 'The cardiac centre should acknowledge a PCI referral within this many minutes of it.',
+        _default: 15,
+      },
+      visitTypeUuid: {
+        _type: Type.UUID,
+        _description:
+          'Visit type of the visit started at the cardiac centre when the patient arrives there ("Admit at …"), if the ' +
+          'patient has no visit to take the type from.',
+        _default: '287463d3-2233-4c69-9851-5841a1f5e109',
+      },
       stentProcedureConceptUuid: {
         _type: Type.ConceptUuid,
         _description: 'The response form\'s "Stent procedure" question, shown on the answered referral.',
@@ -394,7 +406,9 @@ export interface ImagingConfig {
   suggestedDiagnosis: string;
   aiRead: { enabled: boolean; conceptUuid: string };
   cardiologist: { name: string; facility: string; replyDueMinutes: number };
-  pciReferral: { conceptUuid: string; responseFormUuid: string; stentProcedureConceptUuid: string };
+  pciReferral: { conceptUuid: string; responseFormUuid: string; stentProcedureConceptUuid: string; visitTypeUuid: string;
+    acknowledgeMinutes: number;
+  };
   pciLimitMinutes: number;
   cardiacCentresNote: string;
   cardiacCentres: CardiacCentre[];
