@@ -95,6 +95,8 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
   const [orders, setOrders] = useState<ReferralOrder[] | null>(null);
   // referral order uuid → clinical notes recorded with its Referral Response form
   const [responseNotes, setResponseNotes] = useState<Record<string, string>>({});
+  // the PCI centre's answer ("Stent procedure"), by referral order uuid
+  const [stentProcedure, setStentProcedure] = useState<Record<string, string>>({});
   const [error, setError] = useState<string | null>(null);
 
   // Decline modal state. Kept locally because the modal is small and tightly
@@ -135,6 +137,13 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
     [config.referralInEncounterTypeUuid],
   );
 
+  // A referral for primary PCI is raised here (Imaging results, "Yes, refer for primary PCI") but, for the demo, the
+  // PCI centre's response is recorded here too, with its own form.
+  const isPciReferral = useCallback(
+    (order?: ReferralOrder) => !!order && order.concept?.uuid === config.imaging.pciReferral.conceptUuid,
+    [config.imaging.pciReferral.conceptUuid],
+  );
+
   // Structured decline reasons. Keep this list short and clinically meaningful;
   // free-text "Other (specify in notes)" is the escape hatch.
   const declineReasons = React.useMemo(
@@ -167,16 +176,23 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
       // A referral answered with the Referral Response form is closed by a DISCONTINUE order placed in the
       // response encounter, so that encounter's obs hold the notes the clinician sent back to the source.
       const notes: Record<string, string> = {};
+      const stent: Record<string, string> = {};
       for (const o of all) {
         if ((o.action ?? '').toUpperCase() !== 'DISCONTINUE' || !o.previousOrder?.uuid) continue;
         const value = o.encounter?.obs?.find((obs) => obs.concept?.uuid === config.responseNotesConceptUuid)?.value;
         if (typeof value === 'string' && value) notes[o.previousOrder.uuid] = value;
+        const answer: any = o.encounter?.obs?.find(
+          (obs) => obs.concept?.uuid === config.imaging.pciReferral.stentProcedureConceptUuid,
+        )?.value;
+        const answerText = typeof answer === 'object' ? answer?.display : answer;
+        if (answerText) stent[o.previousOrder.uuid] = answerText;
       }
       setResponseNotes(notes);
+      setStentProcedure(stent);
     } catch (e: any) {
       setError(e?.message ?? String(e));
     }
-  }, [patientUuid, config.orderTypeUuid, config.responseNotesConceptUuid]);
+  }, [patientUuid, config.orderTypeUuid, config.responseNotesConceptUuid, config.imaging.pciReferral.stentProcedureConceptUuid]);
 
   useEffect(() => {
     void loadOrders();
@@ -264,8 +280,10 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
         return;
       }
       try {
-        // Fetch full form object — workspaces2 launcher expects the form, not just a UUID.
-        const formRes = await openmrsFetch(`/ws/rest/v1/form/${config.formUuid}?v=full`);
+        // Fetch full form object — workspaces2 launcher expects the form, not just a UUID. A PCI referral is answered
+        // with the PCI response form; it saves the same Referral Response encounter type, so the close below holds.
+        const formUuid = isPciReferral(order) ? config.imaging.pciReferral.responseFormUuid : config.formUuid;
+        const formRes = await openmrsFetch(`/ws/rest/v1/form/${formUuid}?v=full`);
         const form = formRes.data;
         // The workspace title bar reads `form.display`; mutate it so the order
         // number is visible in the workspace header. (windowProps.title is ignored
@@ -403,7 +421,7 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
         setError(e?.message ?? String(e));
       }
     },
-    [config, patientUuid, closeAndReload, t, activeVisit],
+    [config, patientUuid, closeAndReload, t, activeVisit, isPciReferral],
   );
 
   const handleManualClose = useCallback(
@@ -568,8 +586,10 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
                 // no further action buttons should be offered.
                 const terminal = completed || declined;
                 // Record response / Decline belong to the facility the referral was sent to, so
-                // they are only offered on referrals in; a referral out is answered elsewhere.
+                // they are only offered on referrals in; a referral out is answered elsewhere, except a PCI
+                // referral, whose response is recorded here (demo).
                 const referralIn = isReferralIn(o);
+                const answerable = referralIn || isPciReferral(o);
                 const fmt = (v: any) =>
                   v === null || v === undefined || v === '' ? <span style={{ color: '#8d8d8d' }}>—</span> : v;
                 const fmtDate = (v?: string) => (v ? new Date(v).toLocaleString() : null);
@@ -589,7 +609,7 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
                         if (cell.info.header === 'action') {
                           return (
                             <TableCell key={cell.id}>
-                              {referralIn && !terminal && (
+                              {answerable && !terminal && (
                                 <>
                                   {activeVisit || isLoadingVisit ? (
                                     <Button
@@ -598,8 +618,18 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
                                       disabled={!activeVisit}
                                       onClick={() => handleRecord(o)}
                                       style={{ marginRight: '0.5rem' }}
+                                      title={
+                                        isPciReferral(o)
+                                          ? t(
+                                              'recordPciResponseHint',
+                                              'The PCI centre has no system of its own here: record its answer to this referral out (stent procedure performed or not)',
+                                            )
+                                          : undefined
+                                      }
                                     >
-                                      {t('recordReferralResponse', 'Record referral response')}
+                                      {isPciReferral(o)
+                                        ? t('recordPciResponse', "Record PCI centre's response")
+                                        : t('recordReferralResponse', 'Record referral response')}
                                     </Button>
                                   ) : (
                                     <Button
@@ -675,6 +705,14 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
                               <StructuredListCell noWrap>{t('urgency', 'Priority')}</StructuredListCell>
                               <StructuredListCell>{fmt(o?.urgency)}</StructuredListCell>
                             </StructuredListRow>
+                            {isPciReferral(o) && (
+                              <StructuredListRow>
+                                <StructuredListCell noWrap>{t('stentProcedure', 'Stent procedure')}</StructuredListCell>
+                                <StructuredListCell>{fmt(stentProcedure[o?.uuid])}</StructuredListCell>
+                                <StructuredListCell />
+                                <StructuredListCell />
+                              </StructuredListRow>
+                            )}
                             <StructuredListRow>
                               <StructuredListCell noWrap>{t('orderedBy', 'Ordered by')}</StructuredListCell>
                               <StructuredListCell>{fmt(o?.orderer?.person?.display ?? o?.orderer?.display)}</StructuredListCell>

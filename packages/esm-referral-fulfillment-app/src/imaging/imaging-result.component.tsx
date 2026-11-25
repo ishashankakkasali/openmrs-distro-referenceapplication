@@ -9,7 +9,8 @@
  * The order's status follows the work: uploading the file moves it to IN_PROGRESS (in review); "Complete review"
  * saves the review as the order's result (an "Imaging review" obs group: finding, working diagnosis, plan) and marks
  * it COMPLETED. A completed order shows that saved review, read-only. Until then the clinician's picks are kept in
- * sessionStorage; the send / refer actions are not connected yet.
+ * sessionStorage. "Yes, refer for primary PCI" raises a real referral out to the chosen cardiac centre (Referral order
+ * in a Referral Out encounter, see create-referral-out.ts); "Send to cardiologist" is not connected yet.
  *
  * The AI read comes from the ecgai OpenMRS module (modules/ecgai): the upload starts it, the module sends the ECG to the
  * configured LLM and saves the result on the order ("ECG AI interpretation" observation). In review it is loaded from
@@ -20,6 +21,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, Checkbox, InlineLoading, Select, SelectItem, Tag, TextArea, TextInput } from '@carbon/react';
 import { showSnackbar, useConfig } from '@openmrs/esm-framework';
 import type { CardiacCentre, ReferralFulfillmentConfig } from '../config-schema';
+import { createReferralOut } from '../create-referral-out';
 import {
   type AiRead,
   type ImagingOrder,
@@ -60,7 +62,8 @@ interface Assessment {
   diagnosisEdited: boolean;
   centre: string | null;
   given: Record<string, string>;
-  referDecision: { kind: 'accepted' | 'declined'; at: string; reason?: string } | null;
+  /** accepted: the referral out raised to the chosen centre (its order number), or declined with a reason */
+  referDecision: { kind: 'accepted' | 'declined'; at: string; reason?: string; orderNumber?: string } | null;
 }
 
 const EMPTY: Assessment = {
@@ -98,13 +101,15 @@ const ImagingResult: React.FC<Props> = ({ order, mode, onUploaded, onCompleted }
       translate(key, defaultValue, { ...options, interpolation: { escapeValue: false } }) as string,
     [translate],
   );
-  const { imaging } = useConfig<ReferralFulfillmentConfig>();
+  const config = useConfig<ReferralFulfillmentConfig>();
+  const { imaging } = config;
   const isEcg = imaging.ecgConceptUuids.includes(order.concept.uuid);
 
   const [file, setFile] = useState<ImagingResultFile | null>(null);
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [referring, setReferring] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
 
   const [a, setA] = useState<Assessment>(() => loadAssessment(order.uuid));
@@ -309,10 +314,54 @@ const ImagingResult: React.FC<Props> = ({ order, mode, onUploaded, onCompleted }
     else if (a.referDecision?.kind === 'accepted' && chosen)
       plan =
         `${within(chosen) ? 'Refer for primary PCI' : 'Fibrinolysis, then refer for PCI'}: ${chosen.name} ` +
-        `(artery opened about ${chosen.arteryOpenedMinutes} minutes after the ECG)`;
+        `(${a.referDecision.orderNumber ? `referral ${a.referDecision.orderNumber}; ` : ''}` +
+        `artery opened about ${chosen.arteryOpenedMinutes} minutes after the ECG)`;
     else plan = `Not referred now${a.referDecision?.reason ? `: ${a.referDecision.reason}` : ''}`;
     if (given.length) plan += `. Given: ${given.join(', ')}`;
     return { finding, diagnosis: a.diagnosis, plan };
+  };
+
+  // "Yes, refer": raise the referral out to the chosen centre in the ECG order's visit; on the Referrals page it then
+  // offers "Record referral response" (the PCI response form).
+  const referPci = async () => {
+    if (!chosen) return;
+    setError(null);
+    if (!chosen.locationUuid) {
+      setError(t('centreNoLocation', '{{centre}} has no location in the configuration, so it cannot be referred to.', { centre: chosen.name }));
+      return;
+    }
+    if (!order.visitUuid) {
+      setError(t('ecgNoVisit', 'The ECG order has no visit, so the referral cannot be raised.'));
+      return;
+    }
+    setReferring(true);
+    try {
+      const { orderNumber } = await createReferralOut(
+        {
+          patientUuid: order.patient.uuid,
+          visitUuid: order.visitUuid,
+          conceptUuid: imaging.pciReferral.conceptUuid,
+          destinationLocationUuid: chosen.locationUuid,
+          urgency: 'STAT',
+          instructions:
+            `${within(chosen) ? 'Primary PCI' : 'PCI after fibrinolysis'}: ${headline} ` +
+            `(ECG ${order.orderNumber}${a.diagnosis ? `; working diagnosis ${a.diagnosis}` : ''})`,
+        },
+        config,
+      );
+      update({ referDecision: { kind: 'accepted', at: new Date().toISOString(), orderNumber } });
+      showSnackbar({
+        kind: 'success',
+        isLowContrast: true,
+        title: t('pciReferralRaised', 'Referral {{orderNumber}} raised', { orderNumber }),
+        subtitle: t('pciReferralRaisedTo', 'Referral for primary PCI to {{centre}}', { centre: chosen.name }),
+      });
+    } catch (err: any) {
+      const message = err?.responseBody?.error?.message ?? err?.message ?? String(err);
+      setError(t('pciReferralFailed', 'Could not raise the referral: {{err}}', { err: message }));
+    } finally {
+      setReferring(false);
+    }
   };
 
   // What is still needed before the review can be completed (null when it can)
@@ -700,14 +749,22 @@ const ImagingResult: React.FC<Props> = ({ order, mode, onUploaded, onCompleted }
                   {a.referDecision?.kind === 'accepted' ? (
                     <div className="img-actrow">
                       <Tag type="green">
-                        {t('referAccepted', 'Referral to {{centre}} accepted {{time}}', {
-                          centre: chosen.name,
-                          time: hhmm(a.referDecision.at),
-                        })}
+                        {a.referDecision.orderNumber
+                          ? t('referRaised', 'Referral {{orderNumber}} to {{centre}} raised {{time}}', {
+                              orderNumber: a.referDecision.orderNumber,
+                              centre: chosen.name,
+                              time: hhmm(a.referDecision.at),
+                            })
+                          : t('referAccepted', 'Referral to {{centre}} accepted {{time}}', {
+                              centre: chosen.name,
+                              time: hhmm(a.referDecision.at),
+                            })}
                       </Tag>
-                      <Button kind="ghost" size="sm" onClick={() => update({ referDecision: null })}>
-                        {t('undo', 'Undo')}
-                      </Button>
+                      {!a.referDecision.orderNumber && (
+                        <Button kind="ghost" size="sm" onClick={() => update({ referDecision: null })}>
+                          {t('undo', 'Undo')}
+                        </Button>
+                      )}
                     </div>
                   ) : a.referDecision?.kind === 'declined' ? (
                     <div className="img-actrow">
@@ -732,15 +789,14 @@ const ImagingResult: React.FC<Props> = ({ order, mode, onUploaded, onCompleted }
                     </div>
                   ) : (
                     <div className="img-actrow">
-                      <Button
-                        kind="primary"
-                        onClick={() => {
-                          update({ referDecision: { kind: 'accepted', at: new Date().toISOString() } });
-                        }}
-                      >
-                        {within(chosen)
-                          ? t('yesReferPci', 'Yes, refer for primary PCI')
-                          : t('yesReferAfterLysis', 'Yes, refer for PCI')}
+                      <Button kind="primary" disabled={referring} onClick={() => void referPci()}>
+                        {referring ? (
+                          <InlineLoading description={t('raisingReferral', 'Raising the referral…')} />
+                        ) : within(chosen) ? (
+                          t('yesReferPci', 'Yes, refer for primary PCI')
+                        ) : (
+                          t('yesReferAfterLysis', 'Yes, refer for PCI')
+                        )}
                       </Button>
                       <Button
                         kind="tertiary"

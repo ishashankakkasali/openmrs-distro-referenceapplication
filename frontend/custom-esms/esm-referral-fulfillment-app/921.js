@@ -569,6 +569,24 @@ const configSchema = {
                 _default: 10
             }
         },
+        pciReferral: {
+            _description: '"Yes, refer for primary PCI" raises a referral out to the chosen cardiac centre (a Referral order in a ' + 'Referral Out encounter, like "New referral out"). On the Referrals page that referral offers "Record ' + 'referral response", which opens the PCI response form. Metadata: scripts/pci-referral-o3-setup.sh.',
+            conceptUuid: {
+                _type: esm_framework_singleton_.Type.ConceptUuid,
+                _description: 'Concept of the Referral order ("Referral for primary PCI").',
+                _default: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e0a'
+            },
+            responseFormUuid: {
+                _type: esm_framework_singleton_.Type.UUID,
+                _description: 'Form opened by "Record referral response" for a PCI referral ("PCI Referral Response"). It must save a ' + 'Referral Response encounter (encounterTypeUuid) so the referral is closed when it is saved.',
+                _default: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e10'
+            },
+            stentProcedureConceptUuid: {
+                _type: esm_framework_singleton_.Type.ConceptUuid,
+                _description: 'The response form\'s "Stent procedure" question, shown on the answered referral.',
+                _default: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e0b'
+            }
+        },
         pciLimitMinutes: {
             _type: esm_framework_singleton_.Type.Number,
             _description: 'The artery should be opened within this many minutes of the ECG (primary PCI).',
@@ -605,6 +623,10 @@ const configSchema = {
                 recommended: {
                     _type: esm_framework_singleton_.Type.Boolean,
                     _default: false
+                },
+                locationUuid: {
+                    _type: esm_framework_singleton_.Type.UUID,
+                    _description: 'The centre as an OpenMRS location: the destination recorded on the PCI referral.'
                 }
             },
             _description: 'Cardiac centres with a cath lab. Hardcoded until a service register is connected.',
@@ -615,7 +637,8 @@ const configSchema = {
                     travel: 'about 30 minutes by ambulance',
                     cathLab: 'cath lab available now, team on call',
                     arteryOpenedMinutes: 80,
-                    recommended: true
+                    recommended: true,
+                    locationUuid: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e0e'
                 },
                 {
                     name: 'National Institute of Cardiovascular Diseases, Dhaka',
@@ -623,7 +646,8 @@ const configSchema = {
                     travel: 'about 5 hours by ambulance',
                     cathLab: 'cath lab available',
                     arteryOpenedMinutes: 350,
-                    recommended: false
+                    recommended: false,
+                    locationUuid: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e0f'
                 }
             ]
         },
@@ -1225,6 +1249,8 @@ const ReferralsDashboard = (props)=>{
     const [orders, setOrders] = (0,consume_shared_module_default_react_singleton_.useState)(null);
     // referral order uuid → clinical notes recorded with its Referral Response form
     const [responseNotes, setResponseNotes] = (0,consume_shared_module_default_react_singleton_.useState)({});
+    // the PCI centre's answer ("Stent procedure"), by referral order uuid
+    const [stentProcedure, setStentProcedure] = (0,consume_shared_module_default_react_singleton_.useState)({});
     const [error, setError] = (0,consume_shared_module_default_react_singleton_.useState)(null);
     // Decline modal state. Kept locally because the modal is small and tightly
     // coupled to the dashboard's Decline action.
@@ -1259,6 +1285,11 @@ const ReferralsDashboard = (props)=>{
     const isReferralIn = (0,consume_shared_module_default_react_singleton_.useCallback)((order)=>order?.encounter?.encounterType?.uuid === config.referralInEncounterTypeUuid, [
         config.referralInEncounterTypeUuid
     ]);
+    // A referral for primary PCI is raised here (Imaging results, "Yes, refer for primary PCI") but, for the demo, the
+    // PCI centre's response is recorded here too, with its own form.
+    const isPciReferral = (0,consume_shared_module_default_react_singleton_.useCallback)((order)=>!!order && order.concept?.uuid === config.imaging.pciReferral.conceptUuid, [
+        config.imaging.pciReferral.conceptUuid
+    ]);
     // Structured decline reasons. Keep this list short and clinically meaningful;
     // free-text "Other (specify in notes)" is the escape hatch.
     const declineReasons = consume_shared_module_default_react_singleton_default().useMemo(()=>[
@@ -1285,19 +1316,25 @@ const ReferralsDashboard = (props)=>{
             // A referral answered with the Referral Response form is closed by a DISCONTINUE order placed in the
             // response encounter, so that encounter's obs hold the notes the clinician sent back to the source.
             const notes = {};
+            const stent = {};
             for (const o of all){
                 if ((o.action ?? '').toUpperCase() !== 'DISCONTINUE' || !o.previousOrder?.uuid) continue;
                 const value = o.encounter?.obs?.find((obs)=>obs.concept?.uuid === config.responseNotesConceptUuid)?.value;
                 if (typeof value === 'string' && value) notes[o.previousOrder.uuid] = value;
+                const answer = o.encounter?.obs?.find((obs)=>obs.concept?.uuid === config.imaging.pciReferral.stentProcedureConceptUuid)?.value;
+                const answerText = typeof answer === 'object' ? answer?.display : answer;
+                if (answerText) stent[o.previousOrder.uuid] = answerText;
             }
             setResponseNotes(notes);
+            setStentProcedure(stent);
         } catch (e) {
             setError(e?.message ?? String(e));
         }
     }, [
         patientUuid,
         config.orderTypeUuid,
-        config.responseNotesConceptUuid
+        config.responseNotesConceptUuid,
+        config.imaging.pciReferral.stentProcedureConceptUuid
     ]);
     (0,consume_shared_module_default_react_singleton_.useEffect)(()=>{
         void loadOrders();
@@ -1383,8 +1420,10 @@ const ReferralsDashboard = (props)=>{
             return;
         }
         try {
-            // Fetch full form object — workspaces2 launcher expects the form, not just a UUID.
-            const formRes = await (0,esm_framework_singleton_.openmrsFetch)(`/ws/rest/v1/form/${config.formUuid}?v=full`);
+            // Fetch full form object — workspaces2 launcher expects the form, not just a UUID. A PCI referral is answered
+            // with the PCI response form; it saves the same Referral Response encounter type, so the close below holds.
+            const formUuid = isPciReferral(order) ? config.imaging.pciReferral.responseFormUuid : config.formUuid;
+            const formRes = await (0,esm_framework_singleton_.openmrsFetch)(`/ws/rest/v1/form/${formUuid}?v=full`);
             const form = formRes.data;
             // The workspace title bar reads `form.display`; mutate it so the order
             // number is visible in the workspace header. (windowProps.title is ignored
@@ -1507,7 +1546,8 @@ const ReferralsDashboard = (props)=>{
         patientUuid,
         closeAndReload,
         t,
-        activeVisit
+        activeVisit,
+        isPciReferral
     ]);
     const handleManualClose = (0,consume_shared_module_default_react_singleton_.useCallback)(async (order)=>{
         // Retained for potential admin/debug use; no UI surface exposes it now.
@@ -1717,8 +1757,10 @@ const ReferralsDashboard = (props)=>{
                                     // no further action buttons should be offered.
                                     const terminal = completed || declined;
                                     // Record response / Decline belong to the facility the referral was sent to, so
-                                    // they are only offered on referrals in; a referral out is answered elsewhere.
+                                    // they are only offered on referrals in; a referral out is answered elsewhere, except a PCI
+                                    // referral, whose response is recorded here (demo).
                                     const referralIn = isReferralIn(o);
+                                    const answerable = referralIn || isPciReferral(o);
                                     const fmt = (v)=>v === null || v === undefined || v === '' ? /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
                                             style: {
                                                 color: '#8d8d8d'
@@ -1753,7 +1795,7 @@ const ReferralsDashboard = (props)=>{
                                                 children: row.cells.map((cell)=>{
                                                     if (cell.info.header === 'action') {
                                                         return /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* TableCell */.nA6, {
-                                                            children: referralIn && !terminal && /*#__PURE__*/ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+                                                            children: answerable && !terminal && /*#__PURE__*/ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
                                                                 children: [
                                                                     activeVisit || isLoadingVisit ? /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
                                                                         kind: "tertiary",
@@ -1763,7 +1805,8 @@ const ReferralsDashboard = (props)=>{
                                                                         style: {
                                                                             marginRight: '0.5rem'
                                                                         },
-                                                                        children: t('recordReferralResponse', 'Record referral response')
+                                                                        title: isPciReferral(o) ? t('recordPciResponseHint', 'The PCI centre has no system of its own here: record its answer to this referral out (stent procedure performed or not)') : undefined,
+                                                                        children: isPciReferral(o) ? t('recordPciResponse', "Record PCI centre's response") : t('recordReferralResponse', 'Record referral response')
                                                                     }) : /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
                                                                         kind: "tertiary",
                                                                         size: "sm",
@@ -1867,6 +1910,19 @@ const ReferralsDashboard = (props)=>{
                                                                         /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
                                                                             children: fmt(o?.urgency)
                                                                         })
+                                                                    ]
+                                                                }),
+                                                                isPciReferral(o) && /*#__PURE__*/ (0,jsx_runtime.jsxs)(es/* StructuredListRow */.Cvq, {
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
+                                                                            noWrap: true,
+                                                                            children: t('stentProcedure', 'Stent procedure')
+                                                                        }),
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
+                                                                            children: fmt(stentProcedure[o?.uuid])
+                                                                        }),
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {}),
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {})
                                                                     ]
                                                                 }),
                                                                 /*#__PURE__*/ (0,jsx_runtime.jsxs)(es/* StructuredListRow */.Cvq, {
@@ -2231,12 +2287,14 @@ async function fetchAiStatus(order) {
  * The order's status follows the work: uploading the file moves it to IN_PROGRESS (in review); "Complete review"
  * saves the review as the order's result (an "Imaging review" obs group: finding, working diagnosis, plan) and marks
  * it COMPLETED. A completed order shows that saved review, read-only. Until then the clinician's picks are kept in
- * sessionStorage; the send / refer actions are not connected yet.
+ * sessionStorage. "Yes, refer for primary PCI" raises a real referral out to the chosen cardiac centre (Referral order
+ * in a Referral Out encounter, see create-referral-out.ts); "Send to cardiologist" is not connected yet.
  *
  * The AI read comes from the ecgai OpenMRS module (modules/ecgai): the upload starts it, the module sends the ECG to the
  * configured LLM and saves the result on the order ("ECG AI interpretation" observation). In review it is loaded from
  * there, or started and polled when missing; without an API key on the backend the demo read from config is shown.
  */ 
+
 
 
 
@@ -2282,12 +2340,14 @@ const ImagingResult = ({ order, mode, onUploaded, onCompleted })=>{
         }), [
         translate
     ]);
-    const { imaging } = (0,esm_framework_singleton_.useConfig)();
+    const config = (0,esm_framework_singleton_.useConfig)();
+    const { imaging } = config;
     const isEcg = imaging.ecgConceptUuids.includes(order.concept.uuid);
     const [file, setFile] = (0,consume_shared_module_default_react_singleton_.useState)(null);
     const [loading, setLoading] = (0,consume_shared_module_default_react_singleton_.useState)(true);
     const [uploading, setUploading] = (0,consume_shared_module_default_react_singleton_.useState)(false);
     const [error, setError] = (0,consume_shared_module_default_react_singleton_.useState)(null);
+    const [referring, setReferring] = (0,consume_shared_module_default_react_singleton_.useState)(false);
     const fileInput = (0,consume_shared_module_default_react_singleton_.useRef)(null);
     const [a, setA] = (0,consume_shared_module_default_react_singleton_.useState)(()=>loadAssessment(order.uuid));
     const update = (0,consume_shared_module_default_react_singleton_.useCallback)((patch)=>setA((cur)=>{
@@ -2497,7 +2557,7 @@ const ImagingResult = ({ order, mode, onUploaded, onCompleted })=>{
         let plan;
         if (a.readingDiffers) plan = 'STEMI pathway paused: the clinician reading differs from the AI read';
         else if (noReferral) plan = 'No referral: serial ECG monitoring (AI disposition)';
-        else if (a.referDecision?.kind === 'accepted' && chosen) plan = `${within(chosen) ? 'Refer for primary PCI' : 'Fibrinolysis, then refer for PCI'}: ${chosen.name} ` + `(artery opened about ${chosen.arteryOpenedMinutes} minutes after the ECG)`;
+        else if (a.referDecision?.kind === 'accepted' && chosen) plan = `${within(chosen) ? 'Refer for primary PCI' : 'Fibrinolysis, then refer for PCI'}: ${chosen.name} ` + `(${a.referDecision.orderNumber ? `referral ${a.referDecision.orderNumber}; ` : ''}` + `artery opened about ${chosen.arteryOpenedMinutes} minutes after the ECG)`;
         else plan = `Not referred now${a.referDecision?.reason ? `: ${a.referDecision.reason}` : ''}`;
         if (given.length) plan += `. Given: ${given.join(', ')}`;
         return {
@@ -2505,6 +2565,57 @@ const ImagingResult = ({ order, mode, onUploaded, onCompleted })=>{
             diagnosis: a.diagnosis,
             plan
         };
+    };
+    // "Yes, refer": raise the referral out to the chosen centre in the ECG order's visit; on the Referrals page it then
+    // offers "Record referral response" (the PCI response form).
+    const referPci = async ()=>{
+        if (!chosen) return;
+        setError(null);
+        if (!chosen.locationUuid) {
+            setError(t('centreNoLocation', '{{centre}} has no location in the configuration, so it cannot be referred to.', {
+                centre: chosen.name
+            }));
+            return;
+        }
+        if (!order.visitUuid) {
+            setError(t('ecgNoVisit', 'The ECG order has no visit, so the referral cannot be raised.'));
+            return;
+        }
+        setReferring(true);
+        try {
+            const { orderNumber } = await createReferralOut({
+                patientUuid: order.patient.uuid,
+                visitUuid: order.visitUuid,
+                conceptUuid: imaging.pciReferral.conceptUuid,
+                destinationLocationUuid: chosen.locationUuid,
+                urgency: 'STAT',
+                instructions: `${within(chosen) ? 'Primary PCI' : 'PCI after fibrinolysis'}: ${headline} ` + `(ECG ${order.orderNumber}${a.diagnosis ? `; working diagnosis ${a.diagnosis}` : ''})`
+            }, config);
+            update({
+                referDecision: {
+                    kind: 'accepted',
+                    at: new Date().toISOString(),
+                    orderNumber
+                }
+            });
+            (0,esm_framework_singleton_.showSnackbar)({
+                kind: 'success',
+                isLowContrast: true,
+                title: t('pciReferralRaised', 'Referral {{orderNumber}} raised', {
+                    orderNumber
+                }),
+                subtitle: t('pciReferralRaisedTo', 'Referral for primary PCI to {{centre}}', {
+                    centre: chosen.name
+                })
+            });
+        } catch (err) {
+            const message = err?.responseBody?.error?.message ?? err?.message ?? String(err);
+            setError(t('pciReferralFailed', 'Could not raise the referral: {{err}}', {
+                err: message
+            }));
+        } finally{
+            setReferring(false);
+        }
     };
     // What is still needed before the review can be completed (null when it can)
     const missing = !isEcg ? a.finding.trim() ? null : t('missingFinding', 'Record the finding.') : a.readingDiffers ? null : !a.aiAgreedAt && !sentAt ? t('missingAiDecision', 'Agree with the AI read, send it to the cardiologist, or record that your reading differs.') : !pathwayOpen ? null : !a.referDecision ? t('missingReferDecision', 'Decide on the referral: refer for PCI, or not now.') : a.referDecision.kind === 'declined' && !a.referDecision.reason ? t('missingDeclineReason', 'Choose the reason for not referring now.') : null;
@@ -2986,12 +3097,16 @@ const ImagingResult = ({ order, mode, onUploaded, onCompleted })=>{
                                         children: [
                                             /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Tag */.vwO, {
                                                 type: "green",
-                                                children: t('referAccepted', 'Referral to {{centre}} accepted {{time}}', {
+                                                children: a.referDecision.orderNumber ? t('referRaised', 'Referral {{orderNumber}} to {{centre}} raised {{time}}', {
+                                                    orderNumber: a.referDecision.orderNumber,
+                                                    centre: chosen.name,
+                                                    time: hhmm(a.referDecision.at)
+                                                }) : t('referAccepted', 'Referral to {{centre}} accepted {{time}}', {
                                                     centre: chosen.name,
                                                     time: hhmm(a.referDecision.at)
                                                 })
                                             }),
-                                            /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
+                                            !a.referDecision.orderNumber && /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
                                                 kind: "ghost",
                                                 size: "sm",
                                                 onClick: ()=>update({
@@ -3042,15 +3157,11 @@ const ImagingResult = ({ order, mode, onUploaded, onCompleted })=>{
                                         children: [
                                             /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
                                                 kind: "primary",
-                                                onClick: ()=>{
-                                                    update({
-                                                        referDecision: {
-                                                            kind: 'accepted',
-                                                            at: new Date().toISOString()
-                                                        }
-                                                    });
-                                                },
-                                                children: within(chosen) ? t('yesReferPci', 'Yes, refer for primary PCI') : t('yesReferAfterLysis', 'Yes, refer for PCI')
+                                                disabled: referring,
+                                                onClick: ()=>void referPci(),
+                                                children: referring ? /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* InlineLoading */.OuH, {
+                                                    description: t('raisingReferral', 'Raising the referral…')
+                                                }) : within(chosen) ? t('yesReferPci', 'Yes, refer for primary PCI') : t('yesReferAfterLysis', 'Yes, refer for PCI')
                                             }),
                                             /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
                                                 kind: "tertiary",

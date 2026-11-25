@@ -34,7 +34,10 @@ exposed under the module name `@openmrs/esm-referral-fulfillment-app`.
 | `imaging.suggestedDiagnosis` | String | `Suspected acute anterior STEMI (AI read)` | Working diagnosis suggested after the AI read. |
 | `imaging.pciLimitMinutes` | Number | `120` | ECG-to-opened-artery limit deciding *Within / Beyond* and PCI vs fibrinolysis. |
 | `imaging.cardiacCentresNote` | String | `service register, updated 08:30 today` | Source note above the centre list. |
-| `imaging.cardiacCentres` | Object[] | the two centres of the reference demo | `{ name, distance, travel, cathLab, arteryOpenedMinutes, recommended }`. The recommended centre is chosen by default. |
+| `imaging.cardiacCentres` | Object[] | the two centres of the reference demo | `{ name, distance, travel, cathLab, arteryOpenedMinutes, recommended, locationUuid }`. The recommended centre is chosen by default. `locationUuid` is the centre as an OpenMRS location, the destination of the PCI referral (created by `scripts/pci-referral-o3-setup.sh`). |
+| `imaging.pciReferral.conceptUuid` | ConceptUuid | `5a7d2c3e-…7e0a` | *Referral for primary PCI*: the concept of the Referral order raised by "Yes, refer for primary PCI" (a referral out: Referral Out encounter with the centre as destination). |
+| `imaging.pciReferral.responseFormUuid` | UUID | `5a7d2c3e-…7e10` | *PCI Referral Response* form, opened by "Record referral response" on a PCI referral. It saves a Referral Response encounter, so saving it closes the referral. |
+| `imaging.pciReferral.stentProcedureConceptUuid` | ConceptUuid | `5a7d2c3e-…7e0b` | The form's *Stent procedure* answer, shown on the answered referral. |
 | `imaging.giveNow` | String[] | Aspirin 300 mg, chewed, … | *Give now, tick as given* items. |
 
 ## TypeScript Type

@@ -134,6 +134,29 @@ export const configSchema = {
       facility: { _type: Type.String, _default: 'SZMCH' },
       replyDueMinutes: { _type: Type.Number, _default: 10 },
     },
+    pciReferral: {
+      _description:
+        '"Yes, refer for primary PCI" raises a referral out to the chosen cardiac centre (a Referral order in a ' +
+        'Referral Out encounter, like "New referral out"). On the Referrals page that referral offers "Record ' +
+        'referral response", which opens the PCI response form. Metadata: scripts/pci-referral-o3-setup.sh.',
+      conceptUuid: {
+        _type: Type.ConceptUuid,
+        _description: 'Concept of the Referral order ("Referral for primary PCI").',
+        _default: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e0a',
+      },
+      responseFormUuid: {
+        _type: Type.UUID,
+        _description:
+          'Form opened by "Record referral response" for a PCI referral ("PCI Referral Response"). It must save a ' +
+          'Referral Response encounter (encounterTypeUuid) so the referral is closed when it is saved.',
+        _default: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e10',
+      },
+      stentProcedureConceptUuid: {
+        _type: Type.ConceptUuid,
+        _description: 'The response form\'s "Stent procedure" question, shown on the answered referral.',
+        _default: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e0b',
+      },
+    },
     pciLimitMinutes: {
       _type: Type.Number,
       _description: 'The artery should be opened within this many minutes of the ECG (primary PCI).',
@@ -154,6 +177,10 @@ export const configSchema = {
         cathLab: { _type: Type.String, _description: 'e.g. "cath lab available now, team on call"' },
         arteryOpenedMinutes: { _type: Type.Number, _description: 'Expected minutes from the ECG to the opened artery' },
         recommended: { _type: Type.Boolean, _default: false },
+        locationUuid: {
+          _type: Type.UUID,
+          _description: 'The centre as an OpenMRS location: the destination recorded on the PCI referral.',
+        },
       },
       _description: 'Cardiac centres with a cath lab. Hardcoded until a service register is connected.',
       _default: [
@@ -164,6 +191,7 @@ export const configSchema = {
           cathLab: 'cath lab available now, team on call',
           arteryOpenedMinutes: 80,
           recommended: true,
+          locationUuid: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e0e',
         },
         {
           name: 'National Institute of Cardiovascular Diseases, Dhaka',
@@ -172,6 +200,7 @@ export const configSchema = {
           cathLab: 'cath lab available',
           arteryOpenedMinutes: 350,
           recommended: false,
+          locationUuid: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e0f',
         },
       ],
     },
@@ -197,6 +226,7 @@ export interface CardiacCentre {
   cathLab: string;
   arteryOpenedMinutes: number;
   recommended?: boolean;
+  locationUuid?: string;
 }
 
 export interface ImagingConfig {
@@ -208,6 +238,7 @@ export interface ImagingConfig {
   suggestedDiagnosis: string;
   aiRead: { enabled: boolean; conceptUuid: string };
   cardiologist: { name: string; facility: string; replyDueMinutes: number };
+  pciReferral: { conceptUuid: string; responseFormUuid: string; stentProcedureConceptUuid: string };
   pciLimitMinutes: number;
   cardiacCentresNote: string;
   cardiacCentres: CardiacCentre[];

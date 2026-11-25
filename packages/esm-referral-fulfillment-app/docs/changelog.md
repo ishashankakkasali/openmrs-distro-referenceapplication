@@ -7,6 +7,13 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
 ### Added
 
+- **Referral for primary PCI**: in Imaging results, "Yes, refer for primary PCI" now raises a real referral out to the
+  chosen cardiac centre (Referral order "Referral for primary PCI", STAT, in a Referral Out encounter whose destination
+  is the centre's location; instructions carry the AI headline, the ECG order and the working diagnosis). The page shows
+  "Referral ORD-… to <centre> raised", and the saved plan names the referral. On the Referrals page that referral
+  (out) offers **Record PCI centre's response** (a hint explains the centre has no system here) and Decline: it opens the *PCI Referral Response* form (Stent
+  procedure: Performed / Not performed); saving it closes the referral, and its answer shows on the referral.
+  Metadata: `scripts/pci-referral-o3-setup.sh`.
 - **Imaging** page on the home screen (left navigation, `home/imaging`), for imaging staff, laid out like the
   Laboratory page:
   - tiles *Imaging ordered* (not yet uploaded), *Uploaded* (awaiting the doctor's review) and *Results* (reviewed

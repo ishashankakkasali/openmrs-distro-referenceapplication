@@ -118,6 +118,8 @@
   "reasonNotReferring": "Reason for not referring now",
   "recommended": "Recommended",
   "reconsider": "Reconsider",
+  "recordPciResponse": "Record PCI centre's response",
+  "recordPciResponseHint": "The PCI centre has no system of its own here: record its answer to this referral out (stent procedure performed or not)",
   "recordReferralResponse": "Record referral response",
   "referAccepted": "Referral to {{centre}} accepted {{time}}",
   "referPrimaryPci": "Refer now for primary PCI",
