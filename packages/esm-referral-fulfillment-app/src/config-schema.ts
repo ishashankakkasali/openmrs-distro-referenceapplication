@@ -73,6 +73,162 @@ export const configSchema = {
     _description: 'UUID of the encounter role recorded for the provider raising a referral out.',
     _default: '240b26f9-dd88-4172-823d-4a8bfeb7841f',
   },
+  responseForm: {
+    _description:
+      '"Record referral response" for a referral in opens this page\'s own response form (presenting complaint, ' +
+      'vitals, ECG order and result) instead of the O3 form (formUuid). It saves a Referral Response encounter, so ' +
+      'the referral closes as before. Metadata: scripts/referral-response-form-o3-setup.sh.',
+    enabled: {
+      _type: Type.Boolean,
+      _description: 'Off: "Record referral response" opens the O3 Referral Response form (formUuid) instead.',
+      _default: true,
+    },
+    chiefComplaintConceptUuid: {
+      _type: Type.ConceptUuid,
+      _description: 'Coded "Chief complaint", saved when the complaint is one of chiefComplaints.',
+      _default: '5219AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+    },
+    chiefComplaintTextConceptUuid: {
+      _type: Type.ConceptUuid,
+      _description: 'Text "Chief complaint", always saved with the complaint as typed or chosen.',
+      _default: '160531AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+    },
+    chiefComplaints: {
+      _type: Type.Array,
+      _elements: {
+        _type: Type.Object,
+        label: { _type: Type.String },
+        conceptUuid: { _type: Type.ConceptUuid },
+        ecgPrompt: {
+          _type: Type.String,
+          _description: 'chest | abdominal | breath: the ECG prompt this complaint raises; empty for none.',
+          _default: '',
+        },
+      },
+      _description: 'The complaints offered in "Chief complaint" (any other text can be typed).',
+      _default: [
+        { label: 'Chest pain', conceptUuid: '120749AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', ecgPrompt: 'chest' },
+        { label: 'Upper abdominal pain', conceptUuid: '141128AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', ecgPrompt: 'abdominal' },
+        { label: 'Breathlessness on exertion', conceptUuid: '141599AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', ecgPrompt: 'breath' },
+        { label: 'Routine NCD review', conceptUuid: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e18', ecgPrompt: '' },
+        { label: 'Tooth pain', conceptUuid: '124601AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', ecgPrompt: '' },
+        { label: 'Fever', conceptUuid: '140238AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', ecgPrompt: '' },
+        { label: 'Cough', conceptUuid: '143264AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', ecgPrompt: '' },
+        { label: 'Headache', conceptUuid: '139084AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', ecgPrompt: '' },
+      ],
+    },
+    symptomOnsetConceptUuid: {
+      _type: Type.ConceptUuid,
+      _description: '"Symptom onset" (Coded): when the symptoms started.',
+      _default: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e11',
+    },
+    symptomOnsets: {
+      _type: Type.Array,
+      _elements: {
+        _type: Type.Object,
+        label: {
+          _type: Type.String,
+          _description: '"{{time}}" is replaced by the clock time hoursAgo hours before now, to the hour.',
+        },
+        conceptUuid: { _type: Type.ConceptUuid },
+        hoursAgo: { _type: Type.Number, _default: 0 },
+      },
+      _description: 'The choices in "Symptoms started".',
+      _default: [
+        { label: 'About 1 hour ago', conceptUuid: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e12', hoursAgo: 0 },
+        { label: 'About 4 hours ago, around {{time}}', conceptUuid: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e13', hoursAgo: 4 },
+        { label: 'Last night, about 14 hours ago', conceptUuid: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e14', hoursAgo: 0 },
+        { label: 'Several days, on and off', conceptUuid: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e16', hoursAgo: 0 },
+        { label: 'Weeks, on and off', conceptUuid: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e17', hoursAgo: 0 },
+      ],
+    },
+    defaultSymptomOnsetConceptUuid: {
+      _type: Type.ConceptUuid,
+      _description: '"Symptoms started" choice selected when the form opens (one of symptomOnsets).',
+      _default: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e13',
+    },
+    requiredVitals: {
+      _type: Type.Array,
+      _elements: { _type: Type.String },
+      _description:
+        'Vitals that must be entered before the response can be saved: any of bp, pulse, spo2, respiratoryRate, ' +
+        'temperature. None by default: vitals are optional, but a value that is entered must be valid. The chief complaint and when the symptoms started are always required, and an ECG ' +
+        'recommendation must be accepted or dismissed with a reason.',
+      _default: [],
+    },
+    vitalsConceptUuids: {
+      _description: 'Vitals concepts: read from this visit (e.g. taken at triage) and saved with the response.',
+      systolic: { _type: Type.ConceptUuid, _default: '5085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' },
+      diastolic: { _type: Type.ConceptUuid, _default: '5086AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' },
+      pulse: { _type: Type.ConceptUuid, _default: '5087AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' },
+      spo2: { _type: Type.ConceptUuid, _default: '5092AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' },
+      respiratoryRate: { _type: Type.ConceptUuid, _default: '5242AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' },
+      temperature: { _type: Type.ConceptUuid, _default: '5088AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' },
+    },
+    orderables: {
+      _type: Type.Array,
+      _elements: {
+        _type: Type.Object,
+        key: { _type: Type.String, _description: 'Unique key; "ecg" is the order the ECG prompt places.' },
+        label: { _type: Type.String },
+        conceptUuid: { _type: Type.ConceptUuid },
+        orderTypeUuid: {
+          _type: Type.UUID,
+          _description: 'Imaging Order (result uploaded on the Imaging page) or Test Order (lab).',
+        },
+      },
+      _description: 'The orders offered in "Add an order". Metadata: scripts/referral-response-form-o3-setup.sh.',
+      _default: [
+        {
+          key: 'ecg',
+          label: '12-lead ECG',
+          conceptUuid: '5333e05c-de05-4719-87a1-31d1f3d48023',
+          orderTypeUuid: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e01',
+        },
+        {
+          key: 'troponin',
+          label: 'Bedside troponin',
+          conceptUuid: 'fb44445b-5638-4ad5-996b-b79fc2f90756',
+          orderTypeUuid: '52a447d3-a64a-11e3-9aeb-50e549534c5e',
+        },
+        {
+          key: 'echo',
+          label: 'Echo',
+          conceptUuid: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e19',
+          orderTypeUuid: '5a7d2c3e-1f4b-4c8a-9e6d-2b1f0c9a7e01',
+        },
+        {
+          key: 'glucose',
+          label: 'Blood glucose',
+          conceptUuid: '887AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+          orderTypeUuid: '52a447d3-a64a-11e3-9aeb-50e549534c5e',
+        },
+        {
+          key: 'creatinine',
+          label: 'Creatinine',
+          conceptUuid: '790AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+          orderTypeUuid: '52a447d3-a64a-11e3-9aeb-50e549534c5e',
+        },
+      ],
+    },
+    ecgDueMinutes: {
+      _type: Type.Number,
+      _description: 'An ECG for chest pain is due within this many minutes of the order.',
+      _default: 10,
+    },
+    noteConceptUuid: {
+      _type: Type.ConceptUuid,
+      _description: 'Text note saved when the ECG recommendation is dismissed (with the reason).',
+      _default: '162169AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+    },
+    riskConditionPattern: {
+      _type: Type.String,
+      _description:
+        'Conditions (case-insensitive regular expression) that, with age 40 or over, make upper abdominal pain ' +
+        'raise the ECG prompt. A systolic BP of 140 or more today does too.',
+      _default: 'diabet|hypert|tobacco|smok',
+    },
+  },
   imaging: {
     _description:
       'Imaging page on the home screen: imaging orders (e.g. the ECG ordered from the Referral Response form), ' +
@@ -245,7 +401,43 @@ export interface ImagingConfig {
   giveNow: string[];
 }
 
+export interface ChiefComplaintOption {
+  label: string;
+  conceptUuid?: string;
+  ecgPrompt?: '' | 'chest' | 'abdominal' | 'breath';
+}
+
+export interface SymptomOnsetOption {
+  label: string;
+  conceptUuid: string;
+  hoursAgo?: number;
+}
+
+export interface ResponseFormConfig {
+  enabled: boolean;
+  chiefComplaintConceptUuid: string;
+  chiefComplaintTextConceptUuid: string;
+  chiefComplaints: ChiefComplaintOption[];
+  symptomOnsetConceptUuid: string;
+  symptomOnsets: SymptomOnsetOption[];
+  defaultSymptomOnsetConceptUuid: string;
+  requiredVitals: string[];
+  vitalsConceptUuids: {
+    systolic: string;
+    diastolic: string;
+    pulse: string;
+    spo2: string;
+    respiratoryRate: string;
+    temperature: string;
+  };
+  orderables: Array<{ key: string; label: string; conceptUuid: string; orderTypeUuid: string }>;
+  ecgDueMinutes: number;
+  noteConceptUuid: string;
+  riskConditionPattern: string;
+}
+
 export interface ReferralFulfillmentConfig {
+  responseForm: ResponseFormConfig;
   formUuid: string;
   orderTypeUuid: string;
   fulfillerComment: string;

@@ -15,7 +15,9 @@ module.exports = (env = {}) => ({
   // Module Federation supplies the entry via `exposes`; no top-level entry needed.
   entry: {},
   output: {
-    chunkFilename: '[name].js',
+    // Hashed chunk names: a new build gets new file names, so browsers (and the O3 service worker) never keep running
+    // an old chunk under an unchanged name. The entry file is served with no-cache and points at the current chunks.
+    chunkFilename: '[name].[contenthash:8].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: 'auto',
     uniqueName: pkg.name,

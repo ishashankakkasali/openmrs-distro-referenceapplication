@@ -142,7 +142,12 @@ ECG = {
                         'answers': [{'concept': '5333e05c-de05-4719-87a1-31d1f3d48023', 'label': 'ECG'}]}}
 HIDE = f"illness !== '{HEART}' && illness !== '{CHEST}'"
 
-questions = form['pages'][0]['sections'][0]['questions']
+sections = [s for p in form['pages'] for s in p['sections']]
+# The form laid out by scripts/referral-response-form-o3-setup.sh orders the ECG in its own section, driven by the
+# chief complaint: leave it as it is.
+if len(sections) > 1 and any(q.get('id') == 'ecgOrder' for s in sections for q in s['questions']):
+    sys.exit(1)
+questions = sections[0]['questions']
 ids = [q.get('id') for q in questions]
 changed = False
 if 'illness' not in ids:

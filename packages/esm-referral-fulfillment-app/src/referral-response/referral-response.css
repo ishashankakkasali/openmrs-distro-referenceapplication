@@ -1,0 +1,448 @@
+/* Referral response form, laid out like the UHC decision-support prototype. Scoped with the rr- prefix. */
+
+.rr-modal .cds--modal-container {
+  width: min(1280px, 96vw);
+  max-width: 96vw;
+  height: 94vh;
+  max-height: 94vh;
+}
+
+.rr-modal .cds--modal-content.rr-body {
+  background: #f5f7fa;
+  padding: 1rem 1.25rem 1.5rem;
+  margin-bottom: 0;
+}
+
+.rr-moment {
+  display: inline-block;
+  font-size: 0.8125rem;
+  color: #3d4551;
+  background: #fff;
+  border: 1px solid #e3e7ee;
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  margin-bottom: 0.875rem;
+}
+
+.rr-card {
+  background: #fff;
+  border: 1px solid #e3e7ee;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.rr-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid #eceff3;
+}
+
+.rr-card-head h2 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #161b22;
+  margin: 0;
+}
+
+.rr-pad {
+  padding: 1rem 1.25rem;
+}
+
+.rr-divider {
+  border-top: 1px solid #eceff3;
+}
+
+.rr-banner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+}
+
+.rr-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #161b22;
+}
+
+.rr-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem 1rem;
+  font-size: 0.8125rem;
+  color: #3d4551;
+}
+
+.rr-mono {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+}
+
+.rr-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 1rem;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .rr-cols {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.rr-field {
+  margin-bottom: 1rem;
+}
+
+.rr-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #3d4551;
+  margin-bottom: 0.375rem;
+}
+
+.rr-ro {
+  background: #f5f7fa;
+  border: 1px solid #e3e7ee;
+  border-radius: 6px;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  color: #161b22;
+  white-space: pre-wrap;
+}
+
+.rr-small {
+  display: block;
+  font-size: 0.75rem;
+  color: #5a6472;
+  margin-top: 0.25rem;
+}
+
+.rr-hint {
+  font-size: 0.8125rem;
+  color: #5a6472;
+  margin: 0;
+}
+
+.rr-error {
+  font-size: 0.75rem;
+  color: #da1e28;
+  margin-top: 0.5rem;
+}
+
+.rr-row2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.rr-grow {
+  flex: 2 1 260px;
+  min-width: 0;
+}
+
+.rr-onset {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+/* Decision support prompt */
+
+.rr-cds {
+  border: 1px solid #c9d4ff;
+  border-left: 4px solid #4f5bd5;
+  background: #f4f6ff;
+  border-radius: 6px;
+  padding: 0.875rem 1rem;
+  margin-top: 1rem;
+}
+
+.rr-cds.rr-cds-muted {
+  border-color: #e3e7ee;
+  border-left-color: #8d96a3;
+  background: #fafbfc;
+}
+
+.rr-cds-kind {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #4f5bd5;
+  margin-bottom: 0.25rem;
+}
+
+.rr-cds-muted .rr-cds-kind {
+  color: #5a6472;
+}
+
+.rr-cds-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #161b22;
+  margin: 0 0 0.25rem;
+}
+
+.rr-cds-body {
+  font-size: 0.8125rem;
+  color: #3d4551;
+  margin: 0;
+}
+
+.rr-cds .cds--select {
+  max-width: 360px;
+  margin-top: 0.5rem;
+}
+
+.rr-actrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+/* Chips */
+
+.rr-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.rr-chip-grey {
+  background: #f0f2f5;
+  color: #3d4551;
+  border-color: #e3e7ee;
+}
+
+.rr-chip-amber {
+  background: #fff4e0;
+  color: #8a5300;
+  border-color: #ffd9a0;
+}
+
+.rr-chip-green {
+  background: #e6f6ec;
+  color: #1b6b3a;
+  border-color: #b8e4c8;
+}
+
+.rr-chip-red {
+  background: #fff1f1;
+  color: #a2191f;
+  border-color: #ffb3b8;
+}
+
+.rr-chip-indigo {
+  background: #eef0ff;
+  color: #3b46b5;
+  border-color: #cdd2ff;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Vitals tiles */
+
+.rr-vit {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+@media (max-width: 760px) {
+  .rr-vit {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.rr-vit-tile {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e3e7ee;
+  border-radius: 8px;
+  padding: 0.5rem;
+  cursor: text;
+}
+
+.rr-vit-tile:focus-within {
+  border-color: #4f5bd5;
+  box-shadow: 0 0 0 1px #4f5bd5;
+}
+
+.rr-vit-tile.rr-invalid {
+  border-color: #da1e28;
+}
+
+.rr-vit-value {
+  display: flex;
+  align-items: baseline;
+  border: 1px solid #e3e7ee;
+  border-radius: 6px;
+  padding: 0.375rem 0.5rem;
+}
+
+.rr-vit-value input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #161b22;
+  font-family: inherit;
+}
+
+.rr-vit-value input::placeholder {
+  color: #b3bac4;
+  font-weight: 400;
+}
+
+.rr-vit-suffix {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #161b22;
+  margin-left: 0.125rem;
+}
+
+.rr-vit-label {
+  border: 1px solid #e3e7ee;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.375rem;
+  font-size: 0.75rem;
+  color: #5a6472;
+}
+
+/* Orders table */
+
+.rr-table-wrap {
+  overflow-x: auto;
+}
+
+.rr-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.rr-table th {
+  text-align: left;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #3d4551;
+  padding: 0.625rem 1.25rem;
+  border-bottom: 1px solid #eceff3;
+}
+
+.rr-table td {
+  padding: 0.75rem 1.25rem;
+  vertical-align: top;
+  border-bottom: 1px solid #eceff3;
+}
+
+.rr-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.rr-add-order {
+  max-width: 320px;
+}
+
+/* Side column */
+
+.rr-kv {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+.rr-kv dt {
+  color: #5a6472;
+}
+
+.rr-kv dd {
+  margin: 0;
+  color: #161b22;
+  white-space: pre-line;
+}
+
+.rr-log {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.8125rem;
+}
+
+.rr-log li {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+}
+
+/* Required fields */
+
+.rr-req {
+  color: #da1e28;
+}
+
+.rr-missing {
+  font-size: 0.8125rem;
+  color: #3d4551;
+  background: #fff;
+  border: 1px solid #e3e7ee;
+  border-left: 4px solid #da1e28;
+  border-radius: 6px;
+  padding: 0.625rem 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.rr-vit-error {
+  font-size: 0.75rem;
+  line-height: 1.3;
+  color: #da1e28;
+  margin-top: 0.375rem;
+}
+
+.rr-vit-tile.rr-invalid .rr-vit-value {
+  border-color: #da1e28;
+}
+
+.rr-td-action {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Carbon fades the bottom 80px of scrolling modal content, which greyed out the "Required" line: no fade here */
+.rr-modal .cds--modal-content.cds--modal-scroll-content {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.rr-modal .rr-body > .rr-missing:last-child {
+  margin-bottom: 0.5rem;
+}

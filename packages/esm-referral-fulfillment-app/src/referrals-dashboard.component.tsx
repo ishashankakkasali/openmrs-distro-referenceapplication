@@ -27,6 +27,7 @@ import { AddIcon, launchWorkspace, openmrsFetch, showSnackbar, useConfig, useVis
 import { closeReferralOrder, declineReferralOrder, discontinueReferralOrder } from './close-referral-order';
 import type { ReferralFulfillmentConfig } from './config-schema';
 import NewReferralOutModal from './new-referral-out-modal.component';
+import ReferralResponseModal from './referral-response/referral-response-modal.component';
 import { fetchReferralDestinations } from './create-referral-out';
 
 // `launchWorkspace2` is the new (workspaces2) launcher; not yet in this package's
@@ -107,6 +108,8 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
   const [declineSubmitting, setDeclineSubmitting] = useState(false);
 
   const [referralOutOpen, setReferralOutOpen] = useState(false);
+  // The referral in being answered with this page's own response form (config.responseForm)
+  const [responding, setResponding] = useState<ReferralOrder | null>(null);
 
   // destination location uuid → facility name, for the "Referred to" column of referrals out
   const [destinationNames, setDestinationNames] = useState<Record<string, string>>({});
@@ -277,6 +280,11 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
             'The referral response is recorded during the patient’s visit. Start a visit when the patient arrives.',
           ),
         });
+        return;
+      }
+      // A referral in is answered with this page's own response form; a PCI referral keeps its O3 form.
+      if (config.responseForm.enabled && !isPciReferral(order)) {
+        setResponding(order);
         return;
       }
       try {
@@ -753,6 +761,19 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
         )}
       </DataTable>
       {referralOutModal}
+      <ReferralResponseModal
+        open={responding !== null}
+        referral={responding}
+        patientUuid={patientUuid}
+        visit={activeVisit ?? null}
+        onClose={() => setResponding(null)}
+        onSaved={(referral, encounterUuid) => {
+          const order = orders?.find((o) => o.uuid === referral.uuid);
+          if (!order || closingOrders.current.has(order.uuid)) return;
+          closingOrders.current.add(order.uuid);
+          void closeAndReload(order, encounterUuid);
+        }}
+      />
       <Modal
         open={declineTarget !== null}
         modalHeading={t('declineReferralHeading', 'Decline referral {{orderNumber}}', {
