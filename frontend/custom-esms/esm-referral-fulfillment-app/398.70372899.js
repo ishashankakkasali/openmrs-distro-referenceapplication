@@ -4574,6 +4574,7 @@ const EMPTY = {
     aiAgreedAt: null,
     sentToCardiologistAt: null,
     readingDiffers: '',
+    referOverrideAt: null,
     diagnosis: '',
     diagnosisEdited: false,
     centre: null,
@@ -4748,8 +4749,10 @@ const ImagingResult = ({ order, mode, onUploaded, onCompleted })=>{
     const suggestedDiagnosis = aiRead?.suggestedDiagnosis || imaging.suggestedDiagnosis;
     const referralAdvised = aiRead ? aiRead.disposition === 'IMMEDIATE_CATH_LAB_REFERRAL' : true;
     const assessing = isEcg && reviewing && aiReady && !a.readingDiffers;
-    const pathwayOpen = assessing && referralAdvised;
-    const noReferral = assessing && !referralAdvised;
+    // The clinician can override an AI "no referral": the STEMI pathway then opens as if a referral were advised
+    const overridden = !referralAdvised && !!a.referOverrideAt;
+    const pathwayOpen = assessing && (referralAdvised || overridden);
+    const noReferral = assessing && !referralAdvised && !overridden;
     (0,consume_shared_module_default_react_singleton_.useEffect)(()=>{
         if (assessing && !a.diagnosisEdited && a.diagnosis !== suggestedDiagnosis) {
             update({
@@ -4822,6 +4825,7 @@ const ImagingResult = ({ order, mode, onUploaded, onCompleted })=>{
         };
         let finding = a.readingDiffers ? `${headline} (AI read); clinician reading differs: ${a.readingDiffers}` : a.aiAgreedAt ? `${headline} (AI read, agreed by the MO at ${imaging_result_component_hhmm(a.aiAgreedAt)})` : `${headline} (AI read)`;
         if (sentAt) finding += `; sent to ${sentTo} for confirmatory interpretation at ${imaging_result_component_hhmm(sentAt)}, reply pending`;
+        if (overridden) finding += `; AI advised no referral, overridden by the MO at ${imaging_result_component_hhmm(a.referOverrideAt)}`;
         const given = Object.entries(a.given).map(([item, at])=>`${item.split(',')[0]} at ${imaging_result_component_hhmm(at)}`);
         let plan;
         if (a.readingDiffers) plan = 'STEMI pathway paused: the clinician reading differs from the AI read';
@@ -4887,7 +4891,7 @@ const ImagingResult = ({ order, mode, onUploaded, onCompleted })=>{
         }
     };
     // What is still needed before the review can be completed (null when it can)
-    const missing = !isEcg ? a.finding.trim() ? null : t('missingFinding', 'Record the finding.') : a.readingDiffers ? null : !a.aiAgreedAt && !sentAt ? t('missingAiDecision', 'Agree with the AI read, send it to the cardiologist, or record that your reading differs.') : !pathwayOpen ? null : !a.referDecision ? t('missingReferDecision', 'Decide on the referral: refer for PCI, or not now.') : a.referDecision.kind === 'declined' && !a.referDecision.reason ? t('missingDeclineReason', 'Choose the reason for not referring now.') : null;
+    const missing = !isEcg ? a.finding.trim() ? null : t('missingFinding', 'Record the finding.') : a.readingDiffers ? null : !a.aiAgreedAt && !sentAt && !overridden ? t('missingAiDecision', 'Agree with the AI read, send it to the cardiologist, or record that your reading differs.') : !pathwayOpen ? null : !a.referDecision ? t('missingReferDecision', 'Decide on the referral: refer for PCI, or not now.') : a.referDecision.kind === 'declined' && !a.referDecision.reason ? t('missingDeclineReason', 'Choose the reason for not referring now.') : null;
     const complete = async ()=>{
         setCompleting(true);
         setError(null);
@@ -5135,7 +5139,7 @@ const ImagingResult = ({ order, mode, onUploaded, onCompleted })=>{
                                     }) : /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
                                         kind: "tertiary",
                                         size: "md",
-                                        disabled: !!a.readingDiffers || !aiReady,
+                                        disabled: !!a.readingDiffers || !aiReady || overridden,
                                         onClick: ()=>update({
                                                 aiAgreedAt: new Date().toISOString()
                                             }),
@@ -5209,6 +5213,27 @@ const ImagingResult = ({ order, mode, onUploaded, onCompleted })=>{
                                     }),
                                     /*#__PURE__*/ (0,jsx_runtime.jsx)("p", {
                                         children: aiRead.dispositionText
+                                    }),
+                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                        className: "img-actrow",
+                                        children: [
+                                            /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
+                                                kind: "danger--tertiary",
+                                                size: "sm",
+                                                onClick: ()=>update({
+                                                        referOverrideAt: new Date().toISOString(),
+                                                        aiAgreedAt: null,
+                                                        // the AI's diagnosis (e.g. normal sinus rhythm) no longer fits: a clinical one, to edit
+                                                        diagnosis: t('overrideDiagnosis', 'Suspected acute coronary syndrome (clinical judgement; AI read: no ST elevation)'),
+                                                        diagnosisEdited: true
+                                                    }),
+                                                children: t('referAnyway', 'Refer for primary PCI anyway')
+                                            }),
+                                            /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
+                                                className: "img-small",
+                                                children: t('referAnywayHint', 'Your clinical judgement overrides the AI disposition; it is noted in the record.')
+                                            })
+                                        ]
                                     })
                                 ]
                             }),
@@ -5218,8 +5243,32 @@ const ImagingResult = ({ order, mode, onUploaded, onCompleted })=>{
                                     /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                                         className: "img-kind",
                                         children: /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
-                                            children: t('stemiPathway', 'Recommendation · STEMI pathway')
+                                            children: overridden ? t('stemiPathwayOverride', 'STEMI pathway · opened by the MO') : t('stemiPathway', 'Recommendation · STEMI pathway')
                                         })
+                                    }),
+                                    overridden && /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                        className: "img-actrow",
+                                        style: {
+                                            marginTop: 0,
+                                            marginBottom: '0.5rem'
+                                        },
+                                        children: [
+                                            /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Tag */.vwO, {
+                                                type: "purple",
+                                                children: t('aiOverridden', 'AI advised no referral · overridden by the MO {{time}}', {
+                                                    time: imaging_result_component_hhmm(a.referOverrideAt)
+                                                })
+                                            }),
+                                            !a.referDecision && /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* Button */.$nd, {
+                                                kind: "ghost",
+                                                size: "sm",
+                                                onClick: ()=>update({
+                                                        referOverrideAt: null,
+                                                        diagnosisEdited: false
+                                                    }),
+                                                children: t('undo', 'Undo')
+                                            })
+                                        ]
                                     }),
                                     /*#__PURE__*/ (0,jsx_runtime.jsx)("p", {
                                         className: "img-cds-title",

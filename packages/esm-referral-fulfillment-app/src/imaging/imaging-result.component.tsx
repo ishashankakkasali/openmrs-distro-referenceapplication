@@ -58,6 +58,8 @@ interface Assessment {
   /** When the ECG was sent to the hub cardiologist for a confirmatory read */
   sentToCardiologistAt: string | null;
   readingDiffers: string;
+  /** The MO refers for primary PCI although the AI advised no referral */
+  referOverrideAt: string | null;
   diagnosis: string;
   diagnosisEdited: boolean;
   centre: string | null;
@@ -71,6 +73,7 @@ const EMPTY: Assessment = {
   aiAgreedAt: null,
   sentToCardiologistAt: null,
   readingDiffers: '',
+  referOverrideAt: null,
   diagnosis: '',
   diagnosisEdited: false,
   centre: null,
@@ -238,8 +241,10 @@ const ImagingResult: React.FC<Props> = ({ order, mode, onUploaded, onCompleted }
   const suggestedDiagnosis = aiRead?.suggestedDiagnosis || imaging.suggestedDiagnosis;
   const referralAdvised = aiRead ? aiRead.disposition === 'IMMEDIATE_CATH_LAB_REFERRAL' : true;
   const assessing = isEcg && reviewing && aiReady && !a.readingDiffers;
-  const pathwayOpen = assessing && referralAdvised;
-  const noReferral = assessing && !referralAdvised;
+  // The clinician can override an AI "no referral": the STEMI pathway then opens as if a referral were advised
+  const overridden = !referralAdvised && !!a.referOverrideAt;
+  const pathwayOpen = assessing && (referralAdvised || overridden);
+  const noReferral = assessing && !referralAdvised && !overridden;
 
   useEffect(() => {
     if (assessing && !a.diagnosisEdited && a.diagnosis !== suggestedDiagnosis) {
@@ -307,6 +312,7 @@ const ImagingResult: React.FC<Props> = ({ order, mode, onUploaded, onCompleted }
         ? `${headline} (AI read, agreed by the MO at ${hhmm(a.aiAgreedAt)})`
         : `${headline} (AI read)`;
     if (sentAt) finding += `; sent to ${sentTo} for confirmatory interpretation at ${hhmm(sentAt)}, reply pending`;
+    if (overridden) finding += `; AI advised no referral, overridden by the MO at ${hhmm(a.referOverrideAt)}`;
     const given = Object.entries(a.given).map(([item, at]) => `${item.split(',')[0]} at ${hhmm(at)}`);
     let plan: string;
     if (a.readingDiffers) plan = 'STEMI pathway paused: the clinician reading differs from the AI read';
@@ -371,7 +377,7 @@ const ImagingResult: React.FC<Props> = ({ order, mode, onUploaded, onCompleted }
       : t('missingFinding', 'Record the finding.')
     : a.readingDiffers
       ? null
-      : !a.aiAgreedAt && !sentAt
+      : !a.aiAgreedAt && !sentAt && !overridden
         ? t('missingAiDecision', 'Agree with the AI read, send it to the cardiologist, or record that your reading differs.')
         : !pathwayOpen
           ? null
@@ -567,7 +573,7 @@ const ImagingResult: React.FC<Props> = ({ order, mode, onUploaded, onCompleted }
                     <Button
                       kind="tertiary"
                       size="md"
-                      disabled={!!a.readingDiffers || !aiReady}
+                      disabled={!!a.readingDiffers || !aiReady || overridden}
                       onClick={() => update({ aiAgreedAt: new Date().toISOString() })}
                     >
                       {t('agreeWithAi', 'Agree with the AI read')}
@@ -628,14 +634,59 @@ const ImagingResult: React.FC<Props> = ({ order, mode, onUploaded, onCompleted }
                     {t('noReferralSerialEcg', 'No referral: serial ECG monitoring')}
                   </p>
                   <p>{aiRead.dispositionText}</p>
+                  <div className="img-actrow">
+                    <Button
+                      kind="danger--tertiary"
+                      size="sm"
+                      onClick={() =>
+                        update({
+                          referOverrideAt: new Date().toISOString(),
+                          aiAgreedAt: null,
+                          // the AI's diagnosis (e.g. normal sinus rhythm) no longer fits: a clinical one, to edit
+                          diagnosis: t(
+                            'overrideDiagnosis',
+                            'Suspected acute coronary syndrome (clinical judgement; AI read: no ST elevation)',
+                          ),
+                          diagnosisEdited: true,
+                        })
+                      }
+                    >
+                      {t('referAnyway', 'Refer for primary PCI anyway')}
+                    </Button>
+                    <span className="img-small">
+                      {t('referAnywayHint', 'Your clinical judgement overrides the AI disposition; it is noted in the record.')}
+                    </span>
+                  </div>
                 </div>
               )}
 
               {pathwayOpen && chosen && (
                 <div className="img-cds img-stop">
                   <div className="img-kind">
-                    <span>{t('stemiPathway', 'Recommendation · STEMI pathway')}</span>
+                    <span>
+                      {overridden
+                        ? t('stemiPathwayOverride', 'STEMI pathway · opened by the MO')
+                        : t('stemiPathway', 'Recommendation · STEMI pathway')}
+                    </span>
                   </div>
+                  {overridden && (
+                    <div className="img-actrow" style={{ marginTop: 0, marginBottom: '0.5rem' }}>
+                      <Tag type="purple">
+                        {t('aiOverridden', 'AI advised no referral · overridden by the MO {{time}}', {
+                          time: hhmm(a.referOverrideAt),
+                        })}
+                      </Tag>
+                      {!a.referDecision && (
+                        <Button
+                          kind="ghost"
+                          size="sm"
+                          onClick={() => update({ referOverrideAt: null, diagnosisEdited: false })}
+                        >
+                          {t('undo', 'Undo')}
+                        </Button>
+                      )}
+                    </div>
+                  )}
                   <p className="img-cds-title">
                     {within(chosen)
                       ? t('referPrimaryPci', 'Refer now for primary PCI')
