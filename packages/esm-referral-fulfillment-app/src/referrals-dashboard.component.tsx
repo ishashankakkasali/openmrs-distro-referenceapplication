@@ -30,8 +30,10 @@ import {
   setCurrentVisit,
   showSnackbar,
   useConfig,
+  usePatient,
   useSession,
   useVisit,
+  useVisitContextStore,
 } from '@openmrs/esm-framework';
 import {
   acknowledgeReferralOrder,
@@ -55,6 +57,13 @@ const launchWorkspace2: (
   windowProps?: any,
   groupProps?: any,
 ) => void = framework.launchWorkspace2 ?? framework.launchWorkspace;
+
+// The visit representation the patient chart gives its workspaces (the framework's defaultVisitCustomRepresentation)
+const CHART_VISIT_REPRESENTATION =
+  'custom:(uuid,display,voided,indication,startDatetime,stopDatetime,' +
+  'encounters:(uuid,display,encounterDatetime,form:(uuid,name),location:ref,encounterType:ref,' +
+  'encounterProviders:(uuid,display,provider:(uuid,display))),patient:(uuid,display),visitType:(uuid,name,display),' +
+  'attributes:(uuid,display,attributeType:(name,datatypeClassname,uuid),value),location:(uuid,name,display))';
 
 // How long, after "Record referral response" is clicked, the page keeps looking for the saved
 // Referral Response encounter so it can close the referral order.
@@ -80,6 +89,7 @@ interface ReferralOrder {
     display: string;
     encounterType?: { uuid: string; display?: string };
     obs?: Array<{ concept?: { uuid: string }; value?: unknown }>;
+    orders?: Array<{ action?: string; concept?: { display: string }; orderType?: { uuid: string } }>;
   };
   careSetting?: { uuid?: string; display: string };
   orderType: { uuid: string; name?: string; display?: string };
@@ -92,7 +102,8 @@ interface ReferralOrder {
 const REFERRAL_ORDER_REPRESENTATION =
   'custom:(uuid,orderNumber,display,dateActivated,fulfillerStatus,fulfillerComment,instructions,' +
   'commentToFulfiller,accessionNumber,urgency,action,previousOrder:(uuid),concept:(uuid,display),orderer:(uuid,display,person:(display)),' +
-  'encounter:(uuid,display,encounterType:(uuid,display),obs:(concept:(uuid),value)),careSetting:(uuid,display),' +
+  'encounter:(uuid,display,encounterType:(uuid,display),obs:(concept:(uuid),value),' +
+  'orders:(action,concept:(display),orderType:(uuid))),careSetting:(uuid,display),' +
   'orderType:(uuid,name,display),patient:(uuid))';
 
 interface DashboardProps {
@@ -107,6 +118,9 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
   // The referral response is part of the patient's visit at this facility: it can only be
   // recorded once the patient has arrived and a visit has been started (check-in).
   const { activeVisit, isLoading: isLoadingVisit, mutate: mutateVisit } = useVisit(patientUuid);
+  // The chart's shared visit store: the chart hands its visit to forms (the visit they save into) from it
+  const { mutateVisit: refreshChartVisit } = useVisitContextStore();
+  const { patient: fhirPatient } = usePatient(patientUuid);
   // The location the user logged in at stands for the facility (referral-site.ts): a PCI referral is answered only at
   // the cardiac centre it was sent to, and a cardiac centre does not answer the UHC's referrals in.
   const session = useSession();
@@ -118,6 +132,8 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
   const [orders, setOrders] = useState<ReferralOrder[] | null>(null);
   // referral order uuid → clinical notes recorded with its Referral Response form
   const [responseNotes, setResponseNotes] = useState<Record<string, string>>({});
+  // referral order uuid → one-line summary of its Referral Response (complaint, onset, vitals, orders placed)
+  const [responseSummary, setResponseSummary] = useState<Record<string, string>>({});
   // the PCI centre's answer ("Stent procedure"), by referral order uuid
   const [stentProcedure, setStentProcedure] = useState<Record<string, string>>({});
   const [error, setError] = useState<string | null>(null);
@@ -201,11 +217,14 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
       // A referral answered with the Referral Response form is closed by a DISCONTINUE order placed in the
       // response encounter, so that encounter's obs hold the notes the clinician sent back to the source.
       const notes: Record<string, string> = {};
+      const summaries: Record<string, string> = {};
       const stent: Record<string, string> = {};
       for (const o of all) {
         if ((o.action ?? '').toUpperCase() !== 'DISCONTINUE' || !o.previousOrder?.uuid) continue;
         const value = o.encounter?.obs?.find((obs) => obs.concept?.uuid === config.responseNotesConceptUuid)?.value;
         if (typeof value === 'string' && value) notes[o.previousOrder.uuid] = value;
+        const summary = summariseResponse(o.encounter, config);
+        if (summary) summaries[o.previousOrder.uuid] = summary;
         const answer: any = o.encounter?.obs?.find(
           (obs) => obs.concept?.uuid === config.imaging.pciReferral.stentProcedureConceptUuid,
         )?.value;
@@ -213,11 +232,12 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
         if (answerText) stent[o.previousOrder.uuid] = answerText;
       }
       setResponseNotes(notes);
+      setResponseSummary(summaries);
       setStentProcedure(stent);
     } catch (e: any) {
       setError(e?.message ?? String(e));
     }
-  }, [patientUuid, config.orderTypeUuid, config.responseNotesConceptUuid, config.imaging.pciReferral.stentProcedureConceptUuid]);
+  }, [patientUuid, config]);
 
   useEffect(() => {
     void loadOrders();
@@ -321,9 +341,27 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
           sessionLocationUuid,
           config.imaging.pciReferral.visitTypeUuid,
         );
-        // The chart keeps its own "current visit" (the one forms save into): it must be the new visit here, not the
-        // one just ended at the referring facility
-        if (visitUuid) setCurrentVisit(patientUuid, visitUuid);
+        // The chart hands its visit to forms (the one they save into): point it at the visit just started here, and
+        // have the chart refetch it, so the response is not saved into the visit just ended at the referring facility
+        if (visitUuid) {
+          setCurrentVisit(patientUuid, visitUuid);
+          // The chart's workspaces (the forms) take their visit from the workspace group's props, set when the chart
+          // opened: relaunch the group with the new visit, as O3 does itself after "Start visit"
+          const visitRes = await openmrsFetch(`/ws/rest/v1/visit/${visitUuid}?v=${CHART_VISIT_REPRESENTATION}`);
+          const launchGroup = (framework as any).launchWorkspaceGroup2;
+          if (launchGroup && fhirPatient) {
+            await launchGroup('patient-chart', {
+              patient: fhirPatient,
+              patientUuid,
+              visitContext: visitRes.data,
+              mutateVisitContext: () => {
+                mutateVisit();
+                refreshChartVisit();
+              },
+            });
+          }
+        }
+        refreshChartVisit();
         showSnackbar({
           kind: 'success',
           isLowContrast: true,
@@ -332,16 +370,13 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
         });
         mutateVisit();
         await loadOrders();
-        // The chart takes its visit when it opens, and the response form saves into that visit: reload the chart so
-        // both use the visit just started here, not the one just ended at the referring facility
-        window.setTimeout(() => window.location.reload(), 1200);
       } catch (e: any) {
         showSnackbar({ kind: 'error', title: t('admitFailed', 'Could not start the visit here'), subtitle: e?.message });
       } finally {
         setBusy(null);
       }
     },
-    [patientUuid, sessionLocationUuid, sessionLocationName, activeVisit, config.imaging.pciReferral.visitTypeUuid, mutateVisit, loadOrders, t],
+    [patientUuid, sessionLocationUuid, sessionLocationName, activeVisit, config.imaging.pciReferral.visitTypeUuid, mutateVisit, refreshChartVisit, fhirPatient, loadOrders, t],
   );
 
   const handleStartVisit = useCallback(() => {
@@ -367,9 +402,6 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
         setResponding(order);
         return;
       }
-      // Forms save into the chart's current visit: make it the active visit (e.g. after the patient was admitted at the
-      // cardiac centre, the chart could still point at the visit just ended at the UHC)
-      setCurrentVisit(patientUuid, activeVisit.uuid);
       try {
         // Fetch full form object — workspaces2 launcher expects the form, not just a UUID. A PCI referral is answered
         // with the PCI response form; it saves the same Referral Response encounter type, so the close below holds.
@@ -824,11 +856,10 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
                             </StructuredListRow>
                             <StructuredListRow>
                               {referralIn ? (
-                                // a referral in arrives without its instructions (clinical text is redacted before
-                                // CCE), so show what this facility sent back with the Referral Response form instead
+                                // the reason the referring facility gave (e.g. Spice's referral reason)
                                 <>
-                                  <StructuredListCell noWrap>{t('clinicalNotes', 'Clinical notes')}</StructuredListCell>
-                                  <StructuredListCell>{fmt(responseNotes[o?.uuid])}</StructuredListCell>
+                                  <StructuredListCell noWrap>{t('reasonForReferral', 'Reason for referral')}</StructuredListCell>
+                                  <StructuredListCell>{fmt(o?.instructions)}</StructuredListCell>
                                 </>
                               ) : (
                                 <>
@@ -839,6 +870,19 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
                               <StructuredListCell noWrap>{t('urgency', 'Priority')}</StructuredListCell>
                               <StructuredListCell>{fmt(o?.urgency)}</StructuredListCell>
                             </StructuredListRow>
+                            {referralIn && (
+                              // what this facility recorded in its response, and any notes from the older form
+                              <StructuredListRow>
+                                <StructuredListCell noWrap>{t('response', 'Response')}</StructuredListCell>
+                                <StructuredListCell>
+                                  {fmt(
+                                    [responseSummary[o?.uuid], responseNotes[o?.uuid]].filter(Boolean).join(' · ') || null,
+                                  )}
+                                </StructuredListCell>
+                                <StructuredListCell />
+                                <StructuredListCell />
+                              </StructuredListRow>
+                            )}
                             {isPciReferral(o) && (
                               <StructuredListRow>
                                 <StructuredListCell noWrap>{t('stentProcedure', 'Stent procedure')}</StructuredListCell>
@@ -950,3 +994,42 @@ const ReferralsDashboard: React.FC<DashboardProps> = (props) => {
 };
 
 export default ReferralsDashboard;
+
+/**
+ * One line from a Referral Response encounter: the complaint and when it started, the vitals and the orders placed,
+ * e.g. "Chest pain · About 4 hours ago · BP 170/104, pulse 53, SpO2 96% · Ordered: Electrocardiogram (ECG)".
+ */
+function summariseResponse(
+  encounter: ReferralOrder['encounter'] | undefined,
+  config: ReferralFulfillmentConfig,
+): string {
+  if (!encounter) return '';
+  const rf = config.responseForm;
+  const obsValue = (conceptUuid: string): unknown =>
+    encounter.obs?.find((obs) => obs.concept?.uuid === conceptUuid)?.value;
+  const text = (v: unknown) => (v && typeof v === 'object' ? ((v as any).display as string) : v != null ? String(v) : '');
+  const num = (conceptUuid: string) => {
+    const v = obsValue(conceptUuid);
+    return typeof v === 'number' ? v : null;
+  };
+  const parts: string[] = [];
+  const complaint = text(obsValue(rf.chiefComplaintTextConceptUuid)) || text(obsValue(rf.chiefComplaintConceptUuid));
+  if (complaint) parts.push(complaint);
+  const onset = text(obsValue(rf.symptomOnsetConceptUuid));
+  if (onset) parts.push(onset);
+  const v = rf.vitalsConceptUuids;
+  const vitals = [
+    num(v.systolic) !== null && num(v.diastolic) !== null ? `BP ${num(v.systolic)}/${num(v.diastolic)}` : '',
+    num(v.pulse) !== null ? `pulse ${num(v.pulse)}` : '',
+    num(v.spo2) !== null ? `SpO2 ${num(v.spo2)}%` : '',
+    num(v.respiratoryRate) !== null ? `breaths ${num(v.respiratoryRate)}` : '',
+    num(v.temperature) !== null ? `temp ${num(v.temperature)}°C` : '',
+  ].filter(Boolean);
+  if (vitals.length) parts.push(vitals.join(', '));
+  const ordered = (encounter.orders ?? [])
+    .filter((o) => (o.action ?? 'NEW').toUpperCase() === 'NEW' && o.orderType?.uuid !== config.orderTypeUuid)
+    .map((o) => o.concept?.display)
+    .filter(Boolean);
+  if (ordered.length) parts.push(`Ordered: ${ordered.join(', ')}`);
+  return parts.join(' · ');
+}

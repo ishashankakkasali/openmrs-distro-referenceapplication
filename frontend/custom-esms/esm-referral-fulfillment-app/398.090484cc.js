@@ -3274,13 +3274,15 @@ const ReferralResponseModal = ({ open, referral, patientUuid, visit, onClose, on
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const framework = __webpack_require__(251);
 const launchWorkspace2 = framework.launchWorkspace2 ?? framework.launchWorkspace;
+// The visit representation the patient chart gives its workspaces (the framework's defaultVisitCustomRepresentation)
+const CHART_VISIT_REPRESENTATION = 'custom:(uuid,display,voided,indication,startDatetime,stopDatetime,' + 'encounters:(uuid,display,encounterDatetime,form:(uuid,name),location:ref,encounterType:ref,' + 'encounterProviders:(uuid,display,provider:(uuid,display))),patient:(uuid,display),visitType:(uuid,name,display),' + 'attributes:(uuid,display,attributeType:(name,datatypeClassname,uuid),value),location:(uuid,name,display))';
 // How long, after "Record referral response" is clicked, the page keeps looking for the saved
 // Referral Response encounter so it can close the referral order.
 const RESPONSE_POLL_WINDOW_MS = 30 * 60000;
 // Everything the dashboard reads from an order, including the encounter type that
 // tells a referral in (filed under Referral In by the receiver) from a referral out,
 // and the encounter's obs, which hold the destination of a referral out.
-const REFERRAL_ORDER_REPRESENTATION = 'custom:(uuid,orderNumber,display,dateActivated,fulfillerStatus,fulfillerComment,instructions,' + 'commentToFulfiller,accessionNumber,urgency,action,previousOrder:(uuid),concept:(uuid,display),orderer:(uuid,display,person:(display)),' + 'encounter:(uuid,display,encounterType:(uuid,display),obs:(concept:(uuid),value)),careSetting:(uuid,display),' + 'orderType:(uuid,name,display),patient:(uuid))';
+const REFERRAL_ORDER_REPRESENTATION = 'custom:(uuid,orderNumber,display,dateActivated,fulfillerStatus,fulfillerComment,instructions,' + 'commentToFulfiller,accessionNumber,urgency,action,previousOrder:(uuid),concept:(uuid,display),orderer:(uuid,display,person:(display)),' + 'encounter:(uuid,display,encounterType:(uuid,display),obs:(concept:(uuid),value),' + 'orders:(action,concept:(display),orderType:(uuid))),careSetting:(uuid,display),' + 'orderType:(uuid,name,display),patient:(uuid))';
 const ReferralsDashboard = (props)=>{
     const { t } = (0,consume_shared_module_default_react_i18next_singleton_.useTranslation)();
     const config = (0,esm_framework_singleton_.useConfig)();
@@ -3288,6 +3290,9 @@ const ReferralsDashboard = (props)=>{
     // The referral response is part of the patient's visit at this facility: it can only be
     // recorded once the patient has arrived and a visit has been started (check-in).
     const { activeVisit, isLoading: isLoadingVisit, mutate: mutateVisit } = (0,esm_framework_singleton_.useVisit)(patientUuid);
+    // The chart's shared visit store: the chart hands its visit to forms (the visit they save into) from it
+    const { mutateVisit: refreshChartVisit } = (0,esm_framework_singleton_.useVisitContextStore)();
+    const { patient: fhirPatient } = (0,esm_framework_singleton_.usePatient)(patientUuid);
     // The location the user logged in at stands for the facility (referral-site.ts): a PCI referral is answered only at
     // the cardiac centre it was sent to, and a cardiac centre does not answer the UHC's referrals in.
     const session = (0,esm_framework_singleton_.useSession)();
@@ -3298,6 +3303,8 @@ const ReferralsDashboard = (props)=>{
     const [orders, setOrders] = (0,consume_shared_module_default_react_singleton_.useState)(null);
     // referral order uuid → clinical notes recorded with its Referral Response form
     const [responseNotes, setResponseNotes] = (0,consume_shared_module_default_react_singleton_.useState)({});
+    // referral order uuid → one-line summary of its Referral Response (complaint, onset, vitals, orders placed)
+    const [responseSummary, setResponseSummary] = (0,consume_shared_module_default_react_singleton_.useState)({});
     // the PCI centre's answer ("Stent procedure"), by referral order uuid
     const [stentProcedure, setStentProcedure] = (0,consume_shared_module_default_react_singleton_.useState)({});
     const [error, setError] = (0,consume_shared_module_default_react_singleton_.useState)(null);
@@ -3367,25 +3374,27 @@ const ReferralsDashboard = (props)=>{
             // A referral answered with the Referral Response form is closed by a DISCONTINUE order placed in the
             // response encounter, so that encounter's obs hold the notes the clinician sent back to the source.
             const notes = {};
+            const summaries = {};
             const stent = {};
             for (const o of all){
                 if ((o.action ?? '').toUpperCase() !== 'DISCONTINUE' || !o.previousOrder?.uuid) continue;
                 const value = o.encounter?.obs?.find((obs)=>obs.concept?.uuid === config.responseNotesConceptUuid)?.value;
                 if (typeof value === 'string' && value) notes[o.previousOrder.uuid] = value;
+                const summary = summariseResponse(o.encounter, config);
+                if (summary) summaries[o.previousOrder.uuid] = summary;
                 const answer = o.encounter?.obs?.find((obs)=>obs.concept?.uuid === config.imaging.pciReferral.stentProcedureConceptUuid)?.value;
                 const answerText = typeof answer === 'object' ? answer?.display : answer;
                 if (answerText) stent[o.previousOrder.uuid] = answerText;
             }
             setResponseNotes(notes);
+            setResponseSummary(summaries);
             setStentProcedure(stent);
         } catch (e) {
             setError(e?.message ?? String(e));
         }
     }, [
         patientUuid,
-        config.orderTypeUuid,
-        config.responseNotesConceptUuid,
-        config.imaging.pciReferral.stentProcedureConceptUuid
+        config
     ]);
     (0,consume_shared_module_default_react_singleton_.useEffect)(()=>{
         void loadOrders();
@@ -3500,9 +3509,27 @@ const ReferralsDashboard = (props)=>{
                 });
             }
             const visitUuid = await moveVisitHere(patientUuid, activeVisit, sessionLocationUuid, config.imaging.pciReferral.visitTypeUuid);
-            // The chart keeps its own "current visit" (the one forms save into): it must be the new visit here, not the
-            // one just ended at the referring facility
-            if (visitUuid) (0,esm_framework_singleton_.setCurrentVisit)(patientUuid, visitUuid);
+            // The chart hands its visit to forms (the one they save into): point it at the visit just started here, and
+            // have the chart refetch it, so the response is not saved into the visit just ended at the referring facility
+            if (visitUuid) {
+                (0,esm_framework_singleton_.setCurrentVisit)(patientUuid, visitUuid);
+                // The chart's workspaces (the forms) take their visit from the workspace group's props, set when the chart
+                // opened: relaunch the group with the new visit, as O3 does itself after "Start visit"
+                const visitRes = await (0,esm_framework_singleton_.openmrsFetch)(`/ws/rest/v1/visit/${visitUuid}?v=${CHART_VISIT_REPRESENTATION}`);
+                const launchGroup = framework.launchWorkspaceGroup2;
+                if (launchGroup && fhirPatient) {
+                    await launchGroup('patient-chart', {
+                        patient: fhirPatient,
+                        patientUuid,
+                        visitContext: visitRes.data,
+                        mutateVisitContext: ()=>{
+                            mutateVisit();
+                            refreshChartVisit();
+                        }
+                    });
+                }
+            }
+            refreshChartVisit();
             (0,esm_framework_singleton_.showSnackbar)({
                 kind: 'success',
                 isLowContrast: true,
@@ -3513,9 +3540,6 @@ const ReferralsDashboard = (props)=>{
             });
             mutateVisit();
             await loadOrders();
-            // The chart takes its visit when it opens, and the response form saves into that visit: reload the chart so
-            // both use the visit just started here, not the one just ended at the referring facility
-            window.setTimeout(()=>window.location.reload(), 1200);
         } catch (e) {
             (0,esm_framework_singleton_.showSnackbar)({
                 kind: 'error',
@@ -3532,6 +3556,8 @@ const ReferralsDashboard = (props)=>{
         activeVisit,
         config.imaging.pciReferral.visitTypeUuid,
         mutateVisit,
+        refreshChartVisit,
+        fhirPatient,
         loadOrders,
         t
     ]);
@@ -3555,9 +3581,6 @@ const ReferralsDashboard = (props)=>{
             setResponding(order);
             return;
         }
-        // Forms save into the chart's current visit: make it the active visit (e.g. after the patient was admitted at the
-        // cardiac centre, the chart could still point at the visit just ended at the UHC)
-        (0,esm_framework_singleton_.setCurrentVisit)(patientUuid, activeVisit.uuid);
         try {
             // Fetch full form object — workspaces2 launcher expects the form, not just a UUID. A PCI referral is answered
             // with the PCI response form; it saves the same Referral Response encounter type, so the close below holds.
@@ -4067,16 +4090,15 @@ const ReferralsDashboard = (props)=>{
                                                                 }),
                                                                 /*#__PURE__*/ (0,jsx_runtime.jsxs)(es/* StructuredListRow */.Cvq, {
                                                                     children: [
-                                                                        referralIn ? // a referral in arrives without its instructions (clinical text is redacted before
-                                                                        // CCE), so show what this facility sent back with the Referral Response form instead
+                                                                        referralIn ? // the reason the referring facility gave (e.g. Spice's referral reason)
                                                                         /*#__PURE__*/ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
                                                                             children: [
                                                                                 /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
                                                                                     noWrap: true,
-                                                                                    children: t('clinicalNotes', 'Clinical notes')
+                                                                                    children: t('reasonForReferral', 'Reason for referral')
                                                                                 }),
                                                                                 /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
-                                                                                    children: fmt(responseNotes[o?.uuid])
+                                                                                    children: fmt(o?.instructions)
                                                                                 })
                                                                             ]
                                                                         }) : /*#__PURE__*/ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
@@ -4097,6 +4119,23 @@ const ReferralsDashboard = (props)=>{
                                                                         /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
                                                                             children: fmt(o?.urgency)
                                                                         })
+                                                                    ]
+                                                                }),
+                                                                referralIn && // what this facility recorded in its response, and any notes from the older form
+                                                                /*#__PURE__*/ (0,jsx_runtime.jsxs)(es/* StructuredListRow */.Cvq, {
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
+                                                                            noWrap: true,
+                                                                            children: t('response', 'Response')
+                                                                        }),
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {
+                                                                            children: fmt([
+                                                                                responseSummary[o?.uuid],
+                                                                                responseNotes[o?.uuid]
+                                                                            ].filter(Boolean).join(' · ') || null)
+                                                                        }),
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {}),
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)(es/* StructuredListCell */.Um2, {})
                                                                     ]
                                                                 }),
                                                                 isPciReferral(o) && /*#__PURE__*/ (0,jsx_runtime.jsxs)(es/* StructuredListRow */.Cvq, {
@@ -4259,6 +4298,36 @@ const ReferralsDashboard = (props)=>{
     });
 };
 /* harmony default export */ const referrals_dashboard_component = (ReferralsDashboard);
+/**
+ * One line from a Referral Response encounter: the complaint and when it started, the vitals and the orders placed,
+ * e.g. "Chest pain · About 4 hours ago · BP 170/104, pulse 53, SpO2 96% · Ordered: Electrocardiogram (ECG)".
+ */ function summariseResponse(encounter, config) {
+    if (!encounter) return '';
+    const rf = config.responseForm;
+    const obsValue = (conceptUuid)=>encounter.obs?.find((obs)=>obs.concept?.uuid === conceptUuid)?.value;
+    const text = (v)=>v && typeof v === 'object' ? v.display : v != null ? String(v) : '';
+    const num = (conceptUuid)=>{
+        const v = obsValue(conceptUuid);
+        return typeof v === 'number' ? v : null;
+    };
+    const parts = [];
+    const complaint = text(obsValue(rf.chiefComplaintTextConceptUuid)) || text(obsValue(rf.chiefComplaintConceptUuid));
+    if (complaint) parts.push(complaint);
+    const onset = text(obsValue(rf.symptomOnsetConceptUuid));
+    if (onset) parts.push(onset);
+    const v = rf.vitalsConceptUuids;
+    const vitals = [
+        num(v.systolic) !== null && num(v.diastolic) !== null ? `BP ${num(v.systolic)}/${num(v.diastolic)}` : '',
+        num(v.pulse) !== null ? `pulse ${num(v.pulse)}` : '',
+        num(v.spo2) !== null ? `SpO2 ${num(v.spo2)}%` : '',
+        num(v.respiratoryRate) !== null ? `breaths ${num(v.respiratoryRate)}` : '',
+        num(v.temperature) !== null ? `temp ${num(v.temperature)}°C` : ''
+    ].filter(Boolean);
+    if (vitals.length) parts.push(vitals.join(', '));
+    const ordered = (encounter.orders ?? []).filter((o)=>(o.action ?? 'NEW').toUpperCase() === 'NEW' && o.orderType?.uuid !== config.orderTypeUuid).map((o)=>o.concept?.display).filter(Boolean);
+    if (ordered.length) parts.push(`Ordered: ${ordered.join(', ')}`);
+    return parts.join(' · ');
+}
 
 ;// ./src/imaging/imaging-dashboard-link.component.tsx
 
